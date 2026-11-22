@@ -1,0 +1,866 @@
+{
+  "model": "MiniMax H3",
+  "batch": "Dust Creek opening review cut",
+  "resolution": [
+    1280,
+    720
+  ],
+  "fps": 24,
+  "clips": {
+    "A1_enter_wagon": {
+      "file": "A1_enter_wagon.mp4",
+      "frames": 26,
+      "audio": "aac",
+      "prompt_id": "62210fdc-8df8-4848-92d5-483be5ed20a8",
+      "seed": 3122,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A1_enter_wagon_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Camera bolted down. Beside the canvas wagon at screen left the red-scarfed actor quickly leans out from behind its rear edge into his marked pose during the first second. He remains on that mark. Nothing else moves except the cloth and dust. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A1_P_c7f73ad99d2d.png",
+        "17": "A1_H1_c549ae4d7c35.png",
+        "20": "A1_H1_c549ae4d7c35.png"
+      },
+      "sha256": "71e11542974fa0c18185217250c9f46c9cd5a3573ac7926fcff9496c445629f9",
+      "video_bitrate_bps": 3945585,
+      "image_guides": [
+        {
+          "frame": 25,
+          "image": "A1_H1_c549ae4d7c35.png"
+        }
+      ]
+    },
+    "A0_travel_main": {
+      "file": "A0_travel_main.mp4",
+      "frames": 72,
+      "audio": "aac",
+      "prompt_id": "f2d608e7-99dc-468f-acb2-6e52c410bbef",
+      "seed": 8183,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A0_travel_take2_00001_.mp4",
+      "source_frames": 90,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. This is one continuous lateral tracking shot from under the sheriff porch into the adjoining wagon area. The camera swings LEFT while stepping right past the solid foreground porch post. The near rough post sweeps quickly across the lens by parallax. The parked wagon is revealed progressively FROM THE LEFT EDGE by the camera motion; it is already parked, fully solid and completely stationary. Turn the camera smoothly to end just beside the wagon at street level. Real lens motion blur, straight solid buildings, coherent perspective. Keep all pedestrians out of the image. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A0_P_ae2849aad38d.png",
+        "17": "A1_P_c7f73ad99d2d.png"
+      },
+      "source_ranges_half_open": [
+        [
+          0,
+          72
+        ]
+      ],
+      "sha256": "e3037a166cc452605c2c5f47f5a3b280f952107d9a236070305121194e1c5524",
+      "video_bitrate_bps": 2917021,
+      "image_guides": []
+    },
+    "A1_threat_wagon": {
+      "file": "A1_threat_wagon.mp4",
+      "frames": 107,
+      "audio": "aac",
+      "prompt_id": "66c7a3b1-5b95-42e7-b7d6-bfc6752fd35c",
+      "seed": 3126,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A1_threat_wagon_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The actor behind the wagon keeps his position. His scarf barely stirs as he waits on his mark. After three seconds one brief western-movie blank flash, then his hand settles back to the initial pose. All other parts of the scene remain quiet. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A1_H1_c549ae4d7c35.png",
+        "17": "A1_H1_c549ae4d7c35.png",
+        "20": "A1_H1_c549ae4d7c35.png"
+      },
+      "source_ranges_half_open": [
+        [
+          0,
+          6
+        ],
+        [
+          69,
+          86
+        ],
+        [
+          69,
+          86
+        ],
+        [
+          69,
+          86
+        ],
+        [
+          74,
+          89
+        ],
+        [
+          89,
+          124
+        ]
+      ],
+      "sha256": "1d90d6ce87cae68c393c565dafb131eae7d1eae3fba411ca41b37cbcadc7b601",
+      "video_bitrate_bps": 3813965,
+      "image_guides": [
+        {
+          "frame": 67,
+          "image": "A1_H1_c549ae4d7c35.png"
+        }
+      ],
+      "preview_cut_before": 72
+    },
+    "A1_change_barrels": {
+      "file": "A1_change_barrels.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "ec3b93f8-033a-4138-bb28-62ae0ca9dd58",
+      "seed": 3127,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A1_change_barrels_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The actor at screen left ducks naturally behind the wagon. At screen right a different actor in a woven poncho rises slightly into view behind the barrels where he remains. Complete this change in the first two seconds. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A1_H1_c549ae4d7c35.png",
+        "17": "A1_H2_a835a23025e8.png",
+        "20": "A1_H2_a835a23025e8.png"
+      },
+      "sha256": "4dca40b342894a3dd8bb34b895d49f22e3b38bb63137ff17572edc09644b127e",
+      "video_bitrate_bps": 2458988,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A1_H2_a835a23025e8.png"
+        }
+      ]
+    },
+    "A1_threat_barrels": {
+      "file": "A1_threat_barrels.mp4",
+      "frames": 124,
+      "audio": "aac",
+      "prompt_id": "a0d4938e-4b39-4672-b03d-fef320fe69fa",
+      "seed": 3128,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A1_threat_barrels_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The small poncho-clad actor stays hidden to the chest by the barrels. He breathes and blinks. Near the third second a single brief stage-prop flash and a subtle reaction, then the original pose. No other actor. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A1_H2_a835a23025e8.png",
+        "17": "A1_H2_a835a23025e8.png",
+        "20": "A1_H2_a835a23025e8.png"
+      },
+      "sha256": "1b6529e6d98ac68b81883356d4c2fe377f3b22150773fcb42b9812772f0aeaeb",
+      "video_bitrate_bps": 3774735,
+      "image_guides": [
+        {
+          "frame": 60,
+          "image": "A1_H2_a835a23025e8.png"
+        }
+      ]
+    },
+    "A1_exit_barrels": {
+      "file": "A1_exit_barrels.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "5179c035-6fde-4e23-8e22-9ce31b3a21e1",
+      "seed": 3129,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A1_exit_barrels_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The poncho-clad actor stumbles down behind the barrels in the first two seconds, completely disappearing. The empty street holds. The stack of barrels is absolutely stationary. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A1_H2_a835a23025e8.png",
+        "17": "A1_P_c7f73ad99d2d.png",
+        "20": "A1_P_c7f73ad99d2d.png"
+      },
+      "sha256": "0e6e1514ef9c07d98ba4d9c813a617254b84d3bd79701a2be25d014de8c94180",
+      "video_bitrate_bps": 2585120,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A1_P_c7f73ad99d2d.png"
+        }
+      ]
+    },
+    "D01_badge": {
+      "file": "D01_badge.mp4",
+      "frames": 53,
+      "audio": "aac",
+      "prompt_id": "4254aaa9-cc63-4e84-9f73-5c4451154303",
+      "seed": 3146,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/D01_badge_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Static extreme close-up, very shallow depth of field. The fallen deputy star rocks almost imperceptibly on rough black cloth and settles; a tiny glint crosses its engraved edge. The light fades very slightly then settles to its original appearance. End quietly. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "D01_9d477cec0001.png",
+        "17": "D01_9d477cec0001.png",
+        "20": "D01_9d477cec0001.png"
+      },
+      "source_ranges_half_open": [
+        [
+          71,
+          124
+        ]
+      ],
+      "sha256": "6adce303bd867b6dff55916c1cc5a05e52ab345f71d6ed907ed6b193429a10b6",
+      "video_bitrate_bps": 3597978,
+      "image_guides": [
+        {
+          "frame": 71,
+          "image": "D01_9d477cec0001.png"
+        }
+      ]
+    },
+    "A0_mayor_arrives": {
+      "file": "A0_mayor_arrives.mp4",
+      "frames": 60,
+      "audio": "aac",
+      "prompt_id": "a286b885-7a29-43dc-a586-de95f5552ea5",
+      "seed": 3411,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A0_mayor_arrives_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. A locked tripod looks out from the sheriff office porch. The elderly mayor in a grey three-piece suit walks into view from offscreen in natural daylight, coming to rest on the dirt at the exact full-length position shown. He catches his breath. Finish the arrival by two and a half seconds, then hold. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A0_P_ae2849aad38d.png",
+        "17": "A0_M_20e17e8b410b.png",
+        "20": "A0_M_20e17e8b410b.png"
+      },
+      "sha256": "b4dd4745e0d7443c7c94e3cd3d0239e0e2a92f14f333c0c223fca9e49afde6fb",
+      "video_bitrate_bps": 2411148,
+      "image_guides": [
+        {
+          "frame": 59,
+          "image": "A0_M_20e17e8b410b.png"
+        }
+      ]
+    },
+    "A0_mayor_appeal": {
+      "file": "A0_mayor_appeal.mp4",
+      "frames": 158,
+      "audio": "aac",
+      "prompt_id": "81ba29ee-085b-4ba1-be6a-34050fcc6d19",
+      "seed": 3412,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A0_mayor_appeal_00001_.mp4",
+      "source_frames": 158,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. A bolted-down wide shot. The elderly mayor stays on his mark. He addresses the deputy urgently in Mandarin, with lips, jaw and breathing timed to the supplied recording: 副警长，黑帽帮在抢银行！快去主街，镇上的人就靠你了。 He makes one restrained gesture toward the street and lowers his hand when he finishes. No extra words, no other people or voices. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A0_M_20e17e8b410b.png",
+        "17": "A0_M_20e17e8b410b.png"
+      },
+      "sha256": "113231eb0c0bb8547d492a71fa222723b15fdb7d190f91ac28a878a7d324e956",
+      "video_bitrate_bps": 3699724,
+      "image_guides": []
+    },
+    "A0_mayor_leaves": {
+      "file": "A0_mayor_leaves.mp4",
+      "frames": 70,
+      "audio": "aac",
+      "prompt_id": "f3ccffc0-16aa-480a-a2d0-cd307ddbd805",
+      "seed": 3413,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A0_mayor_leaves_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Camera and lens locked. After the appeal the elderly mayor steps aside and hurries toward the near edge, exiting offscreen and leaving the street and porch exactly as in the end image. His feet move naturally on the dirt, no dissolves. Finish by three seconds, hold empty. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A0_M_20e17e8b410b.png",
+        "17": "A0_P_ae2849aad38d.png",
+        "20": "A0_P_ae2849aad38d.png"
+      },
+      "source_ranges_half_open": [
+        [
+          28,
+          98
+        ]
+      ],
+      "audio_source": "A1_change_barrels (low-level H3 location sound)",
+      "sha256": "73cd8e17223d835db39977f383caf93479f27f1d9f6f182255f7b1efbb659cd0",
+      "video_bitrate_bps": 3911152,
+      "image_guides": [
+        {
+          "frame": 69,
+          "image": "A0_P_ae2849aad38d.png"
+        }
+      ]
+    },
+    "A1_travel_hotel": {
+      "file": "A1_travel_hotel.mp4",
+      "frames": 72,
+      "audio": "aac",
+      "prompt_id": "3ce3e5f6-8778-456a-8da8-f2b0ce5f1ac9",
+      "seed": 3130,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A1_travel_hotel_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Move smoothly forward down the empty dusty street past the wagon, settling between the blacksmith building and the hotel after three seconds. Stable horizon and coherent parallax. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A1_P_c7f73ad99d2d.png",
+        "17": "A2_P_cf001154be3b.png",
+        "20": "A2_P_cf001154be3b.png"
+      },
+      "sha256": "184575003d1433284f218b72f06a6e0179c6001cd88d366bb29205a620dad961",
+      "video_bitrate_bps": 3969850,
+      "image_guides": [
+        {
+          "frame": 71,
+          "image": "A2_P_cf001154be3b.png"
+        }
+      ]
+    },
+    "A2_enter_window": {
+      "file": "A2_enter_window.mp4",
+      "frames": 27,
+      "audio": "aac",
+      "prompt_id": "e39ab039-2668-4617-affc-3e74a99765dc",
+      "seed": 3131,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A2_enter_window_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. A small long-coated actor steps into the open upstairs hotel window on the right and leans out, then holds position. The movement is complete in the first second. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A2_P_cf001154be3b.png",
+        "17": "A2_H1_f99298404b0f.png",
+        "20": "A2_H1_f99298404b0f.png"
+      },
+      "sha256": "3039bd7bc2dd296add66c061b98cb07cd80d68e26c5512149e5ce4b88261101e",
+      "video_bitrate_bps": 2689472,
+      "image_guides": [
+        {
+          "frame": 26,
+          "image": "A2_H1_f99298404b0f.png"
+        }
+      ]
+    },
+    "A2_threat_window": {
+      "file": "A2_threat_window.mp4",
+      "frames": 124,
+      "audio": "aac",
+      "prompt_id": "ba9c3a57-f121-4ea1-9511-57f8af7558fb",
+      "seed": 5412,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A2_window_take2_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. A single observational wide shot from a stationary street-level tripod. At the right-hand upstairs hotel window, the faraway actor barely stirs. After a quiet few seconds the theatrical prop recoils very slightly and a narrow wisp of pale smoke hangs briefly at the window, as in a real Western film. The window remains dark inside and the actor stays visible the whole time. The composition holds exactly. No inserts, no flash photography, no cutaways, no optical effects. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A2_H1_f99298404b0f.png",
+        "17": "A2_H1_f99298404b0f.png",
+        "20": "A2_H1_f99298404b0f.png",
+        "22": "A2_H1_f99298404b0f.png",
+        "24": "A2_H1_f99298404b0f.png"
+      },
+      "source_ranges_half_open": [
+        [
+          0,
+          124
+        ]
+      ],
+      "sha256": "6bb11254f2bf1d5413dfefe2ffe03393d04e8fe818ee2e74c1c1f45b6b6355df",
+      "video_bitrate_bps": 3805354,
+      "image_guides": [
+        {
+          "frame": 33,
+          "image": "A2_H1_f99298404b0f.png"
+        },
+        {
+          "frame": 62,
+          "image": "A2_H1_f99298404b0f.png"
+        },
+        {
+          "frame": 103,
+          "image": "A2_H1_f99298404b0f.png"
+        }
+      ],
+      "preview_cut_before": 62
+    },
+    "A2_change_roof": {
+      "file": "A2_change_roof.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "ab5bed28-d2ae-48a3-91da-69ef7c5e2bd5",
+      "seed": 3133,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A2_change_roof_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The man in the hotel window withdraws into the dark room. Across the street a small actor in a bowler rises behind the blacksmith's rooftop sign. Both movements finish in the first two seconds. The shop fronts stay rigid. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A2_H1_f99298404b0f.png",
+        "17": "A2_H2_625d9c53d7ce.png",
+        "20": "A2_H2_625d9c53d7ce.png"
+      },
+      "sha256": "8c046f1de3fab5f7310ccf4aed8b4bf2ad41d9b9eeb47717f9cf453e43d310b2",
+      "video_bitrate_bps": 2464672,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A2_H2_625d9c53d7ce.png"
+        }
+      ]
+    },
+    "A2_threat_roof": {
+      "file": "A2_threat_roof.mp4",
+      "frames": 124,
+      "audio": "aac",
+      "prompt_id": "804ac171-9b94-4a11-86b9-0629b430140c",
+      "seed": 5413,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A2_roof_take2_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. A single observational wide shot from a stationary street-level tripod. Far away above the blacksmith sign, the actor remains a small figure. After a quiet few seconds his hand jolts a little and a small puff of natural grey stage smoke rises beside the actor, then drifts away into the blue sky. The sky stays clear and unmarked. The composition holds exactly. No inserts, no flash photography, no cutaways, no optical effects. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A2_H2_625d9c53d7ce.png",
+        "17": "A2_H2_625d9c53d7ce.png",
+        "20": "A2_H2_625d9c53d7ce.png",
+        "22": "A2_H2_625d9c53d7ce.png",
+        "24": "A2_H2_625d9c53d7ce.png"
+      },
+      "source_ranges_half_open": [
+        [
+          0,
+          124
+        ]
+      ],
+      "sha256": "55719e3cb05f3bd831558ae77f1a1c65bdc765ca89e5e183b53c08fc0fbfc5d5",
+      "video_bitrate_bps": 3776009,
+      "image_guides": [
+        {
+          "frame": 33,
+          "image": "A2_H2_625d9c53d7ce.png"
+        },
+        {
+          "frame": 62,
+          "image": "A2_H2_625d9c53d7ce.png"
+        },
+        {
+          "frame": 103,
+          "image": "A2_H2_625d9c53d7ce.png"
+        }
+      ],
+      "preview_cut_before": 62
+    },
+    "A2_exit_roof": {
+      "file": "A2_exit_roof.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "d493637a-22c5-427c-b833-9f59176f8e0b",
+      "seed": 3135,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A2_exit_roof_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The bowler-hatted actor recoils and drops entirely out of sight behind the solid roof parapet. Finish in the first two seconds and hold on the empty roof and street. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A2_H2_625d9c53d7ce.png",
+        "17": "A2_P_cf001154be3b.png",
+        "20": "A2_P_cf001154be3b.png"
+      },
+      "sha256": "2128bef8cb83251246634b2e302b19ff36e1cc5c0f8065cd2920391e0ef98f8c",
+      "video_bitrate_bps": 2487828,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A2_P_cf001154be3b.png"
+        }
+      ]
+    },
+    "A2_travel_store": {
+      "file": "A2_travel_store.mp4",
+      "frames": 72,
+      "audio": "aac",
+      "prompt_id": "84d1feca-20b8-455e-a831-a7d2a1b76718",
+      "seed": 3136,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A2_travel_store_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. The camera walks smoothly and turns toward the general store, passing along the street and coming to rest facing its open doorway after three seconds. Empty street and natural parallax. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A2_P_cf001154be3b.png",
+        "17": "A3_P_bb34ae61ada0.png",
+        "20": "A3_P_bb34ae61ada0.png"
+      },
+      "sha256": "65384b766d9cc918f2d07def1afe83d6d1077b59b031b2c7f76663d55eb715b1",
+      "video_bitrate_bps": 2897144,
+      "image_guides": [
+        {
+          "frame": 71,
+          "image": "A3_P_bb34ae61ada0.png"
+        }
+      ]
+    },
+    "A3_cross_clerk": {
+      "file": "A3_cross_clerk.mp4",
+      "frames": 72,
+      "audio": "aac",
+      "prompt_id": "3dc2ebc5-2ca7-4415-aae4-be4ba5376cd2",
+      "seed": 3137,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A3_cross_clerk_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. In the first three seconds an alarmed shop clerk bounds from the store into the street, runs across to screen right with both hands raised, and goes completely offscreen. He passes the exact middle reference pose halfway through this action. The street then stays empty. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A3_P_bb34ae61ada0.png",
+        "17": "A3_P_bb34ae61ada0.png",
+        "20": "A3_C_ab6bb479ac0d.png",
+        "22": "A3_P_bb34ae61ada0.png"
+      },
+      "sha256": "045e1432a74bc2a102efe18891903bd8fdcc1f2cd4f7c203f39ba9b71529c83b",
+      "video_bitrate_bps": 3932504,
+      "image_guides": [
+        {
+          "frame": 36,
+          "image": "A3_C_ab6bb479ac0d.png"
+        },
+        {
+          "frame": 71,
+          "image": "A3_P_bb34ae61ada0.png"
+        }
+      ]
+    },
+    "A3_enter_store": {
+      "file": "A3_enter_store.mp4",
+      "frames": 27,
+      "audio": "aac",
+      "prompt_id": "58c25b48-e2b1-416c-a16a-99ff553d737d",
+      "seed": 3138,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A3_enter_store_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. A red-scarfed man steps from the store shadow onto the threshold in the first second and looks up. His left hand carries the cloth money bag, right hand and prop remain down by his thigh. Feet stop on the threshold. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A3_P_bb34ae61ada0.png",
+        "17": "A3_H1_a030be07d209.png",
+        "20": "A3_H1_a030be07d209.png"
+      },
+      "sha256": "d9d6bb98c51b66f2c8aefb567ea1de72a6f28f996cc942c74c7d96b4bc959c31",
+      "video_bitrate_bps": 3966136,
+      "image_guides": [
+        {
+          "frame": 26,
+          "image": "A3_H1_a030be07d209.png"
+        }
+      ]
+    },
+    "A3_threat_store": {
+      "file": "A3_threat_store.mp4",
+      "frames": 124,
+      "audio": "aac",
+      "prompt_id": "7eb18ff5-b322-4612-949b-f869873c3818",
+      "seed": 3139,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A3_threat_store_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The bandit holds his money bag and waits in the doorway, watching down the street. After three seconds he reacts with a single brief stage-prop flash, then settles back to the exact lowered-hand pose. Keep him full length on his mark. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A3_H1_a030be07d209.png",
+        "17": "A3_H1_a030be07d209.png",
+        "20": "A3_H1_a030be07d209.png"
+      },
+      "sha256": "08e173d8b8f1a0a9d764d26b18fd36da5b5706a60ae893a570635e8285604f03",
+      "video_bitrate_bps": 3760603,
+      "image_guides": [
+        {
+          "frame": 61,
+          "image": "A3_H1_a030be07d209.png"
+        }
+      ]
+    },
+    "A3_exit_store": {
+      "file": "A3_exit_store.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "3bf9cc3f-8b20-46cc-89fa-d57b9ffa22be",
+      "seed": 3140,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A3_exit_store_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The red-scarfed actor with his money bag takes a startled step backwards and stumbles out of sight through the dark doorway. Finish the action in two seconds. Hold the empty shopfront. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A3_H1_a030be07d209.png",
+        "17": "A3_P_bb34ae61ada0.png",
+        "20": "A3_P_bb34ae61ada0.png"
+      },
+      "sha256": "da20652eb548681b4ce29e632528af5414b747024b86c71562d0822c03fbefe2",
+      "video_bitrate_bps": 2329336,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A3_P_bb34ae61ada0.png"
+        }
+      ]
+    },
+    "A3_travel_saloon": {
+      "file": "A3_travel_saloon.mp4",
+      "frames": 72,
+      "audio": "aac",
+      "prompt_id": "c5e8a34b-670e-4a2d-bbcf-06601fec98cd",
+      "seed": 3141,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A3_travel_saloon_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Move the camera smoothly along the wooden storefronts and turn toward the red saloon. Settle facing the swinging doors after three seconds with all architecture steady. No people outside. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A3_P_bb34ae61ada0.png",
+        "17": "A4_P_17822c2ee4c5.png",
+        "20": "A4_P_17822c2ee4c5.png"
+      },
+      "audio_source": "A1_change_barrels (low-level H3 location sound)",
+      "sha256": "98601f0c8ee3c14c63f3d4339343f076d23c2b0817d5f3905f5b0858e4159440",
+      "video_bitrate_bps": 3963776,
+      "image_guides": [
+        {
+          "frame": 71,
+          "image": "A4_P_17822c2ee4c5.png"
+        }
+      ]
+    },
+    "A4_enter_porch": {
+      "file": "A4_enter_porch.mp4",
+      "frames": 81,
+      "audio": "aac",
+      "prompt_id": "2021e8c8-bd34-46cc-ba83-39facedda8c6",
+      "seed": 7208,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A4_enter_take2_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Observational silent Western movie, unmoving tripod. Two fully opaque actors WALK IN FROM BEYOND THE LEFT EDGE OF FRAME, on the saloon porch behind the fixed wood railing. They appear first at the very left border and take four quick, clear SIDEWAYS STEPS together toward screen right. Their boots stay on the porch floor. The waitress and the long-coated man stop on the marks in the reference still and remain there. They are ordinary people. The wall is solid wood behind them. Real continuous physical motion. No edits or transitions. All movement happens early. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A4_P_17822c2ee4c5.png",
+        "17": "A4_H1_5215d7658b32.png"
+      },
+      "source_ranges_half_open": [
+        [
+          0,
+          81
+        ]
+      ],
+      "sha256": "e249fcd7b0a6502e61381af092a5f9dbd104e1ca94949a5375733c9d3829029a",
+      "video_bitrate_bps": 3947830,
+      "image_guides": []
+    },
+    "A4_threat_porch": {
+      "file": "A4_threat_porch.mp4",
+      "frames": 124,
+      "audio": "aac",
+      "prompt_id": "9f05d116-b9a8-4798-8c0c-09805302d4b5",
+      "seed": 3143,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A4_threat_porch_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The two actors stay behind the left porch railing; the anxious waitress breathes, hands raised. After three seconds a tiny stage-prop flash beside the man, both startled briefly, then return to the initial tableau. No injury. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A4_H1_5215d7658b32.png",
+        "17": "A4_H1_5215d7658b32.png",
+        "20": "A4_H1_5215d7658b32.png"
+      },
+      "sha256": "0526f96d15095fcb4427ac60be508c33a9c93a249ba635261572c04b455f4016",
+      "video_bitrate_bps": 3772513,
+      "image_guides": [
+        {
+          "frame": 61,
+          "image": "A4_H1_5215d7658b32.png"
+        }
+      ]
+    },
+    "A4_change_doors": {
+      "file": "A4_change_doors.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "df01da33-8352-454a-bf06-c5ca66520028",
+      "seed": 3144,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A4_change_doors_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The actor on the left drops below the railing and the waitress escapes off left. At the same time the separate man in a striped poncho pushes through the swinging saloon doors at center. End with only the new actor, precisely at his mark, within two seconds. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A4_H1_5215d7658b32.png",
+        "17": "A4_H2_1f88b3cc9091.png",
+        "20": "A4_H2_1f88b3cc9091.png"
+      },
+      "sha256": "060b02b3f0a13e2cfba3b5ccd27145f19d30c067daf6af7893182631f7821124",
+      "video_bitrate_bps": 2283392,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A4_H2_1f88b3cc9091.png"
+        }
+      ]
+    },
+    "A4_scare": {
+      "file": "A4_scare.mp4",
+      "frames": 48,
+      "audio": "aac",
+      "prompt_id": "13685321-802a-4ed5-a62a-6f33ae957173",
+      "seed": 3145,
+      "steps": 8,
+      "lora": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+      "source_master": "/home/xsl/aivideo/ComfyUI/output/dust_creek_1122/A4_scare_00001_.mp4",
+      "source_frames": 124,
+      "prompt": "Live-action 35mm period Western, an outdoor film set at midday. A single continuous take. Fixed tripod and lens. The unharmed waitress gives a brief frightened start at a sound and ducks her head. The man beside her remains behind the railing. She straightens and both return to their first positions by the second second. Match the lens, blocking, character sizes, daylight and architecture in the supplied frames. Natural wind and set ambience only. No music, subtitles, crosshairs, graphics or overlays.",
+      "anchors": {
+        "16": "A4_H1_5215d7658b32.png",
+        "17": "A4_H1_5215d7658b32.png",
+        "20": "A4_H1_5215d7658b32.png"
+      },
+      "source_ranges_half_open": [
+        [
+          49,
+          97
+        ]
+      ],
+      "audio_source": "A1_change_barrels (low-level H3 location sound)",
+      "sha256": "eb877747eb02b9995ab70f4f3a426030605dbc44b9b2cc7377ff65414aa46ae4",
+      "video_bitrate_bps": 3880916,
+      "image_guides": [
+        {
+          "frame": 47,
+          "image": "A4_H1_5215d7658b32.png"
+        }
+      ]
+    }
+  },
+  "input_sha256": {
+    "A0_M.png": "20e17e8b410b165eadf6da898756360a62b063195300ea9d4d8e05ff84d1f29f",
+    "A0_P.png": "ae2849aad38d188b6168a71c9c9293eb24f55a685adcb6739ef417c99f00069e",
+    "A1_H1.png": "c549ae4d7c35224f9968b1878bb02ef13af69780e3b3566028e46dc20c4e15cf",
+    "A1_H2.png": "a835a23025e8c2df0d663a866c33a0eb018aafb2eb9418f7897966e9159a815a",
+    "A1_P.png": "c7f73ad99d2d84cf0e98277ceca2187d3fd7d290da39e5b209397c88e737f6b5",
+    "A2_H1.png": "f99298404b0ffc5394d9995384bb69a3f5a153519fd9648ce6018fcf4eb0d2e3",
+    "A2_H2.png": "625d9c53d7ce04e40dcbec992fb96e970e6544590a3a858226b9c64cef881957",
+    "A2_P.png": "cf001154be3bee5a11c04d32f9ead84a42cab49007bd753041611827de0c2e28",
+    "A3_C.png": "ab6bb479ac0dbc44659cd71c61cdd1f6348012e5782433cdcdf464c22a239d23",
+    "A3_H1.png": "a030be07d20942da41dacc357ca0aa0fa4b2c233ab8d30b77055d4eee09a7ecc",
+    "A3_P.png": "bb34ae61ada0815e1e5dd82ff1809eb69cdbd749a37491d3ef7674448f00466f",
+    "A4_H1.png": "5215d7658b32492243a5d715c26ec1c47ccfaf67222a31c5e654756f7bb3f5c2",
+    "A4_H2.png": "1f88b3cc90918d21b393d6d46ed697aa72ec3c144ce8ca433bc6b8b42998d80f",
+    "A4_P.png": "17822c2ee4c54576d4deaaaf0ebf98b0d31564403dd5db4bfd9f3ba6f0e0eb50",
+    "D01.png": "9d477cec0001ef1af16e8f7e3045eef22b418cb4979d2d2c571ab92474b0d8e7"
+  },
+  "dialogue_zh": "副警长，黑帽帮在抢银行！快去主街，镇上的人就靠你了。",
+  "playback_masks": "not yet authored",
+  "preview_route": [
+    {
+      "clip": "A0_mayor_arrives",
+      "frames": 60
+    },
+    {
+      "clip": "A0_mayor_appeal",
+      "frames": 158
+    },
+    {
+      "clip": "A0_mayor_leaves",
+      "frames": 70
+    },
+    {
+      "clip": "A0_travel_main",
+      "frames": 72
+    },
+    {
+      "clip": "A1_enter_wagon",
+      "frames": 26
+    },
+    {
+      "clip": "A1_threat_wagon",
+      "frames": 72
+    },
+    {
+      "clip": "A1_change_barrels",
+      "frames": 48
+    },
+    {
+      "clip": "A1_threat_barrels",
+      "frames": 67
+    },
+    {
+      "clip": "A1_exit_barrels",
+      "frames": 48
+    },
+    {
+      "clip": "A1_travel_hotel",
+      "frames": 72
+    },
+    {
+      "clip": "A2_enter_window",
+      "frames": 27
+    },
+    {
+      "clip": "A2_threat_window",
+      "frames": 60
+    },
+    {
+      "clip": "A2_change_roof",
+      "frames": 48
+    },
+    {
+      "clip": "A2_threat_roof",
+      "frames": 48
+    },
+    {
+      "clip": "A2_exit_roof",
+      "frames": 48
+    },
+    {
+      "clip": "A2_travel_store",
+      "frames": 72
+    },
+    {
+      "clip": "A3_cross_clerk",
+      "frames": 72
+    },
+    {
+      "clip": "A3_enter_store",
+      "frames": 27
+    },
+    {
+      "clip": "A3_threat_store",
+      "frames": 48
+    },
+    {
+      "clip": "A3_exit_store",
+      "frames": 48
+    },
+    {
+      "clip": "A3_travel_saloon",
+      "frames": 72
+    },
+    {
+      "clip": "A4_enter_porch",
+      "frames": 81
+    },
+    {
+      "clip": "A4_threat_porch",
+      "frames": 48
+    },
+    {
+      "clip": "A4_change_doors",
+      "frames": 48
+    }
+  ],
+  "production_notes": {
+    "A4_enter_porch": "The two actors walk in from screen left. The wider staging takes 81 frames at 24 fps.",
+    "A0_mayor_appeal": "Original local VoxCPM2 Mandarin recording guided H3 and replaces the generated dialogue in this slice.",
+    "preview_cut_before": "Editorial limits for the review montage. Gameplay event frames and masks require separate annotation.",
+    "A0_travel_main": "Second continuous H3 take. The near porch facade crosses the lens before the wagon comes into view."
+  },
+  "preview_file": "../Dust_Creek_opening_preview.mp4"
+}
