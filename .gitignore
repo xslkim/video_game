@@ -1,0 +1,4 @@
+/build*/
+/dist/
+/vcpkg_installed/
+__pycache__/

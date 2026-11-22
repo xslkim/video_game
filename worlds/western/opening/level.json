@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "fps": 24,
+  "size": [
+    1280,
+    720
+  ],
+  "clips": {
+    "A0_mayor_arrives": {
+      "next": "A0_mayor_appeal",
+      "frames": 60,
+      "sha256": "b4dd4745e0d7443c7c94e3cd3d0239e0e2a92f14f333c0c223fca9e49afde6fb"
+    },
+    "A0_mayor_appeal": {
+      "next": "A0_mayor_leaves",
+      "frames": 158,
+      "sha256": "113231eb0c0bb8547d492a71fa222723b15fdb7d190f91ac28a878a7d324e956"
+    },
+    "A0_mayor_leaves": {
+      "next": "A0_travel_main",
+      "frames": 70,
+      "sha256": "73cd8e17223d835db39977f383caf93479f27f1d9f6f182255f7b1efbb659cd0"
+    },
+    "A0_travel_main": {
+      "next": "A1_enter_wagon",
+      "frames": 72,
+      "sha256": "e3037a166cc452605c2c5f47f5a3b280f952107d9a236070305121194e1c5524"
+    },
+    "A1_enter_wagon": {
+      "next": "A1_threat_wagon",
+      "beat": "wagon",
+      "opens": 21,
+      "success": "A1_change_barrels",
+      "point": [
+        506,
+        376
+      ],
+      "frames": 26,
+      "sha256": "71e11542974fa0c18185217250c9f46c9cd5a3573ac7926fcff9496c445629f9"
+    },
+    "A1_threat_wagon": {
+      "next": "A1_threat_wagon",
+      "beat": "wagon",
+      "success": "A1_change_barrels",
+      "opens": 1,
+      "expires": 73,
+      "start": 1,
+      "point": [
+        506,
+        376
+      ],
+      "frames": 107,
+      "sha256": "1d90d6ce87cae68c393c565dafb131eae7d1eae3fba411ca41b37cbcadc7b601"
+    },
+    "A1_change_barrels": {
+      "next": "A1_threat_barrels",
+      "beat": "barrels",
+      "opens": 39,
+      "success": "A1_exit_barrels",
+      "point": [
+        950,
+        355
+      ],
+      "frames": 48,
+      "sha256": "4dca40b342894a3dd8bb34b895d49f22e3b38bb63137ff17572edc09644b127e"
+    },
+    "A1_threat_barrels": {
+      "next": "A1_threat_barrels",
+      "beat": "barrels",
+      "success": "A1_exit_barrels",
+      "opens": 2,
+      "expires": 68,
+      "start": 2,
+      "point": [
+        950,
+        355
+      ],
+      "frames": 124,
+      "sha256": "1b6529e6d98ac68b81883356d4c2fe377f3b22150773fcb42b9812772f0aeaeb"
+    },
+    "A1_exit_barrels": {
+      "next": "A1_travel_hotel",
+      "frames": 48,
+      "sha256": "0e6e1514ef9c07d98ba4d9c813a617254b84d3bd79701a2be25d014de8c94180"
+    },
+    "A1_travel_hotel": {
+      "next": "A2_enter_window",
+      "frames": 72,
+      "sha256": "184575003d1433284f218b72f06a6e0179c6001cd88d366bb29205a620dad961"
+    },
+    "A2_enter_window": {
+      "next": "A2_threat_window",
+      "beat": "window",
+      "opens": 22,
+      "success": "A2_change_roof",
+      "point": [
+        1151,
+        183
+      ],
+      "frames": 27,
+      "sha256": "3039bd7bc2dd296add66c061b98cb07cd80d68e26c5512149e5ce4b88261101e"
+    },
+    "A2_threat_window": {
+      "next": "A2_threat_window",
+      "beat": "window",
+      "success": "A2_change_roof",
+      "opens": 1,
+      "expires": 63,
+      "start": 1,
+      "point": [
+        1151,
+        183
+      ],
+      "frames": 124,
+      "sha256": "6bb11254f2bf1d5413dfefe2ffe03393d04e8fe818ee2e74c1c1f45b6b6355df"
+    },
+    "A2_change_roof": {
+      "next": "A2_threat_roof",
+      "beat": "roof",
+      "opens": 40,
+      "success": "A2_exit_roof",
+      "point": [
+        210,
+        246
+      ],
+      "frames": 48,
+      "sha256": "8c046f1de3fab5f7310ccf4aed8b4bf2ad41d9b9eeb47717f9cf453e43d310b2"
+    },
+    "A2_threat_roof": {
+      "next": "A2_threat_roof",
+      "beat": "roof",
+      "success": "A2_exit_roof",
+      "opens": 6,
+      "expires": 63,
+      "start": 6,
+      "point": [
+        210,
+        246
+      ],
+      "frames": 124,
+      "sha256": "55719e3cb05f3bd831558ae77f1a1c65bdc765ca89e5e183b53c08fc0fbfc5d5"
+    },
+    "A2_exit_roof": {
+      "next": "A2_travel_store",
+      "frames": 48,
+      "sha256": "2128bef8cb83251246634b2e302b19ff36e1cc5c0f8065cd2920391e0ef98f8c"
+    },
+    "A2_travel_store": {
+      "next": "A3_cross_clerk",
+      "frames": 72,
+      "sha256": "65384b766d9cc918f2d07def1afe83d6d1077b59b031b2c7f76663d55eb715b1"
+    },
+    "A3_cross_clerk": {
+      "next": "A3_enter_store",
+      "civilian": true,
+      "frames": 72,
+      "sha256": "045e1432a74bc2a102efe18891903bd8fdcc1f2cd4f7c203f39ba9b71529c83b"
+    },
+    "A3_enter_store": {
+      "next": "A3_threat_store",
+      "beat": "store",
+      "opens": 22,
+      "success": "A3_exit_store",
+      "point": [
+        497,
+        325
+      ],
+      "frames": 27,
+      "sha256": "d9d6bb98c51b66f2c8aefb567ea1de72a6f28f996cc942c74c7d96b4bc959c31"
+    },
+    "A3_threat_store": {
+      "next": "A3_threat_store",
+      "beat": "store",
+      "success": "A3_exit_store",
+      "opens": 14,
+      "expires": 68,
+      "start": 14,
+      "point": [
+        497,
+        325
+      ],
+      "frames": 124,
+      "sha256": "08e173d8b8f1a0a9d764d26b18fd36da5b5706a60ae893a570635e8285604f03"
+    },
+    "A3_exit_store": {
+      "next": "A3_travel_saloon",
+      "frames": 48,
+      "sha256": "da20652eb548681b4ce29e632528af5414b747024b86c71562d0822c03fbefe2"
+    },
+    "A3_travel_saloon": {
+      "next": "A4_enter_porch",
+      "frames": 72,
+      "sha256": "98601f0c8ee3c14c63f3d4339343f076d23c2b0817d5f3905f5b0858e4159440"
+    },
+    "A4_enter_porch": {
+      "next": "A4_threat_porch",
+      "beat": "porch",
+      "opens": 75,
+      "success": "A4_change_doors",
+      "point": [
+        432,
+        345
+      ],
+      "frames": 81,
+      "sha256": "e249fcd7b0a6502e61381af092a5f9dbd104e1ca94949a5375733c9d3829029a"
+    },
+    "A4_threat_porch": {
+      "next": "A4_threat_porch",
+      "beat": "porch",
+      "success": "A4_change_doors",
+      "opens": 18,
+      "expires": 66,
+      "start": 18,
+      "point": [
+        432,
+        345
+      ],
+      "frames": 124,
+      "sha256": "0526f96d15095fcb4427ac60be508c33a9c93a249ba635261572c04b455f4016"
+    },
+    "A4_change_doors": {
+      "next": "@complete",
+      "frames": 48,
+      "sha256": "060b02b3f0a13e2cfba3b5ccd27145f19d30c067daf6af7893182631f7821124"
+    },
+    "A4_scare": {
+      "next": "A4_threat_porch",
+      "frames": 48,
+      "sha256": "eb877747eb02b9995ab70f4f3a426030605dbc44b9b2cc7377ff65414aa46ae4"
+    },
+    "D01_badge": {
+      "next": "@failed",
+      "frames": 53,
+      "sha256": "6adce303bd867b6dff55916c1cc5a05e52ab345f71d6ed907ed6b193429a10b6"
+    }
+  },
+  "checkpoints": {
+    "A0": "A0_mayor_arrives",
+    "A1": "A1_enter_wagon",
+    "A2": "A2_enter_window",
+    "A3": "A3_cross_clerk",
+    "A4": "A4_enter_porch"
+  },
+  "subtitle": "副警长，黑帽帮在抢银行！快去主街，镇上的人就靠你了。",
+  "rescue": [
+    432,
+    345
+  ],
+  "protect": [
+    188,
+    362
+  ]
+}

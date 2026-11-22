@@ -1,0 +1,10 @@
+{
+  "name": "dust-creek",
+  "version-string": "0.1",
+  "builtin-baseline": "afe700a528316078d1ad6e7f7f41bbba15e1802b",
+  "dependencies": [
+    "sdl3",
+    "nlohmann-json",
+    { "name": "ffmpeg", "default-features": false, "features": ["avcodec", "avformat", "swscale", "swresample"] }
+  ]
+}
