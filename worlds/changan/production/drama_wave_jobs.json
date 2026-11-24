@@ -1,0 +1,626 @@
+{
+  "ying_reveal_pass_1": {
+    "from_take": [
+      "ying_reveal",
+      19
+    ],
+    "first": "ying_reveal_stance_19",
+    "last": "ying_reveal_stance_19",
+    "length": 119,
+    "seed": 1657190,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The free-floating blue wisp at the right slowly flickers away from the woman's hand and pulses once. Keep the girl's face and pose steady."
+  },
+  "ying_reveal_pass_2": {
+    "from_take": [
+      "ying_reveal",
+      53
+    ],
+    "first": "ying_reveal_stance_53",
+    "last": "ying_reveal_stance_53",
+    "length": 119,
+    "seed": 1657191,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The free-floating blue wisp at the right slowly flickers away from the woman's hand and pulses once. Keep the girl's face and pose steady."
+  },
+  "ying_reveal_pass_3": {
+    "from_take": [
+      "ying_reveal",
+      80
+    ],
+    "first": "ying_reveal_stance_80",
+    "last": "ying_reveal_stance_80",
+    "length": 119,
+    "seed": 1657192,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The free-floating blue wisp at the right slowly flickers away from the woman's hand and pulses once. Keep the girl's face and pose steady."
+  },
+  "carp_ball_pass_1": {
+    "from_take": [
+      "carp_ball",
+      19
+    ],
+    "first": "carp_ball_stance_19",
+    "last": "carp_ball_stance_19",
+    "length": 119,
+    "seed": 1657193,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The red fish lantern releases one small blue flame that advances slowly by a few inches."
+  },
+  "carp_ball_pass_2": {
+    "from_take": [
+      "carp_ball",
+      53
+    ],
+    "first": "carp_ball_stance_53",
+    "last": "carp_ball_stance_53",
+    "length": 119,
+    "seed": 1657194,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The red fish lantern releases one small blue flame that advances slowly by a few inches."
+  },
+  "carp_ball_pass_3": {
+    "from_take": [
+      "carp_ball",
+      80
+    ],
+    "first": "carp_ball_stance_80",
+    "last": "carp_ball_stance_80",
+    "length": 119,
+    "seed": 1657195,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The red fish lantern releases one small blue flame that advances slowly by a few inches."
+  },
+  "carp_tail_pass_1": {
+    "from_take": [
+      "carp_tail",
+      19
+    ],
+    "first": "carp_tail_stance_19",
+    "last": "carp_tail_stance_19",
+    "length": 119,
+    "seed": 1657196,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. A gold scale on the carp's flank pulses; the red paper and bamboo body flexes slowly like a swimming fish."
+  },
+  "carp_tail_pass_2": {
+    "from_take": [
+      "carp_tail",
+      53
+    ],
+    "first": "carp_tail_stance_53",
+    "last": "carp_tail_stance_53",
+    "length": 119,
+    "seed": 1657197,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. A gold scale on the carp's flank pulses; the red paper and bamboo body flexes slowly like a swimming fish."
+  },
+  "carp_tail_pass_3": {
+    "from_take": [
+      "carp_tail",
+      80
+    ],
+    "first": "carp_tail_stance_80",
+    "last": "carp_tail_stance_80",
+    "length": 119,
+    "seed": 1657198,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. A gold scale on the carp's flank pulses; the red paper and bamboo body flexes slowly like a swimming fish."
+  },
+  "carp_wick_clean_pass_1": {
+    "from_take": [
+      "carp_wick_clean",
+      19
+    ],
+    "first": "carp_wick_clean_stance_19",
+    "last": "carp_wick_clean_stance_19",
+    "length": 119,
+    "seed": 1657199,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. Inside the original paper fish, its bright wick sways gently and grows warmer. No people enter."
+  },
+  "carp_wick_clean_pass_2": {
+    "from_take": [
+      "carp_wick_clean",
+      53
+    ],
+    "first": "carp_wick_clean_stance_53",
+    "last": "carp_wick_clean_stance_53",
+    "length": 119,
+    "seed": 1657200,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. Inside the original paper fish, its bright wick sways gently and grows warmer. No people enter."
+  },
+  "carp_wick_clean_pass_3": {
+    "from_take": [
+      "carp_wick_clean",
+      80
+    ],
+    "first": "carp_wick_clean_stance_80",
+    "last": "carp_wick_clean_stance_80",
+    "length": 119,
+    "seed": 1657201,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. Inside the original paper fish, its bright wick sways gently and grows warmer. No people enter."
+  },
+  "paper_cranes_pass_1": {
+    "from_take": [
+      "paper_cranes",
+      19
+    ],
+    "first": "paper_cranes_stance_19",
+    "last": "paper_cranes_stance_19",
+    "length": 119,
+    "seed": 1657202,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The lead origami crane beats its white wings and hovers. Maintain the original size and position of the lead bird."
+  },
+  "paper_cranes_pass_2": {
+    "from_take": [
+      "paper_cranes",
+      53
+    ],
+    "first": "paper_cranes_stance_53",
+    "last": "paper_cranes_stance_53",
+    "length": 119,
+    "seed": 1657203,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The lead origami crane beats its white wings and hovers. Maintain the original size and position of the lead bird."
+  },
+  "paper_cranes_pass_3": {
+    "from_take": [
+      "paper_cranes",
+      80
+    ],
+    "first": "paper_cranes_stance_80",
+    "last": "paper_cranes_stance_80",
+    "length": 119,
+    "seed": 1657204,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The lead origami crane beats its white wings and hovers. Maintain the original size and position of the lead bird."
+  },
+  "shadow_duel_pass_1": {
+    "from_take": [
+      "shadow_duel",
+      19
+    ],
+    "first": "shadow_duel_stance_19",
+    "last": "shadow_duel_stance_19",
+    "length": 119,
+    "seed": 1657205,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. A leather shadow puppet lowers the shield and the brass stud on its head catches the light."
+  },
+  "shadow_duel_pass_2": {
+    "from_take": [
+      "shadow_duel",
+      53
+    ],
+    "first": "shadow_duel_stance_53",
+    "last": "shadow_duel_stance_53",
+    "length": 119,
+    "seed": 1657206,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. A leather shadow puppet lowers the shield and the brass stud on its head catches the light."
+  },
+  "shadow_duel_pass_3": {
+    "from_take": [
+      "shadow_duel",
+      80
+    ],
+    "first": "shadow_duel_stance_80",
+    "last": "shadow_duel_stance_80",
+    "length": 119,
+    "seed": 1657207,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. A leather shadow puppet lowers the shield and the brass stud on its head catches the light."
+  },
+  "umbrella_turn_pass_1": {
+    "from_take": [
+      "umbrella_turn",
+      19
+    ],
+    "first": "umbrella_turn_stance_19",
+    "last": "umbrella_turn_stance_19",
+    "length": 119,
+    "seed": 1657208,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The orange silk umbrella turns slowly and tips to expose the central hub; keep it clearly visible and nearly stationary."
+  },
+  "umbrella_turn_pass_2": {
+    "from_take": [
+      "umbrella_turn",
+      53
+    ],
+    "first": "umbrella_turn_stance_53",
+    "last": "umbrella_turn_stance_53",
+    "length": 119,
+    "seed": 1657209,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The orange silk umbrella turns slowly and tips to expose the central hub; keep it clearly visible and nearly stationary."
+  },
+  "umbrella_turn_pass_3": {
+    "from_take": [
+      "umbrella_turn",
+      80
+    ],
+    "first": "umbrella_turn_stance_80",
+    "last": "umbrella_turn_stance_80",
+    "length": 119,
+    "seed": 1657210,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The orange silk umbrella turns slowly and tips to expose the central hub; keep it clearly visible and nearly stationary."
+  },
+  "puppet_boss_pass_1": {
+    "from_take": [
+      "puppet_boss",
+      19
+    ],
+    "first": "puppet_boss_stance_19",
+    "last": "puppet_boss_stance_19",
+    "length": 119,
+    "seed": 1657211,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The towering marionette raises an arm, silk control threads tighten, the warm light within its chest brightens.",
+    "cleanup_rect": [
+      313,
+      503,
+      398,
+      51
+    ]
+  },
+  "puppet_boss_pass_2": {
+    "from_take": [
+      "puppet_boss",
+      53
+    ],
+    "first": "puppet_boss_stance_53",
+    "last": "puppet_boss_stance_53",
+    "length": 119,
+    "seed": 1657212,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The towering marionette raises an arm, silk control threads tighten, the warm light within its chest brightens."
+  },
+  "puppet_boss_pass_3": {
+    "from_take": [
+      "puppet_boss",
+      80
+    ],
+    "first": "puppet_boss_stance_80",
+    "last": "puppet_boss_stance_80",
+    "length": 119,
+    "seed": 1657213,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The towering marionette raises an arm, silk control threads tighten, the warm light within its chest brightens."
+  },
+  "lotus_water_pass_1": {
+    "from_take": [
+      "lotus_water",
+      19
+    ],
+    "first": "lotus_water_stance_19",
+    "last": "lotus_water_stance_19",
+    "length": 119,
+    "seed": 1657214,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The main luminous lotus opens further on its gently drifting pad, a wave breaks against the boat without covering the flower."
+  },
+  "lotus_water_pass_2": {
+    "from_take": [
+      "lotus_water",
+      53
+    ],
+    "first": "lotus_water_stance_53",
+    "last": "lotus_water_stance_53",
+    "length": 119,
+    "seed": 1657215,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The main luminous lotus opens further on its gently drifting pad, a wave breaks against the boat without covering the flower."
+  },
+  "lotus_water_pass_3": {
+    "from_take": [
+      "lotus_water",
+      80
+    ],
+    "first": "lotus_water_stance_80",
+    "last": "lotus_water_stance_80",
+    "length": 119,
+    "seed": 1657216,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The main luminous lotus opens further on its gently drifting pad, a wave breaks against the boat without covering the flower."
+  },
+  "dragon_pass_1": {
+    "from_take": [
+      "dragon",
+      19
+    ],
+    "first": "dragon_stance_19",
+    "last": "dragon_stance_19",
+    "length": 119,
+    "seed": 1657217,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The nine original dragon heads rock gently as a swell passes under the barge. Keep every head in the same exact order and clearly separated."
+  },
+  "dragon_pass_2": {
+    "from_take": [
+      "dragon",
+      53
+    ],
+    "first": "dragon_stance_53",
+    "last": "dragon_stance_53",
+    "length": 119,
+    "seed": 1657218,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The nine original dragon heads rock gently as a swell passes under the barge. Keep every head in the same exact order and clearly separated."
+  },
+  "dragon_pass_3": {
+    "from_take": [
+      "dragon",
+      80
+    ],
+    "first": "dragon_stance_80",
+    "last": "dragon_stance_80",
+    "length": 119,
+    "seed": 1657219,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The nine original dragon heads rock gently as a swell passes under the barge. Keep every head in the same exact order and clearly separated.",
+    "cleanup_rect": [
+      361,
+      504,
+      296,
+      56
+    ]
+  },
+  "tower_crow_pass_1": {
+    "from_take": [
+      "tower_crow",
+      19
+    ],
+    "first": "tower_crow_stance_19",
+    "last": "tower_crow_stance_19",
+    "length": 119,
+    "seed": 1657220,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The perched ink crow spreads its wings slowly without leaving the manuscript; a candle on the wall flickers."
+  },
+  "tower_crow_pass_2": {
+    "from_take": [
+      "tower_crow",
+      53
+    ],
+    "first": "tower_crow_stance_53",
+    "last": "tower_crow_stance_53",
+    "length": 119,
+    "seed": 1657221,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The perched ink crow spreads its wings slowly without leaving the manuscript; a candle on the wall flickers."
+  },
+  "tower_crow_pass_3": {
+    "from_take": [
+      "tower_crow",
+      80
+    ],
+    "first": "tower_crow_stance_80",
+    "last": "tower_crow_stance_80",
+    "length": 119,
+    "seed": 1657222,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The perched ink crow spreads its wings slowly without leaving the manuscript; a candle on the wall flickers."
+  },
+  "stone_cub_pass_1": {
+    "from_take": [
+      "stone_cub",
+      19
+    ],
+    "first": "stone_cub_stance_19",
+    "last": "stone_cub_stance_19",
+    "length": 119,
+    "seed": 1657223,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The small stone lion shifts its weight and growls, amber light ripples through the original crack on its shoulder."
+  },
+  "stone_cub_pass_2": {
+    "from_take": [
+      "stone_cub",
+      53
+    ],
+    "first": "stone_cub_stance_53",
+    "last": "stone_cub_stance_53",
+    "length": 119,
+    "seed": 1657224,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The small stone lion shifts its weight and growls, amber light ripples through the original crack on its shoulder."
+  },
+  "stone_cub_pass_3": {
+    "from_take": [
+      "stone_cub",
+      80
+    ],
+    "first": "stone_cub_stance_80",
+    "last": "stone_cub_stance_80",
+    "length": 119,
+    "seed": 1657225,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The small stone lion shifts its weight and growls, amber light ripples through the original crack on its shoulder."
+  },
+  "guardian_pass_1": {
+    "from_take": [
+      "guardian",
+      19
+    ],
+    "first": "guardian_stance_19",
+    "last": "guardian_stance_19",
+    "length": 119,
+    "seed": 1657226,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The great stone guardian bares its teeth; the orb in the mouth grows warmer. Torso and paws remain visible."
+  },
+  "guardian_pass_2": {
+    "from_take": [
+      "guardian",
+      53
+    ],
+    "first": "guardian_stance_53",
+    "last": "guardian_stance_53",
+    "length": 119,
+    "seed": 1657227,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The great stone guardian bares its teeth; the orb in the mouth grows warmer. Torso and paws remain visible."
+  },
+  "guardian_pass_3": {
+    "from_take": [
+      "guardian",
+      80
+    ],
+    "first": "guardian_stance_80",
+    "last": "guardian_stance_80",
+    "length": 119,
+    "seed": 1657228,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The great stone guardian bares its teeth; the orb in the mouth grows warmer. Torso and paws remain visible."
+  },
+  "fox_mask_pass_1": {
+    "from_take": [
+      "fox_mask",
+      19
+    ],
+    "first": "fox_mask_stance_19",
+    "last": "fox_mask_stance_19",
+    "length": 119,
+    "seed": 1657229,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The fox demon shifts her weight slowly; the white mask remains visible and centered in its original position."
+  },
+  "fox_mask_pass_2": {
+    "from_take": [
+      "fox_mask",
+      53
+    ],
+    "first": "fox_mask_stance_53",
+    "last": "fox_mask_stance_53",
+    "length": 119,
+    "seed": 1657230,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The fox demon shifts her weight slowly; the white mask remains visible and centered in its original position."
+  },
+  "fox_mask_pass_3": {
+    "from_take": [
+      "fox_mask",
+      80
+    ],
+    "first": "fox_mask_stance_80",
+    "last": "fox_mask_stance_80",
+    "length": 119,
+    "seed": 1657231,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The fox demon shifts her weight slowly; the white mask remains visible and centered in its original position."
+  },
+  "cavalry_pass_1": {
+    "from_take": [
+      "cavalry",
+      19
+    ],
+    "first": "cavalry_stance_19",
+    "last": "cavalry_stance_19",
+    "length": 119,
+    "seed": 1657232,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The carousel horse's paper flank lifts as it takes a slow step, exposing its golden wick."
+  },
+  "cavalry_pass_2": {
+    "from_take": [
+      "cavalry",
+      53
+    ],
+    "first": "cavalry_stance_53",
+    "last": "cavalry_stance_53",
+    "length": 119,
+    "seed": 1657233,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The carousel horse's paper flank lifts as it takes a slow step, exposing its golden wick."
+  },
+  "cavalry_pass_3": {
+    "from_take": [
+      "cavalry",
+      80
+    ],
+    "first": "cavalry_stance_80",
+    "last": "cavalry_stance_80",
+    "length": 119,
+    "seed": 1657234,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The carousel horse's paper flank lifts as it takes a slow step, exposing its golden wick."
+  },
+  "palace_fire_pass_1": {
+    "from_take": [
+      "palace_fire",
+      19
+    ],
+    "first": "palace_fire_stance_19",
+    "last": "palace_fire_stance_19",
+    "length": 119,
+    "seed": 1657235,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The sorcerer's small cyan flame brightens and moves a few inches, leaving a delicate trail."
+  },
+  "palace_fire_pass_2": {
+    "from_take": [
+      "palace_fire",
+      53
+    ],
+    "first": "palace_fire_stance_53",
+    "last": "palace_fire_stance_53",
+    "length": 119,
+    "seed": 1657236,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The sorcerer's small cyan flame brightens and moves a few inches, leaving a delicate trail."
+  },
+  "palace_fire_pass_3": {
+    "from_take": [
+      "palace_fire",
+      80
+    ],
+    "first": "palace_fire_stance_80",
+    "last": "palace_fire_stance_80",
+    "length": 119,
+    "seed": 1657237,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The sorcerer's small cyan flame brightens and moves a few inches, leaving a delicate trail."
+  },
+  "palace_chain_pass_1": {
+    "from_take": [
+      "palace_chain",
+      19
+    ],
+    "first": "palace_chain_stance_19",
+    "last": "palace_chain_stance_19",
+    "length": 119,
+    "seed": 1657238,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A faint breeze stirs the practical lights. The luminous chains tighten around the lantern, the captive girl watches as an exposed chain link glows brighter."
+  },
+  "palace_chain_pass_2": {
+    "from_take": [
+      "palace_chain",
+      53
+    ],
+    "first": "palace_chain_stance_53",
+    "last": "palace_chain_stance_53",
+    "length": 119,
+    "seed": 1657239,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "The light cools briefly, followed by a warm pulse. The luminous chains tighten around the lantern, the captive girl watches as an exposed chain link glows brighter."
+  },
+  "palace_chain_pass_3": {
+    "from_take": [
+      "palace_chain",
+      80
+    ],
+    "first": "palace_chain_stance_80",
+    "last": "palace_chain_stance_80",
+    "length": 119,
+    "seed": 1657240,
+    "prefix": "Single locked camera in the same photoreal Tang dynasty film. The subject stays in the same position and scale. No added people, no captions, no text, ambient sound only. ",
+    "prompt": "A slow shadow passes behind the subject. The luminous chains tighten around the lantern, the captive girl watches as an exposed chain link glows brighter."
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "title": "长安灯妖录",
+  "chapters": [
+    {
+      "id": "zhuque",
+      "heading": "第一章　上元夜，朱雀大街",
+      "stages": [
+        {
+          "id": "lantern_festival",
+          "type": "film",
+          "takes": [
+            {
+              "id": "city",
+              "subtitle": "上元，长安。"
+            },
+            {
+              "id": "patrol",
+              "subtitle": "沈砚初为执灯使，今夜随裴照巡街。"
+            },
+            {
+              "id": "blue_flame"
+            },
+            {
+              "id": "lantern_warning",
+              "subtitle": "青灯燃起时，街上万盏花灯忽然暗了。"
+            }
+          ]
+        },
+        {
+          "id": "street_lanterns",
+          "type": "encounter",
+          "level": "a1"
+        },
+        {
+          "id": "save_aying",
+          "type": "trial",
+          "trial": {
+            "first": "rope",
+            "steps": {
+              "rope": {
+                "take": "rescue",
+                "story_shot": true,
+                "window": [
+                  22,
+                  48
+                ],
+                "prompt": "吊索将断　·　瞄准左上方绳结施符",
+                "zones": [
+                  "knot"
+                ],
+                "answer": "knot",
+                "outcomes": {
+                  "knot": {
+                    "points": 1000,
+                    "response": "rescue_cut",
+                    "next": "@complete"
+                  },
+                  "miss": {
+                    "response": "rescue_delayed",
+                    "next": "@complete"
+                  },
+                  "timeout": {
+                    "response": "rescue_delayed",
+                    "next": "@complete"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "meet_aying",
+          "type": "film",
+          "takes": [
+            {
+              "id": "meeting",
+              "subtitle": "阿萤　“我能帮你们找到它们。”"
+            },
+            {
+              "id": "meeting_reply"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

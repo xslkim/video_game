@@ -1,0 +1,930 @@
+{
+  "title": "长安灯妖录",
+  "chapters": [
+    {
+      "id": "pagoda",
+      "heading": "第四章　大雁塔",
+      "stages": [
+        {
+          "id": "pagoda_doors",
+          "type": "film",
+          "takes": [
+            {
+              "id": "tower_door",
+              "subtitle": "裴照　“我来开门，你看着上面。”",
+              "voice": "peizhao/doors"
+            },
+            {
+              "id": "pagoda_steps"
+            },
+            {
+              "id": "lion_eyes"
+            },
+            {
+              "id": "tower_scrolls"
+            },
+            {
+              "id": "ink_on_wall"
+            }
+          ],
+          "music": "pagoda"
+        },
+        {
+          "id": "pagoda_stairs",
+          "type": "trial",
+          "trial": {
+            "first": "lamp",
+            "steps": {
+              "lamp": {
+                "take": "tower_crow",
+                "prompt": "第1阵　阿萤不在，先射亮经卷旁的灯",
+                "answer": "lamp",
+                "window": [
+                  12,
+                  48
+                ],
+                "zones": [
+                  "lamp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "lamp"
+                  },
+                  "timeout": {
+                    "next": "lamp",
+                    "damage": 1
+                  },
+                  "lamp": {
+                    "next": "crow",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "crow_lamp_lit"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": false
+              },
+              "crow": {
+                "take": "tower_crow",
+                "prompt": "第1阵　墨鸦现形　·　击中纸翼",
+                "answer": "crow",
+                "window": [
+                  36,
+                  42
+                ],
+                "zones": [
+                  "crow"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crow"
+                  },
+                  "timeout": {
+                    "next": "crow",
+                    "damage": 1
+                  },
+                  "crow": {
+                    "next": "lamp_wave_2",
+                    "points": 100,
+                    "purified": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "lamp_wave_2": {
+                "take": "tower_crow_pass_1",
+                "prompt": "第2阵　阿萤不在，先射亮经卷旁的灯",
+                "answer": "lamp",
+                "window": [
+                  12,
+                  48
+                ],
+                "zones": [
+                  "lamp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "lamp_wave_2"
+                  },
+                  "timeout": {
+                    "next": "lamp_wave_2",
+                    "damage": 1
+                  },
+                  "lamp": {
+                    "next": "crow_wave_2",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "crow_lamp_lit"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": false
+              },
+              "crow_wave_2": {
+                "take": "tower_crow_pass_1",
+                "prompt": "第2阵　墨鸦现形　·　击中纸翼",
+                "answer": "crow",
+                "window": [
+                  36,
+                  42
+                ],
+                "zones": [
+                  "crow"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crow_wave_2"
+                  },
+                  "timeout": {
+                    "next": "crow_wave_2",
+                    "damage": 1
+                  },
+                  "crow": {
+                    "next": "lamp_wave_3",
+                    "points": 100,
+                    "purified": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "lamp_wave_3": {
+                "take": "tower_crow_pass_2",
+                "prompt": "第3阵　阿萤不在，先射亮经卷旁的灯",
+                "answer": "lamp",
+                "window": [
+                  12,
+                  48
+                ],
+                "zones": [
+                  "lamp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "lamp_wave_3"
+                  },
+                  "timeout": {
+                    "next": "lamp_wave_3",
+                    "damage": 1
+                  },
+                  "lamp": {
+                    "next": "crow_wave_3",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "crow_lamp_lit"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": false
+              },
+              "crow_wave_3": {
+                "take": "tower_crow_pass_2",
+                "prompt": "第3阵　墨鸦现形　·　击中纸翼",
+                "answer": "crow",
+                "window": [
+                  36,
+                  42
+                ],
+                "zones": [
+                  "crow"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crow_wave_3"
+                  },
+                  "timeout": {
+                    "next": "crow_wave_3",
+                    "damage": 1
+                  },
+                  "crow": {
+                    "next": "lamp_wave_4",
+                    "points": 100,
+                    "purified": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "lamp_wave_4": {
+                "take": "tower_crow_pass_3",
+                "prompt": "第4阵　阿萤不在，先射亮经卷旁的灯",
+                "answer": "lamp",
+                "window": [
+                  12,
+                  48
+                ],
+                "zones": [
+                  "lamp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "lamp_wave_4"
+                  },
+                  "timeout": {
+                    "next": "lamp_wave_4",
+                    "damage": 1
+                  },
+                  "lamp": {
+                    "next": "crow_wave_4",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "crow_lamp_lit"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": false
+              },
+              "crow_wave_4": {
+                "take": "tower_crow_pass_3",
+                "prompt": "第4阵　墨鸦现形　·　击中纸翼",
+                "answer": "crow",
+                "window": [
+                  36,
+                  42
+                ],
+                "zones": [
+                  "crow"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crow_wave_4"
+                  },
+                  "timeout": {
+                    "next": "crow_wave_4",
+                    "damage": 1
+                  },
+                  "crow": {
+                    "next": "@complete",
+                    "points": 100,
+                    "purified": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              }
+            }
+          },
+          "music": "tower_battle"
+        },
+        {
+          "id": "guard_the_commander",
+          "type": "trial",
+          "trial": {
+            "first": "shot",
+            "steps": {
+              "shot": {
+                "take": "flock",
+                "prompt": "替裴照击散墨鸦",
+                "answer": "crow",
+                "window": [
+                  24,
+                  48
+                ],
+                "zones": [
+                  "commander",
+                  "crow"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "@complete",
+                    "response": "flock_escape",
+                    "points": 0
+                  },
+                  "timeout": {
+                    "next": "@complete",
+                    "response": "flock_escape",
+                    "points": 0
+                  },
+                  "crow": {
+                    "next": "@complete",
+                    "response": "flock_scatter",
+                    "points": 1000
+                  },
+                  "commander": {
+                    "next": "@complete",
+                    "response": "flock_escape",
+                    "points": 0
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "story_shot": true
+              }
+            }
+          },
+          "music": "tower_battle"
+        },
+        {
+          "id": "fallen_quill",
+          "type": "film",
+          "takes": [
+            {
+              "id": "falling_quill"
+            }
+          ],
+          "music": "pagoda"
+        },
+        {
+          "id": "wounded_commander",
+          "type": "film",
+          "takes": [
+            {
+              "id": "peizhao_rest_speaking",
+              "subtitle": "裴照　“我在这里守着，你去把她带回来。”",
+              "voice": "peizhao/rest"
+            },
+            {
+              "id": "tower_pillar"
+            },
+            {
+              "id": "commander_bandage"
+            },
+            {
+              "id": "tower_vigil"
+            }
+          ],
+          "music": "pagoda"
+        },
+        {
+          "id": "stone_cubs",
+          "type": "trial",
+          "trial": {
+            "first": "cub",
+            "steps": {
+              "cub": {
+                "take": "stone_cub",
+                "prompt": "第1阵　石狮跃起时，瞄准发亮的裂缝",
+                "answer": "crack",
+                "window": [
+                  32,
+                  48
+                ],
+                "zones": [
+                  "crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "cub"
+                  },
+                  "timeout": {
+                    "next": "cub",
+                    "damage": 1
+                  },
+                  "crack": {
+                    "next": "cub_wave_2",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "stone_cub_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "cub_wave_2": {
+                "take": "stone_cub_pass_1",
+                "prompt": "第2阵　石狮跃起时，瞄准发亮的裂缝",
+                "answer": "crack",
+                "window": [
+                  32,
+                  48
+                ],
+                "zones": [
+                  "crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "cub_wave_2"
+                  },
+                  "timeout": {
+                    "next": "cub_wave_2",
+                    "damage": 1
+                  },
+                  "crack": {
+                    "next": "cub_wave_3",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "stone_cub_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "cub_wave_3": {
+                "take": "stone_cub_pass_2",
+                "prompt": "第3阵　石狮跃起时，瞄准发亮的裂缝",
+                "answer": "crack",
+                "window": [
+                  32,
+                  48
+                ],
+                "zones": [
+                  "crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "cub_wave_3"
+                  },
+                  "timeout": {
+                    "next": "cub_wave_3",
+                    "damage": 1
+                  },
+                  "crack": {
+                    "next": "cub_wave_4",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "stone_cub_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "cub_wave_4": {
+                "take": "stone_cub_pass_3",
+                "prompt": "第4阵　石狮跃起时，瞄准发亮的裂缝",
+                "answer": "crack",
+                "window": [
+                  32,
+                  48
+                ],
+                "zones": [
+                  "crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "cub_wave_4"
+                  },
+                  "timeout": {
+                    "next": "cub_wave_4",
+                    "damage": 1
+                  },
+                  "crack": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "stone_cub_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              }
+            }
+          },
+          "music": "tower_battle"
+        },
+        {
+          "id": "stone_guardian",
+          "type": "trial",
+          "trial": {
+            "first": "left",
+            "steps": {
+              "left": {
+                "take": "guardian",
+                "prompt": "第1阵　击中左前爪上的金色裂缝",
+                "answer": "left_crack",
+                "window": [
+                  26,
+                  44
+                ],
+                "zones": [
+                  "left_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "left"
+                  },
+                  "timeout": {
+                    "next": "left",
+                    "damage": 1
+                  },
+                  "left_crack": {
+                    "next": "right",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "guardian_reacts"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "zone_windows": {
+                  "left_crack": [
+                    0,
+                    73
+                  ]
+                },
+                "strength": 2,
+                "projectile": false
+              },
+              "right": {
+                "take": "guardian",
+                "prompt": "第1阵　击中另一侧的裂缝",
+                "answer": "right_crack",
+                "window": [
+                  36,
+                  41
+                ],
+                "zones": [
+                  "right_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "right"
+                  },
+                  "timeout": {
+                    "next": "right",
+                    "damage": 1
+                  },
+                  "right_crack": {
+                    "next": "pearl",
+                    "points": 100,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "zone_windows": {
+                  "right_crack": [
+                    0,
+                    73
+                  ]
+                },
+                "strength": 2,
+                "projectile": false
+              },
+              "pearl": {
+                "take": "guardian",
+                "prompt": "第1阵　石狮开口了　·　击中灯珠",
+                "answer": "pearl",
+                "window": [
+                  46,
+                  39
+                ],
+                "zones": [
+                  "pearl"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "pearl"
+                  },
+                  "timeout": {
+                    "next": "pearl",
+                    "damage": 1
+                  },
+                  "pearl": {
+                    "next": "left_wave_2",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "left_wave_2": {
+                "take": "guardian_pass_1",
+                "prompt": "第2阵　击中左前爪上的金色裂缝",
+                "answer": "left_crack",
+                "window": [
+                  26,
+                  44
+                ],
+                "zones": [
+                  "left_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "left_wave_2"
+                  },
+                  "timeout": {
+                    "next": "left_wave_2",
+                    "damage": 1
+                  },
+                  "left_crack": {
+                    "next": "right_wave_2",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "guardian_reacts"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "right_wave_2": {
+                "take": "guardian_pass_1",
+                "prompt": "第2阵　击中另一侧的裂缝",
+                "answer": "right_crack",
+                "window": [
+                  36,
+                  41
+                ],
+                "zones": [
+                  "right_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "right_wave_2"
+                  },
+                  "timeout": {
+                    "next": "right_wave_2",
+                    "damage": 1
+                  },
+                  "right_crack": {
+                    "next": "pearl_wave_2",
+                    "points": 100,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "pearl_wave_2": {
+                "take": "guardian_pass_1",
+                "prompt": "第2阵　石狮开口了　·　击中灯珠",
+                "answer": "pearl",
+                "window": [
+                  46,
+                  39
+                ],
+                "zones": [
+                  "pearl"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "pearl_wave_2"
+                  },
+                  "timeout": {
+                    "next": "pearl_wave_2",
+                    "damage": 1
+                  },
+                  "pearl": {
+                    "next": "left_wave_3",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "left_wave_3": {
+                "take": "guardian_pass_2",
+                "prompt": "第3阵　击中左前爪上的金色裂缝",
+                "answer": "left_crack",
+                "window": [
+                  26,
+                  44
+                ],
+                "zones": [
+                  "left_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "left_wave_3"
+                  },
+                  "timeout": {
+                    "next": "left_wave_3",
+                    "damage": 1
+                  },
+                  "left_crack": {
+                    "next": "right_wave_3",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "guardian_reacts"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "right_wave_3": {
+                "take": "guardian_pass_2",
+                "prompt": "第3阵　击中另一侧的裂缝",
+                "answer": "right_crack",
+                "window": [
+                  36,
+                  41
+                ],
+                "zones": [
+                  "right_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "right_wave_3"
+                  },
+                  "timeout": {
+                    "next": "right_wave_3",
+                    "damage": 1
+                  },
+                  "right_crack": {
+                    "next": "pearl_wave_3",
+                    "points": 100,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "pearl_wave_3": {
+                "take": "guardian_pass_2",
+                "prompt": "第3阵　石狮开口了　·　击中灯珠",
+                "answer": "pearl",
+                "window": [
+                  46,
+                  39
+                ],
+                "zones": [
+                  "pearl"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "pearl_wave_3"
+                  },
+                  "timeout": {
+                    "next": "pearl_wave_3",
+                    "damage": 1
+                  },
+                  "pearl": {
+                    "next": "left_wave_4",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "left_wave_4": {
+                "take": "guardian_pass_2",
+                "prompt": "第4阵　击中左前爪上的金色裂缝",
+                "answer": "left_crack",
+                "window": [
+                  26,
+                  44
+                ],
+                "zones": [
+                  "left_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "left_wave_4"
+                  },
+                  "timeout": {
+                    "next": "left_wave_4",
+                    "damage": 1
+                  },
+                  "left_crack": {
+                    "next": "right_wave_4",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "guardian_reacts"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "right_wave_4": {
+                "take": "guardian_pass_2",
+                "prompt": "第4阵　击中另一侧的裂缝",
+                "answer": "right_crack",
+                "window": [
+                  36,
+                  41
+                ],
+                "zones": [
+                  "right_crack"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "right_wave_4"
+                  },
+                  "timeout": {
+                    "next": "right_wave_4",
+                    "damage": 1
+                  },
+                  "right_crack": {
+                    "next": "pearl_wave_4",
+                    "points": 100,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "pearl_wave_4": {
+                "take": "guardian_pass_3",
+                "prompt": "第4阵　石狮开口了　·　击中灯珠",
+                "answer": "pearl",
+                "window": [
+                  46,
+                  39
+                ],
+                "zones": [
+                  "pearl"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "pearl_wave_4"
+                  },
+                  "timeout": {
+                    "next": "pearl_wave_4",
+                    "damage": 1
+                  },
+                  "pearl": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              }
+            }
+          },
+          "music": "guardian_battle"
+        },
+        {
+          "id": "chains_to_the_palace",
+          "type": "film",
+          "takes": [
+            {
+              "id": "lion_statue"
+            },
+            {
+              "id": "stone_hush"
+            },
+            {
+              "id": "tower"
+            },
+            {
+              "id": "tower_roof_view"
+            },
+            {
+              "id": "tower_chain",
+              "subtitle": "沈砚　“阿萤！灯链通向宫城。”",
+              "voice": "shenyan/tower"
+            },
+            {
+              "id": "tower_departure"
+            },
+            {
+              "id": "chain_over_tiles"
+            }
+          ],
+          "music": "pagoda"
+        }
+      ]
+    }
+  ]
+}

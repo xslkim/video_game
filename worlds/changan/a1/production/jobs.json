@@ -1,0 +1,26 @@
+{
+  "a1_civilian_crossing_01": {
+    "first": "street", "last": "street", "length": 99, "seed": 71021,
+    "prompt": "A young adult lantern seller in plain dusty blue Tang work robes steps from behind the left stall and hurries through the middle distance carrying a bamboo tray of unlit paper lanterns. Both hands hold the tray. Ordinary face and natural clothing, lit by the stalls. For a moment she is clearly silhouetted at center-left, then moves behind the stall. No magic. Preserve all other people and the camera."
+  },
+  "a1_swallow_01": {
+    "first": "street", "last": "street", "length": 99, "seed": 71022,
+    "prompt": "A single luminous folded paper swallow glides from the left awning towards the middle of the avenue. Small, distinct ivory origami body with red painted wings, only 8 percent of the image width. It hovers near the left-center shopfront, dips in warning, swoops towards the camera and exits. Fluttering wings, paper rustle, authentic light on nearby cloth, all other people stationary."
+  },
+  "a1_rabbit_01": {
+    "first": "street", "last": "street", "length": 99, "seed": 71023,
+    "prompt": "A single little ivory rabbit lantern comes to life near the right shop baskets, hops onto the open cobbles, and stops in profile at lower right center. Distinct long illuminated paper ears and warm wick inside a bamboo frame, about the size of a real hare at this distance. It gathers itself and darts back behind the baskets. Small warm reflections on stone. All people stationary."
+  },
+  "a1_lotus_01": {
+    "first": "street", "last": "street", "length": 99, "seed": 71024,
+    "prompt": "A single luminous pink lotus lantern rises from the right stall. Layered silk pink petals rotate and open around a glowing golden wick near the middle right of the street, then it rises out of view. The lantern fits in the width of one hanging lamp and remains easy to distinguish from the dark background. Pink reflections on the wet cobbles. All people stationary."
+  },
+  "a1_moth_01": {
+    "first": "street", "last": "street", "length": 99, "seed": 71025,
+    "prompt": "A single turquoise silk moth lantern with two luminous paper wings flutters out from the high left eave and hovers at upper center-left against the dark roof. A clearly defined silhouette one hanging lamp wide. It folds its wings, opens them sharply and flies into the roof shadows. Delicate cyan glints, all people stationary."
+  },
+  "a1_fish_01": {
+    "first": "street", "last": "street", "length": 99, "seed": 71026,
+    "prompt": "A single small golden carp-shaped lantern swims through the air over the center of the roadway in the middle distance. Its translucent paper scales catch light as its red tail flicks. It pauses broadside at center, flicks its tail twice in warning, and slips behind the right stall. Warm reflected light, passersby stay in place."
+  }
+}

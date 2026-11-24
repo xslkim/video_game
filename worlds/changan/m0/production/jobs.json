@@ -1,0 +1,58 @@
+{
+  "lantern_take01": {
+    "first": "lantern", "last": "lantern", "length": 73, "seed": 23411,
+    "prompt": "The little hovering amber paper lantern at left is the only spirit. Its glowing eyes remain visible. Over the first two seconds it drifts sideways about one lantern width toward the open road, sways, and gathers amber sparks, then gives a brief bright magical pulse around its own body near the end, settling back into the same ready position. The street and all ordinary lanterns remain in place. Keep the spirit's apparent size and height fixed and show the movement clearly from this wide framing."
+  },
+  "lantern_to_wisp_take01": {
+    "first": "lantern", "last": "wisp", "length": 56, "seed": 23391,
+    "prompt": "The amber lantern spirit hovering at the left gently breaks up into a handful of warm embers during the first second, revealing the original stall. Alongside the right eaves a small cyan ghost flame emerges near the end, growing in place from a few cool wisps and ending as the same readable compact flame of the end reference. The crowd is distant, the street depth and all ordinary lanterns unchanged. No camera motion or sudden change in lighting."
+  },
+  "relay_lantern_early": {
+    "first": "lantern", "last": "wisp", "guide": ["street", 26], "length": 56, "seed": 23520,
+    "prompt": "The little amber paper spirit on the left disperses from the exact position in the opening anchor into a soft shower of amber embers, first bright then quickly gone. The neutral market holds briefly. Only in the final half second, a single cyan ghost flame fades in by the right stall exactly as in the final anchor. The camera is locked. A clearly separate two-beat transition, orange purification followed by blue apparition."
+  },
+  "relay_lantern_mid": {
+    "first": "lantern_mid_hit", "last": "wisp", "guide": ["street", 26], "length": 56, "seed": 23521,
+    "prompt": "The little amber paper spirit on the left disperses from the exact position in the opening anchor into a soft shower of amber embers, first bright then quickly gone. The neutral market holds briefly. Only in the final half second, a single cyan ghost flame fades in by the right stall exactly as in the final anchor. The camera is locked. A clearly separate two-beat transition, orange purification followed by blue apparition."
+  },
+  "relay_lantern_late": {
+    "first": "lantern_late_hit", "last": "wisp", "guide": ["street", 26], "length": 56, "seed": 23522,
+    "prompt": "The little amber paper spirit on the left disperses from the exact position in the opening anchor into a soft shower of amber embers, first bright then quickly gone. The neutral market holds briefly. Only in the final half second, a single cyan ghost flame fades in by the right stall exactly as in the final anchor. The camera is locked. A clearly separate two-beat transition, orange purification followed by blue apparition."
+  },
+  "wisp_take01": {
+    "first": "wisp", "last": "wisp", "guide": ["wisp_flight", 42], "length": 73, "seed": 23413,
+    "prompt": "The small cyan ghost flame by the right eaves stays in its location, pulsing brighter and gathering cold teal energy for about one and a half seconds. It then launches one discrete spherical blue-green fireball from right midground toward the camera. The moving ball is detached from the parent flame and visually separate from the warm lanterns. The ball passes through the center-right, comes nearer, grows brighter and briefly scatters into cool motes. Only one launch. Its source persists as the same compact flame by the right eaves. No camera motion. Leave the left side and distant crowd unchanged."
+  },
+  "wisp_interrupt_take01": {
+    "first": "wisp_flight", "last": "wisp", "length": 39, "seed": 23414,
+    "prompt": "The larger detached cyan fireball near center-right immediately ruptures into a few fading pale specks. The smaller parent flame by the right eaves gently flickers but stays intact. Show the larger fireball fully gone before the half-second mark, returning to the very same quiet ready composition. Camera and street locked."
+  },
+  "wisp_interrupt_early": {
+    "first": "fireball_early_hit", "last": "wisp", "length": 22, "seed": 23523,
+    "prompt": "The detached cyan ball is immediately intercepted. At its exact starting position it scatters into a brief spray of cool sparks which disappears. The cyan parent flame by the right stall stays in position, remains intact and quietly flickers. Preserve exactly the given street, illumination and camera."
+  },
+  "wisp_interrupt_late": {
+    "first": "fireball_late_hit", "last": "wisp", "length": 22, "seed": 23524,
+    "prompt": "The large detached cyan ball in the foreground is immediately intercepted. At its exact starting position it scatters into a brief spray of cool sparks which disappears. The cyan parent flame by the right stall stays in position, remains intact and quietly flickers. Preserve exactly the given street, illumination and camera."
+  },
+  "wisp_to_fox_take01": {
+    "first": "wisp", "last": "fox", "length": 56, "seed": 23415,
+    "prompt": "The cyan ghost flame at the right extinguishes in a brief little swirl of azure sparks during the opening second. The white fox-mask apparition from the end reference steps out into the open middle of the lane from behind a market pillar. Show the mask clearly in the latter part. Keep her natural human scale and deep teal Tang clothing, in the specific position and stance of the end reference. Distant townspeople turn naturally."
+  },
+  "relay_wisp_fox": {
+    "first": "wisp", "last": "fox", "guide": ["street", 22], "length": 56, "seed": 23526,
+    "prompt": "The ghost flame by the right stall scatters into small blue motes and is gone near the start. Then, only in the last third of the take, the fox-mask spirit in a deep teal Tang dress first becomes visible in the exact position seen in the last reference, appearing from pink specks in the open lane. She retains the same stance and scale as the final image. Preserve the locked camera, background festival people, lights and street. One subject at a time. No costume or face morphing."
+  },
+  "fox_take01": {
+    "first": "fox", "last": "fox", "length": 73, "seed": 23416,
+    "prompt": "The fox-mask spirit in deep teal Tang silk is ready in the middle of the lane. Keep her feet and location fixed, a clear white mask and full adult-size silhouette at the same modest scale. She shifts her weight, creates a soft magic glow in one raised hand and emits one brief pink-white magical pulse near the final third. She gently returns to her original pose. Minimal natural motion, street locked."
+  },
+  "fox_flinch_take01": {
+    "first": "fox", "last": "fox", "length": 39, "seed": 23417,
+    "prompt": "The fox-mask spirit in the middle reacts to a small golden magical flash on the white inanimate mask in the opening moment. She rocks half a step back, silk sleeves flutter, and settles into the same ready stance. She remains fully visible throughout. Magic disturbance only, no injury. End exactly in the ready position. No camera motion."
+  },
+  "fox_end_take01": {
+    "first": "fox", "last": "street", "length": 56, "seed": 23418,
+    "prompt": "The fox-mask spirit standing in the middle of the road gently turns into hundreds of warm paper-petal lights, drifting upward and vanishing, a peaceful magical purification. The figure is fully gone, leaving the empty lane and the ordinary Shangyuan lantern market seen in the final reference. The crowd is distant and returns to normal. Keep architecture, camera, and ordinary lanterns locked."
+  }
+}

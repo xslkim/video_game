@@ -99,6 +99,11 @@ void Receiver::process(std::string msg, const std::string &source, uint64_t now,
         deliver(RemoteAction::reload, {});
         return;
     }
+    if (msg == "SPECIAL") {
+        if (locked && now - lastAim <= 600)
+            deliver(RemoteAction::special, aim);
+        return;
+    }
     if (msg == "SHOT") {
         if (locked && now - lastAim <= 100)
             deliver(RemoteAction::shoot, aim);

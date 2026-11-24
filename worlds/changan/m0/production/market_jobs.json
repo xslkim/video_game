@@ -1,0 +1,149 @@
+{
+  "market_free": {
+    "first": "street",
+    "length": 124,
+    "seed": 917311,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang Dynasty night market, one uninterrupted wide shot, camera remains bolted to a tripod. The two full-length women in pink and sea-green robes on the left are already in motion at the opening. The pink-robed woman steps sideways briskly, reaches for her companion's sleeve, looks over her shoulder and draws her back toward the stall. Their bodies shift visibly and their long sleeves sweep outward. Across the road the man in dark blue walks past the red-robed shopper, who turns to look. A breeze lifts and drops the free hem of the cream canvas awning at far left; the tassels under the right eaves swing a beat later. Pedestrians farther away walk through the festival. Preserve the scale and positions of the buildings, the open central road and the warm amber exposure of the reference. Natural footsteps, fabric rustle, subdued indistinct market chatter. No music, text, UI, cuts, whip pans or zoom."
+  },
+  "market_anchored": {
+    "first": "street",
+    "last": "market_pose",
+    "length": 124,
+    "seed": 917311,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang Dynasty night market, one uninterrupted wide shot, camera remains bolted to a tripod. The two full-length women in pink and sea-green robes on the left are already in motion at the opening. The pink-robed woman steps sideways briskly, reaches for her companion's sleeve, looks over her shoulder and draws her back toward the stall. Their bodies shift visibly and their long sleeves sweep outward. Across the road the man in dark blue walks past the red-robed shopper, who turns to look. A breeze lifts and drops the free hem of the cream canvas awning at far left; the tassels under the right eaves swing a beat later. Pedestrians farther away walk through the festival. Preserve the scale and positions of the buildings, the open central road and the warm amber exposure of the reference. Natural footsteps, fabric rustle, subdued indistinct market chatter. No music, text, UI, cuts, whip pans or zoom."
+  },
+  "market_cycle": {
+    "first": "street",
+    "last": "street",
+    "guide": [
+      "market_pose",
+      56
+    ],
+    "length": 124,
+    "seed": 917313,
+    "prefix": "",
+    "prompt": "Fixed wide tripod view of an active real Tang festival. From the opening both women by the left awning move, the pink woman steps left and reaches toward her green companion, who looks back. Their sleeves and hems swing. They chat, turn to watch the festival and take a small step back toward their place while continuing to gesture. Visible gentle repeating movement in the cloth awning and right lantern tassels. Pedestrians by the right stall turn and interact. One continuous encounter in real time with a stationary camera. Footsteps and crowd murmurs. No music, words on screen, cuts or camera moves."
+  },
+  "market_short": {
+    "length": 73,
+    "first": "street",
+    "seed": 917319,
+    "prompt": "Fixed wide tripod view of an active real Tang festival. From the opening both women by the left awning move, the pink woman steps left and reaches toward her green companion, who looks back. Their sleeves and hems swing. They chat, turn to watch the festival and take a small step back toward their place while continuing to gesture. Visible gentle repeating movement in the cloth awning and right lantern tassels. Pedestrians by the right stall turn and interact. One continuous encounter in real time with a stationary camera. Footsteps and crowd murmurs. No music, words on screen, cuts or camera moves.",
+    "guide": [
+      "market_pose",
+      33
+    ],
+    "last": "street",
+    "prefix": ""
+  },
+  "market_lantern_return": {
+    "first": "lantern_bg_43",
+    "last": "street",
+    "length": 39,
+    "seed": 90701,
+    "prefix": "",
+    "prompt": "Photoreal live-action at the Tang night market. Locked tripod wide shot, stable framing and exposure. The pink-robed woman lets the sleeve go and takes a small step back with her friend. They keep talking. The cream awning sways slowly, people at the right stall walk past. Feet stay in contact with the ground and long cloth has weight. Real festival ambience, no music or text."
+  },
+  "market_relay_2": {
+    "first": "lantern_bg_2",
+    "last": "market_pose",
+    "length": 56,
+    "seed": 90704,
+    "prefix": "",
+    "prompt": "Photoreal live-action at the Tang night market. Locked tripod wide shot, stable framing and exposure. The women continue the motion already in progress, turning toward one another and steadying themselves. Their trailing sleeves continue to move. A light wind ripples the canopy and the right shopper is moving past his companion. Feet stay in contact with the ground and long cloth has weight. Real festival ambience, no music or text."
+  },
+  "market_relay_21": {
+    "first": "lantern_bg_21",
+    "last": "market_pose",
+    "length": 56,
+    "seed": 90723,
+    "prefix": "",
+    "prompt": "Photoreal live-action at the Tang night market. Locked tripod wide shot, stable framing and exposure. The women continue the motion already in progress, turning toward one another and steadying themselves. Their trailing sleeves continue to move. A light wind ripples the canopy and the right shopper is moving past his companion. Feet stay in contact with the ground and long cloth has weight. Real festival ambience, no music or text."
+  },
+  "market_relay_40": {
+    "first": "lantern_bg_40",
+    "last": "market_pose",
+    "length": 56,
+    "seed": 90742,
+    "prefix": "",
+    "prompt": "Photoreal live-action at the Tang night market. Locked tripod wide shot, stable framing and exposure. The women continue the motion already in progress, turning toward one another and steadying themselves. Their trailing sleeves continue to move. A light wind ripples the canopy and the right shopper is moving past his companion. Feet stay in contact with the ground and long cloth has weight. Real festival ambience, no music or text."
+  },
+  "market_wisp": {
+    "first": "market_pose",
+    "last": "market_pose",
+    "length": 90,
+    "seed": 90749,
+    "prefix": "",
+    "prompt": "Photoreal live-action at the Tang night market. Locked tripod wide shot, stable framing and exposure. The woman in pink lets her hanging sleeve flutter, lifts her arm to point and takes one step beside her companion; they turn to look up and move back into place. At the right stall a customer in red turns to the shopper in blue. The awning lifts and the tassels swing. People are moving from the first frame. Feet stay in contact with the ground and long cloth has weight. Real festival ambience, no music or text.",
+    "guide": [
+      "walking_pose",
+      50
+    ]
+  },
+  "market_fox": {
+    "first": "street",
+    "last": "street",
+    "length": 73,
+    "seed": 90751,
+    "prefix": "",
+    "prompt": "Photoreal live-action at the Tang night market. Locked tripod wide shot, stable framing and exposure. Keep the open middle of the lane clear. At left the women watch and gesture with their sleeves. A lively reaction at the right shop: the blue-robed man turns, lifts a hand and takes a step, his companion in red shifts weight and watches. The left cloth awning ripples, people farther down the lane walk and sway. Feet stay in contact with the ground and long cloth has weight. Real festival ambience, no music or text."
+  },
+  "wisp_live_charge": {
+    "first": "wisp",
+    "last": "wisp",
+    "length": 22,
+    "seed": 90760,
+    "prefix": "",
+    "prompt": "Fixed tripod wide shot. The small compact turquoise ghost flame already beside the right stall flickers and curls actively, breathes brighter and gathers itself without detaching or launching. Constant size and position, clearly outlined blue edges. The night market keeps its warm lighting. Soft magic sizzle and quiet market murmur, continuous shot, no music or text."
+  },
+  "market_intercept_early": {
+    "first": "entry_intercept_early",
+    "last": "market_pose",
+    "length": 22,
+    "seed": 91043,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang night festival. The camera remains firmly mounted to its tripod, static architecture. The two companions continue watching the street and talking, the raised hand drops. The festival remains continuously alive. Same lighting and scale, mild breeze, quiet market sound. No titles or music."
+  },
+  "market_intercept_middle": {
+    "first": "entry_intercept_middle",
+    "last": "market_pose",
+    "length": 22,
+    "seed": 91055,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang night festival. The camera remains firmly mounted to its tripod, static architecture. The woman in pink eases one step back towards the other woman, both keep moving. The festival remains continuously alive. Same lighting and scale, mild breeze, quiet market sound. No titles or music."
+  },
+  "market_intercept_late": {
+    "first": "entry_intercept_late",
+    "last": "market_pose",
+    "length": 22,
+    "seed": 91068,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang night festival. The camera remains firmly mounted to its tripod, static architecture. Long sleeves sway as the two women continue their conversation. The festival remains continuously alive. Same lighting and scale, mild breeze, quiet market sound. No titles or music."
+  },
+  "market_relay_fox": {
+    "first": "entry_relay_fox",
+    "last": "street",
+    "length": 56,
+    "seed": 91012,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang night festival. The camera remains firmly mounted to its tripod, static architecture. The two companions step back to stand beside the stall, and the right shopper turns to watch them. The festival remains continuously alive. Same lighting and scale, mild breeze, quiet market sound. No titles or music."
+  },
+  "market_flinch": {
+    "first": "entry_flinch",
+    "last": "street",
+    "length": 22,
+    "seed": 91009,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang night festival. The camera remains firmly mounted to its tripod, static architecture. The right-side shopper shifts weight and turns his head, the women by the left stall continue their gesture. The festival remains continuously alive. Same lighting and scale, mild breeze, quiet market sound. No titles or music."
+  },
+  "market_celebration": {
+    "first": "entry_celebration",
+    "last": "walking_pose",
+    "length": 56,
+    "seed": 91013,
+    "prefix": "",
+    "prompt": "Photoreal live-action Tang night festival. The camera remains firmly mounted to its tripod, static architecture. The women set off towards the left stall, one lifts her long sleeve, the right hand crowd starts walking down the street. A breeze catches the awning and tassels. The festival remains continuously alive. Same lighting and scale, mild breeze, quiet market sound. No titles or music."
+  }
+}

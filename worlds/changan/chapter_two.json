@@ -1,0 +1,1227 @@
+{
+  "title": "长安灯妖录",
+  "chapters": [
+    {
+      "id": "west_market",
+      "heading": "第二章　西市，幻术坊",
+      "stages": [
+        {
+          "id": "west_market_opens",
+          "type": "film",
+          "takes": [
+            {
+              "id": "market",
+              "subtitle": "裴照　“戏台上那些线，方才是自己动的。”",
+              "voice": "peizhao/west"
+            },
+            {
+              "id": "market_drummer"
+            },
+            {
+              "id": "market_silk"
+            },
+            {
+              "id": "paper_wakes"
+            },
+            {
+              "id": "screen_silhouette"
+            }
+          ],
+          "music": "illusion_market"
+        },
+        {
+          "id": "puppet_stage",
+          "type": "trial",
+          "trial": {
+            "first": "crane",
+            "steps": {
+              "crane": {
+                "take": "paper_cranes",
+                "prompt": "第1阵　击散从纸堆里飞出的纸鹤",
+                "answer": "crane",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "crane"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crane"
+                  },
+                  "timeout": {
+                    "next": "crane",
+                    "damage": 1
+                  },
+                  "crane": {
+                    "next": "leather",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "crane_falls"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "leather": {
+                "take": "shadow_duel",
+                "prompt": "第1阵　等盾面移开，瞄准皮影头部的铜钉",
+                "answer": "pin",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "pin",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "leather"
+                  },
+                  "timeout": {
+                    "next": "leather",
+                    "damage": 1
+                  },
+                  "pin": {
+                    "next": "parasol",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "leather_bows"
+                  },
+                  "shield": {
+                    "next": "leather",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "pin": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "parasol": {
+                "take": "umbrella_turn",
+                "prompt": "第1阵　避开伞面，等伞骨收拢",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol"
+                  },
+                  "timeout": {
+                    "next": "parasol",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "crane_wave_2",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "crane_wave_2": {
+                "take": "paper_cranes_pass_1",
+                "prompt": "第2阵　击散从纸堆里飞出的纸鹤",
+                "answer": "crane",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "crane"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crane_wave_2"
+                  },
+                  "timeout": {
+                    "next": "crane_wave_2",
+                    "damage": 1
+                  },
+                  "crane": {
+                    "next": "leather_wave_2",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "crane_falls"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "leather_wave_2": {
+                "take": "shadow_duel_pass_1",
+                "prompt": "第2阵　等盾面移开，瞄准皮影头部的铜钉",
+                "answer": "pin",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "pin",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "leather_wave_2"
+                  },
+                  "timeout": {
+                    "next": "leather_wave_2",
+                    "damage": 1
+                  },
+                  "pin": {
+                    "next": "parasol_wave_2",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "leather_bows"
+                  },
+                  "shield": {
+                    "next": "leather_wave_2",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "pin": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "parasol_wave_2": {
+                "take": "umbrella_turn_pass_1",
+                "prompt": "第2阵　避开伞面，等伞骨收拢",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol_wave_2"
+                  },
+                  "timeout": {
+                    "next": "parasol_wave_2",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "crane_wave_3",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol_wave_2",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "crane_wave_3": {
+                "take": "paper_cranes_pass_2",
+                "prompt": "第3阵　击散从纸堆里飞出的纸鹤",
+                "answer": "crane",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "crane"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crane_wave_3"
+                  },
+                  "timeout": {
+                    "next": "crane_wave_3",
+                    "damage": 1
+                  },
+                  "crane": {
+                    "next": "leather_wave_3",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "crane_falls"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "leather_wave_3": {
+                "take": "shadow_duel_pass_2",
+                "prompt": "第3阵　等盾面移开，瞄准皮影头部的铜钉",
+                "answer": "pin",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "pin",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "leather_wave_3"
+                  },
+                  "timeout": {
+                    "next": "leather_wave_3",
+                    "damage": 1
+                  },
+                  "pin": {
+                    "next": "parasol_wave_3",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "leather_bows"
+                  },
+                  "shield": {
+                    "next": "leather_wave_3",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "pin": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "parasol_wave_3": {
+                "take": "umbrella_turn_pass_2",
+                "prompt": "第3阵　避开伞面，等伞骨收拢",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol_wave_3"
+                  },
+                  "timeout": {
+                    "next": "parasol_wave_3",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "crane_wave_4",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol_wave_3",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "crane_wave_4": {
+                "take": "paper_cranes_pass_3",
+                "prompt": "第4阵　击散从纸堆里飞出的纸鹤",
+                "answer": "crane",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "crane"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "crane_wave_4"
+                  },
+                  "timeout": {
+                    "next": "crane_wave_4",
+                    "damage": 1
+                  },
+                  "crane": {
+                    "next": "leather_wave_4",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "crane_falls"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "leather_wave_4": {
+                "take": "shadow_duel_pass_3",
+                "prompt": "第4阵　等盾面移开，瞄准皮影头部的铜钉",
+                "answer": "pin",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "pin",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "leather_wave_4"
+                  },
+                  "timeout": {
+                    "next": "leather_wave_4",
+                    "damage": 1
+                  },
+                  "pin": {
+                    "next": "parasol_wave_4",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "leather_bows"
+                  },
+                  "shield": {
+                    "next": "leather_wave_4",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "pin": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "parasol_wave_4": {
+                "take": "umbrella_turn_pass_3",
+                "prompt": "第4阵　避开伞面，等伞骨收拢",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol_wave_4"
+                  },
+                  "timeout": {
+                    "next": "parasol_wave_4",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol_wave_4",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              }
+            }
+          },
+          "music": "market_battle"
+        },
+        {
+          "id": "west_possessions",
+          "type": "trial",
+          "trial": {
+            "first": "person_1",
+            "steps": {
+              "person_1": {
+                "take": "possession",
+                "prompt": "只取灯芯，避开百姓",
+                "answer": "wick",
+                "window": [
+                  30,
+                  42
+                ],
+                "zones": [
+                  "civilian",
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "person_1"
+                  },
+                  "timeout": {
+                    "next": "person_1",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "person_2",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "citizen_freed"
+                  },
+                  "civilian": {
+                    "next": "person_2",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false
+              },
+              "person_2": {
+                "take": "west_weaver",
+                "prompt": "只取灯芯，避开百姓",
+                "answer": "wick",
+                "window": [
+                  30,
+                  42
+                ],
+                "zones": [
+                  "civilian",
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "person_2"
+                  },
+                  "timeout": {
+                    "next": "person_2",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "person_3",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "weaver_freed"
+                  },
+                  "civilian": {
+                    "next": "person_3",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false
+              },
+              "person_3": {
+                "take": "west_musician",
+                "prompt": "只取灯芯，避开百姓",
+                "answer": "wick",
+                "window": [
+                  30,
+                  42
+                ],
+                "zones": [
+                  "civilian",
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "person_3"
+                  },
+                  "timeout": {
+                    "next": "person_3",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "@complete",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "musician_freed"
+                  },
+                  "civilian": {
+                    "next": "@complete",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false
+              }
+            },
+            "rescue_bonus": 1000
+          },
+          "music": "market_battle"
+        },
+        {
+          "id": "mirror_gallery_entry",
+          "type": "film",
+          "takes": [
+            {
+              "id": "mirror_hall_entry"
+            },
+            {
+              "id": "mirror_reflection"
+            }
+          ],
+          "music": "illusion_market"
+        },
+        {
+          "id": "hall_of_mirrors",
+          "type": "trial",
+          "trial": {
+            "first": "three",
+            "steps": {
+              "three": {
+                "take": "mirrors",
+                "prompt": "萤火伴着真的阿萤　·　击碎两面假镜",
+                "answer": "left",
+                "window": [
+                  24,
+                  48
+                ],
+                "zones": [
+                  "middle",
+                  "left",
+                  "right"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "timeout": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "left": {
+                    "next": "left_broken",
+                    "points": 500
+                  },
+                  "middle": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "right": {
+                    "next": "right_broken",
+                    "points": 500
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "story_shot": true
+              },
+              "left_broken": {
+                "take": "mirror_left_gone",
+                "prompt": "萤火伴着真的阿萤　·　击碎两面假镜",
+                "answer": "right",
+                "window": [
+                  24,
+                  48
+                ],
+                "zones": [
+                  "middle",
+                  "right"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "timeout": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "right": {
+                    "next": "@complete",
+                    "points": 500,
+                    "response": "true_mirror"
+                  },
+                  "middle": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "story_shot": true
+              },
+              "right_broken": {
+                "take": "mirror_right_gone",
+                "prompt": "萤火伴着真的阿萤　·　击碎两面假镜",
+                "answer": "left",
+                "window": [
+                  24,
+                  48
+                ],
+                "zones": [
+                  "middle",
+                  "left"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "timeout": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  },
+                  "left": {
+                    "next": "@complete",
+                    "points": 500,
+                    "response": "true_mirror"
+                  },
+                  "middle": {
+                    "next": "@complete",
+                    "response": "west_prophecy"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "story_shot": true
+              }
+            }
+          },
+          "music": "market_battle"
+        },
+        {
+          "id": "thousand_faces",
+          "type": "trial",
+          "trial": {
+            "first": "string",
+            "steps": {
+              "string": {
+                "take": "puppet_boss",
+                "prompt": "第1阵　先断操偶丝线",
+                "answer": "thread",
+                "window": [
+                  18,
+                  41
+                ],
+                "zones": [
+                  "thread"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "string"
+                  },
+                  "timeout": {
+                    "next": "string",
+                    "damage": 1
+                  },
+                  "thread": {
+                    "next": "mask",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "threads_loose"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "mask": {
+                "take": "puppet_boss",
+                "prompt": "第1阵　趁换面时击中面具",
+                "answer": "mask",
+                "window": [
+                  45,
+                  39
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "mask"
+                  },
+                  "timeout": {
+                    "next": "mask",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "heart",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "mask_cracks"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "heart": {
+                "take": "puppet_boss",
+                "prompt": "第1阵　击中胸前的机关",
+                "answer": "heart",
+                "window": [
+                  60,
+                  35
+                ],
+                "zones": [
+                  "heart"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "heart"
+                  },
+                  "timeout": {
+                    "next": "heart",
+                    "damage": 1
+                  },
+                  "heart": {
+                    "next": "string_wave_2",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              },
+              "string_wave_2": {
+                "take": "puppet_boss_pass_1",
+                "prompt": "第2阵　先断操偶丝线",
+                "answer": "thread",
+                "window": [
+                  18,
+                  41
+                ],
+                "zones": [
+                  "thread"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "string_wave_2"
+                  },
+                  "timeout": {
+                    "next": "string_wave_2",
+                    "damage": 1
+                  },
+                  "thread": {
+                    "next": "mask_wave_2",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "threads_loose"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "mask_wave_2": {
+                "take": "puppet_boss_pass_1",
+                "prompt": "第2阵　趁换面时击中面具",
+                "answer": "mask",
+                "window": [
+                  45,
+                  39
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "mask_wave_2"
+                  },
+                  "timeout": {
+                    "next": "mask_wave_2",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "heart_wave_2",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "mask_cracks"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "heart_wave_2": {
+                "take": "puppet_boss_pass_1",
+                "prompt": "第2阵　击中胸前的机关",
+                "answer": "heart",
+                "window": [
+                  60,
+                  35
+                ],
+                "zones": [
+                  "heart"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "heart_wave_2"
+                  },
+                  "timeout": {
+                    "next": "heart_wave_2",
+                    "damage": 1
+                  },
+                  "heart": {
+                    "next": "string_wave_3",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              },
+              "string_wave_3": {
+                "take": "puppet_boss_pass_2",
+                "prompt": "第3阵　先断操偶丝线",
+                "answer": "thread",
+                "window": [
+                  18,
+                  41
+                ],
+                "zones": [
+                  "thread"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "string_wave_3"
+                  },
+                  "timeout": {
+                    "next": "string_wave_3",
+                    "damage": 1
+                  },
+                  "thread": {
+                    "next": "mask_wave_3",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "threads_loose"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "mask_wave_3": {
+                "take": "puppet_boss_pass_2",
+                "prompt": "第3阵　趁换面时击中面具",
+                "answer": "mask",
+                "window": [
+                  45,
+                  39
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "mask_wave_3"
+                  },
+                  "timeout": {
+                    "next": "mask_wave_3",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "heart_wave_3",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "mask_cracks"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "heart_wave_3": {
+                "take": "puppet_boss_pass_2",
+                "prompt": "第3阵　击中胸前的机关",
+                "answer": "heart",
+                "window": [
+                  60,
+                  35
+                ],
+                "zones": [
+                  "heart"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "heart_wave_3"
+                  },
+                  "timeout": {
+                    "next": "heart_wave_3",
+                    "damage": 1
+                  },
+                  "heart": {
+                    "next": "string_wave_4",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              },
+              "string_wave_4": {
+                "take": "puppet_boss_pass_3",
+                "prompt": "第4阵　先断操偶丝线",
+                "answer": "thread",
+                "window": [
+                  18,
+                  41
+                ],
+                "zones": [
+                  "thread"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "string_wave_4"
+                  },
+                  "timeout": {
+                    "next": "string_wave_4",
+                    "damage": 1
+                  },
+                  "thread": {
+                    "next": "mask_wave_4",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "threads_loose"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "mask_wave_4": {
+                "take": "puppet_boss_pass_3",
+                "prompt": "第4阵　趁换面时击中面具",
+                "answer": "mask",
+                "window": [
+                  45,
+                  39
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "mask_wave_4"
+                  },
+                  "timeout": {
+                    "next": "mask_wave_4",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "heart_wave_4",
+                    "points": 100,
+                    "purified": 0,
+                    "response": "mask_cracks"
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "heart_wave_4": {
+                "take": "puppet_boss_pass_3",
+                "prompt": "第4阵　击中胸前的机关",
+                "answer": "heart",
+                "window": [
+                  60,
+                  35
+                ],
+                "zones": [
+                  "heart"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "heart_wave_4"
+                  },
+                  "timeout": {
+                    "next": "heart_wave_4",
+                    "damage": 1
+                  },
+                  "heart": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              }
+            }
+          },
+          "music": "guardian_battle"
+        },
+        {
+          "id": "master_revealed",
+          "type": "film",
+          "takes": [
+            {
+              "id": "marionette_boy",
+              "subtitle": "面具落了。戏子深深一揖。"
+            },
+            {
+              "id": "player_bows"
+            },
+            {
+              "id": "mask_abandoned"
+            },
+            {
+              "id": "west_prophecy_speaking",
+              "subtitle": "玄烛　“你终于醒了，我的灯。”",
+              "voice": "xuanzhu/return"
+            },
+            {
+              "id": "ying_doubts"
+            },
+            {
+              "id": "xuanzhu_vanishes"
+            }
+          ],
+          "music": "lantern_master"
+        }
+      ]
+    }
+  ]
+}

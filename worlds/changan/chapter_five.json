@@ -1,0 +1,980 @@
+{
+  "title": "长安灯妖录",
+  "chapters": [
+    {
+      "id": "palace",
+      "heading": "第五章　太极宫，万灯鬼门",
+      "stages": [
+        {
+          "id": "the_lantern_maker",
+          "type": "film",
+          "takes": [
+            {
+              "id": "wife_speaking",
+              "subtitle": "玄烛　“上元节，我带你去看灯。”",
+              "voice": "xuanzhu/promise"
+            },
+            {
+              "id": "artisan_worktable"
+            },
+            {
+              "id": "split_bamboo"
+            },
+            {
+              "id": "memory_firefly"
+            },
+            {
+              "id": "wife_hand"
+            }
+          ],
+          "music": "lantern_master"
+        },
+        {
+          "id": "imperial_gate",
+          "type": "film",
+          "takes": [
+            {
+              "id": "palace",
+              "subtitle": "玄烛　“长安十万盏灯，总有一盏照得见你。”",
+              "voice": "xuanzhu/summon"
+            },
+            {
+              "id": "palace_avenue"
+            },
+            {
+              "id": "palace_wind"
+            }
+          ],
+          "music": "palace"
+        },
+        {
+          "id": "ride_of_lanterns",
+          "type": "trial",
+          "trial": {
+            "first": "fox",
+            "steps": {
+              "fox": {
+                "take": "fox_mask",
+                "prompt": "第1阵　在狐火成形前击中白色面具",
+                "answer": "mask",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "fox"
+                  },
+                  "timeout": {
+                    "next": "fox",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "rider",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "fox_calm"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "rider": {
+                "take": "cavalry",
+                "prompt": "第1阵　走马灯骑兵逼近　·　击中腹中灯芯",
+                "answer": "wick",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "rider"
+                  },
+                  "timeout": {
+                    "next": "rider",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "fox_wave_2",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "cavalry_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "fox_wave_2": {
+                "take": "fox_mask_pass_1",
+                "prompt": "第2阵　在狐火成形前击中白色面具",
+                "answer": "mask",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "fox_wave_2"
+                  },
+                  "timeout": {
+                    "next": "fox_wave_2",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "rider_wave_2",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "fox_calm"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "rider_wave_2": {
+                "take": "cavalry_pass_1",
+                "prompt": "第2阵　走马灯骑兵逼近　·　击中腹中灯芯",
+                "answer": "wick",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "rider_wave_2"
+                  },
+                  "timeout": {
+                    "next": "rider_wave_2",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "fox_wave_3",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "cavalry_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "fox_wave_3": {
+                "take": "fox_mask_pass_2",
+                "prompt": "第3阵　在狐火成形前击中白色面具",
+                "answer": "mask",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "fox_wave_3"
+                  },
+                  "timeout": {
+                    "next": "fox_wave_3",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "rider_wave_3",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "fox_calm"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "rider_wave_3": {
+                "take": "cavalry_pass_2",
+                "prompt": "第3阵　走马灯骑兵逼近　·　击中腹中灯芯",
+                "answer": "wick",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "rider_wave_3"
+                  },
+                  "timeout": {
+                    "next": "rider_wave_3",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "fox_wave_4",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "cavalry_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "voice": "aying/wick",
+                "subtitle": "阿萤　“看灯芯！”",
+                "thunder_strike": true
+              },
+              "fox_wave_4": {
+                "take": "fox_mask_pass_3",
+                "prompt": "第4阵　在狐火成形前击中白色面具",
+                "answer": "mask",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "mask"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "fox_wave_4"
+                  },
+                  "timeout": {
+                    "next": "fox_wave_4",
+                    "damage": 1
+                  },
+                  "mask": {
+                    "next": "rider_wave_4",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "fox_calm"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "rider_wave_4": {
+                "take": "cavalry_pass_3",
+                "prompt": "第4阵　走马灯骑兵逼近　·　击中腹中灯芯",
+                "answer": "wick",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "rider_wave_4"
+                  },
+                  "timeout": {
+                    "next": "rider_wave_4",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "cavalry_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              }
+            }
+          },
+          "music": "palace_battle"
+        },
+        {
+          "id": "palace_possession",
+          "type": "trial",
+          "trial": {
+            "first": "person_1",
+            "steps": {
+              "person_1": {
+                "take": "palace_servant",
+                "prompt": "只取灯芯，避开百姓",
+                "answer": "wick",
+                "window": [
+                  30,
+                  42
+                ],
+                "zones": [
+                  "civilian",
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "person_1"
+                  },
+                  "timeout": {
+                    "next": "person_1",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "@complete",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "servant_freed"
+                  },
+                  "civilian": {
+                    "next": "@complete",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false
+              }
+            },
+            "rescue_bonus": 1000
+          },
+          "music": "palace_battle"
+        },
+        {
+          "id": "three_lamps_circle",
+          "type": "film",
+          "takes": [
+            {
+              "id": "guard_circle"
+            }
+          ],
+          "music": "xuanzhu_battle"
+        },
+        {
+          "id": "three_guard_lamps",
+          "type": "trial",
+          "trial": {
+            "first": "fire",
+            "steps": {
+              "fire": {
+                "take": "palace_fire",
+                "prompt": "拦下玄烛的青火",
+                "answer": "flame",
+                "window": [
+                  32,
+                  36
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "fire"
+                  },
+                  "timeout": {
+                    "next": "fire",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "ward_1",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "master_fire_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true
+              },
+              "ward_1": {
+                "take": "palace",
+                "prompt": "玄烛的护灯　·　第 1 盏",
+                "answer": "left",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "left"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "ward_1"
+                  },
+                  "timeout": {
+                    "next": "ward_1",
+                    "damage": 1
+                  },
+                  "left": {
+                    "next": "ward_2",
+                    "points": 200,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false,
+                "voice": "aying/left",
+                "subtitle": "阿萤　“左边！”"
+              },
+              "ward_2": {
+                "take": "palace",
+                "prompt": "玄烛的护灯　·　第 2 盏",
+                "answer": "middle",
+                "window": [
+                  28,
+                  39
+                ],
+                "zones": [
+                  "middle"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "ward_2"
+                  },
+                  "timeout": {
+                    "next": "ward_2",
+                    "damage": 1
+                  },
+                  "middle": {
+                    "next": "ward_3",
+                    "points": 200,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "ward_3": {
+                "take": "palace",
+                "prompt": "玄烛的护灯　·　第 3 盏",
+                "answer": "low",
+                "window": [
+                  36,
+                  39
+                ],
+                "zones": [
+                  "low"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "ward_3"
+                  },
+                  "timeout": {
+                    "next": "ward_3",
+                    "damage": 1
+                  },
+                  "low": {
+                    "next": "fire_wave_2",
+                    "points": 200,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "fire_wave_2": {
+                "take": "palace_fire_pass_1",
+                "prompt": "拦下玄烛的青火",
+                "answer": "flame",
+                "window": [
+                  32,
+                  36
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "fire_wave_2"
+                  },
+                  "timeout": {
+                    "next": "fire_wave_2",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "ward_1_wave_2",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "master_fire_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true
+              },
+              "ward_1_wave_2": {
+                "take": "palace",
+                "prompt": "玄烛的护灯　·　第 1 盏",
+                "answer": "left",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "left"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "ward_1_wave_2"
+                  },
+                  "timeout": {
+                    "next": "ward_1_wave_2",
+                    "damage": 1
+                  },
+                  "left": {
+                    "next": "ward_2_wave_2",
+                    "points": 200,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "ward_2_wave_2": {
+                "take": "palace",
+                "prompt": "玄烛的护灯　·　第 2 盏",
+                "answer": "middle",
+                "window": [
+                  28,
+                  39
+                ],
+                "zones": [
+                  "middle"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "ward_2_wave_2"
+                  },
+                  "timeout": {
+                    "next": "ward_2_wave_2",
+                    "damage": 1
+                  },
+                  "middle": {
+                    "next": "ward_3_wave_2",
+                    "points": 200,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "ward_3_wave_2": {
+                "take": "palace",
+                "prompt": "玄烛的护灯　·　第 3 盏",
+                "answer": "low",
+                "window": [
+                  36,
+                  39
+                ],
+                "zones": [
+                  "low"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "ward_3_wave_2"
+                  },
+                  "timeout": {
+                    "next": "ward_3_wave_2",
+                    "damage": 1
+                  },
+                  "low": {
+                    "next": "@complete",
+                    "points": 200,
+                    "purified": 0
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              }
+            }
+          },
+          "music": "xuanzhu_battle"
+        },
+        {
+          "id": "light_on_stone",
+          "type": "film",
+          "takes": [
+            {
+              "id": "chain_shadow"
+            }
+          ],
+          "music": "xuanzhu_battle"
+        },
+        {
+          "id": "release_the_chains",
+          "type": "trial",
+          "trial": {
+            "first": "far",
+            "steps": {
+              "far": {
+                "take": "palace_chain",
+                "prompt": "斩断远端灯链，避开阿萤",
+                "answer": "chain_a",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "aying",
+                  "chain_a"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "far"
+                  },
+                  "timeout": {
+                    "next": "far",
+                    "damage": 1
+                  },
+                  "chain_a": {
+                    "next": "near",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "far",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "near": {
+                "take": "palace_chain",
+                "prompt": "击碎靠近灯笼的链环",
+                "answer": "chain_b",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "aying",
+                  "chain_b"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "near"
+                  },
+                  "timeout": {
+                    "next": "near",
+                    "damage": 1
+                  },
+                  "chain_b": {
+                    "next": "far_wave_2",
+                    "points": 500,
+                    "purified": 0,
+                    "response": "palace_chain_falls"
+                  },
+                  "aying": {
+                    "next": "near",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "far_wave_2": {
+                "take": "palace_chain_pass_1",
+                "prompt": "斩断远端灯链，避开阿萤",
+                "answer": "chain_a",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "aying",
+                  "chain_a"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "far_wave_2"
+                  },
+                  "timeout": {
+                    "next": "far_wave_2",
+                    "damage": 1
+                  },
+                  "chain_a": {
+                    "next": "near_wave_2",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "far_wave_2",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "near_wave_2": {
+                "take": "palace_chain_pass_1",
+                "prompt": "击碎靠近灯笼的链环",
+                "answer": "chain_b",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "aying",
+                  "chain_b"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "near_wave_2"
+                  },
+                  "timeout": {
+                    "next": "near_wave_2",
+                    "damage": 1
+                  },
+                  "chain_b": {
+                    "next": "far_wave_3",
+                    "points": 500,
+                    "purified": 0,
+                    "response": "palace_chain_falls"
+                  },
+                  "aying": {
+                    "next": "near_wave_2",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "far_wave_3": {
+                "take": "palace_chain_pass_2",
+                "prompt": "斩断远端灯链，避开阿萤",
+                "answer": "chain_a",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "aying",
+                  "chain_a"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "far_wave_3"
+                  },
+                  "timeout": {
+                    "next": "far_wave_3",
+                    "damage": 1
+                  },
+                  "chain_a": {
+                    "next": "near_wave_3",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "far_wave_3",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              },
+              "near_wave_3": {
+                "take": "palace_chain_pass_2",
+                "prompt": "击碎靠近灯笼的链环",
+                "answer": "chain_b",
+                "window": [
+                  30,
+                  35
+                ],
+                "zones": [
+                  "aying",
+                  "chain_b"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "near_wave_3"
+                  },
+                  "timeout": {
+                    "next": "near_wave_3",
+                    "damage": 1
+                  },
+                  "chain_b": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 0,
+                    "response": "palace_chain_falls"
+                  },
+                  "aying": {
+                    "next": "near_wave_3",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": true,
+                "strength": 2,
+                "projectile": false
+              }
+            }
+          },
+          "music": "xuanzhu_battle"
+        },
+        {
+          "id": "borrowed_light",
+          "type": "film",
+          "takes": [
+            {
+              "id": "aying_lends_speaking",
+              "subtitle": "阿萤　“沈砚，接住。这一点光，我借给你。”",
+              "voice": "aying/lend"
+            }
+          ],
+          "music": "fireflies"
+        },
+        {
+          "id": "final_story_arrow",
+          "type": "trial",
+          "trial": {
+            "first": "shot",
+            "steps": {
+              "shot": {
+                "take": "final_wick",
+                "prompt": "按普通射击键，将这一点光送入灯芯",
+                "answer": "wick",
+                "window": [
+                  24,
+                  48
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "@complete",
+                    "response": "wick_mercy",
+                    "points": 0
+                  },
+                  "timeout": {
+                    "next": "@complete",
+                    "response": "wick_mercy",
+                    "points": 0
+                  },
+                  "wick": {
+                    "next": "@complete",
+                    "response": "wick_shattered",
+                    "points": 1000
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "story_shot": true
+              }
+            }
+          },
+          "music": "farewell"
+        },
+        {
+          "id": "fireflies_at_dawn",
+          "type": "film",
+          "takes": [
+            {
+              "id": "gate_end",
+              "subtitle": "玄烛　“原来，你早就看见了。”",
+              "voice": "xuanzhu/release"
+            },
+            {
+              "id": "master_reaches"
+            },
+            {
+              "id": "gate_folds"
+            },
+            {
+              "id": "farewell",
+              "subtitle": "阿萤　“明年上元，你也要记得点灯。”",
+              "voice": "aying/farewell"
+            },
+            {
+              "id": "aying_fireflies"
+            },
+            {
+              "id": "last_sleeve"
+            },
+            {
+              "id": "palace_dawn"
+            },
+            {
+              "id": "city_wakes"
+            },
+            {
+              "id": "dawn_market"
+            }
+          ],
+          "music": "farewell"
+        },
+        {
+          "id": "one_year_later",
+          "type": "film",
+          "takes": [
+            {
+              "id": "epilogue_speaking",
+              "subtitle": "沈砚　“今年的灯，很好看。”",
+              "voice": "shenyan/epilogue"
+            },
+            {
+              "id": "empty_lantern"
+            },
+            {
+              "id": "festival_returns"
+            }
+          ],
+          "music": "credits"
+        }
+      ]
+    }
+  ]
+}

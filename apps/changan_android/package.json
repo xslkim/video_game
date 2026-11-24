@@ -1,0 +1,11 @@
+{
+  "name": "changan-android-player-build",
+  "private": true,
+  "description": "Offline Android TV WebView compatibility build",
+  "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@babel/preset-env": "7.28.5",
+    "browserify": "17.0.1",
+    "core-js": "3.46.0"
+  }
+}

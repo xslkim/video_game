@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>长安灯妖录</title><link rel="stylesheet" href="game.css"></head>
+<body><main id="screen">
+  <video id="film" playsinline preload="auto"></video>
+  <canvas id="composite"></canvas><div id="gunBand" hidden></div><canvas id="effects" width="1280" height="720"></canvas>
+  <div id="hud" hidden><span id="status"></span><button id="pause">暂停</button></div>
+  <div id="subtitle" hidden></div><div id="instruction" hidden></div>
+  <div id="actions" hidden><button id="reload">换匣</button><button id="thunder">雷符</button></div>
+  <button id="skip" hidden>跳过剧情</button>
+  <section id="menu"><div id="panel">
+    <p id="chapter">上元夜 · 朱雀大街</p><h1>长安灯妖录</h1><p id="details"></p>
+    <div class="buttons"><button id="begin" class="primary">开始巡灯</button><button id="new" hidden>重新开始</button></div>
+    <div id="prefs"><button id="difficulty">难度　普通</button><button id="captions">字幕　开</button>
+    <button id="gun">TVGun　关</button><button id="musicVolume">配乐</button>
+    <button id="effectsVolume">音效</button><button id="voiceVolume">对白</button><button id="quality">画质</button></div>
+  </div></section><div id="border" hidden></div>
+</main><script src="player.js"></script></body></html>

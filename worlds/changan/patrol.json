@@ -1,0 +1,20 @@
+{
+  "title": "长安灯妖录 · 巡街",
+  "chapters": [
+    {
+      "id": "zhuque",
+      "heading": "第一章　上元夜，朱雀大街",
+      "stages": [
+        {
+          "id": "night_patrol",
+          "type": "film",
+          "takes": [
+            {"id": "patrol", "subtitle": "上元夜。沈砚第一次随裴照巡街。"},
+            {"id": "lantern_warning", "subtitle": "方才还通明的花灯，一盏接一盏地暗了。"}
+          ]
+        },
+        {"id": "street_lanterns", "type": "encounter", "level": "a1"}
+      ]
+    }
+  ]
+}

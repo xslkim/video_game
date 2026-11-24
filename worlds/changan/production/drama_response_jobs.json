@@ -1,0 +1,266 @@
+{
+  "ying_clear": {
+    "first": "ying_reveal_frame_58",
+    "from_take": [
+      "ying_reveal",
+      58
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The single blue wisp at right disperses into harmless warm golden fireflies. The woman on the left lowers her hand.",
+    "length": 47,
+    "seed": 973430,
+    "speed": 2
+  },
+  "carp_interrupt": {
+    "first": "carp_ball_frame_60",
+    "from_take": [
+      "carp_ball",
+      60
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "A golden magical pulse meets the approaching cyan orb; the cyan orb bursts into delicate sparks and disappears. The red fish remains hovering in the background.",
+    "length": 47,
+    "seed": 973431,
+    "speed": 2
+  },
+  "carp_shimmer": {
+    "first": "carp_tail_frame_70",
+    "from_take": [
+      "carp_tail",
+      70
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "One glowing scale on the fish's flank flashes white, then dims; the fish rolls onto its side, showing its belly.",
+    "length": 47,
+    "seed": 973432,
+    "speed": 2
+  },
+  "crane_falls": {
+    "first": "paper_cranes_frame_52",
+    "from_take": [
+      "paper_cranes",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The little ornate paper crane folds back into a simple paper bird and descends to the tabletop, utterly still at the end.",
+    "length": 47,
+    "seed": 973433,
+    "speed": 2
+  },
+  "leather_bows": {
+    "first": "shadow_duel_frame_54",
+    "from_take": [
+      "shadow_duel",
+      54
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The hide puppet's head pin glints gold. The articulate puppet lowers its shield and bows as the stage light softens.",
+    "length": 47,
+    "seed": 973434,
+    "speed": 2
+  },
+  "parasol_closes": {
+    "first": "umbrella_turn_frame_58",
+    "from_take": [
+      "umbrella_turn",
+      58
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The enchanted parasol snaps gently closed. The bamboo handle settles against the stone, warm dust glitters briefly.",
+    "length": 47,
+    "seed": 973435,
+    "speed": 2
+  },
+  "threads_loose": {
+    "first": "puppet_boss_frame_42",
+    "from_take": [
+      "puppet_boss",
+      42
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "A single gleaming puppet string unravels, a small puppet below drops onto its little feet as the main automaton draws its hand back.",
+    "length": 47,
+    "seed": 973436,
+    "speed": 2
+  },
+  "mask_cracks": {
+    "first": "puppet_boss_frame_58",
+    "from_take": [
+      "puppet_boss",
+      58
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The foreground lacquer face splits along a golden seam and tilts aside, a second mask is revealed behind.",
+    "length": 47,
+    "seed": 973437,
+    "speed": 2
+  },
+  "lotus_rests": {
+    "first": "lotus_water_frame_52",
+    "from_take": [
+      "lotus_water",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The blue glow turns gold and fades. The lotus lamp settles back on the rippling water, an ordinary little paper lantern.",
+    "length": 47,
+    "seed": 973438,
+    "speed": 2
+  },
+  "stone_cub_rests": {
+    "first": "stone_cub_frame_52",
+    "from_take": [
+      "stone_cub",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The carved stone cub lands, stretches its paws and sits. Amber seams fade gently.",
+    "length": 47,
+    "seed": 973439,
+    "speed": 2
+  },
+  "guardian_reacts": {
+    "first": "guardian_frame_55",
+    "from_take": [
+      "guardian",
+      55
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "Amber light blooms along the foreleg crack then dims. The huge stone guardian shifts its weight, sheds a little dust, opens its jaw.",
+    "length": 47,
+    "seed": 973440,
+    "speed": 2
+  },
+  "cavalry_rests": {
+    "first": "cavalry_frame_48",
+    "from_take": [
+      "cavalry",
+      48
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The lantern horse slows, folds its jointed legs and comes to rest as its inner wick dims to soft amber.",
+    "length": 47,
+    "seed": 973441,
+    "speed": 2
+  },
+  "fox_calm": {
+    "first": "fox_mask_frame_49",
+    "from_take": [
+      "fox_mask",
+      49
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The fox mask lights up once with a warm golden pulse. The foxfire dims, and the lantern dancer lowers her hand in a peaceful gesture.",
+    "length": 47,
+    "seed": 973442,
+    "speed": 2
+  },
+  "palace_chain_falls": {
+    "first": "palace_chain_frame_57",
+    "from_take": [
+      "palace_chain",
+      57
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "One visible link halfway along the cyan lantern chain bursts into drifting fireflies. The woman in the large lantern remains safe.",
+    "length": 47,
+    "seed": 973443,
+    "speed": 2,
+    "aperture": [
+      928,
+      500,
+      48,
+      10
+    ]
+  },
+  "master_fire_clear": {
+    "first": "palace_fire_frame_47",
+    "from_take": [
+      "palace_fire",
+      47
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The cyan flame is intercepted and dissolves into a brief shower of gold sparks. The white-robed lantern maker pauses.",
+    "length": 47,
+    "seed": 973444,
+    "speed": 2
+  },
+  "weaver_freed": {
+    "first": "west_weaver_frame_52",
+    "from_take": [
+      "west_weaver",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The little cyan flame beside the basket disintegrates into points of light. The weaver straightens and smiles faintly.",
+    "length": 47,
+    "seed": 973445,
+    "speed": 2
+  },
+  "musician_freed": {
+    "first": "west_musician_frame_52",
+    "from_take": [
+      "west_musician",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The single blue wick goes out, musician exhales and calmly resumes plucking her pipa.",
+    "length": 47,
+    "seed": 973446,
+    "speed": 2
+  },
+  "servant_freed": {
+    "first": "palace_servant_frame_52",
+    "from_take": [
+      "palace_servant",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The small floating wick fades to gold then vanishes; the attendant steps safely away.",
+    "length": 47,
+    "seed": 973447,
+    "speed": 2,
+    "aperture": [
+      928,
+      500,
+      48,
+      10
+    ]
+  },
+  "citizen_freed": {
+    "first": "possession_frame_52",
+    "from_take": [
+      "possession",
+      52
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The cyan wick drifts away from the man's shoulder and dissolves in the air. He lowers his shoulders, visibly relieved.",
+    "length": 47,
+    "seed": 973448,
+    "speed": 2
+  },
+  "crow_lamp_lit": {
+    "first": "tower_crow_frame_38",
+    "from_take": [
+      "tower_crow",
+      38
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The small paper lantern on the left flares to amber, illuminating the folded paper crow on the scroll. The ink bird spreads its wings.",
+    "length": 47,
+    "seed": 973449,
+    "speed": 2
+  },
+  "flame_clear": {
+    "first": "lotus_water_frame_59",
+    "from_take": [
+      "lotus_water",
+      59
+    ],
+    "prefix": "Photographic practical Tang dynasty film shot, preserve the same subject in the same precise location and scale. Complete the small reaction in this one fixed shot. No new actors, no writing, no titles, no graphics. Only natural magical foley. ",
+    "prompt": "The cyan flame above the water pops into soft gold flecks and a ripple widens across the black water.",
+    "length": 47,
+    "seed": 973450,
+    "speed": 2
+  }
+}

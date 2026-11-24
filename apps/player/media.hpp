@@ -24,10 +24,14 @@ class Movie {
     Codec video;
     Picture picture{av_frame_alloc()};
     int current = -1;
+    size_t compressedBytes = 0;
+    AVPixelFormat expectedFormat;
 
   public:
     std::vector<float> audio;
-    Movie(const fs::path &file, int count);
+    Movie(const fs::path &file, int count, int width = 1280, int height = 720,
+          AVPixelFormat expectedFormat = AV_PIX_FMT_YUV420P);
     const AVFrame *at(int frame);
+    size_t payloadBytes() const { return compressedBytes + audio.capacity() * sizeof(float); }
 };
 } // namespace dc

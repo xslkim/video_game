@@ -1,0 +1,99 @@
+{
+  "h3_candidates": [
+    {
+      "id": "fox_end_take01",
+      "h3_prompt_id": "0c3da8e0-b9de-4309-9563-16a6fcf239e4",
+      "gpu_wall_seconds": 13.904,
+      "selected_as": "purify_end"
+    },
+    {
+      "id": "fox_flinch_take01",
+      "h3_prompt_id": "edae3e00-78c7-4ad8-a2ab-fecaf24ffad1",
+      "gpu_wall_seconds": 11.56,
+      "selected_as": "fox_flinch"
+    },
+    {
+      "id": "fox_take01",
+      "h3_prompt_id": "7de4e35b-9d1f-449b-baf2-db6abcd51f6a",
+      "gpu_wall_seconds": 18.189,
+      "selected_as": "fox"
+    },
+    {
+      "id": "lantern_take01",
+      "h3_prompt_id": "0c86cb28-4c8e-40d2-914f-c0c9b999f376",
+      "gpu_wall_seconds": 63.299,
+      "selected_as": "lantern"
+    },
+    {
+      "id": "lantern_to_wisp_take01",
+      "h3_prompt_id": "ca354939-19ec-451a-9825-237d2e798abe",
+      "gpu_wall_seconds": 15.551,
+      "rejection": "Wisp emerged too early and travelled before reaching the ready mark."
+    },
+    {
+      "id": "relay_lantern_early",
+      "h3_prompt_id": "0e4f6966-5cd4-4dec-b78c-5ab766f90963",
+      "gpu_wall_seconds": 14.741,
+      "selected_as": "lantern_to_wisp_early"
+    },
+    {
+      "id": "relay_lantern_late",
+      "h3_prompt_id": "c69fecc7-e376-487d-8f85-cfa9418ddff4",
+      "gpu_wall_seconds": 14.483,
+      "selected_as": "lantern_to_wisp_late"
+    },
+    {
+      "id": "relay_lantern_mid",
+      "h3_prompt_id": "55c73a7b-8121-4f06-aa13-d6250e52a63b",
+      "gpu_wall_seconds": 14.104,
+      "selected_as": "lantern_to_wisp_mid"
+    },
+    {
+      "id": "relay_wisp_fox",
+      "h3_prompt_id": "4b7a1a83-e54f-4e81-b5b7-7543fe8e6ce6",
+      "gpu_wall_seconds": 16.581,
+      "selected_as": "wisp_to_fox"
+    },
+    {
+      "id": "wisp_interrupt_early",
+      "h3_prompt_id": "7f39fabd-65c8-49ea-90a6-7d3fe5e85639",
+      "gpu_wall_seconds": 9.724,
+      "selected_as": "interrupt_early"
+    },
+    {
+      "id": "wisp_interrupt_late",
+      "h3_prompt_id": "5113b15c-587a-446f-b1dd-4c651d5ffa19",
+      "gpu_wall_seconds": 9.206,
+      "selected_as": "interrupt_late"
+    },
+    {
+      "id": "wisp_interrupt_take01",
+      "h3_prompt_id": "5a64886c-4de4-43f6-983b-380d0a2de514",
+      "gpu_wall_seconds": 10.503,
+      "selected_as": "interrupt_middle"
+    },
+    {
+      "id": "wisp_take01",
+      "h3_prompt_id": "fdb4848f-6241-4196-80c7-9607affab834",
+      "gpu_wall_seconds": 19.187,
+      "selected_as": "wisp"
+    },
+    {
+      "id": "wisp_to_fox_take01",
+      "h3_prompt_id": "70f856f7-7b74-4b7f-a154-9291db49b354",
+      "gpu_wall_seconds": 14.419,
+      "rejection": "Fox entered through the wisp glow, which obscured her mask and silhouette."
+    }
+  ],
+  "anchor_sha256": {
+    "fireball_early_hit": "08e8ebee2b2aeb402dc3121b0907f3d79fc223df876a60c74343a78c8d0c02c5",
+    "fireball_late_hit": "157673cf206470378d51d33cfecc4feef57ef7f049bb20abcc509017eee34384",
+    "fox": "0f9ef9b923053de4e7b0269299c569b5fd447784f1ea5c0a0609f09667da9545",
+    "lantern": "5082e787b9298376d35e185c336f82839c9583cd25422ed63455f57734586577",
+    "lantern_late_hit": "373457bfec374d35f3da3ce94ac9964da320dc646eea9af219321fcb9fa17523",
+    "lantern_mid_hit": "61450ffd93eba613231d50cd64b8411735fef1df420648cc978b098516e7d381",
+    "street": "76f11a0ca35ee7eb0039e36e650cd10530279c619daa43c0dd433f1399b7d122",
+    "wisp": "860448a706e205b852a0550cf25b927c2b3f91c68bd7bc84e93696b1f88a4487",
+    "wisp_flight": "73a9c5f29e7e7fe7230f2c105dfb55eef1e8954651d95a72a363fc56511167c1"
+  }
+}

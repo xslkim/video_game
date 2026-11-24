@@ -7,6 +7,10 @@ Run: python3 tools/forge/gen_keyframe_prompts.py
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parents[2] / "docs" / "KEYFRAME_PROMPTS_CH2-5.md"
+STYLE_PREFIX = (
+    "35mm 胶片实拍西部电影质感，镜头透视自然，按本镜头指定的现场光曝光。"
+    "如实还原画面中已有的肤色、衣料纤维和风化木纹，保留细微胶片颗粒。不含 HUD、准星或水印。"
+)
 
 # ---------------------------------------------------------------- characters
 # id: (name, pronoun, noun used in prompts, far-readable features, sheet description)
@@ -38,7 +42,7 @@ CHARS = {
              "45 岁左右的白人男性，中等身材，灰黄色的短胡子，头发稀疏，神情疲惫。不戴帽子。白色长袖衬衫，有些脏；浅棕色的布马甲；浅灰色长裤，棕色皮靴。没有武器。"),
 }
 
-SHEET_TMPL = """角色设定图，写实电影剧照风格，1880 年代美国西部片的人物造型，像 35mm 胶片拍摄，不是插画，不是 3D 渲染。
+SHEET_TMPL = """1880 年代美国西部角色设定图。
 同一个人物的四个视图并排在一张图里，从左到右：正面全身、3/4 侧面全身、背面全身、脸部特写。浅灰色纯色背景，均匀柔和的中性光照，中性站姿，双手自然下垂，手里不拿东西。
 人物：{desc}
 四个视图里的长相、服装、比例完全一致。画面中没有文字、标注、水印。横版 3:2，1536×1024。"""
@@ -64,14 +68,11 @@ LIGHT = {
 # ---------------------------------------------------------------- templates
 def plate_prompt(p):
     if p["ref"] is None:
-        head = (f"写实电影剧照风格，1880 年代美国西部，{p['place']}，像 35mm 胶片拍摄的西部片画面，细微的胶片颗粒，"
-                "真实的尘土和磨损质感。不是插画，不是 3D 渲染，不是游戏截图。")
+        head = f"1880 年代美国西部，{p['place']}。"
     elif p.get("style_only"):
-        head = (f"参考图 1 的画面风格和年代感，生成：{p['title']}。写实电影剧照风格，1880 年代美国西部，"
-                "35mm 胶片质感，不是插画，不是 3D 渲染。")
+        head = f"参考图 1 的画面风格和年代感，生成{p['title']}。"
     else:
-        head = (f"参考图 1 的地点、画面风格、色调和光照，生成同一个地点里的另一个位置：{p['title']}。"
-                "写实电影剧照风格，35mm 胶片质感，不是插画，不是 3D 渲染。")
+        head = f"参考图 1 的地点、色调和光照，生成同一个地点里的另一个位置：{p['title']}。"
     lines = [head,
              f"第一人称视角，镜头高度约 1.6 米，{p['view']}，35mm 镜头，全画面清晰，没有运动模糊。",
              "画面内容："]
@@ -80,7 +81,7 @@ def plate_prompt(p):
     lines.append(f"光照：{LIGHT[p['light']][0]}")
     text_rule = "除指定的文字外没有其他文字。" if p.get("text") else "没有文字。"
     lines.append(f"画面中不出现玩家的手、枪或身体，不出现任何 UI、字幕、水印、边框。{text_rule}")
-    lines.append("横版 3:2，1536×1024。画面最上方 8% 和最下方 8% 不放重要内容。")
+    lines.append("横版 3:2，1536×1024。画面最上方 9% 和最下方 9% 不放重要内容。")
     return "\n".join(lines)
 
 
@@ -95,11 +96,10 @@ def state_prompt(s, light_short):
     c0 = CHARS[chars[0]]
     pron, noun = c0[1], c0[2]
     mode = s.get("mode", "add")
-    film = "这是一部西部题材电影的剧照，用于分镜设计。" if s.get("film") else ""
     if "intro" in s:
         intro = s["intro"]
     elif mode == "repose":
-        intro = f"编辑图 1：只改变{noun}的姿势，{pron}的位置、大小、服装不变。"
+        intro = f"编辑图 1：进入第二阶段，保留{noun}的站位和身份特征，按下文改变姿势和随身道具。"
     elif len(chars) == 2:
         intro = f"编辑图 1：加入图 2 的匪徒和图 3 的{CHARS[chars[1]][2]}。"
     else:
@@ -112,13 +112,15 @@ def state_prompt(s, light_short):
         subj = "两人" if len(chars) == 2 else pron
         pose += f"{subj}的{s.get('part', '可见部分')}高度约占画面高度的{s['size']}。"
     if mode == "repose":
-        keep = f"除{noun}的姿势和影子外"
+        keep = f"除{noun}的姿势、随身道具及对应影子外"
     else:
-        keep = "除新增的人物和影子外"
+        keep = s.get("keep", "除新增的人物和影子外")
     if len(chars) == 2:
         ident = f"匪徒的长相和服装与图 2 完全一致，{CHARS[chars[1]][2]}的长相和服装与图 3 完全一致"
+    elif mode == "repose":
+        ident = "面部与图 2 一致，帽子和道具按本阶段描述"
     else:
-        ident = "人物的长相和服装与图 2 完全一致"
+        ident = s.get("identity", "人物的长相和服装与图 2 完全一致")
     if s.get("kind") == "civ":
         ident += "，没有任何武器"
     if "wnote" in s:
@@ -130,7 +132,7 @@ def state_prompt(s, light_short):
     tail = (f"{keep}，画面其余部分与图 1 完全一致：构图、机位、光照、每一件物体的位置都不变，"
             f"不要重新构图，不要裁切，不要改变色调。{ident}。人物受到的光照与图 1 一致，{light_short}。"
             f"人物是静止的定格姿势，没有运动模糊。{wnote}输出尺寸与图 1 相同。")
-    return f"{film}{intro}\n{pose}\n{tail}"
+    return f"{intro}\n{pose}\n{tail}"
 
 
 def E(id, title, base, ch, pose, size, weapon="一把枪", **kw):
@@ -214,11 +216,11 @@ CHAPTERS.append(dict(
         E("T6_B1", "巴克，第一阶段（霰弹枪）", "T6_P", "CH12", "他站在平板车上那排金库箱的后面，位于画面正中，大腿以上露出在箱子上方，背后是天空。双手端着一支双管霰弹枪，枪托抵在腰间", "二分之一", SHOTGUN),
         dict(id="T6_B2", title="巴克，第二阶段（霰弹枪被打掉，拔出左轮）", base="T6_B1", chars=["CH12"], mode="repose", weapon="一把枪",
              pose="他手里的霰弹枪已经不见了，头上的黑帽子也掉了，露出光头。右手握着一把大号左轮手枪，手臂伸直，枪口指向镜头；左手按着右肩，身体略微前倾，咬着牙，表情暴怒，眼睛盯着镜头。画面里只有他右手的一把枪，箱子上和地上没有掉落的枪和帽子"),
-        dict(id="T6_END", title="巴克倒下", base="T6_P", chars=["CH12"], film=True,
+        dict(id="T6_END", title="巴克倒下", base="T6_P", chars=["CH12"],
              pose="他已经被击倒：上半身向前趴在那排金库箱上，脸朝下，双臂垂在箱子前面，一动不动，手里没有枪，没有帽子。没有血迹"),
     ],
     flow=[("1", "T1_P → T1_H1 → T1_H2 → T1_H3 → T1_P，走到 T2_P"),
-          ("2", "T2_P → T2_H1 → T2_P → T2_C（列车员跑过）→ T2_P → T2_H2 → T2_H3 → T2_P，硬切到 T3_P"),
+          ("2", "T2_P → T2_H1 → T2_P →〔cross，T2_C 为中途引导〕→ T2_P → T2_H2 → T2_H3 → T2_P，硬切到 T3_P"),
           ("3", "T3_P → T3_H1 → T3_H2 → T3_H3 → T3_P，硬切到 T4_P"),
           ("4", "T4_P → T4_H1 → T4_H2 → T4_H3 → T4_P，走到 T5_P"),
           ("5", "T5_P → T5_H1 → T5_H2 → T5_H3 →（打阀门，蒸汽喷出后散去）T5_P，走到 T6_P"),
@@ -283,8 +285,8 @@ CHAPTERS.append(dict(
         E("M3_H2", "矿车后的披肩匪徒", "M3_P", "CH02", "他站在右侧那辆空矿车的后面，胸口以上露出在矿车上方。右手举着左轮手枪架在矿车边沿", "四分之一"),
         E("M3_H3", "木料堆后的蒙面匪徒", "M3_P", "CH11", "他站在矿道深处那摞木料的后面，胸口以上露出在木料上方。右手举着左轮手枪架在木料上", "六分之一"),
         E("M3_H4", "木箱后的背带裤匪徒", "M3_P", "CH04", "他蹲在右侧前景那堆木箱的后面，肩膀以上露出在木箱上方。右手举着左轮手枪架在木箱上沿", "四分之一"),
-        dict(id="M4_H1", title="挟持矿工的长风衣匪徒", base="M4_P", chars=["CH03", "CH17"], film=True, weapon="一把枪", size="三分之一",
-             pose="两人站在左侧那堆麻袋的后面，腰部以下被麻袋挡住。矿工在前，面对镜头，表情害怕，双手举在胸前。匪徒站在他的正后方，比他高出半个头，头部和黑帽子完整地露在矿工的头顶上方；他的左手抓着矿工的肩膀，右手从矿工的右肩旁边伸出，举着左轮手枪，枪口指向镜头，眼睛盯着镜头"),
+        dict(id="M4_H1", title="挟持矿工的长风衣匪徒", base="M4_P", chars=["CH03", "CH17"], weapon="一把枪", size="三分之一",
+             pose="两人站在左侧那堆麻袋的后面，腰部以下被麻袋挡住。矿工在前，面对镜头，表情害怕，双手举在胸前。匪徒站在矿工的侧后方，头部和黑帽子完整露在矿工肩侧，与矿工的脸和双手留出清晰空隙；他的左手抓着矿工的肩膀，右手从矿工的右肩旁边伸出，举着左轮手枪，枪口指向镜头，眼睛盯着镜头"),
         E("M4_H2", "脚手架上的红领巾匪徒", "M4_P", "CH01", "他站在右侧脚手架的上层平台上，在木栏杆的后面，大腿以上露出在栏杆上方。右手伸直举着左轮手枪越过栏杆", "五分之一"),
         E("M4_H3", "火药桶后的背带裤匪徒（要打的是火药桶）", "M4_P", "CH04",
           "他蹲在中央后方那三只 \"POWDER\" 火药桶的后面，身体几乎完全被火药桶挡住，只露出黑色圆顶礼帽、眼睛以上的额头，以及举过桶沿的右手和左轮手枪，枪口指向镜头。露出的部分很小，高度不超过画面高度的十分之一。三只火药桶和上面的 \"POWDER\" 字样完整、清晰、没有被遮挡",
@@ -294,11 +296,11 @@ CHAPTERS.append(dict(
              pose="他站在画面中央那张工作台的后面，大腿以上露出在台面上方。右手高举过肩，握着一捆三根绑在一起的红色炸药棒，引线正在冒火花；左手伸直举着左轮手枪"),
         dict(id="M5_B2", title="老莫，第二阶段（炸药被打掉）", base="M5_B1", chars=["CH13"], mode="repose", weapon="一把枪",
              pose="他右手里的炸药已经不见了，头上的旧毡帽和护目镜也掉了，露出花白的乱发。他改成双手握着左轮手枪，手臂伸直，枪口指向镜头；身体压低，半蹲在工作台后面，只有胸口以上露出在台面上方，表情疯狂，眼睛盯着镜头。画面里只有一把枪，台面上和地上没有掉落的炸药和帽子"),
-        dict(id="M5_END", title="老莫倒下", base="M5_P", chars=["CH13"], film=True,
-             pose="他已经被击倒：背靠着后方的金库箱坐在地上，头垂在胸前，一动不动，双手摊在身体两侧，手里没有枪和炸药，没有帽子。从镜头看过去，他的胸口以上露出在工作台上方。没有血迹"),
+        dict(id="M5_END", title="老莫倒下", base="M5_P", chars=["CH13"],
+             pose="他已经被击倒：坐在工作台旁的地上，斜靠着后方的金库箱，头垂在胸前，一动不动，双手摊在身体两侧，手里没有枪和炸药，没有帽子。从镜头看过去，他的轮廓清楚地露在工作台侧面。没有血迹"),
     ],
     flow=[("1", "M1_P → M1_H1 → M1_H2 → M1_H3 → M1_P，走到 M2_P"),
-          ("2", "M2_P → M2_H1 → M2_H2 → M2_P → M2_C（矿工跑出）→ M2_P → M2_H3 → M2_P，硬切到 M3_P"),
+          ("2", "M2_P → M2_H1 → M2_H2 → M2_P →〔cross，M2_C 为中途引导〕→ M2_P → M2_H3 → M2_P，硬切到 M3_P"),
           ("3", "M3_P → M3_H1 → M3_H2 → M3_H3 → M3_H4 → M3_P，走到 M4_P"),
           ("4", "M4_P → M4_H1 → M4_H2 → M4_H3 →（打爆火药桶）M4_Px，走到 M5_P"),
           ("5", "M5_P → M5_B1 →（打掉炸药）M5_B2 → M5_END")],
@@ -369,7 +371,7 @@ CHAPTERS.append(dict(
     ],
     flow=[("1", "N1_P → N1_H1 → N1_H2 → N1_H3 → N1_P，走到 N2_P"),
           ("2", "N2_P → N2_H1 → N2_H2 → N2_H3 → N2_P，走到 N3_P"),
-          ("3", "N3_P → N3_C（车夫走出）→ N3_P → N3_H1 → N3_H2 → N3_H3 → N3_P，走到 N4_P"),
+          ("3", "N3_P →〔cross，N3_C 为中途引导〕→ N3_P → N3_H1 → N3_H2 → N3_H3 → N3_P，走到 N4_P"),
           ("4", "N4_P → N4_H1 → N4_H2 → N4_H3 → N4_H4 → N4_P，硬切到 N5_P"),
           ("5", "N5_P → N5_B1 →（打掉一把枪）N5_B2 → N5_END")],
 ))
@@ -423,9 +425,9 @@ CHAPTERS.append(dict(
         E("F2_H4", "阳台上的长风衣匪徒", "F2_P", "CH03", "他站在后方礼拜堂二楼的小阳台上，在木栏杆的后面，腰部以上露出在栏杆上方，身后是暗的门。右手伸直举着左轮手枪越过栏杆", "六分之一"),
         E("F3_H1", "长椅后的格子衫匪徒", "F3_P", "CH10", "他从过道左侧第二排长椅的后面站起来，腰部以上露出在椅背上方。双手端着双管霰弹枪抵在腰间", "三分之一", SHOTGUN),
         E("F3_H2", "讲道台上的红领巾匪徒", "F3_P", "CH01", "他站在右侧的讲道台上，在木护板的后面，腰部以上露出在护板上方。右手伸直举着左轮手枪越过护板", "四分之一"),
-        E("F3_H3", "告解亭里的蒙面匪徒", "F3_P", "CH11", "他掀开左侧告解亭的深红色布帘，从里面跨出半个身体，膝盖以上入画，左手抓着布帘。右手伸直举着左轮手枪", "三分之一"),
-        dict(id="F3_H4", title="挟持修士的披肩匪徒", base="F3_P", chars=["CH02", "CH18"], film=True, weapon="一把枪", size="四分之一",
-             pose="两人站在尽头那座祭坛的后面，腰部以下被祭坛挡住。修士在前，面对镜头，表情害怕，双手合在胸前。匪徒站在他的正后方，比他高出半个头，头部和黑帽子完整地露在修士的头顶上方；他的左手抓着修士的肩膀，右手从修士的右肩旁边伸出，举着左轮手枪，枪口指向镜头，眼睛盯着镜头"),
+        E("F3_H3", "告解亭里的蒙面匪徒", "F3_P", "CH11", "他掀开左侧告解亭的深红色布帘，从里面跨出半个身体，膝盖以上入画，左手抓着布帘。右手伸直举着左轮手枪", "三分之一", keep="除新增的人物、掀开的布帘和影子外"),
+        dict(id="F3_H4", title="挟持修士的披肩匪徒", base="F3_P", chars=["CH02", "CH18"], weapon="一把枪", size="四分之一",
+             pose="两人站在尽头那座祭坛的后面，腰部以下被祭坛挡住。修士在前，面对镜头，表情害怕，双手合在胸前。匪徒站在修士的侧后方，头部和黑帽子完整露在修士肩侧，与修士的脸和双手留出清晰空隙；他的左手抓着修士的肩膀，右手从修士的右肩旁边伸出，举着左轮手枪，枪口指向镜头，眼睛盯着镜头"),
         E("F4_H1", "金库箱后的蒙面匪徒", "F4_P", "CH11", "他站在左侧那堆金库箱的后面，胸口以上露出在箱子上方。右手举着左轮手枪架在箱子上", "四分之一"),
         E("F4_H2", "木桶后的格子衫匪徒", "F4_P", "CH10", "他站在右侧那堆木桶的后面，胸口以上露出在木桶上方。双手端着双管霰弹枪架在木桶上沿", "四分之一", SHOTGUN),
         dict(id="F4_B1", title="上校，第一阶段（加特林机枪）", base="F4_P", chars=["CH15"],
@@ -433,21 +435,22 @@ CHAPTERS.append(dict(
         dict(id="F4_B2", title="上校，第二阶段（左轮加军刀）", base="F4_Px", chars=["CH15"], kind="enemy", size="二分之一",
              wnote="手里只有一把枪和一把军刀，手指正常。",
              pose="他站在画面正中沙袋工事的后面，在被打坏的机枪旁边，大腿以上露出在沙袋上方。左手握着一把出鞘的军刀，刀尖斜指地面；右手伸直举着左轮手枪"),
-        dict(id="F4_END", title="上校倒下", base="F4_Px", chars=["CH15"], film=True,
+        dict(id="F4_END", title="上校倒下", base="F4_Px", chars=["CH15"],
              pose="他已经被击倒：单膝跪在沙袋工事的后面，上半身向前伏在沙袋上，头低垂，一动不动，黑色骑兵帽掉在沙袋上，手里没有枪和军刀。没有血迹"),
         dict(id="F4_V", title="最终胜利", base="F4_END", chars=["CH06"],
              intro="编辑图 1：加入图 2 的镇长和几位镇民，上校仍然伏在沙袋上，位置和姿势不变。",
-             pose="镇长站在画面中央偏右的前景，膝盖以上入画，面对镜头，面带笑容，右手举起向镜头致意，他的可见部分高度约占画面高度的二分之一。在他身后，四五位镇民围到左侧的金库箱旁边，男女都有，穿浅色的平民服装，没有人戴黑帽子，没有人拿武器，有人在打开箱子，有人在欢呼。镇民不要挡住伏在沙袋上的上校"),
+             identity="镇长的长相和服装与图 2 一致，其他镇民各有不同的面容和服饰",
+             pose="镇长站在画面中央偏右的前景，膝盖以上入画，面对镜头，面带笑容，右手举起向镜头致意，他的可见部分高度约占画面高度的二分之一。在他身后，四五位镇民围到左侧的金库箱旁边，男女都有，穿浅色的平民服装，没有人戴黑帽子，没有人拿武器，有人在清点箱子，有人在欢呼。镇民不要挡住伏在沙袋上的上校"),
     ],
     flow=[("1", "F1_P → F1_H1 → F1_H2 → F1_H3 → F1_P，走到 F2_P"),
-          ("2", "F2_P → F2_H1 → F2_H2 → F2_P → F2_C（修士跑过）→ F2_P → F2_H3 → F2_H4 → F2_P，硬切到 F3_P"),
+          ("2", "F2_P → F2_H1 → F2_H2 → F2_P →〔cross，F2_C 为中途引导〕→ F2_P → F2_H3 → F2_H4 → F2_P，硬切到 F3_P"),
           ("3", "F3_P → F3_H1 → F3_H2 → F3_H3 → F3_H4 → F3_P，硬切到 F4_P"),
           ("4", "F4_P → F4_H1 → F4_H2 → F4_P → F4_B1 →（打坏机枪）F4_Px → F4_B2 → F4_END → F4_V")],
 ))
 
 # ---------------------------------------------------------------- render
 def block(text):
-    return "```\n" + text + "\n```\n"
+    return f"```\n{STYLE_PREFIX}\n{text}\n```\n"
 
 
 def uploads(*ids):
@@ -476,16 +479,16 @@ def main():
     total = len(new_chars) + n_plate + n_state
     o = []
     o.append("# 第 2–5 章：关键帧提示词（ChatGPT 出图用）\n")
-    o.append("配套方案：`docs/PLAN.md` 第 24 节。第 1 章（Dust Creek 小镇）的提示词在 `docs/KEYFRAME_PROMPTS.md`，没有改动。\n")
+    o.append("配套方案：`docs/PLAN.md` 第 24 节。第 1 章（Dust Creek 小镇）的提示词在 `docs/KEYFRAME_PROMPTS.md`。\n")
     o.append("本文件由 `tools/forge/gen_keyframe_prompts.py` 生成。要改提示词请告诉我，或者改脚本后重新生成，不要直接改本文件。\n")
     o.append(f"本文档共 {total} 张图：\n")
     o.append("| 类别 | 数量 |\n|---|---|")
     o.append(f"| 新增角色设定图（CH10–CH19） | {len(new_chars)} |")
     o.append(f"| 空镜底板（含 2 张变体） | {n_plate} |")
-    o.append(f"| 状态关键帧 | {n_state} |\n")
+    o.append(f"| 状态、片中引导和结局帧 | {n_state} |\n")
     o.append("这些提示词还没有在 ChatGPT 里实际跑过。出图后如果某类画面反复不对，告诉我编号，我来改。\n")
     o.append("---\n\n## 1. 使用说明\n")
-    o.append("尺寸、命名、存放目录、检查项和被拒绝时的处理，都和第 1 章相同，见 `docs/KEYFRAME_PROMPTS.md` 第 1 节。下面只列不同的地方。\n")
+    o.append("沿用第 1 章的 A 版 35mm 实景西部电影风格。每条提示词已含摄影要求，可以整段复制。原图尺寸、安全区和命名见 `docs/KEYFRAME_PROMPTS.md` 第 1 节。四张平民图（T2_C、M2_C、N3_C、F2_C）均为单条空镜到空镜的 `cross` 的中途引导。\n")
     o.append("- **前置条件**：第 1 章的 CH01–CH04（四种匪徒）和 CH06（镇长）的设定图要先选定，本文档的状态关键帧会用到。")
     o.append("- **顺序**：先做新的角色设定图；每一章先做本章母版（T1_P、M1_P、N1_P、F1_P），再做本章的其他底板，最后做状态关键帧。")
     o.append("- **室内底板**（T3_P、M3_P、F3_P）只拿上一张底板作风格参考。M3_P 是矿洞内部的母版，M4_P、M5_P 要上传它。")
@@ -500,14 +503,14 @@ def main():
     for k, v in CHARS.items():
         tag = "" if v[4] else "（第 1 章已有）"
         o.append(f"| {k} | {v[0]}{tag} | {v[3]} | {'、'.join(usage[k]) or '—'} |")
-    o.append("\n规则和第 1 章一样：匪徒都戴黑帽、持枪；平民都穿浅色、不戴黑帽、空手。\n")
+    o.append("\n交战时按黑帽、装备和姿态辨认普通匪徒。平民穿浅色衣服、空手。头目丢帽、认输等阶段以对应提示词为准。\n")
 
     o.append("---\n\n## 3. 新增角色设定图\n")
     o.append("不需要上传图片。每张是同一个人的四个视图。\n")
     for k in new_chars:
         o.append(f"### {k} {CHARS[k][0]}\n")
         o.append(block(SHEET_TMPL.format(desc=CHARS[k][4])))
-        rows.append((k, CHARS[k][0] + "设定图", "—"))
+        rows.append((k, CHARS[k][0] + "设定图", []))
 
     sec = 4
     for ch in CHAPTERS:
@@ -523,12 +526,12 @@ def main():
             else:
                 o.append(uploads(*([ref] if ref else [])) + "\n")
             o.append(block(plate_prompt(p)))
-            rows.append((p["id"], p["title"].split("（")[0] + "底板", ref or "—"))
+            rows.append((p["id"], p["title"].split("（")[0] + "底板", [ref] if ref else []))
         for v in ch.get("variants", []):
             o.append(f"#### {v['id']} {v['title']}\n")
             o.append(uploads(v["base"]) + "\n")
             o.append(block(variant_prompt(v)))
-            rows.append((v["id"], v["title"], v["base"]))
+            rows.append((v["id"], v["title"], [v["base"]]))
         o.append(f"### {sec}.2 状态关键帧\n")
         for s in ch["states"]:
             o.append(f"#### {s['id']} {s['title']}\n")
@@ -537,7 +540,7 @@ def main():
             ids = [base + note] + s["chars"]
             o.append(uploads(*ids) + "\n")
             o.append(block(state_prompt(s, LIGHT[state_light[s["id"]]][1])))
-            rows.append((s["id"], s["title"], "、".join([base] + s["chars"])))
+            rows.append((s["id"], s["title"], [base] + s["chars"]))
         o.append(f"### {sec}.3 流程（供对照）\n")
         o.append("| 站位 | 关键帧顺序 |\n|---|---|")
         for a, b in ch["flow"]:
@@ -547,8 +550,15 @@ def main():
 
     o.append(f"---\n\n## {sec}. 清单\n")
     o.append("| # | 编号 | 内容 | 上传的图 |\n|---|---|---|---|")
-    for i, (a, b, c) in enumerate(rows, 1):
-        o.append(f"| {i} | {a} | {b} | {c} |")
+    available = set(CHARS) - set(new_chars)  # sheets already made for chapter 1
+    for i, (asset_id, title, refs) in enumerate(rows, 1):
+        if asset_id in available:
+            raise ValueError(f"Duplicate asset ID: {asset_id}")
+        for ref in refs:
+            if ref not in available:
+                raise ValueError(f"{asset_id} requires {ref} before it appears in the checklist")
+        available.add(asset_id)
+        o.append(f"| {i} | {asset_id} | {title} | {'、'.join(refs) or '—'} |")
     o.append("")
     OUT.write_text("\n".join(o), encoding="utf-8")
 
@@ -556,11 +566,6 @@ def main():
                sum(1 for s in c["states"] if len(s["chars"]) == 2) for c in CHAPTERS}
     print(f"wrote {OUT}  images={total} sheets={len(new_chars)} plates={n_plate} states={n_state} rows={len(rows)}")
     print("enemies per chapter:", enemies)
-    for c in CHAPTERS:  # sanity: every base exists
-        ids = set(plates) | {s["id"] for s in c["states"]}
-        for s in c["states"]:
-            assert s["base"] in ids, s["id"]
-            assert all(x in CHARS for x in s["chars"]), s["id"]
 
 
 if __name__ == "__main__":

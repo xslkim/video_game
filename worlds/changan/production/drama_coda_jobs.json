@@ -1,0 +1,310 @@
+{
+  "lantern_eyes": {
+    "from_take": [
+      "lantern_warning",
+      48
+    ],
+    "first": "lantern_eyes_anchor",
+    "length": 167,
+    "seed": 1871470,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Follow amber light travelling along the street as the crowd notices the paper lanterns turning of their own accord. A father draws his child into a doorway."
+  },
+  "market_silk": {
+    "from_take": [
+      "market_drummer",
+      86
+    ],
+    "first": "market_silk_anchor",
+    "length": 167,
+    "seed": 1871471,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Beyond the drummer a silk banner stirs and its shadow on the wall begins to move against the wind. The last few people step away."
+  },
+  "screen_silhouette": {
+    "from_take": [
+      "paper_wakes",
+      82
+    ],
+    "first": "screen_silhouette_anchor",
+    "length": 167,
+    "seed": 1871472,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A backstage detail: three folding brass joints of a cut paper puppet twitch in sequence, casting a long articulated shadow across the isinglass screen."
+  },
+  "mirror_reflection": {
+    "from_take": [
+      "mirror_hall_entry",
+      85
+    ],
+    "first": "mirror_reflection_anchor",
+    "length": 167,
+    "seed": 1871473,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The reflections stretch as the travellers round the last corner. At different depths two false door frames come into focus. Flickering lamplight leads inward."
+  },
+  "mask_abandoned": {
+    "from_take": [
+      "player_bows",
+      85
+    ],
+    "first": "mask_abandoned_anchor",
+    "length": 167,
+    "seed": 1871474,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The now freed performer sets the heavy painted mask down on the wooden stage between his feet, then retreats through the curtain."
+  },
+  "ying_doubts": {
+    "from_take": [
+      "xuanzhu_vanishes",
+      86
+    ],
+    "first": "ying_doubts_anchor",
+    "length": 167,
+    "seed": 1871475,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The last blue ember drifts into the wings. The young girl watches the shadows and briefly hides the little warm light cupped in her hands."
+  },
+  "boat_pole": {
+    "from_take": [
+      "river_passing_lamps",
+      90
+    ],
+    "first": "boat_pole_anchor",
+    "length": 167,
+    "seed": 1871476,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A bamboo boat pole enters the river beside the nearest traditional wooden boat, breaks the reflection of a row of lights, and pushes the boat off into the channel."
+  },
+  "lotus_ripples": {
+    "from_take": [
+      "river_lantern_gift",
+      86
+    ],
+    "first": "lotus_ripples_anchor",
+    "length": 167,
+    "seed": 1871477,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Tilt gently from hands releasing the paper lamp to follow it on the water. Several lotus lanterns nearby start moving upstream against the ripples."
+  },
+  "prow_splash": {
+    "from_take": [
+      "river_blue_wake",
+      84
+    ],
+    "first": "prow_splash_anchor",
+    "length": 167,
+    "seed": 1871478,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The dragon prow surges out of the mist, scattering two rows of floating lanterns. Water runs from the lacquered timbers. The smaller boat turns after it."
+  },
+  "water_trail": {
+    "from_take": [
+      "river_pass",
+      68
+    ],
+    "first": "water_trail_anchor",
+    "length": 167,
+    "seed": 1871479,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Follow the silver wake between the market boats. Two narrow mooring ropes fall past and a paper parasol slowly wheels ahead in the moonlight."
+  },
+  "dragon_keel": {
+    "from_take": [
+      "river_sink",
+      76
+    ],
+    "first": "dragon_keel_anchor",
+    "length": 167,
+    "seed": 1871480,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The last large wooden dragon head turns dark and sinks into the black water. Hundreds of smaller lights float back into place around the eddy."
+  },
+  "pagoda_distance": {
+    "from_take": [
+      "river_empty_deck",
+      80
+    ],
+    "first": "pagoda_distance_anchor",
+    "length": 167,
+    "seed": 1871481,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The boat rocks against the stone landing. Follow a few floating sparks up to the distant moonlit silhouette of the Tang pagoda."
+  },
+  "lion_eyes": {
+    "from_take": [
+      "pagoda_steps",
+      86
+    ],
+    "first": "lion_eyes_anchor",
+    "length": 167,
+    "seed": 1871482,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A stone guardian lion beside the steps fills the foreground. Light from the approaching lantern slowly catches its carved eyes. The stone doors move behind it."
+  },
+  "ink_on_wall": {
+    "from_take": [
+      "tower_scrolls",
+      80
+    ],
+    "first": "ink_on_wall_anchor",
+    "length": 167,
+    "seed": 1871483,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Fresh wet ink seeps from an old scroll into the mortar line in the wall. A silhouette like a crow rises across the shadow cast by the oil lamp."
+  },
+  "falling_quill": {
+    "from_take": [
+      "flock_escape",
+      53
+    ],
+    "first": "falling_quill_anchor",
+    "length": 167,
+    "seed": 1871484,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A single long black feather spirals down the empty stairwell. Follow it to the commander leaning against a wooden balustrade with a torn sleeve."
+  },
+  "commander_bandage": {
+    "from_take": [
+      "tower_pillar",
+      86
+    ],
+    "first": "commander_bandage_anchor",
+    "length": 167,
+    "seed": 1871485,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A close quiet shot of the injured commander winding a strip of linen around her sleeve with her free hand and nodding to the departing patrolman."
+  },
+  "tower_vigil": {
+    "from_take": [
+      "peizhao_rest",
+      68
+    ],
+    "first": "tower_vigil_anchor",
+    "length": 167,
+    "seed": 1871486,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The commander braces one hand on the pillar, draws herself up and turns to watch the dark stairwell below as the other guard takes the upper stair."
+  },
+  "stone_hush": {
+    "from_take": [
+      "lion_statue",
+      65
+    ],
+    "first": "stone_hush_anchor",
+    "length": 167,
+    "seed": 1871487,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The last ember fades from the huge stone lion. Powder settles in its carved paw as dawn light grazes the steps beyond."
+  },
+  "chain_over_tiles": {
+    "from_take": [
+      "tower_departure",
+      83
+    ],
+    "first": "chain_over_tiles_anchor",
+    "length": 167,
+    "seed": 1871488,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Track the taut blue chain over a succession of black Tang roof tiles far below the tower, leading into a distant forest of glowing palace lanterns."
+  },
+  "split_bamboo": {
+    "from_take": [
+      "artisan_worktable",
+      87
+    ],
+    "first": "split_bamboo_anchor",
+    "length": 167,
+    "seed": 1871489,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The young lantern maker splits a bamboo strip with a craft knife, bends it carefully around the frame and ties the last knot with silk thread."
+  },
+  "wife_hand": {
+    "from_take": [
+      "memory_firefly",
+      85
+    ],
+    "first": "wife_hand_anchor",
+    "length": 167,
+    "seed": 1871490,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The pale hand by the bed closes gently around the wooden handle of the firefly lantern. The lamplight draws a golden circle across the folded quilt."
+  },
+  "palace_wind": {
+    "from_take": [
+      "palace_avenue",
+      85
+    ],
+    "first": "palace_wind_anchor",
+    "length": 167,
+    "seed": 1871491,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Festival banners on either side of the palace approach snap in a rising wind. Shadows of mounted paper riders cross the stones as a distant blue lamp swings."
+  },
+  "guard_circle": {
+    "from_take": [
+      "palace",
+      61
+    ],
+    "first": "guard_circle_anchor",
+    "length": 167,
+    "seed": 1871492,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A slow reveal of the three lanterns guarding the masked lantern maker at the palace gates. They pulse in succession over the wet paving stones."
+  },
+  "chain_shadow": {
+    "from_take": [
+      "palace_chain",
+      62
+    ],
+    "first": "chain_shadow_anchor",
+    "length": 167,
+    "seed": 1871493,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Follow the cold reflection of the ritual chains across one carved paving stone to the foot of the suspended lantern. The girl watches the lantern maker."
+  },
+  "gate_folds": {
+    "from_take": [
+      "master_reaches",
+      86
+    ],
+    "first": "gate_folds_anchor",
+    "length": 167,
+    "seed": 1871494,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Light pours through the old gate behind the lantern maker; its vast carved leaves slowly fold shut and the lanterns hanging above begin to turn warm."
+  },
+  "last_sleeve": {
+    "from_take": [
+      "aying_fireflies",
+      86
+    ],
+    "first": "last_sleeve_anchor",
+    "length": 167,
+    "seed": 1871495,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "A silver edge of a sleeve dissolves into separate fireflies, each following the avenue away from the empty space under the palace lanterns."
+  },
+  "dawn_market": {
+    "from_take": [
+      "city_wakes",
+      84
+    ],
+    "first": "dawn_market_anchor",
+    "length": 167,
+    "seed": 1871496,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "The sun reaches the market. The rescued stall keeper tenderly sets an ordinary paper carp lantern upright on a shelf and opens the wooden shutters."
+  },
+  "festival_returns": {
+    "from_take": [
+      "empty_lantern",
+      80
+    ],
+    "first": "festival_returns_anchor",
+    "length": 167,
+    "seed": 1871497,
+    "prefix": "A single continuous live-action Tang dynasty historical fantasy shot. Match the people, period costume, architecture, weather and light of the reference. Genuine physical motion, grounded scale, no talking, no lettering, no UI or subtitles; natural location sound only. ",
+    "prompt": "Hold on the empty lamp against a distant sea of people. The wind moves its silk tassel and one tiny firefly settles on the edge of its rim."
+  }
+}

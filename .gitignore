@@ -2,3 +2,9 @@
 /dist/
 /vcpkg_installed/
 __pycache__/
+/.cache/
+/.ruff_cache/
+/apps/changan_android/node_modules/
+/assets/changan/
+/docs/art-directions/**/*.png
+/worlds/changan/**/*.mask

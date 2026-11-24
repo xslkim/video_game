@@ -1,0 +1,127 @@
+{
+  "west_prophecy": {
+    "first": "west_prophecy",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The lantern maker speaks gently, then lowers his cyan lamp. She turns toward its light.",
+    "length": 119,
+    "seed": 961610,
+    "last": "west_prophecy",
+    "aperture": [
+      896,
+      482,
+      60,
+      6
+    ]
+  },
+  "palace_servant": {
+    "first": "palace_servant",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The cyan wick hovers and the attendant steps carefully forward. Wick and head remain clearly separate.",
+    "length": 119,
+    "seed": 961611,
+    "last": "palace_servant"
+  },
+  "west_weaver": {
+    "first": "west_childlamp",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The basket weaver shifts his carrier. The floating cyan wick flickers left of the basket against the dark stall.",
+    "length": 119,
+    "seed": 961612,
+    "last": "west_childlamp"
+  },
+  "west_musician": {
+    "first": "west_musician",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The musician plucks a pipa string. One cyan wick flickers above and to her right, clear of her head.",
+    "length": 119,
+    "seed": 961613,
+    "last": "west_musician"
+  },
+  "palace_fire": {
+    "first": "palace_fireball",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "A single cyan fireball flies from the master's lamp across empty dark air toward the lens. He remains at left.",
+    "length": 119,
+    "seed": 961614
+  },
+  "aying_lends": {
+    "first": "aying_lends",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "She opens her palm and offers golden fireflies toward the lens. She smiles as they drift away.",
+    "length": 119,
+    "seed": 961615
+  },
+  "palace_dawn": {
+    "first": "palace_dawn",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "Pale sunlight spreads through the gate. Ordinary lanterns sway and citizens look up.",
+    "length": 119,
+    "seed": 961616
+  },
+  "true_mirror": {
+    "first": "true_mirror",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "Two broken side mirrors stay dark. The woman in the middle reaches outward and golden fireflies drift up. Camera and mirrors fixed.",
+    "length": 119,
+    "seed": 961617,
+    "last": "true_mirror"
+  },
+  "wick_shattered": {
+    "first": "final_wick",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "A sharp golden pulse passes through the white wick. A bright pulse and a shower of tiny golden sparks, then the candle goes out. Only a lantern on screen.",
+    "length": 119,
+    "seed": 961618
+  },
+  "wick_mercy": {
+    "first": "final_wick",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The candle stays lit. A slow spiral of fireflies converges and gently extinguishes it. A thin trail of smoke. No flash.",
+    "length": 119,
+    "seed": 961619
+  },
+  "flock_scatter": {
+    "first": "flock",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The origami crow flock breaks apart into loose paper strips. The commander ducks then straightens, rubbing her bracer.",
+    "length": 119,
+    "seed": 961620
+  },
+  "flock_escape": {
+    "first": "flock",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The commander raises her cloak and ducks as the paper crows veer past. A few black scraps land on her bracer.",
+    "length": 119,
+    "seed": 961621
+  },
+  "dragon_recoil": {
+    "first": "dragon",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The nine wooden heads tilt sideways together in response to a wrong signal and settle back. Girl remains safe, water ripples.",
+    "length": 119,
+    "seed": 961622,
+    "last": "dragon"
+  },
+  "river_pass": {
+    "first": "qujiang",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "Camera slowly drifts forward over dark rippling water passing the lotus lanterns.",
+    "length": 119,
+    "seed": 961623,
+    "last": "qujiang"
+  },
+  "crows_clear": {
+    "first": "ink_crow",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The ink crow dissolves into black fluid droplets which settle on the silk manuscript.",
+    "length": 119,
+    "seed": 961624
+  },
+  "umbrella_open": {
+    "first": "umbrella",
+    "prefix": "Photoreal live-action Tang festival. Preserve actors, framing and set. Stable shot. Ambient sound only. No text, subtitles, graphic elements or editing. ",
+    "prompt": "The oil-paper parasol opens fully, showing its red canopy like a shield. It turns obliquely and exposes its bamboo hub. No human appears.",
+    "length": 119,
+    "seed": 961625
+  }
+}

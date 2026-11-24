@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "title": "长安灯妖录",
+  "fps": 24,
+  "size": [
+    1280,
+    720
+  ],
+  "first": "lantern",
+  "nodes": [
+    {
+      "id": "lantern",
+      "label": "净化灯笼妖",
+      "hp": 1,
+      "score": 100
+    },
+    {
+      "id": "wisp",
+      "label": "净化青火",
+      "hp": 1,
+      "score": 100
+    },
+    {
+      "id": "fox",
+      "label": "净化狐火",
+      "hp": 3,
+      "score": 500,
+      "flinch": "fox_flinch"
+    }
+  ],
+  "clips": {
+    "lantern": {
+      "frames": 73,
+      "sha256": "da2c0b684e84b3102e5bf8154909d6315aa9bc83421d880f58aec031142002e8",
+      "windows": [
+        {
+          "begin": 0,
+          "end": 13,
+          "node": 0,
+          "kind": "target",
+          "hit": "lantern_to_wisp_early"
+        },
+        {
+          "begin": 13,
+          "end": 29,
+          "node": 0,
+          "kind": "target",
+          "hit": "lantern_to_wisp_mid"
+        },
+        {
+          "begin": 29,
+          "end": 43,
+          "node": 0,
+          "kind": "target",
+          "hit": "lantern_to_wisp_late"
+        }
+      ],
+      "impact_frame": 43,
+      "next": "lantern",
+      "in_anchor": "lantern",
+      "out_anchor": "lantern"
+    },
+    "lantern_to_wisp_early": {
+      "frames": 47,
+      "sha256": "2160ab10d45ef6a52091b9565803337f509f2b5d37b12d7db032e233626f63cb",
+      "windows": [
+        {
+          "begin": 34,
+          "end": 47,
+          "node": 1,
+          "kind": "target",
+          "hit": "wisp_to_fox"
+        }
+      ],
+      "next": "wisp",
+      "in_anchor": "lantern",
+      "out_anchor": "wisp"
+    },
+    "lantern_to_wisp_mid": {
+      "frames": 47,
+      "sha256": "101f242d33ef3486b9dd1052a7fc83071e9229233672e44f792ea0755ccf6742",
+      "windows": [
+        {
+          "begin": 39,
+          "end": 47,
+          "node": 1,
+          "kind": "target",
+          "hit": "wisp_to_fox"
+        }
+      ],
+      "next": "wisp",
+      "in_anchor": "lantern_mid_hit",
+      "out_anchor": "wisp"
+    },
+    "lantern_to_wisp_late": {
+      "frames": 47,
+      "sha256": "55b4338ce5f2bf3af31a020658b6c5b67adef31fb12352c1cbd38c920e62d210",
+      "windows": [
+        {
+          "begin": 29,
+          "end": 47,
+          "node": 1,
+          "kind": "target",
+          "hit": "wisp_to_fox"
+        }
+      ],
+      "next": "wisp",
+      "in_anchor": "lantern_late_hit",
+      "out_anchor": "wisp"
+    },
+    "wisp": {
+      "frames": 87,
+      "sha256": "fca4f56a945eef7477c716f0c0337a3263a8a6c71f344e0b4069690fed3e3053",
+      "windows": [
+        {
+          "begin": 0,
+          "end": 37,
+          "node": 1,
+          "kind": "target",
+          "hit": "wisp_to_fox"
+        },
+        {
+          "begin": 38,
+          "end": 46,
+          "node": 1,
+          "kind": "projectile",
+          "hit": "interrupt_early"
+        },
+        {
+          "begin": 46,
+          "end": 61,
+          "node": 1,
+          "kind": "projectile",
+          "hit": "interrupt_middle"
+        },
+        {
+          "begin": 61,
+          "end": 68,
+          "node": 1,
+          "kind": "projectile",
+          "hit": "interrupt_late"
+        }
+      ],
+      "impact_frame": 68,
+      "launch_frame": 37,
+      "next": "wisp",
+      "in_anchor": "wisp",
+      "out_anchor": "wisp"
+    },
+    "interrupt_early": {
+      "frames": 22,
+      "sha256": "afc8f0fcd0105e81680230efdd16438727165d800c77728d578a3de5a119e5e1",
+      "next": "wisp",
+      "in_anchor": "fireball_early_hit",
+      "out_anchor": "wisp"
+    },
+    "interrupt_middle": {
+      "frames": 23,
+      "sha256": "a40c7a69d7b91f93ecc39a6a5f0a04709e54b9f8ad7f0878cb1c39e2c4e12ea4",
+      "next": "wisp",
+      "in_anchor": "wisp_flight",
+      "out_anchor": "wisp"
+    },
+    "interrupt_late": {
+      "frames": 22,
+      "sha256": "a3d3a68ed3eec569c541d824ff91628bfa8cc2146d56cff05d440de425b51d06",
+      "next": "wisp",
+      "in_anchor": "fireball_late_hit",
+      "out_anchor": "wisp"
+    },
+    "wisp_to_fox": {
+      "frames": 47,
+      "sha256": "b83c96f3dfefab47fba63a8f373ff7dc37c4618493f38e1ed7d252e5d4b5958a",
+      "windows": [
+        {
+          "begin": 34,
+          "end": 47,
+          "node": 2,
+          "kind": "target",
+          "hit": "purify_end"
+        }
+      ],
+      "next": "fox",
+      "in_anchor": "wisp",
+      "out_anchor": "fox"
+    },
+    "fox": {
+      "frames": 73,
+      "sha256": "e47e38f129e7ba5b136a07ce0f1c55666b484e14e83f8845e41e057171582ad1",
+      "windows": [
+        {
+          "begin": 0,
+          "end": 39,
+          "node": 2,
+          "kind": "target",
+          "hit": "purify_end"
+        }
+      ],
+      "impact_frame": 39,
+      "next": "fox",
+      "in_anchor": "fox",
+      "out_anchor": "fox"
+    },
+    "fox_flinch": {
+      "frames": 19,
+      "sha256": "387c4d00a7c7108c47c9befa1d3ca05206f42406e6b6afee70c2be2754aca3a8",
+      "next": "fox",
+      "in_anchor": "fox",
+      "out_anchor": "fox"
+    },
+    "purify_end": {
+      "frames": 46,
+      "sha256": "de232c83caaa671a84070ddd228aa8c80629460d6af4711bb850d5553e53a944",
+      "next": "@complete",
+      "in_anchor": "fox",
+      "out_anchor": "street"
+    }
+  },
+  "street": {
+    "frames": 175,
+    "sha256": "b1c2a78f11f434724e0261e4a289bdba6486254a141ffe1d151af92ec8d07ea3"
+  }
+}

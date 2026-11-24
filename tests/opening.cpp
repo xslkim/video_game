@@ -148,7 +148,7 @@ static std::array<int, 4> runAt(const Level &l, int hz, bool late) {
 }
 static void protocol() {
     Receiver receiver;
-    int shots = 0, reloads = 0, lost = 0;
+    int shots = 0, reloads = 0, lost = 0, specials = 0;
     Point shot{};
     auto notify = [&](RemoteAction a, Point p) {
         if (a == RemoteAction::shoot) {
@@ -159,15 +159,21 @@ static void protocol() {
             ++reloads;
         if (a == RemoteAction::lost)
             ++lost;
+        if (a == RemoteAction::special)
+            ++specials;
     };
     auto send = [&](std::string msg, int ms) { receiver.process(msg, "handset", ms, notify); };
     send("HELLO test-session-one", 1);
     send("120,220,4,5", 4);
     send("130,230,4,8", 5);
+    send("SPECIAL", 5);
+    require(specials == 1, "Locked handset delivers SPECIAL");
     send("SHOT 150,240,7", 6);
     send("SHOT 150,240,7", 7);
     require(shots == 1 && shot.x == 150, "UDP coordinates / duplicate / reorder");
     send("LOST,10", 8);
+    send("SPECIAL", 8);
+    require(specials == 1, "Lost handset cannot deliver SPECIAL");
     send("SHOT 3,4,9", 9);
     send("4,5,4,13", 10);
     send("SHOT 3,4,9", 11);

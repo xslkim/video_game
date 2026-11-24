@@ -1,0 +1,1379 @@
+{
+  "title": "长安灯妖录",
+  "chapters": [
+    {
+      "id": "qujiang",
+      "heading": "第三章　曲江池，夜船",
+      "stages": [
+        {
+          "id": "on_the_river",
+          "type": "film",
+          "takes": [
+            {
+              "id": "river",
+              "subtitle": "阿萤　“如果我真是他的灯，你还会信我吗？”",
+              "voice": "aying/question"
+            },
+            {
+              "id": "river_passing_lamps"
+            },
+            {
+              "id": "boat_pole"
+            },
+            {
+              "id": "river_look",
+              "subtitle": "沈砚　“拿着。它还亮着。”",
+              "voice": "shenyan/river"
+            },
+            {
+              "id": "river_lantern_gift"
+            },
+            {
+              "id": "lotus_ripples"
+            }
+          ],
+          "music": "qujiang"
+        },
+        {
+          "id": "lotus_ferry",
+          "type": "trial",
+          "trial": {
+            "first": "light",
+            "steps": {
+              "light": {
+                "take": "lotus_water",
+                "prompt": "第1阵　水上有妖　·　瞄准莲花河灯",
+                "answer": "flower",
+                "window": [
+                  23,
+                  42
+                ],
+                "zones": [
+                  "flower"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "light"
+                  },
+                  "timeout": {
+                    "next": "light",
+                    "damage": 1
+                  },
+                  "flower": {
+                    "next": "flame",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "lotus_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "flame": {
+                "take": "lotus_water",
+                "prompt": "第1阵　拦截水面上的青火",
+                "answer": "flame",
+                "window": [
+                  44,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame"
+                  },
+                  "timeout": {
+                    "next": "flame",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "light_wave_2",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "voice": "aying/fire",
+                "subtitle": "阿萤　“小心火球！”",
+                "thunder_strike": false
+              },
+              "light_wave_2": {
+                "take": "lotus_water_pass_1",
+                "prompt": "第2阵　水上有妖　·　瞄准莲花河灯",
+                "answer": "flower",
+                "window": [
+                  23,
+                  42
+                ],
+                "zones": [
+                  "flower"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "light_wave_2"
+                  },
+                  "timeout": {
+                    "next": "light_wave_2",
+                    "damage": 1
+                  },
+                  "flower": {
+                    "next": "flame_wave_2",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "lotus_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "flame_wave_2": {
+                "take": "lotus_water_pass_3",
+                "prompt": "第2阵　拦截水面上的青火",
+                "answer": "flame",
+                "window": [
+                  54,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame_wave_2"
+                  },
+                  "timeout": {
+                    "next": "flame_wave_2",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "light_wave_3",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              },
+              "light_wave_3": {
+                "take": "lotus_water_pass_2",
+                "prompt": "第3阵　水上有妖　·　瞄准莲花河灯",
+                "answer": "flower",
+                "window": [
+                  23,
+                  42
+                ],
+                "zones": [
+                  "flower"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "light_wave_3"
+                  },
+                  "timeout": {
+                    "next": "light_wave_3",
+                    "damage": 1
+                  },
+                  "flower": {
+                    "next": "flame_wave_3",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "lotus_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "flame_wave_3": {
+                "take": "lotus_water",
+                "prompt": "第3阵　拦截水面上的青火",
+                "answer": "flame",
+                "window": [
+                  54,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame_wave_3"
+                  },
+                  "timeout": {
+                    "next": "flame_wave_3",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "light_wave_4",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              },
+              "light_wave_4": {
+                "take": "lotus_water_pass_3",
+                "prompt": "第4阵　水上有妖　·　瞄准莲花河灯",
+                "answer": "flower",
+                "window": [
+                  23,
+                  42
+                ],
+                "zones": [
+                  "flower"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "light_wave_4"
+                  },
+                  "timeout": {
+                    "next": "light_wave_4",
+                    "damage": 1
+                  },
+                  "flower": {
+                    "next": "flame_wave_4",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "lotus_rests"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "flame_wave_4": {
+                "take": "lotus_water_pass_3",
+                "prompt": "第4阵　拦截水面上的青火",
+                "answer": "flame",
+                "window": [
+                  44,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame_wave_4"
+                  },
+                  "timeout": {
+                    "next": "flame_wave_4",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "@complete",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              }
+            }
+          },
+          "music": "river_battle"
+        },
+        {
+          "id": "dragon_takes_aying",
+          "type": "film",
+          "takes": [
+            {
+              "id": "river_capture",
+              "subtitle": "青火裹住阿萤，将她卷上龙舟。"
+            },
+            {
+              "id": "river_blue_wake"
+            },
+            {
+              "id": "prow_splash"
+            },
+            {
+              "id": "river_pass"
+            },
+            {
+              "id": "water_trail"
+            }
+          ],
+          "music": "qujiang"
+        },
+        {
+          "id": "river_chase",
+          "type": "trial",
+          "trial": {
+            "first": "parasol",
+            "steps": {
+              "parasol": {
+                "take": "umbrella_turn",
+                "prompt": "第1阵　追上龙舟　·　击中伞骨",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol"
+                  },
+                  "timeout": {
+                    "next": "parasol",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "wisp",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "wisp": {
+                "take": "lotus_water",
+                "prompt": "第1阵　打散拦路的青火",
+                "answer": "flame",
+                "window": [
+                  42,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wisp"
+                  },
+                  "timeout": {
+                    "next": "wisp",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "parasol_wave_2",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              },
+              "parasol_wave_2": {
+                "take": "umbrella_turn_pass_1",
+                "prompt": "第2阵　追上龙舟　·　击中伞骨",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol_wave_2"
+                  },
+                  "timeout": {
+                    "next": "parasol_wave_2",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "wisp_wave_2",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol_wave_2",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "wisp_wave_2": {
+                "take": "lotus_water_pass_3",
+                "prompt": "第2阵　打散拦路的青火",
+                "answer": "flame",
+                "window": [
+                  54,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wisp_wave_2"
+                  },
+                  "timeout": {
+                    "next": "wisp_wave_2",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "parasol_wave_3",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              },
+              "parasol_wave_3": {
+                "take": "umbrella_turn_pass_2",
+                "prompt": "第3阵　追上龙舟　·　击中伞骨",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol_wave_3"
+                  },
+                  "timeout": {
+                    "next": "parasol_wave_3",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "wisp_wave_3",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol_wave_3",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "wisp_wave_3": {
+                "take": "lotus_water",
+                "prompt": "第3阵　打散拦路的青火",
+                "answer": "flame",
+                "window": [
+                  54,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wisp_wave_3"
+                  },
+                  "timeout": {
+                    "next": "wisp_wave_3",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "parasol_wave_4",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              },
+              "parasol_wave_4": {
+                "take": "umbrella_turn_pass_3",
+                "prompt": "第4阵　追上龙舟　·　击中伞骨",
+                "answer": "hub",
+                "window": [
+                  28,
+                  60
+                ],
+                "zones": [
+                  "hub",
+                  "shield"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "parasol_wave_4"
+                  },
+                  "timeout": {
+                    "next": "parasol_wave_4",
+                    "damage": 1
+                  },
+                  "hub": {
+                    "next": "wisp_wave_4",
+                    "points": 500,
+                    "purified": 1,
+                    "response": "parasol_closes"
+                  },
+                  "shield": {
+                    "next": "parasol_wave_4",
+                    "damage": 1
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "guards": [
+                  "shield"
+                ],
+                "zone_windows": {
+                  "shield": [
+                    28,
+                    44
+                  ],
+                  "hub": [
+                    44,
+                    120
+                  ]
+                },
+                "strength": 3,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "wisp_wave_4": {
+                "take": "lotus_water_pass_3",
+                "prompt": "第4阵　打散拦路的青火",
+                "answer": "flame",
+                "window": [
+                  42,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wisp_wave_4"
+                  },
+                  "timeout": {
+                    "next": "wisp_wave_4",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "@complete",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "flame_clear"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "thunder_strike": false
+              }
+            }
+          },
+          "music": "river_battle"
+        },
+        {
+          "id": "nine_lanterns",
+          "type": "trial",
+          "trial": {
+            "first": "signal_1",
+            "steps": {
+              "signal_1": {
+                "take": "dragon_signal_1",
+                "prompt": "九首龙舟　·　击中第 1 盏亮起的灯",
+                "answer": "head_1",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_4",
+                  "head_5",
+                  "head_6",
+                  "head_7",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_1"
+                  },
+                  "timeout": {
+                    "next": "signal_1",
+                    "damage": 1
+                  },
+                  "head_1": {
+                    "next": "signal_2",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_1",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_2": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_1",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_2": {
+                "take": "dragon_signal_2",
+                "prompt": "九首龙舟　·　击中第 2 盏亮起的灯",
+                "answer": "head_5",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_5",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_4",
+                  "head_6",
+                  "head_7",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_2"
+                  },
+                  "timeout": {
+                    "next": "signal_2",
+                    "damage": 1
+                  },
+                  "head_5": {
+                    "next": "signal_3",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_2",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_2",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_3": {
+                "take": "dragon_signal_3",
+                "prompt": "九首龙舟　·　击中第 3 盏亮起的灯",
+                "answer": "head_9",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_9",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_4",
+                  "head_5",
+                  "head_6",
+                  "head_7",
+                  "head_8"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_3"
+                  },
+                  "timeout": {
+                    "next": "signal_3",
+                    "damage": 1
+                  },
+                  "head_9": {
+                    "next": "signal_4",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_3",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_3",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_4": {
+                "take": "dragon_signal_4",
+                "prompt": "九首龙舟　·　击中第 4 盏亮起的灯",
+                "answer": "head_4",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_4",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_5",
+                  "head_6",
+                  "head_7",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_4"
+                  },
+                  "timeout": {
+                    "next": "signal_4",
+                    "damage": 1
+                  },
+                  "head_4": {
+                    "next": "signal_5",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_4",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_4",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_5": {
+                "take": "dragon_signal_5",
+                "prompt": "九首龙舟　·　击中第 5 盏亮起的灯",
+                "answer": "head_7",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_7",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_4",
+                  "head_5",
+                  "head_6",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_5"
+                  },
+                  "timeout": {
+                    "next": "signal_5",
+                    "damage": 1
+                  },
+                  "head_7": {
+                    "next": "signal_6",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_5",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_5",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_6": {
+                "take": "dragon_signal_6",
+                "prompt": "九首龙舟　·　击中第 6 盏亮起的灯",
+                "answer": "head_2",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_2",
+                  "head_1",
+                  "head_3",
+                  "head_4",
+                  "head_5",
+                  "head_6",
+                  "head_7",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_6"
+                  },
+                  "timeout": {
+                    "next": "signal_6",
+                    "damage": 1
+                  },
+                  "head_2": {
+                    "next": "signal_7",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_6",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_6",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_7": {
+                "take": "dragon_signal_7",
+                "prompt": "九首龙舟　·　击中第 7 盏亮起的灯",
+                "answer": "head_6",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_6",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_4",
+                  "head_5",
+                  "head_7",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_7"
+                  },
+                  "timeout": {
+                    "next": "signal_7",
+                    "damage": 1
+                  },
+                  "head_6": {
+                    "next": "signal_8",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_7",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_7",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_8": {
+                "take": "dragon_signal_8",
+                "prompt": "九首龙舟　·　击中第 8 盏亮起的灯",
+                "answer": "head_3",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_3",
+                  "head_1",
+                  "head_2",
+                  "head_4",
+                  "head_5",
+                  "head_6",
+                  "head_7",
+                  "head_8",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_8"
+                  },
+                  "timeout": {
+                    "next": "signal_8",
+                    "damage": 1
+                  },
+                  "head_3": {
+                    "next": "signal_9",
+                    "points": 100,
+                    "purified": 0
+                  },
+                  "aying": {
+                    "next": "signal_8",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_8": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_8",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              },
+              "signal_9": {
+                "take": "dragon_signal_9",
+                "prompt": "九首龙舟　·　击中第 9 盏亮起的灯",
+                "answer": "head_8",
+                "window": [
+                  20,
+                  39
+                ],
+                "zones": [
+                  "aying",
+                  "head_8",
+                  "head_1",
+                  "head_2",
+                  "head_3",
+                  "head_4",
+                  "head_5",
+                  "head_6",
+                  "head_7",
+                  "head_9"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "signal_9"
+                  },
+                  "timeout": {
+                    "next": "signal_9",
+                    "damage": 1
+                  },
+                  "head_8": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1
+                  },
+                  "aying": {
+                    "next": "signal_9",
+                    "damage": 1,
+                    "civilian": true
+                  },
+                  "head_1": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_2": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_3": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_4": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_5": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_6": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_7": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  },
+                  "head_9": {
+                    "next": "signal_9",
+                    "response": "dragon_recoil"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2
+              }
+            }
+          },
+          "music": "guardian_battle"
+        },
+        {
+          "id": "toward_the_tower",
+          "type": "film",
+          "takes": [
+            {
+              "id": "dragon_keel"
+            },
+            {
+              "id": "river_sink",
+              "subtitle": "灯灭船沉，青光却往大雁塔去了。"
+            },
+            {
+              "id": "river_empty_deck"
+            },
+            {
+              "id": "pagoda_distance"
+            },
+            {
+              "id": "peizhao_arrives",
+              "subtitle": "裴照　“走。”",
+              "voice": "peizhao/walk"
+            }
+          ],
+          "music": "qujiang"
+        }
+      ]
+    }
+  ]
+}

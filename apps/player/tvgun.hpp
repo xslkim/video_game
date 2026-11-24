@@ -5,7 +5,7 @@
 #include <functional>
 #include <set>
 namespace dc {
-enum class RemoteAction { aim, shoot, reload, lost, start, exit };
+enum class RemoteAction { aim, shoot, reload, special, lost, start, exit };
 using RemoteHandler = std::function<void(RemoteAction, Point)>;
 class Receiver {
     SOCKET game = INVALID_SOCKET, discovery = INVALID_SOCKET;

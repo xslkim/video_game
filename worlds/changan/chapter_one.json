@@ -1,0 +1,695 @@
+{
+  "title": "长安灯妖录",
+  "chapters": [
+    {
+      "id": "zhuque",
+      "heading": "第一章　上元夜，朱雀大街",
+      "stages": [
+        {
+          "id": "lantern_festival",
+          "type": "film",
+          "takes": [
+            {
+              "id": "city",
+              "subtitle": "上元，长安。"
+            },
+            {
+              "id": "festival_rooftops"
+            },
+            {
+              "id": "patrol",
+              "subtitle": "沈砚　“裴统领，今晚整座长安的灯都亮了。”",
+              "voice": "shenyan/patrol"
+            },
+            {
+              "id": "patrol_stalls"
+            },
+            {
+              "id": "blue_flame"
+            },
+            {
+              "id": "white_robe_watch"
+            },
+            {
+              "id": "lantern_warning",
+              "subtitle": "沈砚　“灯怎么暗了？当心！”",
+              "voice": "shenyan/warning"
+            },
+            {
+              "id": "lantern_eyes"
+            }
+          ],
+          "music": "city_night"
+        },
+        {
+          "id": "street_lanterns",
+          "type": "encounter",
+          "level": "tutorial",
+          "music": "festival"
+        },
+        {
+          "id": "save_aying",
+          "type": "trial",
+          "trial": {
+            "first": "rope",
+            "steps": {
+              "rope": {
+                "take": "rescue",
+                "story_shot": true,
+                "window": [
+                  22,
+                  48
+                ],
+                "prompt": "吊索将断　·　瞄准左上方绳结施符",
+                "zones": [
+                  "knot"
+                ],
+                "answer": "knot",
+                "outcomes": {
+                  "knot": {
+                    "points": 1000,
+                    "response": "rescue_cut",
+                    "next": "@complete"
+                  },
+                  "miss": {
+                    "response": "rescue_delayed",
+                    "next": "@complete"
+                  },
+                  "timeout": {
+                    "response": "rescue_delayed",
+                    "next": "@complete"
+                  }
+                }
+              }
+            }
+          },
+          "music": "festival"
+        },
+        {
+          "id": "meet_aying",
+          "type": "film",
+          "takes": [
+            {
+              "id": "aying_lands",
+              "voice": "aying/name",
+              "subtitle": "阿萤　“我叫阿萤，萤火虫的萤。”"
+            },
+            {
+              "id": "aying_help",
+              "subtitle": "阿萤　“我能帮你们找到它们。”"
+            },
+            {
+              "id": "meeting_reply",
+              "voice": "peizhao/meeting",
+              "subtitle": "裴照　“她是妖。沈砚，退后。”"
+            },
+            {
+              "id": "ying_sees_west",
+              "voice": "aying/reveal",
+              "subtitle": "阿萤　“看灯影，那盏灯下有两道影子。”"
+            }
+          ],
+          "music": "fireflies"
+        },
+        {
+          "id": "fireflies_reveal",
+          "type": "trial",
+          "trial": {
+            "first": "glimmer",
+            "steps": {
+              "glimmer": {
+                "take": "ying_reveal",
+                "prompt": "第1阵　跟着萤火，施符净化显形的青火",
+                "answer": "wisp",
+                "window": [
+                  48,
+                  38
+                ],
+                "zones": [
+                  "aying",
+                  "wisp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "glimmer"
+                  },
+                  "timeout": {
+                    "next": "glimmer",
+                    "damage": 1
+                  },
+                  "wisp": {
+                    "next": "glimmer_wave_2",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "ying_clear"
+                  },
+                  "aying": {
+                    "next": "glimmer",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "glimmer_wave_2": {
+                "take": "ying_reveal_pass_1",
+                "prompt": "第2阵　跟着萤火，施符净化显形的青火",
+                "answer": "wisp",
+                "window": [
+                  48,
+                  38
+                ],
+                "zones": [
+                  "aying",
+                  "wisp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "glimmer_wave_2"
+                  },
+                  "timeout": {
+                    "next": "glimmer_wave_2",
+                    "damage": 1
+                  },
+                  "wisp": {
+                    "next": "glimmer_wave_3",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "ying_clear"
+                  },
+                  "aying": {
+                    "next": "glimmer_wave_2",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "glimmer_wave_3": {
+                "take": "ying_reveal_pass_2",
+                "prompt": "第3阵　跟着萤火，施符净化显形的青火",
+                "answer": "wisp",
+                "window": [
+                  48,
+                  38
+                ],
+                "zones": [
+                  "aying",
+                  "wisp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "glimmer_wave_3"
+                  },
+                  "timeout": {
+                    "next": "glimmer_wave_3",
+                    "damage": 1
+                  },
+                  "wisp": {
+                    "next": "glimmer_wave_4",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "ying_clear"
+                  },
+                  "aying": {
+                    "next": "glimmer_wave_3",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              },
+              "glimmer_wave_4": {
+                "take": "ying_reveal_pass_3",
+                "prompt": "第4阵　跟着萤火，施符净化显形的青火",
+                "answer": "wisp",
+                "window": [
+                  48,
+                  38
+                ],
+                "zones": [
+                  "aying",
+                  "wisp"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "glimmer_wave_4"
+                  },
+                  "timeout": {
+                    "next": "glimmer_wave_4",
+                    "damage": 1
+                  },
+                  "wisp": {
+                    "next": "@complete",
+                    "points": 100,
+                    "purified": 1,
+                    "response": "ying_clear"
+                  },
+                  "aying": {
+                    "next": "glimmer_wave_4",
+                    "damage": 1,
+                    "civilian": true
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false,
+                "thunder_strike": true
+              }
+            }
+          },
+          "music": "festival"
+        },
+        {
+          "id": "spirit_relay",
+          "type": "encounter",
+          "level": "m0",
+          "music": "festival"
+        },
+        {
+          "id": "flying_carp",
+          "type": "film",
+          "takes": [
+            {
+              "id": "carp_gate",
+              "subtitle": "朱雀门上方，一尾巨鲤游出了灯海。"
+            }
+          ],
+          "music": "city_night"
+        },
+        {
+          "id": "carp_lantern",
+          "type": "trial",
+          "trial": {
+            "first": "flame",
+            "steps": {
+              "flame": {
+                "take": "carp_ball",
+                "prompt": "第1阵　拦下巨鲤吐出的青火",
+                "answer": "flame",
+                "window": [
+                  45,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame"
+                  },
+                  "timeout": {
+                    "next": "flame",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "scale",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "carp_interrupt"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true,
+                "voice": "aying/fire",
+                "subtitle": "阿萤　“小心火球！”"
+              },
+              "scale": {
+                "take": "carp_tail",
+                "prompt": "第1阵　甩尾时，瞄准背上亮起的金鳞",
+                "answer": "scale",
+                "window": [
+                  58,
+                  41
+                ],
+                "zones": [
+                  "scale"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "scale"
+                  },
+                  "timeout": {
+                    "next": "scale",
+                    "damage": 1
+                  },
+                  "scale": {
+                    "next": "wick",
+                    "points": 300,
+                    "purified": 0,
+                    "response": "carp_shimmer"
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "wick": {
+                "take": "carp_wick_clean",
+                "prompt": "第1阵　最后一箭，净化腹中的烛火",
+                "answer": "wick",
+                "window": [
+                  38,
+                  41
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wick"
+                  },
+                  "timeout": {
+                    "next": "wick",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "flame_wave_2",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              },
+              "flame_wave_2": {
+                "take": "carp_ball_pass_1",
+                "prompt": "第2阵　拦下巨鲤吐出的青火",
+                "answer": "flame",
+                "window": [
+                  45,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame_wave_2"
+                  },
+                  "timeout": {
+                    "next": "flame_wave_2",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "scale_wave_2",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "carp_interrupt"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true
+              },
+              "scale_wave_2": {
+                "take": "carp_tail_pass_1",
+                "prompt": "第2阵　甩尾时，瞄准背上亮起的金鳞",
+                "answer": "scale",
+                "window": [
+                  58,
+                  41
+                ],
+                "zones": [
+                  "scale"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "scale_wave_2"
+                  },
+                  "timeout": {
+                    "next": "scale_wave_2",
+                    "damage": 1
+                  },
+                  "scale": {
+                    "next": "wick_wave_2",
+                    "points": 300,
+                    "purified": 0,
+                    "response": "carp_shimmer"
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "wick_wave_2": {
+                "take": "carp_wick_clean_pass_1",
+                "prompt": "第2阵　最后一箭，净化腹中的烛火",
+                "answer": "wick",
+                "window": [
+                  38,
+                  41
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wick_wave_2"
+                  },
+                  "timeout": {
+                    "next": "wick_wave_2",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "flame_wave_3",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              },
+              "flame_wave_3": {
+                "take": "carp_ball",
+                "prompt": "第3阵　拦下巨鲤吐出的青火",
+                "answer": "flame",
+                "window": [
+                  61,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame_wave_3"
+                  },
+                  "timeout": {
+                    "next": "flame_wave_3",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "scale_wave_3",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "carp_interrupt"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true
+              },
+              "scale_wave_3": {
+                "take": "carp_tail_pass_2",
+                "prompt": "第3阵　甩尾时，瞄准背上亮起的金鳞",
+                "answer": "scale",
+                "window": [
+                  58,
+                  41
+                ],
+                "zones": [
+                  "scale"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "scale_wave_3"
+                  },
+                  "timeout": {
+                    "next": "scale_wave_3",
+                    "damage": 1
+                  },
+                  "scale": {
+                    "next": "wick_wave_3",
+                    "points": 300,
+                    "purified": 0,
+                    "response": "carp_shimmer"
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "wick_wave_3": {
+                "take": "carp_wick_clean_pass_2",
+                "prompt": "第3阵　最后一箭，净化腹中的烛火",
+                "answer": "wick",
+                "window": [
+                  38,
+                  41
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wick_wave_3"
+                  },
+                  "timeout": {
+                    "next": "wick_wave_3",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "flame_wave_4",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              },
+              "flame_wave_4": {
+                "take": "carp_ball_pass_3",
+                "prompt": "第4阵　拦下巨鲤吐出的青火",
+                "answer": "flame",
+                "window": [
+                  45,
+                  40
+                ],
+                "zones": [
+                  "flame"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "flame_wave_4"
+                  },
+                  "timeout": {
+                    "next": "flame_wave_4",
+                    "damage": 1
+                  },
+                  "flame": {
+                    "next": "scale_wave_4",
+                    "points": 150,
+                    "purified": 0,
+                    "response": "carp_interrupt"
+                  }
+                },
+                "expose": false,
+                "highlight": false,
+                "strength": 1,
+                "projectile": true
+              },
+              "scale_wave_4": {
+                "take": "carp_tail_pass_3",
+                "prompt": "第4阵　甩尾时，瞄准背上亮起的金鳞",
+                "answer": "scale",
+                "window": [
+                  58,
+                  41
+                ],
+                "zones": [
+                  "scale"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "scale_wave_4"
+                  },
+                  "timeout": {
+                    "next": "scale_wave_4",
+                    "damage": 1
+                  },
+                  "scale": {
+                    "next": "wick_wave_4",
+                    "points": 300,
+                    "purified": 0,
+                    "response": "carp_shimmer"
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 3,
+                "projectile": false
+              },
+              "wick_wave_4": {
+                "take": "carp_wick_clean_pass_3",
+                "prompt": "第4阵　最后一箭，净化腹中的烛火",
+                "answer": "wick",
+                "window": [
+                  38,
+                  41
+                ],
+                "zones": [
+                  "wick"
+                ],
+                "outcomes": {
+                  "miss": {
+                    "next": "wick_wave_4"
+                  },
+                  "timeout": {
+                    "next": "wick_wave_4",
+                    "damage": 1
+                  },
+                  "wick": {
+                    "next": "@complete",
+                    "points": 500,
+                    "purified": 1
+                  }
+                },
+                "expose": true,
+                "highlight": false,
+                "strength": 2,
+                "projectile": false
+              }
+            }
+          },
+          "music": "guardian_battle"
+        },
+        {
+          "id": "westward",
+          "type": "film",
+          "takes": [
+            {
+              "id": "carp_small",
+              "subtitle": "阿萤　“玄烛……他在西市。”"
+            },
+            {
+              "id": "little_carp_sky"
+            },
+            {
+              "id": "west_blue_row",
+              "voice": "aying/west",
+              "subtitle": "阿萤　“玄烛……他在西市。”"
+            }
+          ],
+          "music": "fireflies"
+        }
+      ]
+    }
+  ]
+}

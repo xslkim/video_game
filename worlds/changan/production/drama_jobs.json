@@ -1,0 +1,442 @@
+{
+  "patrol": {
+    "first": "patrol",
+    "prompt": "Two constables walk slowly along the avenue. The older commander looks down the street, crowd and silk lantern tassels stir behind them.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938500,
+    "aperture": [
+      896,
+      482,
+      60,
+      6
+    ]
+  },
+  "lantern_warning": {
+    "first": "patrol",
+    "prompt": "The young constable stops walking and looks past camera. He gently raises one hand to warn his companion. The street behind them darkens as two lanterns slowly dim.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938501
+  },
+  "city": {
+    "first": "battlements",
+    "prompt": "Very slow crane forward over the rooftops. Distant pedestrians moving continuously and thin smoke dispersing, lanterns shimmer naturally.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938502
+  },
+  "blue_flame": {
+    "first": "blue_flame",
+    "prompt": "His hand moves away. A single blue flame rises within the lantern and illuminates his face and fingers, other golden lanterns dim behind him.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938503
+  },
+  "rescue": {
+    "first": "rescue",
+    "prompt": "The broad supporting sling sways slightly, the girl steadies herself and watches the approaching red paper lantern. Keep overhead cord and body position locked, clearly separated.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938504,
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "meeting": {
+    "first": "meeting",
+    "prompt": "Aying looks at the guard before she speaks softly. The lanterns flutter gently and a handful of fireflies drift up from her sleeve.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938505,
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "meeting_reply": {
+    "first": "meeting",
+    "prompt": "The young constable acknowledges her with a hesitant nod. She lowers her hand. A realistic intimate reaction shot without a cut.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938506,
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "carp_gate": {
+    "first": "carp_gate",
+    "prompt": "Immense artfully constructed flying carp lantern swims slowly in side profile above the street gate. Its fins flex and translucent golden scales catch candlelight. It stays inside the central area of frame.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938507
+  },
+  "market": {
+    "first": "mirror",
+    "prompt": "The young man and his female companion discover the silk stall and look toward a distant puppet stage. A breeze lifts the silk canopy, vendor passes deep in background.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938508
+  },
+  "river": {
+    "first": "river",
+    "prompt": "River lights float past their small boat. The woman quietly asks a question. The man pauses, then gently nudges the floating lamp toward her.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938509,
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "river_look": {
+    "first": "river",
+    "prompt": "The woman turns to look at her companion and slowly smiles. He sits still and an amber lantern drifts away on the rippling black water.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938510,
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "tower": {
+    "first": "tower",
+    "prompt": "The young constable on the gallery leans forward toward the huge suspended silk lantern. Her face shines through the silk and the outer fringe stirs independently in the cool wind.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938511
+  },
+  "tower_depart": {
+    "first": "tower",
+    "prompt": "The hanging lantern drifts very slowly away from the tower towards the distant palace, its silk ribbons draw taut and the young man reaches after it.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938512
+  },
+  "farewell": {
+    "first": "farewell",
+    "prompt": "The woman looks directly at the young man and breathes out. Tiny warm fireflies lift from her sleeve. He takes a slight step toward her.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938513,
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "epilogue": {
+    "first": "epilogue",
+    "prompt": "The young man lights the small lantern in his hands. He gazes at the sunset skyline, the flame trembles in the breeze. Warm quiet ending, silence.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938514
+  },
+  "shadow_duel": {
+    "first": "shadow_warrior",
+    "prompt": "A real articulated hide shadow puppet raises and lowers its small round shield, exposing the brass head pin. Lateral stage lighting. Fixed position grounded feet.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938515
+  },
+  "umbrella_turn": {
+    "first": "umbrella",
+    "prompt": "Parasol turns about its central axis then partially closes, exposing the lit inner hub. Keep the center stationary.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938516
+  },
+  "stone_cub": {
+    "first": "stone_cub",
+    "prompt": "The small stone lion cub steps forward once, fine amber light travels through a shoulder crack. Complete shape remains within frame.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938517
+  },
+  "cavalry": {
+    "first": "cavalry",
+    "prompt": "The little illuminated lantern horse trots forward slowly. Its bamboo joints flex and the internal wick glows. Restrained practical effects.",
+    "prefix": "One continuous photoreal live action Tang dynasty historical fantasy shot, preserve all reference faces, costumes, scale and camera framing. Subtle real movements. Natural location ambience, no music, captions, writing or UI. ",
+    "length": 119,
+    "seed": 938518
+  },
+  "rescue_cut": {
+    "first": "rescue_44",
+    "prompt": "The glowing overhead joint unlatches at the upper left. The broad sling tilts slowly and the young woman steps down into the waiting guard's open arms. Both feet land safely. A practical silk stunt with the entire movement visible.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940100,
+    "from_take": [
+      "rescue",
+      44
+    ],
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "rescue_delayed": {
+    "first": "rescue_90",
+    "prompt": "After a brief hesitation the young woman gently releases her own silk fastening. The guard steps forward and steadies her as the sling descends. Show a distinct gentle late recovery with no injury.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940101,
+    "from_take": [
+      "rescue",
+      90
+    ],
+    "aperture": [
+      896,
+      504,
+      64,
+      0
+    ]
+  },
+  "carp_ball": {
+    "first": "carp_gate",
+    "prompt": "The floating silk carp hovers with its head pointed left. One bright BLUE flame forms directly in front of its mouth, separates, and comes toward the lens slowly. The small cyan flame must stand out in empty dark air. Keep the carp broadside, the golden lantern body stable, preserve wide composition.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940102
+  },
+  "carp_tail": {
+    "first": "carp_turn_64",
+    "prompt": "The magical carp flicks its tail once. A single circular gold scale on the upper flank lights up and remains bright, visible through the entire short take. Keep the full animal in view, no cut.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940103,
+    "from_take": [
+      "carp_gate",
+      64
+    ]
+  },
+  "carp_wick": {
+    "first": "carp_gate",
+    "prompt": "The translucent red belly of the fish pulses and slowly reveals a glowing white candle wick under its belly. It swims gently in place. No flame exits its mouth.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940104,
+    "selected": false,
+    "review": "A presenter appears in front of the carp in frames 20 through 96."
+  },
+  "carp_small": {
+    "first": "carp_ending",
+    "prompt": "A small golden carp lantern rises gradually from the gate toward the sky. Distant lights on a market street turn cyan one by one.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940105
+  },
+  "mirrors": {
+    "first": "mirrors",
+    "prompt": "Exactly three mirrors hold still on the dark stage. Only the woman in the central mirror has several warm fireflies orbiting her. Other reflections breathe subtly. No mirrors move and camera firmly locked.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940106
+  },
+  "puppet_boss": {
+    "first": "puppeteer",
+    "prompt": "The giant automaton raises a hand. The separate marionette strings catch the light and pull taut, then the lacquer face rotates halfway, briefly exposing the young actor's face.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940107
+  },
+  "lotus_water": {
+    "first": "qujiang",
+    "prompt": "A lotus lantern on the water glides nearer on the right, then exhales a small blue ghost flame. Ripples and changing reflections, stable horizon.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940108
+  },
+  "dragon": {
+    "first": "dragon",
+    "prompt": "The nine separate dragon lantern heads arch above water. Small warm lights pulse deep inside them, in sequence from left to right. Keep every head clear and position steady. The girl remains clearly apart, silk shivers in the breeze.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940109
+  },
+  "tower_crow": {
+    "first": "ink_crow",
+    "prompt": "The paper crow raises its folded wings from the book, glides to the side and settles. The separate lantern remains at rest. Physical paper, cohesive silhouette, blue moonlight.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940110
+  },
+  "guardian": {
+    "first": "guardian",
+    "prompt": "The carved stone guardian leans forward slightly. A glowing seam runs along one shoulder. It opens its mouth revealing a single pearl glowing deep amber. Keep the scene locked, no cut.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940111
+  },
+  "tower_chain": {
+    "first": "tower_chain",
+    "prompt": "The bright lantern chain draws taut toward the distant palace. The occupied lantern travels slowly along its line into the distance. The guard turns and hurries down the tower stairs.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940112
+  },
+  "wife": {
+    "first": "wife",
+    "prompt": "The lantern maker finishes tying one small bamboo knot and raises the glowing lamp so his resting wife can see it, she responds with the faintest smile.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940113
+  },
+  "possession": {
+    "first": "possession",
+    "prompt": "The worried merchant shivers and steps in place. A small cyan wick floats above and left of his shoulder, clearly separate at all times; gentle drifting only, keep entire body and wick visible.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940114
+  },
+  "palace": {
+    "first": "palace",
+    "prompt": "The gentle lantern master raises his hand and all three free-standing guard lamps brighten in succession. Wind shakes the separate chain and the suspended woman's lantern. Locked full scene.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940115
+  },
+  "palace_chain": {
+    "first": "palace",
+    "prompt": "Turquoise light moves along the long chain suspending the woman's lantern. The links to her left glow one by one while her lantern sways gently. Wide composition unchanged.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940116
+  },
+  "gate_end": {
+    "first": "palace",
+    "prompt": "The cyan lights fade, the large lantern and its long chain slowly dissolve into thousands of warm fireflies. The old craftsman looks upward with a gentle relieved smile as dawn begins.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 940117
+  },
+  "carp_wick_clean": {
+    "first": "carp_belly",
+    "last": "carp_belly",
+    "prompt": "An isolated practical candle flame flickers inside the fish belly. The fish breathes very gently; keep the lit wick in the same location. Empty set. Locked insert.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 942610
+  },
+  "mirror_left_gone": {
+    "first": "mirror_left_gone",
+    "last": "mirror_left_gone",
+    "prompt": "The broken dark left mirror stays empty. The middle reflection softly breathes with her fireflies; the woman in the right mirror stands still. Very subtle motion, camera locked.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 942611
+  },
+  "mirror_right_gone": {
+    "first": "mirror_right_gone",
+    "last": "mirror_right_gone",
+    "prompt": "The broken dark right mirror stays empty. The middle reflection softly breathes with her fireflies; the woman in the left mirror stands still. Very subtle motion, camera locked.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 942612
+  },
+  "final_wick": {
+    "first": "final_wick",
+    "last": "final_wick",
+    "prompt": "The white central wick flickers and pulses brighter; stay steadily on the lamp, absolutely still surrounding architecture, soft dawn.",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "length": 119,
+    "seed": 942613
+  },
+  "ying_reveal": {
+    "first": "ying_reveal",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The peach-clad lantern spirit lifts a hand. Fireflies flow to the right and reveal the blue wisp. Her face remains still while the little wisp brightens. Camera locked.",
+    "length": 119,
+    "seed": 956113,
+    "last": "ying_reveal"
+  },
+  "paper_cranes": {
+    "first": "paper_cranes",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "Cream paper crane opens its folded wings above the table and circles slowly. Its bright red crown tilts toward the lens. Entire paper body remains clearly outlined.",
+    "length": 119,
+    "seed": 956114,
+    "last": "paper_cranes"
+  },
+  "marionette_boy": {
+    "first": "marionette_boy",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The young stage performer takes a quiet bow holding the broken mask, then steps back between the curtains.",
+    "length": 119,
+    "seed": 956115
+  },
+  "river_capture": {
+    "first": "river_capture",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "Soft cyan ribbons draw the woman's lantern onto the dragon prow. The lantern maker watches. The pursuing smaller boat glides toward it across moving water.",
+    "length": 119,
+    "seed": 956116
+  },
+  "river_sink": {
+    "first": "river_sink",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The dark dragon-boat lantern dips lower, ripples expand and a solitary cyan lantern drifts toward the distant pagoda.",
+    "length": 119,
+    "seed": 956117
+  },
+  "tower_door": {
+    "first": "tower_door",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "Two guards push apart the old pagoda doors and look up toward the dark stairway. Dust drifts in their lamplight.",
+    "length": 119,
+    "seed": 956118
+  },
+  "peizhao_rest": {
+    "first": "peizhao_rest",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The commander rests one hand against the pillar, smiles briefly and directs the young man up the staircase. Very subtle body and eye movement.",
+    "length": 119,
+    "seed": 956119
+  },
+  "flock": {
+    "first": "flock",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The lead black paper crow flaps over the commander's shoulder and threatens to descend. Its amber seam glows, flying birds remain well separated from the human figure.",
+    "length": 119,
+    "seed": 956120,
+    "last": "flock"
+  },
+  "lion_statue": {
+    "first": "lion_statue",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The final thin line of amber fades on the stone lion's shoulder. Air stirs dry leaves on the courtyard, light shines in the pagoda high above.",
+    "length": 119,
+    "seed": 956121
+  },
+  "peizhao_arrives": {
+    "first": "peizhao_arrives",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The white-cloaked commander rests a steadying hand on the guard's shoulder, then the two begin walking toward the distant pagoda.",
+    "length": 119,
+    "seed": 956122
+  },
+  "fox_mask": {
+    "first": "fox_mask",
+    "prefix": "One continuous photoreal live-action practical Tang dynasty film take, locked tripod, realistic movement and physical light. Preserve frame composition, small details, identities and costume. Only subtle location ambience. The entire film frame stays free of any letters, glyphs, subtitles, credits, overlays, and graphics. ",
+    "prompt": "The fox-masked lantern dancer turns slightly and lifts one hand. A flicker of cyan foxfire begins to gather, preserve the white mask and wide festival shot throughout.",
+    "length": 119,
+    "seed": 956123,
+    "last": "fox_mask"
+  }
+}

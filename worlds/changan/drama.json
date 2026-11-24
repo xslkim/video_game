@@ -1,0 +1,842 @@
+{
+  "artisan_worktable": {
+    "frames": 158,
+    "sha256": "ca68adf7b1040f027a7de1ed0d5067cef4b04b83b4bf2869f0d2f08cfd9f5522"
+  },
+  "aying_fireflies": {
+    "frames": 158,
+    "sha256": "f9b84543335da81bc342068bc293a8e4c1bad762f7eda7f7ff1dd7be7be930d2"
+  },
+  "aying_help": {
+    "frames": 72,
+    "sha256": "a92a8c50f41f79a9cf1bedfb537a5b5668bb2d77e30f29062554709f938ded65"
+  },
+  "aying_lands": {
+    "frames": 158,
+    "sha256": "9c264208fdb58df56df98d2ddcef83a48566b83ecbd28cf4dac55ea2ed1e5bdd"
+  },
+  "aying_lends": {
+    "frames": 124,
+    "sha256": "2adf363d457d0c00ca5a5b2ec844894133ba6730b51eb4c9b390853985e9bd31"
+  },
+  "aying_lends_speaking": {
+    "frames": 124,
+    "sha256": "554b6ab73975d0917ce45bb97552fa5a50592b634770428847064c7899f71eab"
+  },
+  "blue_flame": {
+    "frames": 124,
+    "sha256": "858acf593e005b726585907a8421a19c3b4eb31f7a6b8d02a1b5e5d5c43c8dc4"
+  },
+  "boat_pole": {
+    "frames": 175,
+    "sha256": "900ab2c9c6d5b769e4c3d0c7f25f20d274e4fe993619f8c89cac3af51c56ff62"
+  },
+  "carp_ball": {
+    "frames": 124,
+    "sha256": "e5be2e0922a43f2ab9f274719a6e46ca7c04ade292f42c49e7b971909663ffb6"
+  },
+  "carp_ball_pass_1": {
+    "frames": 124,
+    "sha256": "1f690dcb78cc27bcc495c700350efa16ccf950a38ac34419f338d065ac61512d"
+  },
+  "carp_ball_pass_2": {
+    "frames": 124,
+    "sha256": "780aff4551667ea4c8248bbb2c7be9d263a1a6b94aa283df47f0f9ea731d6d35"
+  },
+  "carp_ball_pass_3": {
+    "frames": 124,
+    "sha256": "813f3f92448aa1a2dddffb5a4c356f9687a70ec6c27b2012c54b2b7fad62ef35"
+  },
+  "carp_gate": {
+    "frames": 124,
+    "sha256": "68cee6878954a0f66797c777a0609e2ad53cbcbf0de8f7895f390f67a0f9d05c"
+  },
+  "carp_interrupt": {
+    "frames": 28,
+    "sha256": "c47d4448c473f0b5fba659bf63959915b9f90cde925ef7d655bc86c3541e131c"
+  },
+  "carp_shimmer": {
+    "frames": 28,
+    "sha256": "7b771ce91fff3ce5ccdb16a2df9ba9d0c76dd6715983f8c52303ba909fae2150"
+  },
+  "carp_small": {
+    "frames": 124,
+    "sha256": "12022cc6ef306ceaf972e968747cab60eb670716c40f5c8873edc0bc58784ff4"
+  },
+  "carp_tail": {
+    "frames": 124,
+    "sha256": "3b6021f1c0b0fb7167c7121d24bcb6b14a378b871a0c6c8a0bd1263f2111ab37"
+  },
+  "carp_tail_pass_1": {
+    "frames": 124,
+    "sha256": "4e7fc2d2c08ba03bd840bf8a0547fd3455f8477a89107767d2d8b484a00a9eae"
+  },
+  "carp_tail_pass_2": {
+    "frames": 124,
+    "sha256": "c9f7fd30bd30890f4fc5606c2d42f9a4f880173d1ca62697d18416c9e816c4a0"
+  },
+  "carp_tail_pass_3": {
+    "frames": 124,
+    "sha256": "549e4540ec67f00a2ebcdf820b5792457462603d5d02bd597b8dcdc2a19d980f"
+  },
+  "carp_wick_clean": {
+    "frames": 124,
+    "sha256": "4f17f15432391a2fc9137b934cbf870c7a21f69e6161bf2a444a6b5a91fc4838"
+  },
+  "carp_wick_clean_pass_1": {
+    "frames": 124,
+    "sha256": "c9a8abdcfa9bc55a4d3f88e67d537b97047d972c0df1d6a26839465240c640d9"
+  },
+  "carp_wick_clean_pass_2": {
+    "frames": 124,
+    "sha256": "01c5c7764eb1dba23b086a07fc40b6563f5d1334efb083add2889669326e1f82"
+  },
+  "carp_wick_clean_pass_3": {
+    "frames": 124,
+    "sha256": "970a4585409eeb4d7882bc34ebace2d1d372b6b3e1f2f6c3b548bba678d32cb7"
+  },
+  "cavalry": {
+    "frames": 124,
+    "sha256": "8b4f580e5ef013414c00f7d7a43475987769275c9c1e7ba4271e22310f12eb72"
+  },
+  "cavalry_pass_1": {
+    "frames": 124,
+    "sha256": "616f91c16ddd3426377e268986a2558cc32782440b4de30da0e2d6b003b946ee"
+  },
+  "cavalry_pass_2": {
+    "frames": 124,
+    "sha256": "19342092b4a57bca9298dfc4fe36cda0a4c3ce5e3cbb88ef5ddf6300e40f4b0c"
+  },
+  "cavalry_pass_3": {
+    "frames": 124,
+    "sha256": "6b7e750e45b619a2e72d79e1618102803d1c1ad13e24ff22376f95600a56baff"
+  },
+  "cavalry_rests": {
+    "frames": 28,
+    "sha256": "0a0a4cbd229118e6e0425d9d2ded07ea14d3c75c943d2fe8da300992b522f91e"
+  },
+  "chain_over_tiles": {
+    "frames": 175,
+    "sha256": "2071edbbf9cfdcc6d4308a2e7a8c5b6da8065830d069d2b8293b25d007cd04f7"
+  },
+  "chain_shadow": {
+    "frames": 175,
+    "sha256": "625ea69b78d42aaa43d0ab38fe5f7488c389186f4a147086e4c1048b536e0430"
+  },
+  "citizen_freed": {
+    "frames": 28,
+    "sha256": "35372eab3d7154a339cc04878679060e0c18de576910388ba95dabaa33efa924"
+  },
+  "city": {
+    "frames": 124,
+    "sha256": "bec7866bda9b76f570a68275719c0fa34b02da6daaaebc397ff989caba728069"
+  },
+  "city_wakes": {
+    "frames": 158,
+    "sha256": "0d5b2bb376dd49f1d2fc114a11eed2424d9c4491b7e48ec0c0d84adafefdab07"
+  },
+  "commander_bandage": {
+    "frames": 175,
+    "sha256": "7da577777940db5587032cc4db749b2da4151be76be11e7f82718d4671c8a7a4"
+  },
+  "crane_falls": {
+    "frames": 28,
+    "sha256": "e06ecbdddab37a8aafc783c36c10f45dc5d5ab06fc2af181513e23bb00c83c27"
+  },
+  "crow_lamp_lit": {
+    "frames": 28,
+    "sha256": "5c1f8d23e848e408cc741ea23cbbe18f8b007e17f30f3001f35f1c4707ff4606"
+  },
+  "crows_clear": {
+    "frames": 124,
+    "sha256": "4a8b08d2cdd6ccb3bc1d9e821070232997d047c342480ec39d9f6eefe22cbe05"
+  },
+  "dawn_market": {
+    "frames": 175,
+    "sha256": "1134cab8258386f159edbbca73b6f49e96971984c9eb8ffd6f025b73e17c8e6e"
+  },
+  "dragon": {
+    "frames": 124,
+    "sha256": "ce4d3d6bdac01027255c25bed6a5a9b09de19500a21801504182c994212ca050"
+  },
+  "dragon_keel": {
+    "frames": 175,
+    "sha256": "b1375a391aba120e7acbb97783d0cc7de19f14726dd27188016154033f7351f3"
+  },
+  "dragon_pass_1": {
+    "frames": 124,
+    "sha256": "05f5a34cf287dfcce6fb822ea60639beba4b6c2d6efc38b35c5cd207bc99f5f4"
+  },
+  "dragon_pass_2": {
+    "frames": 124,
+    "sha256": "77e32d27cab31c635b015737a076200929c17a5b2e0c5736738132863a1604e4"
+  },
+  "dragon_pass_3": {
+    "frames": 124,
+    "sha256": "81e1c00aeab9e4b8efc6027d016ac018d1ec33db37a173aacbc4eb3603b736ac"
+  },
+  "dragon_recoil": {
+    "frames": 124,
+    "sha256": "b63503d86c4160551dd8c6b7ea6bfc7e5731bb7bd221462eb1061f817dca7dad"
+  },
+  "dragon_signal_1": {
+    "frames": 124,
+    "sha256": "b163afc910b9c8980514bed641ab98fec7e346dbec6b6db3789ffea6785eeebb"
+  },
+  "dragon_signal_2": {
+    "frames": 124,
+    "sha256": "5772fe11c27c8b3c30897cd1b1119f2b4eec72b85909c4e985b01cf3ea3149b8"
+  },
+  "dragon_signal_3": {
+    "frames": 124,
+    "sha256": "74c51899634359f827b667f39f4d3c6411f2cc8130a561ac39cc0d799e3efa08"
+  },
+  "dragon_signal_4": {
+    "frames": 124,
+    "sha256": "4ca64bd274613ab871d0364fe1c905cfc7f22862fe7cf1d6a07849e208c59ce2"
+  },
+  "dragon_signal_5": {
+    "frames": 124,
+    "sha256": "ed953bdec0ca47a856da4767e9c6f73b89342e6cbdec3196ce49a66bc3050c72"
+  },
+  "dragon_signal_6": {
+    "frames": 124,
+    "sha256": "30c13e7e4372e4fcfbf5bc6c079920045ab60b60cab07e234fbce0c2e1b32454"
+  },
+  "dragon_signal_7": {
+    "frames": 124,
+    "sha256": "21b50732d60120169a9008f1335b3d56b547814b62911891c436683899eb4cc2"
+  },
+  "dragon_signal_8": {
+    "frames": 124,
+    "sha256": "8d21c53289e10aef5d347b6daf4f2a69c8c4580126ab2befadc5255e72bbdfdd"
+  },
+  "dragon_signal_9": {
+    "frames": 124,
+    "sha256": "bc08221fbfa4042fad604b56814e8a6dd090a9eeffaf927d7dcc30a9d6afe29b"
+  },
+  "empty_lantern": {
+    "frames": 158,
+    "sha256": "09861f124621eae181b0b8745519cd40b138fd1f56d78d3cee652fe55fc47a0d"
+  },
+  "epilogue": {
+    "frames": 124,
+    "sha256": "4f53fccb0308f85f97cce59e4b25270a726ce0d15f10f7003be40d0086d5df35"
+  },
+  "epilogue_speaking": {
+    "frames": 124,
+    "sha256": "37dfb2ca80304c3734cfa89996db3aea968ac8767e712fe8cdae14f6f8c9e381"
+  },
+  "falling_quill": {
+    "frames": 175,
+    "sha256": "54553ef930f60f89aac44eb682411333505dfbc4e4dc40c71f7b17b0491bd4a5"
+  },
+  "farewell": {
+    "frames": 124,
+    "sha256": "45938b99f77e9daefa43b514940dd82c7935f392785706f0b94a1d594de6bee8"
+  },
+  "festival_returns": {
+    "frames": 175,
+    "sha256": "31d625407a8a87873c8e8a5d7d26f37ac62376efac563cda791882b3555e6a0b"
+  },
+  "festival_rooftops": {
+    "frames": 158,
+    "sha256": "3ad9358aa240a6f92c82cf2e095f3711991477a5f52b5a9eb31556e5b2194e41"
+  },
+  "final_wick": {
+    "frames": 124,
+    "sha256": "83cb87d15417e8fa015da3f9a5bf9872f83eae1f24f562c07901a0cdbd0e6d7f"
+  },
+  "flame_clear": {
+    "frames": 28,
+    "sha256": "470fe0226b18d43c4d6948bda6533c2edf9ba0463206a5c796270d8e4a229fc4"
+  },
+  "flock": {
+    "frames": 124,
+    "sha256": "90d14794319767895fa8a0097c222674994dc150a6fea0c30da0a26d6c37d27c"
+  },
+  "flock_escape": {
+    "frames": 124,
+    "sha256": "786b92d054ba966bde19a585f13d880f0b546b350ff6c504b23b5613249fb7c5"
+  },
+  "flock_scatter": {
+    "frames": 124,
+    "sha256": "b51a1bc452a767abae12dfcb6a1f00b75a29f9793d81ae9c4dc438eb69d89d8b"
+  },
+  "fox_calm": {
+    "frames": 28,
+    "sha256": "faad0fcda7e440406de58c8174fe127b20a7d9d7dba49eb177e63df44cf99a5c"
+  },
+  "fox_mask": {
+    "frames": 124,
+    "sha256": "55e6b2606a6ebd77669a84328098e67c39cc180cda83ea42c945e602167f25f1"
+  },
+  "fox_mask_pass_1": {
+    "frames": 124,
+    "sha256": "c2f83af97f6cc583d66a7f403bf80c54bed06d3f25ec21f2516fb2b1efa9b94d"
+  },
+  "fox_mask_pass_2": {
+    "frames": 124,
+    "sha256": "ec29e6c991cab3413134e7fa3648eedcd55243fc7113605e5c735a8206a770ec"
+  },
+  "fox_mask_pass_3": {
+    "frames": 124,
+    "sha256": "3b278cbf40555faebc9cb638c78690977a3b141fad2c1510e777aa339e3450e5"
+  },
+  "gate_end": {
+    "frames": 124,
+    "sha256": "9104ea7a3d14c2d0c68b1fe6782f8419fb254b26ab38c1b302cb5e7f9d036c97"
+  },
+  "gate_folds": {
+    "frames": 175,
+    "sha256": "c40ec89aab1fe809a341d725f1542822c7a746ce6ffbfb96c2e91fa3713357de"
+  },
+  "guard_circle": {
+    "frames": 175,
+    "sha256": "170a7783edba973f55a016fb5eaa709793c7e1c6daad181e55b05680e571d011"
+  },
+  "guardian": {
+    "frames": 124,
+    "sha256": "14af606ff285e8f21c4893e6cd9c59e5b83327ecd3b031bdee7d18d97cb401af"
+  },
+  "guardian_pass_1": {
+    "frames": 124,
+    "sha256": "c77b01fcde79cce208f13da4e77db713bedc5f95c8f287f8a0400896a977cd49"
+  },
+  "guardian_pass_2": {
+    "frames": 124,
+    "sha256": "fedeef7f33259df40c2422eb90a76916737f348fcce5b9c397fc8c24a959e7aa"
+  },
+  "guardian_pass_3": {
+    "frames": 124,
+    "sha256": "cc5de9ed1b951894f33a431a0b749042e3809c489acb1156598f7a9eb547464d"
+  },
+  "guardian_reacts": {
+    "frames": 28,
+    "sha256": "4a342a211cd47aa16301f1311fd2b6ba253e6f39a48ed7da7ed1c6cfaff64ae5"
+  },
+  "ink_on_wall": {
+    "frames": 175,
+    "sha256": "ac901bc4c6bbd0aca99fbd8cdc60c8e09a1258669b8f1685606ca601dd0cd622"
+  },
+  "lantern_eyes": {
+    "frames": 175,
+    "sha256": "f568df805b6158ee8352a0650337f18c91abdbd1ae3d8f7ddc32dac8d858339a"
+  },
+  "lantern_warning": {
+    "frames": 124,
+    "sha256": "4c15cf5d1dadaffcb070cd69a7519b6fbfe31dc9f158c22212abb4800846352b"
+  },
+  "last_sleeve": {
+    "frames": 175,
+    "sha256": "6c69bca4dc8a24e6c02dbc1cd098a86294a40eb10bfd3358818cc125d9dcd548"
+  },
+  "leather_bows": {
+    "frames": 28,
+    "sha256": "b6eb6adb6f883b5b3ea70cbf38dd316846948234c83582be22434b235c4dbd54"
+  },
+  "lion_eyes": {
+    "frames": 175,
+    "sha256": "fb0d68b971e6a907208a8cd1c6f1135c52ce10aa6ca05ef1fff518cb07fdd978"
+  },
+  "lion_statue": {
+    "frames": 124,
+    "sha256": "163a606ffc14104afc9a6b793106abcb71a976008c0a1939131332ec52d6e3a6"
+  },
+  "little_carp_sky": {
+    "frames": 158,
+    "sha256": "dc763b366bb235a0152540794438f1e0626cee7a61bf0aaad851f1dad87d8cc8"
+  },
+  "lotus_rests": {
+    "frames": 28,
+    "sha256": "e185e27f873a23bef746bf9cb2f249efdd9f5a9fe476d56c717c90e4a32458e7"
+  },
+  "lotus_ripples": {
+    "frames": 175,
+    "sha256": "da063924767e01f4fb60c9a9e1c3a149da2bab451604fbe812b9c7f8998cf7ec"
+  },
+  "lotus_water": {
+    "frames": 124,
+    "sha256": "61664f7541bd449ccbe86a1ca9e93639b2a75185bca0ff7c230f6feb7b41be87"
+  },
+  "lotus_water_pass_1": {
+    "frames": 124,
+    "sha256": "5772063c87fec065f7b33a0ca17d9f3c26299f0147cd5903dda1567f2cce2b31"
+  },
+  "lotus_water_pass_2": {
+    "frames": 124,
+    "sha256": "4387533d7fc5fd1b1d1edf3341a6f329e553e0bdf0ac2c74ed0769569b95c819"
+  },
+  "lotus_water_pass_3": {
+    "frames": 124,
+    "sha256": "dbbee1db458c8f080d174c5cfbf24d15290961b3bf9d0ac4cb87d81dc41227da"
+  },
+  "marionette_boy": {
+    "frames": 124,
+    "sha256": "895a9eaa3659b7503e4c260b106b4b6643f2ae9ffc90a12cf00ef11d84cef67f"
+  },
+  "market": {
+    "frames": 124,
+    "sha256": "a34574e0e5bd05af6d9e781433e768c9c00181cf3e59c352636d4e64987d2549"
+  },
+  "market_drummer": {
+    "frames": 158,
+    "sha256": "ae1e5d6637c0b69b3cd798901b341d8e056b04f989122d3967cd23d113d0fe58"
+  },
+  "market_silk": {
+    "frames": 175,
+    "sha256": "6a62565c76c023aeb09ead72bf23bf9174cb06c4769b5c9053b48c3cd907862c"
+  },
+  "mask_abandoned": {
+    "frames": 175,
+    "sha256": "26dd0dd5b82ad4e2ce81e2977365e5f8270f5d509db397a9ff42f334e2cc16b2"
+  },
+  "mask_cracks": {
+    "frames": 28,
+    "sha256": "e51c26c3314b670b3b9621fe85d2e15d7d680c145f08d2d24eb53fb9516bede0"
+  },
+  "master_fire_clear": {
+    "frames": 28,
+    "sha256": "f53a69fe72e248c180878da185b6842645e51761e29224b810128a698b1011dd"
+  },
+  "master_reaches": {
+    "frames": 158,
+    "sha256": "839f09169b5a79b56c23483d731e4575f5c74ca755ffcfb68a729d8ba07acad9"
+  },
+  "meeting": {
+    "frames": 124,
+    "sha256": "558f931af9721bbeb38a85b899edb4b3d185308103b63dccc0397d12f3a29e82"
+  },
+  "meeting_reply": {
+    "frames": 124,
+    "sha256": "3cfa0aa391510322d80c23d797fe75f78488d2d3dd925f6a689863cceccab11f"
+  },
+  "memory_firefly": {
+    "frames": 158,
+    "sha256": "4cbbd997a2e30f6610cc17efea6b8728c3ab5406d7cc01128ffffa6bc4deaea6"
+  },
+  "mirror_hall_entry": {
+    "frames": 158,
+    "sha256": "8323d2f8fdfbb3bc3f0e0b8ab13f58be1d40dd74860fb1821eef3ff898b515a3"
+  },
+  "mirror_left_gone": {
+    "frames": 124,
+    "sha256": "db159c6c8e26937a120deed1f461d7dade64f208a88a0404b44b2d34816c50e8"
+  },
+  "mirror_reflection": {
+    "frames": 175,
+    "sha256": "39fbd2a2cea47b0211331fefd4e6e9baee5802c69c39e97d60962cb860ea1c13"
+  },
+  "mirror_right_gone": {
+    "frames": 124,
+    "sha256": "ed00b9ad686028f8b80a186151406e044623441296492ef7e68c0d3276b90a58"
+  },
+  "mirrors": {
+    "frames": 124,
+    "sha256": "383daea34a31fed438d57eec76f1befe121933329829a62e79b4e86b354c7c4c"
+  },
+  "musician_freed": {
+    "frames": 28,
+    "sha256": "484971dde8391a1e7e8022b250f375380a046b63de94481e390a77de62532c83"
+  },
+  "pagoda_distance": {
+    "frames": 175,
+    "sha256": "1bdf41b5f7e1fac689abdf28f33c9b5b08896ddf977f5ef90385f5d33d7bad1c"
+  },
+  "pagoda_steps": {
+    "frames": 158,
+    "sha256": "7a98d0dd5944df4fd263a031c3277abf6b88cf993f47b77dd323aa8834032080"
+  },
+  "palace": {
+    "frames": 124,
+    "sha256": "e515a0f2a9ca0932301130c981fbf1bf829bf6813f92dc2f76c87bedc2959e0b"
+  },
+  "palace_avenue": {
+    "frames": 158,
+    "sha256": "ade73c5b3ceba2ccf0d8b29b42be4e3333b01d2ebd98a1cfc78e775ae692acba"
+  },
+  "palace_chain": {
+    "frames": 124,
+    "sha256": "836c1dc5c4a064c47851477aaeb3f4449682e540afeff9eabe9154519e01ae8e"
+  },
+  "palace_chain_falls": {
+    "frames": 28,
+    "sha256": "2ad58deaa4aca933e2d181a7bc759896a339703d0d7d84a5d76e0ea6ac5dfa76"
+  },
+  "palace_chain_pass_1": {
+    "frames": 124,
+    "sha256": "0833dda0b4ee08496c284013beefd69b330b2a0793f19d3058182f58f84b85bf"
+  },
+  "palace_chain_pass_2": {
+    "frames": 124,
+    "sha256": "0adc6d6ec351bf967c3c0e8e04dcff5283f5e3110128065d669c160e488b2a18"
+  },
+  "palace_chain_pass_3": {
+    "frames": 124,
+    "sha256": "c232b2ed7a7bb87f6f359ac7bce11134cfb4030c5b7c979182355d802d2fc8f5"
+  },
+  "palace_dawn": {
+    "frames": 124,
+    "sha256": "fc9eb19cf71692f2089024bd54ff1bafc73343bf59b908533625fbad1a556ae1"
+  },
+  "palace_fire": {
+    "frames": 124,
+    "sha256": "3f5957bbf4d2c13cb5b68ce92350e013f5cdf8e07b6ab706f0d4c34ce5506f19"
+  },
+  "palace_fire_pass_1": {
+    "frames": 124,
+    "sha256": "516b6f0a3c23b8fc6e23ec29925d0ae8335444ae6107b373f4f8e56fd2c8d1e7"
+  },
+  "palace_fire_pass_2": {
+    "frames": 124,
+    "sha256": "f97c8161c7a28a3672d2c533dc19ab91bf1358b4b076230163a33ad03c502300"
+  },
+  "palace_fire_pass_3": {
+    "frames": 124,
+    "sha256": "b341843943e4ef8113e6761f855e34ef340ccbbe56bcd8a0d54927a1824a0916"
+  },
+  "palace_servant": {
+    "frames": 124,
+    "sha256": "c39679f7e1ca51b2110801602e5d38c47b9fc79b583c1510cfff09c639702cc7"
+  },
+  "palace_wind": {
+    "frames": 175,
+    "sha256": "81850961e4fca1859825f1a3e50cf16cc286b593e583217d781ee40d68777d14"
+  },
+  "paper_cranes": {
+    "frames": 124,
+    "sha256": "ccfe34620b1e3bff53f97ccfb4b459ad6017287e6a61fa7f84b82ba3c1649fe4"
+  },
+  "paper_cranes_pass_1": {
+    "frames": 124,
+    "sha256": "9f04d9853bac64024017a43a0c20be1ffcfb99b22ee18838d2ea2565249c61e1"
+  },
+  "paper_cranes_pass_2": {
+    "frames": 124,
+    "sha256": "a1d059ff9ad48829e464e649e71dca8879829135df19564bb720ad52eaf21d07"
+  },
+  "paper_cranes_pass_3": {
+    "frames": 124,
+    "sha256": "545d767da3241c5fac7fa6cc9bd29e08d56dc28a6d5a499da724a70fb462c429"
+  },
+  "paper_wakes": {
+    "frames": 158,
+    "sha256": "657c84bd632a082aadab77b4ec287bfa958756d2ca8d3b03d5a4b2637628d5f8"
+  },
+  "parasol_closes": {
+    "frames": 28,
+    "sha256": "fa59d649c1f036456606b1da4dcb9a00f8f9266c22edee50040d449d217f91a8"
+  },
+  "patrol": {
+    "frames": 124,
+    "sha256": "b9efdeabcf484434cbf6ad5411305694116977d41208a275723ce09646580946"
+  },
+  "patrol_stalls": {
+    "frames": 158,
+    "sha256": "ab5327d688e8ae845660f3243de137e6e21e52e64b4b481e6bed8fab2ce4d135"
+  },
+  "peizhao_arrives": {
+    "frames": 124,
+    "sha256": "42bb11f23184f647f6bd01e40d7517e0b95aa8e09028b85002d98738c1015f3e"
+  },
+  "peizhao_rest": {
+    "frames": 124,
+    "sha256": "d2462d4f18327476ef5f93d37159b8d0fbef2f0458185a6713d2b409acad494b"
+  },
+  "peizhao_rest_speaking": {
+    "frames": 124,
+    "sha256": "bf339effd4df23b587733443dbfc2535dc9300fcfc3e90fdac49901aa4ddac14"
+  },
+  "player_bows": {
+    "frames": 158,
+    "sha256": "25006230e75b990b138547379b0fd5678d885ffe97e37319597ee733b75bb439"
+  },
+  "possession": {
+    "frames": 124,
+    "sha256": "45c898e1662b37d1e1b05cc1a3cf239d7abeb8bc9a0af12f45248a8e61f704a8"
+  },
+  "prow_splash": {
+    "frames": 175,
+    "sha256": "13cd2737783ee36379c30aae798055adb48ca949271c96ed9a68ecca1f9c0ee6"
+  },
+  "puppet_boss": {
+    "frames": 124,
+    "sha256": "fd3e681a3602692f35f4a05933d72341ca9ea956d4ccf9152a311cb5c6819137"
+  },
+  "puppet_boss_pass_1": {
+    "frames": 124,
+    "sha256": "0c6d233a06d41daf0d9fba6196661d32267e73834c8eab897c85cad03f7ee489"
+  },
+  "puppet_boss_pass_2": {
+    "frames": 124,
+    "sha256": "b5896c36a82c914a471c3c64b714fd2383e571ef27410822e40f550b11709c03"
+  },
+  "puppet_boss_pass_3": {
+    "frames": 124,
+    "sha256": "2e84c55d097930e4f77f87345c06c4c10e66efb127a313e085341ccbbee46e63"
+  },
+  "rescue": {
+    "frames": 124,
+    "sha256": "1cab6e0dfa2b51c11c8805e1c76228d24e59cd5d0d49f6fd5d6d6442ca828a16"
+  },
+  "rescue_cut": {
+    "frames": 124,
+    "sha256": "7ca91285b33208d4295c732b4079869ffe4a071ec86ea7849cf174867af4a14f"
+  },
+  "rescue_delayed": {
+    "frames": 124,
+    "sha256": "68fe248bc2e1114a3eb0f0bffe4d63fb6819bfcf90ab7f6eea9f73be22d34afe"
+  },
+  "river": {
+    "frames": 124,
+    "sha256": "474aa89bb3e70f2cdc52716fe9d497ce75116b45e0932cda4d31a80e0a40dac9"
+  },
+  "river_blue_wake": {
+    "frames": 158,
+    "sha256": "3ef964f7101991cb5e16e5ed3ada3d8c46e1f5e37313151ad657fc401628455d"
+  },
+  "river_capture": {
+    "frames": 124,
+    "sha256": "f7b3dc348ff9027ddcf6f63a2bc77b71997f1b32d967a9299aae37ddc68621f3"
+  },
+  "river_empty_deck": {
+    "frames": 158,
+    "sha256": "624e643454377788eb3538028835dfedbdba1c080051b927869b8c6e9ea233e9"
+  },
+  "river_lantern_gift": {
+    "frames": 158,
+    "sha256": "9275659edcfc2d410d511204c2a1f7fd10f6935765ec412698a1924aaeb656a5"
+  },
+  "river_look": {
+    "frames": 124,
+    "sha256": "f282997d939b9a09e408959596d47440b0de64c34623fa719432d223bd3a43eb"
+  },
+  "river_pass": {
+    "frames": 124,
+    "sha256": "590b47590515a799804bcf02ebd8127e32df9bdfbe5be96f9b9f035ab504060f"
+  },
+  "river_passing_lamps": {
+    "frames": 158,
+    "sha256": "0ae0b1909b3274285fe4dec44161bdb817f66a64e9e026b121586dd55fb30689"
+  },
+  "river_sink": {
+    "frames": 124,
+    "sha256": "e7bf9449c09d9d0447dc8670ab2a5edcf67b15dd84dfab24ed8eba5c4cde5d2b"
+  },
+  "screen_silhouette": {
+    "frames": 175,
+    "sha256": "a5d4f931753ccd319a2aca42f0aab9e9029f9d13311b9de820d97daed24260a1"
+  },
+  "servant_freed": {
+    "frames": 28,
+    "sha256": "e9778063ac2b6fe4920d12876d59404afb92a34580785ec14dee14993ba410e6"
+  },
+  "shadow_duel": {
+    "frames": 124,
+    "sha256": "c60cbace845573af6855c854e03447d3fca17a247a3112d672fa6994d206f16f"
+  },
+  "shadow_duel_pass_1": {
+    "frames": 124,
+    "sha256": "d1d0ac0febc5261f22d0d2cf053ef072ef91cfd1613ad4ac6ef5632a57f83bab"
+  },
+  "shadow_duel_pass_2": {
+    "frames": 124,
+    "sha256": "18f697e1f8cfe0aa6c5828eb7e1ea21720ca5fdecb007f8f774a6c68023fc334"
+  },
+  "shadow_duel_pass_3": {
+    "frames": 124,
+    "sha256": "c0a8b13e5ade02cdbe5ca805ab4b86aa6ea81f05d05258de92c3dbbbb93c438d"
+  },
+  "split_bamboo": {
+    "frames": 175,
+    "sha256": "541795352ace298f48d801e7d35529b508819027203e12a5ae7f475133493838"
+  },
+  "stone_cub": {
+    "frames": 124,
+    "sha256": "07c1856d9d994a0249d79120ece80bd2a9fb27ff4c0ec35e74a78befdf779915"
+  },
+  "stone_cub_pass_1": {
+    "frames": 124,
+    "sha256": "7202bc9d0a9b56dbeaf50569aef044ec8d0a65bdd5d2c94e63a535ca90004814"
+  },
+  "stone_cub_pass_2": {
+    "frames": 124,
+    "sha256": "6a545b83bd9b23917d33dcdc4b701ff988095547e87f4e733feb59bd9ad62406"
+  },
+  "stone_cub_pass_3": {
+    "frames": 124,
+    "sha256": "8c9184d0af225eb7ca1aa4b2132c825dd964502a5462bebb0db923256fc154ea"
+  },
+  "stone_cub_rests": {
+    "frames": 28,
+    "sha256": "9497ff958a79547c1f820aa98e572ea0f9c682e3fb45ed3760a1b50617a2fbde"
+  },
+  "stone_hush": {
+    "frames": 175,
+    "sha256": "8eaec0984e052bedb35ea6b6179e03e5c66191660e22627cf5ced3da55aef3b3"
+  },
+  "threads_loose": {
+    "frames": 28,
+    "sha256": "9023b5c47f8a0e5e5b1885242fd07a51d930284c135e08cff64d70c9a5a40724"
+  },
+  "tower": {
+    "frames": 124,
+    "sha256": "529f1d4006a22cb10711aea13f6276dd2aabdc31bcf0c6b2502c493e56494110"
+  },
+  "tower_chain": {
+    "frames": 124,
+    "sha256": "9a18128546ff3ff7b19c398f935792f1d76e8b075800c1a7bbc99af35243028e"
+  },
+  "tower_crow": {
+    "frames": 124,
+    "sha256": "7beda3642a3a391c3946cd2c263fffcd9d841b93fc22463a50ee2f89ad902801"
+  },
+  "tower_crow_pass_1": {
+    "frames": 124,
+    "sha256": "64cab40052a6ef61ccd77461a06db62b1aafa56fbb22de6e5c3ec5c1f3dcba20"
+  },
+  "tower_crow_pass_2": {
+    "frames": 124,
+    "sha256": "a190e5b805b325e21e62b18af4b2da9a82029e309c75bcc24a10eff2f0c5f590"
+  },
+  "tower_crow_pass_3": {
+    "frames": 124,
+    "sha256": "3050d656727ddba5a732738807e39747d5d6f4d9ee33546647826c17e8d10930"
+  },
+  "tower_depart": {
+    "frames": 124,
+    "sha256": "239b60b6c542e5fccd7a546098ceb6fa54abc9370da12302770d309896085217"
+  },
+  "tower_departure": {
+    "frames": 158,
+    "sha256": "ec70cb53da09867f8441db0b4d084f81bd9c0e377f806a4d60b19d3e8bb381b4"
+  },
+  "tower_door": {
+    "frames": 124,
+    "sha256": "25b5e3d4146759d97bd494e7bf6b816a38d2350dcf8d2df63138e36144225077"
+  },
+  "tower_pillar": {
+    "frames": 158,
+    "sha256": "2e23b179161f7d189b6d9a45928e339cd516b5d249bff9903c4472e23d6530d1"
+  },
+  "tower_roof_view": {
+    "frames": 158,
+    "sha256": "431c4b1a50cc1e5138f32789e4a9da0f4a66e7a4c125cdc0519d194f33426d66"
+  },
+  "tower_scrolls": {
+    "frames": 158,
+    "sha256": "1bdb6ab6834eea6e6ce8e0562220349cf4dcb9fe806637addebc0ab061c977ed"
+  },
+  "tower_vigil": {
+    "frames": 175,
+    "sha256": "a038cbec1d1d7b28ee5161082b3037ee8d5838b697c197f17ba6be2a747eeb67"
+  },
+  "true_mirror": {
+    "frames": 124,
+    "sha256": "b4745090a18f788cd5db6821f9ef4f937ee4ba5aa781df0df1a7cb02e1ec60aa"
+  },
+  "umbrella_open": {
+    "frames": 124,
+    "sha256": "5352d891197e88521aeace789a9e842346717d7919dd525dbf7f3c95be2e4e30"
+  },
+  "umbrella_turn": {
+    "frames": 124,
+    "sha256": "73510679fc1883057e3ada4d7f82fcbbb573dc19648eb0d08d4e4dc715cd575e"
+  },
+  "umbrella_turn_pass_1": {
+    "frames": 124,
+    "sha256": "113ca92c9849c873e2235f7ad0c345d5b3492775b02e7c0b681607c293a830eb"
+  },
+  "umbrella_turn_pass_2": {
+    "frames": 124,
+    "sha256": "5ac986e77df070defa9a1636ad801a7659a79f5ca04706c60c51998b5ad3715e"
+  },
+  "umbrella_turn_pass_3": {
+    "frames": 124,
+    "sha256": "57f2de6e7a59fbac0e27f5209234a969d38bd4564c5c9f127203e31c4c5b1653"
+  },
+  "water_trail": {
+    "frames": 175,
+    "sha256": "dfcb09bb47ba508e2084709f328658ea862f0968c62943b906d6948a1fc7968c"
+  },
+  "weaver_freed": {
+    "frames": 28,
+    "sha256": "a374db23b24984d58a7735125b516f1e9807b84d848dc80cac5443f77b9869fb"
+  },
+  "west_blue_row": {
+    "frames": 158,
+    "sha256": "aee6043fbf5a453690ac7f4fd2dff0023c6d2a289539bd9920288240736e99b3"
+  },
+  "west_musician": {
+    "frames": 124,
+    "sha256": "ddfbcac5fb8ae8bd1c45c1ac38cf1e6c82f50a1b88957bdefd037912f2c2ac5f"
+  },
+  "west_prophecy": {
+    "frames": 124,
+    "sha256": "7374cbe558a3d753a1f569268a71ee3ad8feda6ba33c8104447d68c50651c975"
+  },
+  "west_prophecy_speaking": {
+    "frames": 124,
+    "sha256": "366549762aa3f4c4cf2e3588446371ed13493764bb38bf96389f3694335ab824"
+  },
+  "west_weaver": {
+    "frames": 124,
+    "sha256": "f947fe7b23a6280acf732c227492d92ce727ae940dfdebb9b8fe52643d6500ba"
+  },
+  "white_robe_watch": {
+    "frames": 158,
+    "sha256": "8da6eae7967b1291df4afb9a50a267b2ca1024d5fa1a1b9fc49e3a56a1006be8"
+  },
+  "wick_mercy": {
+    "frames": 124,
+    "sha256": "a158bfb09259998b7e444faf9e43c937bfa4f2f3c4214b21e1ee399d4c66344f"
+  },
+  "wick_shattered": {
+    "frames": 124,
+    "sha256": "54bced3737a5fc0a5857a4a23f7b3c131a56ab7951ebf26e0d2cb59e32ab45bb"
+  },
+  "wife": {
+    "frames": 124,
+    "sha256": "c211bec085517a8f246e22f092970b28e6181e5807fd1114af54b0c4a30bf731"
+  },
+  "wife_hand": {
+    "frames": 175,
+    "sha256": "41e9c13d980b0c181683b75a12004072d38464462c83d3fedf860a11947a31e3"
+  },
+  "wife_speaking": {
+    "frames": 124,
+    "sha256": "7666ee17fcaeda40b7bfaf465e1c65baa606b824f24aa3737ad580365fb5a8a0"
+  },
+  "xuanzhu_vanishes": {
+    "frames": 158,
+    "sha256": "71cd6cd07108e7b5ae223767c4eae6d785d460c427853ab8df3b8f2993b6005b"
+  },
+  "ying_clear": {
+    "frames": 28,
+    "sha256": "02e273994f2b252ecd8f406ee9dc2f6f4f5dc977b4fe64eb4634b654e9ff674d"
+  },
+  "ying_doubts": {
+    "frames": 175,
+    "sha256": "4388f45ef13c7183bce1b0189d87db976b3f6bfe62134457990358498173923b"
+  },
+  "ying_reveal": {
+    "frames": 124,
+    "sha256": "243d95635825e2bf4c0f8793cb5fe3abc2d4e4ccbe79110bc3d24b791e5ec4a6"
+  },
+  "ying_reveal_pass_1": {
+    "frames": 124,
+    "sha256": "9606a907b0c53a8b92e848c5f4eacdd3407b98d6d0411188a5c447305b269094"
+  },
+  "ying_reveal_pass_2": {
+    "frames": 124,
+    "sha256": "b7221520594ad675ae167b7d861999a68ff637fae3c470a421f63a9e5008db02"
+  },
+  "ying_reveal_pass_3": {
+    "frames": 124,
+    "sha256": "033e95721eddd7415fdeb5b72cbb635ca68f467ff305d166de85525e84878c47"
+  },
+  "ying_sees_west": {
+    "frames": 158,
+    "sha256": "bddf0802b7064902c27b29542dce496d65f04a3dc9172f585250e9d6b8ab3042"
+  }
+}

@@ -16,11 +16,15 @@ static Codec decoder(AVStream *stream) {
     if (!ctx)
         throw std::bad_alloc();
     check(avcodec_parameters_to_context(ctx.get(), stream->codecpar), "codec parameters");
-    ctx->thread_count = 1;
+    // FFV1 foregrounds are encoded in independent slices. Frame threading
+    // adds latency and would break the one-packet/one-picture seek contract.
+    ctx->thread_count = stream->codecpar->codec_id == AV_CODEC_ID_FFV1 ? 4 : 1;
+    ctx->thread_type = FF_THREAD_SLICE;
     check(avcodec_open2(ctx.get(), dec, nullptr), "open decoder");
     return ctx;
 }
-Movie::Movie(const fs::path &path, int count) {
+Movie::Movie(const fs::path &path, int count, int width, int height, AVPixelFormat format)
+    : expectedFormat(format) {
     auto u8 = path.u8string();
     AVFormatContext *raw = nullptr;
     check(avformat_open_input(&raw, reinterpret_cast<const char *>(u8.c_str()), nullptr, nullptr),
@@ -67,6 +71,7 @@ Movie::Movie(const fs::path &path, int count) {
     int status;
     while ((status = av_read_frame(raw, pkt.get())) >= 0) {
         if (pkt->stream_index == v) {
+            compressedBytes += pkt->size;
             packets.emplace_back(av_packet_clone(pkt.get()));
             if (!packets.back())
                 throw std::bad_alloc();
@@ -83,7 +88,7 @@ Movie::Movie(const fs::path &path, int count) {
     drain();
     while (convert(nullptr, 0) > 0) {
     }
-    if (int(packets.size()) != count || video->width != 1280 || video->height != 720 ||
+    if (int(packets.size()) != count || video->width != width || video->height != height ||
         video->has_b_frames)
         throw std::runtime_error("Unexpected movie layout: " + path.filename().string());
     audio.resize(size_t(count) * 2000 * 2);
@@ -105,8 +110,9 @@ const AVFrame *Movie::at(int f) {
         check(avcodec_receive_frame(video.get(), picture.get()), "decode picture");
         ++current;
     }
-    if (picture->format != AV_PIX_FMT_YUV420P && picture->format != AV_PIX_FMT_YUVJ420P)
-        throw std::runtime_error("Expected planar 4:2:0 video");
+    if (picture->format != expectedFormat &&
+        !(expectedFormat == AV_PIX_FMT_YUV420P && picture->format == AV_PIX_FMT_YUVJ420P))
+        throw std::runtime_error("Unexpected decoded movie pixel format");
     return picture.get();
 }
 } // namespace dc

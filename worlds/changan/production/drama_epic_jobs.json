@@ -1,0 +1,310 @@
+{
+  "festival_rooftops": {
+    "from_take": [
+      "city",
+      80
+    ],
+    "first": "city_extend_80",
+    "length": 143,
+    "seed": 1446200,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The camera slowly follows an amber lantern drifting over the old city tile roofs toward the festival avenue below."
+  },
+  "patrol_stalls": {
+    "from_take": [
+      "patrol",
+      80
+    ],
+    "first": "patrol_extend_80",
+    "length": 143,
+    "seed": 1446201,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The two uniformed guards pass a stall where a craftsman tests a new fish-shaped paper lantern. Keep both original faces and clothing, medium wide."
+  },
+  "white_robe_watch": {
+    "from_take": [
+      "blue_flame",
+      80
+    ],
+    "first": "blue_flame_extend_80",
+    "length": 143,
+    "seed": 1446202,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The white-robed lantern maker slowly shields his blue flame from the night wind. The distant lights reflect in his eyes. Remain on his silent face."
+  },
+  "aying_lands": {
+    "from_take": [
+      "meeting",
+      80
+    ],
+    "first": "meeting_extend_80",
+    "length": 143,
+    "seed": 1446203,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The rescued young woman steadies herself under the arch and steps from shadow into warm lamplight. The two guards give her space."
+  },
+  "ying_sees_west": {
+    "from_take": [
+      "ying_reveal",
+      80
+    ],
+    "first": "ying_reveal_extend_80",
+    "length": 143,
+    "seed": 1446204,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "Her eyes follow a trail of tiny golden fireflies toward the western market. The fireflies leave the frame on the right. No one speaks."
+  },
+  "little_carp_sky": {
+    "from_take": [
+      "carp_small",
+      80
+    ],
+    "first": "carp_small_extend_80",
+    "length": 143,
+    "seed": 1446205,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The tiny harmless fish lantern rises high above the roofs, receding into the starry sky while the crowd watches."
+  },
+  "west_blue_row": {
+    "from_take": [
+      "market",
+      80
+    ],
+    "first": "market_extend_80",
+    "length": 143,
+    "seed": 1446206,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "A row of hanging amber lanterns turns blue one by one along the dark market arcade. The crowd stops walking and looks up."
+  },
+  "market_drummer": {
+    "from_take": [
+      "market",
+      80
+    ],
+    "first": "market_extend_80",
+    "length": 143,
+    "seed": 1446207,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "Reframe slowly toward a puppet theatre stage, a drummer taps a small frame drum and a child turns to watch the shadows."
+  },
+  "paper_wakes": {
+    "from_take": [
+      "paper_cranes",
+      80
+    ],
+    "first": "paper_cranes_extend_80",
+    "length": 143,
+    "seed": 1446208,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "An artisan steps away from the stack of origami and the first paper crane twitches, unfolds its wings and stands up by itself."
+  },
+  "mirror_hall_entry": {
+    "from_take": [
+      "true_mirror",
+      80
+    ],
+    "first": "true_mirror_extend_80",
+    "length": 143,
+    "seed": 1446209,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The camera pulls back from the real young woman, showing her reflection multiplying down dark mirror panels. No writing or speech."
+  },
+  "player_bows": {
+    "from_take": [
+      "marionette_boy",
+      80
+    ],
+    "first": "marionette_boy_extend_80",
+    "length": 143,
+    "seed": 1446210,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The exhausted young actor gathers his wooden puppets, bows once and steps off the empty stage."
+  },
+  "xuanzhu_vanishes": {
+    "from_take": [
+      "west_prophecy",
+      80
+    ],
+    "first": "west_prophecy_extend_80",
+    "length": 143,
+    "seed": 1446211,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The white-robed man smiles sadly, looks away, and vanishes into a thin trail of blue flame. Leave the original empty street in view."
+  },
+  "river_passing_lamps": {
+    "from_take": [
+      "river",
+      80
+    ],
+    "first": "river_extend_80",
+    "length": 143,
+    "seed": 1446212,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The boat glides slowly past a group of floating lotus lanterns. Ripples catch their amber light as they drift behind."
+  },
+  "river_lantern_gift": {
+    "from_take": [
+      "river_look",
+      80
+    ],
+    "first": "river_look_extend_80",
+    "length": 143,
+    "seed": 1446213,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The guard silently offers the small floating lantern to the young woman. Stay on the hands and the light reflected on the river."
+  },
+  "river_blue_wake": {
+    "from_take": [
+      "river_capture",
+      80
+    ],
+    "first": "river_capture_extend_80",
+    "length": 143,
+    "seed": 1446214,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "From the deck follow a wake of blue fire left behind the dragon boat. The shoreline slides past in the background."
+  },
+  "river_empty_deck": {
+    "from_take": [
+      "river_sink",
+      80
+    ],
+    "first": "river_sink_extend_80",
+    "length": 143,
+    "seed": 1446215,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The last dragon ornament slips beneath the water, leaving expanding circles of light. The boatman stares at the distant pagoda."
+  },
+  "pagoda_steps": {
+    "from_take": [
+      "tower_door",
+      80
+    ],
+    "first": "tower_door_extend_80",
+    "length": 143,
+    "seed": 1446216,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "One guard braces the heavy door open while the other lights a hand lantern and steps carefully inside. Stay with the two original characters."
+  },
+  "tower_scrolls": {
+    "from_take": [
+      "tower_crow",
+      80
+    ],
+    "first": "tower_crow_extend_80",
+    "length": 143,
+    "seed": 1446217,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "A breeze lifts the corners of old scrolls on the staircase. Black ink trembles in the lamplight, gathering into a silhouette of a bird."
+  },
+  "tower_pillar": {
+    "from_take": [
+      "peizhao_rest",
+      80
+    ],
+    "first": "peizhao_rest_extend_80",
+    "length": 143,
+    "seed": 1446218,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The injured commander leans back against the pillar, catches her breath and gives the young guard a small reassuring smile."
+  },
+  "tower_roof_view": {
+    "from_take": [
+      "tower",
+      80
+    ],
+    "first": "tower_extend_80",
+    "length": 143,
+    "seed": 1446219,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The camera follows the captive lantern above the roofline. A blue chain comes taut and pulls it toward the distant palace."
+  },
+  "tower_departure": {
+    "from_take": [
+      "tower_chain",
+      80
+    ],
+    "first": "tower_chain_extend_80",
+    "length": 143,
+    "seed": 1446220,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The guard turns away from the parapet and runs down the lantern-lit stair, following the light toward the palace."
+  },
+  "artisan_worktable": {
+    "from_take": [
+      "wife",
+      80
+    ],
+    "first": "wife_extend_80",
+    "length": 143,
+    "seed": 1446221,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "Close on the lantern maker's hands bending bamboo and tying thread, beside the warm lamplight of the sickroom. No tools near people."
+  },
+  "memory_firefly": {
+    "from_take": [
+      "wife",
+      80
+    ],
+    "first": "wife_extend_80",
+    "length": 143,
+    "seed": 1446222,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The craftsman lifts a tiny completed firefly lantern toward the bed; a single spot of amber light plays over the sleeping woman's palm."
+  },
+  "palace_avenue": {
+    "from_take": [
+      "palace",
+      80
+    ],
+    "first": "palace_extend_80",
+    "length": 143,
+    "seed": 1446223,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "From the edge of the palace court move slowly toward its open gate. The suspended lantern and the blue chains draw into view."
+  },
+  "master_reaches": {
+    "from_take": [
+      "gate_end",
+      80
+    ],
+    "first": "gate_end_extend_80",
+    "length": 143,
+    "seed": 1446224,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The lantern maker sees a gentle figure in warm light and relaxes his outstretched hand. No speech, preserve the original face."
+  },
+  "aying_fireflies": {
+    "from_take": [
+      "farewell",
+      80
+    ],
+    "first": "farewell_extend_80",
+    "length": 143,
+    "seed": 1446225,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "The young woman looks at the guard, then her shape dissolves slowly into delicate warm fireflies that rise into the predawn sky."
+  },
+  "city_wakes": {
+    "from_take": [
+      "palace_dawn",
+      80
+    ],
+    "first": "palace_dawn_extend_80",
+    "length": 143,
+    "seed": 1446226,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "As morning breaks a shopkeeper carries a harmless lantern to a door, the street is calm, soft dawn light reaches the tiled roofs."
+  },
+  "empty_lantern": {
+    "from_take": [
+      "epilogue",
+      80
+    ],
+    "first": "epilogue_extend_80",
+    "length": 143,
+    "seed": 1446227,
+    "prefix": "A continuous realistic Tang historical film. Retain the original camera palette, people, costume and scale. Natural movement and practical lighting. No dialogue, no subtitles, no lettering or credits, no modern objects. Ambient sound only. ",
+    "prompt": "At the battlement the guard carefully lights the old empty lantern, his hands steady. Hold on the warm flame against the night sky."
+  }
+}
