@@ -1,0 +1,560 @@
+{
+  "directory": "assets/linyuan/audio/foley",
+  "variants": 3,
+  "aliases": {
+    "hit": "hit_ceramic",
+    "purify": "kill",
+    "miss": "miss_bamboo",
+    "hurt": "hurt_claw"
+  },
+  "events": [
+    "shot",
+    "hit_ceramic",
+    "hit_wing",
+    "canister",
+    "kill",
+    "miss_water",
+    "miss_stone",
+    "miss_earth",
+    "miss_bamboo",
+    "intercept",
+    "hurt_claw",
+    "hurt_impact",
+    "hurt_blast",
+    "civilian",
+    "reload",
+    "empty",
+    "reveal",
+    "warning",
+    "ready"
+  ],
+  "files": {
+    "shot": [
+      {
+        "file": "assets/linyuan/audio/foley/shot.wav",
+        "sha256": "bb7fa621ca9d41e42f2022213059010b6eb82e792e26325449521f04f39fbac3",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88130,
+        "seconds": 0.37,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/shot_2.wav",
+        "sha256": "5e9eb446d04d4f7c422c4f159486f9038151bb2de9e34e47c171f0510a1593a0",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88223,
+        "seconds": 0.37,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/shot_3.wav",
+        "sha256": "3cb818b320b714140f8879595e27f163bb8f1c6805c8c0cda3433a39d56186a2",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88316,
+        "seconds": 0.37,
+        "rate": 48000
+      }
+    ],
+    "hit_ceramic": [
+      {
+        "file": "assets/linyuan/audio/foley/hit_ceramic.wav",
+        "sha256": "b22c60fe9edb827fbc1343aa78349bb8a1c1b1cee2f92b75ada684901a9cb747",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88131,
+        "seconds": 0.36,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hit_ceramic_2.wav",
+        "sha256": "1c83f7766c6fdae86e1ce977cd1e2edd91a2a155d1f0d55ee0deee73d5fc6b63",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88224,
+        "seconds": 0.36,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hit_ceramic_3.wav",
+        "sha256": "72ff50796d1d89ba66224faeb4fed9d3b54bd04607587686af7d9c50b23c19ff",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88317,
+        "seconds": 0.36,
+        "rate": 48000
+      }
+    ],
+    "hit_wing": [
+      {
+        "file": "assets/linyuan/audio/foley/hit_wing.wav",
+        "sha256": "4085b1b3034078d92a00b024c40922502d02cb28a1795c848cd0d12261a45000",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88132,
+        "seconds": 0.4,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hit_wing_2.wav",
+        "sha256": "69fcbcb9dbb9ce19fbe5b238f73b3cfbda8d47c81c86a827a93fd20b4099b12d",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88225,
+        "seconds": 0.4,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hit_wing_3.wav",
+        "sha256": "28aeb71c2a7b762b5ba0e46452246d71528837217c20c55b188cacef7c22b303",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88318,
+        "seconds": 0.4,
+        "rate": 48000
+      }
+    ],
+    "canister": [
+      {
+        "file": "assets/linyuan/audio/foley/canister.wav",
+        "sha256": "1bef65d776b059908561b817b5564326ec58fa0e605190d498ce7400e5668dca",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88133,
+        "seconds": 0.55,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/canister_2.wav",
+        "sha256": "cf83670cda72d67a0e383fdaedb20fbc4112ede35c29eeadd1228d9d9ae5e8d7",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88226,
+        "seconds": 0.55,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/canister_3.wav",
+        "sha256": "f697ed60b960bb068b9e979d0345c1cad0abcbaedd748ceed8614742d9b0e457",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88319,
+        "seconds": 0.55,
+        "rate": 48000
+      }
+    ],
+    "kill": [
+      {
+        "file": "assets/linyuan/audio/foley/kill.wav",
+        "sha256": "228f4df37d1bf5a24ce09ab636660598c1c7c73e6bdd6918a71339bf4f9ad084",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88134,
+        "seconds": 0.83,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/kill_2.wav",
+        "sha256": "ae7cfd7caebd50ad5bd3ae9645dee7957857696073a0ca3bce631eca680a2051",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88227,
+        "seconds": 0.83,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/kill_3.wav",
+        "sha256": "494564f9aad15a737e3379535681ba3cd6d2f6d4ee0d2064554e7a08ad08106c",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88320,
+        "seconds": 0.83,
+        "rate": 48000
+      }
+    ],
+    "miss_water": [
+      {
+        "file": "assets/linyuan/audio/foley/miss_water.wav",
+        "sha256": "b48dde69b0789ca499cefc961fcdc7d00fbe8b2d42a9ee1bf43390a9f30949f5",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88135,
+        "seconds": 0.36,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_water_2.wav",
+        "sha256": "b3ceb023436a6d77ea9a902dd060914a72b07db52e841256fec963de5c82ec25",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88228,
+        "seconds": 0.36,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_water_3.wav",
+        "sha256": "e57ce7b81b7c91f1e2c25557a8a6413deaa3f3a86c71aac4cd47e7056264ad9d",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88321,
+        "seconds": 0.36,
+        "rate": 48000
+      }
+    ],
+    "miss_stone": [
+      {
+        "file": "assets/linyuan/audio/foley/miss_stone.wav",
+        "sha256": "370a9c94ceb77631fdc8a6174d4faef6dee93a14582752c69cd4d061a6543435",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88136,
+        "seconds": 0.32,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_stone_2.wav",
+        "sha256": "b1ce179b07ccf1bf0340ee34edcce69730bc3e0182a784bd00ac6d789021ab12",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88229,
+        "seconds": 0.32,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_stone_3.wav",
+        "sha256": "2773d458451101d30c03425e112ffbb6b6e5ba8707dcd9502c52e28d02f0523c",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88322,
+        "seconds": 0.32,
+        "rate": 48000
+      }
+    ],
+    "miss_earth": [
+      {
+        "file": "assets/linyuan/audio/foley/miss_earth.wav",
+        "sha256": "f70721216af23c398f128e7f38c92982995b0f3fa2875ed5c3ad95a5f8488891",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88137,
+        "seconds": 0.33,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_earth_2.wav",
+        "sha256": "9d7f9e24c1fca408d3010e758d52fa0c7813cecc51c0257ca7a637ea5f3eb81f",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88230,
+        "seconds": 0.33,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_earth_3.wav",
+        "sha256": "674fe51c12c01b819ffbd5a4ed0185868ef1c2f83797eb6f318e643d8f13c2a8",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88323,
+        "seconds": 0.33,
+        "rate": 48000
+      }
+    ],
+    "miss_bamboo": [
+      {
+        "file": "assets/linyuan/audio/foley/miss_bamboo.wav",
+        "sha256": "9012593db476f1ddd6dfb09b8460bf7a39251d48e58ae2d59900d2283082bc44",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88138,
+        "seconds": 0.35,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_bamboo_2.wav",
+        "sha256": "e5c43081f53ee13d14a9d4195a5caba898dfce78a955e49122df38e6dda05976",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88231,
+        "seconds": 0.35,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/miss_bamboo_3.wav",
+        "sha256": "907a3e4a9401ed5d7af33ce03e45256e48e89bd13a07ebc294531432d20d216e",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88324,
+        "seconds": 0.35,
+        "rate": 48000
+      }
+    ],
+    "intercept": [
+      {
+        "file": "assets/linyuan/audio/foley/intercept.wav",
+        "sha256": "93d774eacf368e8b0541bc42819d669b2d6c2335857fa0bd54fa47edfcd3f4fb",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88139,
+        "seconds": 0.45,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/intercept_2.wav",
+        "sha256": "17cf4806d812369a59ffd7363d5bf72585585a7e45dbfb5bf2cdf748755df9a2",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88232,
+        "seconds": 0.45,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/intercept_3.wav",
+        "sha256": "9fcbc3bd881bfd88e19f580d253e051266c7e8f3aedecc87e0d4b93e670b2e60",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88325,
+        "seconds": 0.45,
+        "rate": 48000
+      }
+    ],
+    "hurt_claw": [
+      {
+        "file": "assets/linyuan/audio/foley/hurt_claw.wav",
+        "sha256": "279cc28372081bc702ef548a824f1ea4119354f496f240b3c90cf899a07de55c",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88140,
+        "seconds": 0.49,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hurt_claw_2.wav",
+        "sha256": "0341ef4a9587dd5622532ffa128e7df4bf125d3c7ca9319814141ef56c8f631e",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88233,
+        "seconds": 0.49,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hurt_claw_3.wav",
+        "sha256": "f05f7ae1da4c213f5dd12ff8ed295102655e886a77469d9be63496ad0ce36a84",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88326,
+        "seconds": 0.49,
+        "rate": 48000
+      }
+    ],
+    "hurt_impact": [
+      {
+        "file": "assets/linyuan/audio/foley/hurt_impact.wav",
+        "sha256": "4177213333bbe7879f126e636b77d2c0b26b1a19952a9516eaee1434f6c72aaf",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88141,
+        "seconds": 0.5,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hurt_impact_2.wav",
+        "sha256": "cf5c61b154d0e2864c752ac21d6284c3388fb4e266ae28783edd833c79ad3826",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88234,
+        "seconds": 0.5,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hurt_impact_3.wav",
+        "sha256": "748a697d4368be157b89ebe16cb7dc45bc477d5aae667ede85de9f10f1c5a080",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88327,
+        "seconds": 0.5,
+        "rate": 48000
+      }
+    ],
+    "hurt_blast": [
+      {
+        "file": "assets/linyuan/audio/foley/hurt_blast.wav",
+        "sha256": "7ac813bfb9a3a2f20d91517fc2047494b8f50a3b945b54f514c11f184f099652",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88142,
+        "seconds": 0.5,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hurt_blast_2.wav",
+        "sha256": "6d80e38753075beda6542cec08ebaba9089f0745de2bd1752f87519bae39b49e",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88235,
+        "seconds": 0.5,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/hurt_blast_3.wav",
+        "sha256": "0458e83cd618374cb1c3248e8c1e00d260e2246155cfb291b448842c50996cd5",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88328,
+        "seconds": 0.5,
+        "rate": 48000
+      }
+    ],
+    "civilian": [
+      {
+        "file": "assets/linyuan/audio/foley/civilian.wav",
+        "sha256": "1f9771147eccb78c420f54f68247fe7f52a97d5f90e6019243ed96c07239b288",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88143,
+        "seconds": 0.53,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/civilian_2.wav",
+        "sha256": "4bb1b620606e1264cd85df8aad5ef63bfd15874dc80557d6e2fbe2bac2c7ad38",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88236,
+        "seconds": 0.53,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/civilian_3.wav",
+        "sha256": "8dfdb049f77bfde199414b8f21fdbd4db5c38417c20d5e53d83fbefe66b9928d",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88329,
+        "seconds": 0.53,
+        "rate": 48000
+      }
+    ],
+    "reload": [
+      {
+        "file": "assets/linyuan/audio/foley/reload.wav",
+        "sha256": "40a8c010f8a62fda289e304ccf56e3cacd09c1d0a374e99e8392477a72abe704",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88144,
+        "seconds": 0.6,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/reload_2.wav",
+        "sha256": "a10da7edace5826608f1ca66f4996c6f6a74c23862df0baf5835659d58cebdb9",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88237,
+        "seconds": 0.6,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/reload_3.wav",
+        "sha256": "2e613491ed89aa1aa016fc9ab233c7518366c524dad8ff0183046296b83c268b",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88330,
+        "seconds": 0.6,
+        "rate": 48000
+      }
+    ],
+    "empty": [
+      {
+        "file": "assets/linyuan/audio/foley/empty.wav",
+        "sha256": "f67ef46635cc60ef9c0f569bcce35adfb25b0dfece7cab185d2af9e24528a379",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88145,
+        "seconds": 0.21,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/empty_2.wav",
+        "sha256": "4a6e020775db731bfbc981bcc8ecb5d2bb17b3d2487957911a2bf66de150c3e8",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88238,
+        "seconds": 0.21,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/empty_3.wav",
+        "sha256": "a5fa2511fff8ade230d35af44f45dded1d6aece6251cfcfd9459d94ddbb66039",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88331,
+        "seconds": 0.21,
+        "rate": 48000
+      }
+    ],
+    "reveal": [
+      {
+        "file": "assets/linyuan/audio/foley/reveal.wav",
+        "sha256": "ead0cca6d68b0ae869b4f3d51fe7dce07159ae2bafb2d97bf7eaaf8a76808c61",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88146,
+        "seconds": 0.38,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/reveal_2.wav",
+        "sha256": "752ba323d598a25151d0c1d00d3f81b3b1932cac5a4ad5bf6981410638fd9ad9",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88239,
+        "seconds": 0.38,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/reveal_3.wav",
+        "sha256": "9e07800ac98bc3106a0b4cfe3a8d05f894ac1c67ecc177c9894524b497b22f20",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88332,
+        "seconds": 0.38,
+        "rate": 48000
+      }
+    ],
+    "warning": [
+      {
+        "file": "assets/linyuan/audio/foley/warning.wav",
+        "sha256": "1b902b6eb0c3c9b6f9150787587b1ef1e7ffe4959632987a796dd41cbed2a58b",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88147,
+        "seconds": 0.51,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/warning_2.wav",
+        "sha256": "575c264ee5bba465ccb1a36c5769676dda27b940b9446db34d4ca6ba4440db66",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88240,
+        "seconds": 0.51,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/warning_3.wav",
+        "sha256": "9b0b50bef4bca90b44f61a54bfd0b9286d3593610abaac0ea6237a3f70328068",
+        "source_model": "stable-audio-open-1.0",
+        "master": "blade-recall-3",
+        "seed": 88333,
+        "seconds": 0.51,
+        "rate": 48000
+      }
+    ],
+    "ready": [
+      {
+        "file": "assets/linyuan/audio/foley/ready.wav",
+        "sha256": "4174c43acd824f6df68cfa1ff3c7b340e934c6f13ebba750b4e7e30c637fa3ae",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88148,
+        "seconds": 0.24,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/ready_2.wav",
+        "sha256": "2dd03e0367345c204734dec97fb0431e440de39bf624ca9d0e89600410746f21",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88241,
+        "seconds": 0.24,
+        "rate": 48000
+      },
+      {
+        "file": "assets/linyuan/audio/foley/ready_3.wav",
+        "sha256": "cf51883f5fc9bebc63441dabafbb6f1a761bd713c62a1c8033770b59e8acd276",
+        "source_model": "stable-audio-open-1.0",
+        "seed": 88334,
+        "seconds": 0.24,
+        "rate": 48000
+      }
+    ]
+  },
+  "ambience": "audio/ambience/bamboo_stream.wav",
+  "music": "audio/music/battle.wav",
+  "music_source": {
+    "file": "assets/changan/audio/music/river_battle.wav",
+    "sha256": "a3e5ac7a935bac31e9f48b8b9441e70e455c86564ec99aa1c551f47b70f599bb",
+    "edit_sha256": "ffb8ea4356c46fce5c68fd247db6b8d27144e9dd4bdd37c1e9dd4a89d8f09118",
+    "edit": "worlds/linyuan/production/battle_music_edit.json",
+    "model": "ACE-Step"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "title": "临渊御剑 · 首批试剑",
+  "chapters": [
+    {
+      "id": "pilot",
+      "heading": "九曲渡 · 后山竹海",
+      "stages": [
+        {
+          "id": "noodle",
+          "type": "film",
+          "takes": [
+            {
+              "id": "c1_04_noodle",
+              "cues": [
+                {
+                  "voice": "qingping/noodle",
+                  "subtitle": "这碗面看起来很好吃。我是说，数据上。",
+                  "begin": 1,
+                  "end": 86
+                },
+                {
+                  "voice": "luchen/noodle",
+                  "subtitle": "你又没有嘴。",
+                  "begin": 88,
+                  "end": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "pilot",
+          "type": "encounter",
+          "level": "pilot",
+          "music": "battle"
+        }
+      ]
+    }
+  ]
+}

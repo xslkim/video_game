@@ -1,0 +1,122 @@
+{
+  "linyuan_c1_w_fox_grove__v10": {
+    "first": "PL_BAMBOO",
+    "last": "PL_BAMBOO",
+    "guide": [
+      "G_FOX_GROVE_WIDE",
+      24
+    ],
+    "length": 73,
+    "prompt": "Exact static wide tripod forest view. Keep the shrine at left, the tiny stone stairs and tied raft at right always at their original position and size. A faint scan passes through central background bamboo ONCE, reveals a small ivory nine-tailed mechanical fox ON THE MIDDLE-DISTANCE PATH, twenty paces from camera. The fox's solid body has red eyes and amber forehead jewel. Even at its largest it fits within a quarter of the frame width. It crouches low facing the camera, starts a fast sideways lunge across the path then disappears behind nearby mid-distance bamboo stems or right bank. At all times the shrine, path and fixed border edges are visible. No zoom, dolly, pan, lens breathing, dolly zoom, closeups, bust shot, dollying backward, subject rushing towards the lens, or moving landscape. Keep solid ivory armor once revealed; no cyan glow after scan.",
+    "prefix": "",
+    "seed": 730000
+  },
+  "linyuan_c1_w_fox_grove__v11": {
+    "first": "PL_BAMBOO",
+    "last": "PL_BAMBOO",
+    "guide": [
+      "G_FOX_GROVE_WIDE",
+      24
+    ],
+    "length": 73,
+    "prompt": "Exact static wide tripod forest view. Keep the shrine at left, the tiny stone stairs and tied raft at right always at their original position and size. A faint scan passes through central background bamboo ONCE, reveals a small ivory nine-tailed mechanical fox ON THE MIDDLE-DISTANCE PATH, twenty paces from camera. The fox's solid body has red eyes and amber forehead jewel. Even at its largest it fits within a quarter of the frame width. It crouches low facing the camera, starts a fast sideways lunge across the path then disappears behind nearby mid-distance bamboo stems or right bank. At all times the shrine, path and fixed border edges are visible. No zoom, dolly, pan, lens breathing, dolly zoom, closeups, bust shot, dollying backward, subject rushing towards the lens, or moving landscape. Keep solid ivory armor once revealed; no cyan glow after scan.",
+    "prefix": "",
+    "seed": 730001
+  },
+  "linyuan_c1_04_noodle__v10": {
+    "first": "KF_C1_04_SWORDS",
+    "last": "KF_C1_04_SWORDS",
+    "length": 119,
+    "prompt": "Five continuous seconds locked camera at this sunny noodle stall. The seated young man quietly eats noodles with his right hand and chopsticks. His ceramic left hand rests. The blue transparent spirit blinks, looks at the bowl then smiles at him, the wood and crockery show through her entire body. The older woman cheerfully stirs her pot. Wind very gently shifts all eight separate individual silk tassels on the eight visibly crossguarded jian sword hilts in the rigid wooden scabbard casket on the hip at lower left. Eight sword hilts and guards retain their sword-shaped silhouettes from first frame to last. No camera motion, no change in costume or framing, no subtitles, UI, or letters.",
+    "prefix": "",
+    "seed": 730002
+  },
+  "linyuan_c1_10_talon__v10": {
+    "first": "KF_C1_10_FOREARM",
+    "last": "G_TALON_HALF",
+    "length": 73,
+    "prompt": "Locked camera looking across the stall. The bird is already holding the woman's anatomical RIGHT ceramic forearm firmly between elbow and wrist with its one claw. Her separate ceramic hand and fingers hang free throughout, her other natural hand grips the bamboo post. She struggles with small movements; her bodyweight is borne by the broad forearm clamp at all times. The bird hovers, while the woman's fingers slowly flex in the air, stall fabric and loose hair flutter. As the shot ends the bird raises its near wing across exactly the left half of the amber orb. Stay in the same composition. No cut, no zoom, no text or UI.",
+    "prefix": "",
+    "seed": 730003
+  },
+  "linyuan_c1_10_talon__v11": {
+    "first": "G_TALON_HALF",
+    "last": "KF_C1_10_FOREARM",
+    "length": 47,
+    "prompt": "Locked tripod. The one bird hovers while its claw keeps holding the middle of her right ceramic forearm; her prosthetic hand hangs free beyond the grip. Its near wing feathers at the start cover the left half of the fuel orb. The wing now pulls off TO THE LEFT in a single gentle lifting action so the entire circular amber chest sac is totally exposed. The wing stays out of the way for the rest of the shot. Original exact background and light, no cuts or zoom.",
+    "prefix": "",
+    "seed": 730004
+  },
+  "linyuan_c1_10_talon__v12": {
+    "first": "KF_C1_10_FOREARM",
+    "last": "KF_C1_10_FOREARM",
+    "length": 47,
+    "prompt": "A subtle breathing hover at locked camera. Exactly match the reference composition. The bird's amber breast orb is fully uncovered and clearly visible from first to last, no wing crosses in front of the circle. Claw grips her ceramic right forearm between elbow and dangling free hand. Her natural left hand grips the pole. Minimal wingtip, cloth and hair motion; hold the same suspended pose and lighting. No camera movement or cuts.",
+    "prefix": "",
+    "seed": 730005
+  },
+  "linyuan_c1_w_fox_grove__v12": {
+    "first": "PL_BAMBOO",
+    "last": "PL_BAMBOO",
+    "guide": [
+      "G_FOX_GROVE_LEFT_LOCKED",
+      24
+    ],
+    "length": 73,
+    "prompt": "Exactly stationary wide tripod on the original bamboo forest. A THIN cyan scan glints through the leaf mass at the extreme left of the shot (10% horizontal, 50% vertical). It reveals a nine-tailed white ceramic mechanical fox in precisely that left foreground thicket. No crest, no cyan body after scan. Eyes light fierce red, amber forehead jewel and tail hub stay distinct. The fox crouches, plants a forepaw then lunges out from the extreme left diagonally forward across the left half, passing the camera, leaving the empty frame. Preserve shrine at left, right moss rock and every stream stone at their exact fixed geometry, no zoom, pan or reframing. Do not relight the environment. No wide frame energy wave, explosive flash, captions or HUD.",
+    "prefix": "",
+    "seed": 731012
+  },
+  "linyuan_c1_w_fox_grove__v13": {
+    "first": "PL_BAMBOO",
+    "last": "PL_BAMBOO",
+    "guide": [
+      "G_FOX_GROVE_LEFT_LOCKED",
+      24
+    ],
+    "length": 73,
+    "prompt": "Exactly stationary wide tripod on the original bamboo forest. A THIN cyan scan glints through the leaf mass at the extreme left of the shot (10% horizontal, 50% vertical). It reveals a nine-tailed white ceramic mechanical fox in precisely that left foreground thicket. No crest, no cyan body after scan. Eyes light fierce red, amber forehead jewel and tail hub stay distinct. The fox crouches, plants a forepaw then lunges out from the extreme left diagonally forward across the left half, passing the camera, leaving the empty frame. Preserve shrine at left, right moss rock and every stream stone at their exact fixed geometry, no zoom, pan or reframing. Do not relight the environment. No wide frame energy wave, explosive flash, captions or HUD.",
+    "prefix": "",
+    "seed": 731013
+  },
+  "linyuan_c1_11_hit__v10": {
+    "first": "src_c1_10_talon_hover_84_e9e082ac06db",
+    "last": "KF_C1_11_END",
+    "length": 73,
+    "prompt": "Locked camera. Start from the exact suspended pose: the bird's claw is gripping the woman's ceramic RIGHT FOREARM, the ceramic wrist and hand beyond the claw. Keep this physical contact visible until the release. The round amber breast fuel chamber bursts with sharp sparks. Only then the raptor opens its claws and drops the woman. The bird falls to the left beside the stove. She lands on both feet; her left natural hand holds her intact right artificial forearm. The broken machine rests beside the stove with the fallen ladle on the ground. Match the shared final pose. Preserve right/left anatomy and stall layout throughout. No zoom or writing.",
+    "prefix": "",
+    "seed": 731210
+  },
+  "linyuan_c1_11_hit__v11": {
+    "first": "src_c1_10_talon_hover_84_e9e082ac06db",
+    "last": "KF_C1_11_END",
+    "length": 73,
+    "prompt": "Locked camera. Start from the exact suspended pose: the bird's claw is gripping the woman's ceramic RIGHT FOREARM, the ceramic wrist and hand beyond the claw. Keep this physical contact visible until the release. The round amber breast fuel chamber bursts with sharp sparks. Only then the raptor opens its claws and drops the woman. The bird falls to the left beside the stove. She lands on both feet; her left natural hand holds her intact right artificial forearm. The broken machine rests beside the stove with the fallen ladle on the ground. Match the shared final pose. Preserve right/left anatomy and stall layout throughout. No zoom or writing.",
+    "prefix": "",
+    "seed": 731211
+  },
+  "linyuan_c1_11_miss__v10": {
+    "first": "src_c1_10_talon_hover_84_e9e082ac06db",
+    "last": "KF_C1_11_END",
+    "length": 73,
+    "prompt": "Locked camera. Start from the exact suspended pose: the bird's claw is gripping the woman's ceramic RIGHT FOREARM, the ceramic wrist and hand beyond the claw. Keep this physical contact visible until the release. Her free natural left hand releases the post, grabs the hanging ladle, and swings it up into the round amber fuel chamber. The short strike releases the talons, the bird then tumbles left and the woman lands upright with an annoyed grimace. She lands on both feet; her left natural hand holds her intact right artificial forearm. The broken machine rests beside the stove with the fallen ladle on the ground. Match the shared final pose. Preserve right/left anatomy and stall layout throughout. No zoom or writing.",
+    "prefix": "",
+    "seed": 731230
+  },
+  "linyuan_c1_11_miss__v11": {
+    "first": "src_c1_10_talon_hover_84_e9e082ac06db",
+    "last": "KF_C1_11_END",
+    "length": 73,
+    "prompt": "Locked camera. Start from the exact suspended pose: the bird's claw is gripping the woman's ceramic RIGHT FOREARM, the ceramic wrist and hand beyond the claw. Keep this physical contact visible until the release. Her free natural left hand releases the post, grabs the hanging ladle, and swings it up into the round amber fuel chamber. The short strike releases the talons, the bird then tumbles left and the woman lands upright with an annoyed grimace. She lands on both feet; her left natural hand holds her intact right artificial forearm. The broken machine rests beside the stove with the fallen ladle on the ground. Match the shared final pose. Preserve right/left anatomy and stall layout throughout. No zoom or writing.",
+    "prefix": "",
+    "seed": 731231
+  },
+  "linyuan_c1_04_noodle__v11": {
+    "first": "KF_C1_04_EIGHT",
+    "last": "KF_C1_04_EIGHT",
+    "length": 119,
+    "prompt": "Five continuous seconds locked camera at this sunny noodle stall. The seated young man quietly eats noodles with his right hand and chopsticks. His ceramic left hand rests. The blue transparent spirit blinks, looks at the bowl then smiles at him, the wood and crockery show through her entire body. The older woman cheerfully stirs her pot. Wind very gently shifts all eight separate individual silk tassels on the eight visibly crossguarded jian sword hilts in the rigid wooden scabbard casket on the hip at lower left. Eight sword hilts and guards retain their sword-shaped silhouettes from first frame to last. No camera motion, no change in costume or framing, no subtitles, UI, or letters.",
+    "prefix": "",
+    "seed": 731800
+  }
+}

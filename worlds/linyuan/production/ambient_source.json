@@ -1,0 +1,26 @@
+{
+  "file": "assets/linyuan/audio/ambience/bamboo_stream.wav",
+  "sha256": "96d401961030859236bd7fc7d799bbd7ac95c521a55af70050ecf11bdb1c5e96",
+  "sources": [
+    {
+      "file": "assets/linyuan/audit/field_audio/bamboo-wind.mp3",
+      "sha256": "9989e48cb79de76818c961e8c92f23b6305a2d39abe0cfd25ecde03f85bdb401"
+    },
+    {
+      "file": "assets/linyuan/audit/field_audio/muir-stream.mp3",
+      "sha256": "4d55ce7e299b7d2d9ab50aee2d28233f05662886cbb57e792aa210d39dd73744"
+    }
+  ],
+  "field_ranges_seconds": [
+    [
+      15.0,
+      35.0
+    ],
+    [
+      0.65,
+      4.65
+    ]
+  ],
+  "loop_seconds": 20,
+  "credits": "assets/linyuan/audio/ambience/CREDITS.md"
+}

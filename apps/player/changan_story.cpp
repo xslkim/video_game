@@ -1,5 +1,6 @@
 #include "changan_story.hpp"
 #include "changan_record.hpp"
+#include "linyuan_feedback.hpp"
 #include "sound.hpp"
 #include "ui.hpp"
 #include <deque>
@@ -8,6 +9,72 @@
 
 namespace ca {
 using Texture = std::unique_ptr<SDL_Texture, decltype(&SDL_DestroyTexture)>;
+namespace {
+void checkVoice(const std::string &id) {
+    const auto slash = id.find('/');
+    if (slash == std::string::npos || slash == 0 || slash + 1 == id.size() ||
+        id.find('/', slash + 1) != std::string::npos ||
+        id.find_first_not_of("abcdefghijklmnopqrstuvwxyz_0123456789/") != std::string::npos)
+        throw std::runtime_error("Invalid voice identifier: " + id);
+}
+
+Point closestOnEdge(Point p, Point a, Point b) {
+    const double dx = b.x - a.x, dy = b.y - a.y;
+    const double ratio =
+        std::clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / std::max(1e-9, dx * dx + dy * dy), 0., 1.);
+    return {a.x + ratio * dx, a.y + ratio * dy};
+}
+
+bool segmentsTouch(Point a, Point b, Point c, Point d) {
+    const auto cross = [](Point u, Point v, Point w) {
+        return (v.x - u.x) * (w.y - u.y) - (v.y - u.y) * (w.x - u.x);
+    };
+    const auto overlaps = [](double a0, double a1, double b0, double b1) {
+        return std::max(std::min(a0, a1), std::min(b0, b1)) <= std::min(std::max(a0, a1), std::max(b0, b1));
+    };
+    return overlaps(a.x, b.x, c.x, d.x) && overlaps(a.y, b.y, c.y, d.y) &&
+           cross(a, b, c) * cross(a, b, d) <= 0 && cross(c, d, a) * cross(c, d, b) <= 0;
+}
+
+bool guardBlocksAssist(const FilmChoice &choice, const TrackedRegion &target, int frame, Point aim) {
+    if (!choice.protectAssist || choice.guards.empty())
+        return false;
+    const auto outline = target.outline(frame);
+    Point nearest = aim;
+    double best = 1e20;
+    for (size_t i = 0; i < outline.size(); ++i) {
+        const auto candidate = closestOnEdge(aim, outline[i], outline[(i + 1) % outline.size()]);
+        const double distance = std::hypot(candidate.x - aim.x, candidate.y - aim.y);
+        if (distance < best) {
+            best = distance;
+            nearest = candidate;
+        }
+    }
+    for (const auto &guard : choice.regions) {
+        if (frame < guard.begin || frame >= guard.end ||
+            std::find(choice.guards.begin(), choice.guards.end(), guard.id) == choice.guards.end())
+            continue;
+        const auto shape = guard.outline(frame);
+        for (size_t i = 0; i < shape.size(); ++i)
+            if (segmentsTouch(aim, nearest, shape[i], shape[(i + 1) % shape.size()]))
+                return true;
+    }
+    return false;
+}
+
+std::vector<DialogueCue> readDialogue(const Json &shot, int frames) {
+    std::vector<DialogueCue> result;
+    for (const auto &cue : shot.value("cues", Json::array())) {
+        DialogueCue parsed{cue.at("begin"), cue.at("end"), cue.at("voice"), cue.at("subtitle")};
+        checkVoice(parsed.voice);
+        if (parsed.begin < 0 || parsed.end <= parsed.begin || parsed.end > frames ||
+            (!result.empty() && result.back().end > parsed.begin))
+            throw std::runtime_error("Invalid dialogue timing: " + parsed.voice);
+        result.push_back(std::move(parsed));
+    }
+    return result;
+}
+} // namespace
 void drawGunBorder(Ink &ink) {
     constexpr SDL_Color white{255, 255, 255, 255};
     constexpr SDL_Color band{8, 10, 12, 255};
@@ -63,6 +130,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                  float voiceGain, float effectsGain, TravelReload travel) {
     Movie movie(media / (film.take + ".mp4"), film.frames);
     Sound sound;
+    sound.limitToWallClock(film.wallClockLimited);
     CampaignRecording::Audio recorded(sound, 60);
     ScoreAudio localFoley;
     if (!score && (choice || travel.arrows)) {
@@ -72,20 +140,23 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
     ScoreAudio &foley = score ? *score : localFoley;
     std::unique_ptr<SDL_AudioStream, decltype(&SDL_DestroyAudioStream)> dialogue(nullptr,
                                                                                  SDL_DestroyAudioStream);
-    if (!film.voice.empty() && sound.device()) {
-        const auto file = (media.parent_path() / "audio/voice" / (film.voice + ".wav")).u8string();
+    auto say = [&](const std::string &id) {
+        if (!sound.device())
+            return;
+        const auto file = (media.parent_path() / "audio/voice" / (id + ".wav")).u8string();
         SDL_AudioSpec format{};
         Uint8 *pcm = nullptr;
         Uint32 bytes = 0;
         if (!SDL_LoadWAV(reinterpret_cast<const char *>(file.c_str()), &format, &pcm, &bytes))
-            throw std::runtime_error("Missing dialogue: " + film.voice);
+            throw std::runtime_error("Missing dialogue: " + id);
         std::unique_ptr<Uint8, decltype(&SDL_free)> owner(pcm, SDL_free);
         dialogue.reset(SDL_CreateAudioStream(&format, &format));
         if (!dialogue || !SDL_BindAudioStream(sound.device(), dialogue.get()) ||
             !SDL_SetAudioStreamGain(dialogue.get(), voiceGain) ||
             !SDL_PutAudioStreamData(dialogue.get(), pcm, bytes) || !SDL_FlushAudioStream(dialogue.get()))
             throw std::runtime_error(SDL_GetError());
-    }
+    };
+    const DialogueCue *speaking = nullptr;
     Ink ink(renderer);
     Texture texture(
         SDL_CreateTexture(renderer, SDL_PIXELFORMAT_IYUV, SDL_TEXTUREACCESS_STREAMING, 1280, 720),
@@ -98,6 +169,9 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
     uint64_t submitted = 0;
     std::deque<std::pair<uint64_t, int>> history;
     bool paused = false;
+    double pauseStart = 0;
+    bool slowedWindow = false;
+    bool sentEarly = false, sentLate = false, probePaused = false, probeResumed = false;
     bool skipSent = false;
     double localReload = 0, previous = now();
     double &reloadLeft = travel.remaining ? *travel.remaining : localReload;
@@ -106,8 +180,16 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
     double effectTime = 0, effectAt = -1;
     Point effectPoint{};
     sound.begin(movie, 0, 1., now());
+    if (!film.voice.empty() && film.cues.empty())
+        say(film.voice);
     sound.clipGain(film.take == "aying_help" ? voiceGain : effectsGain);
     auto pause = [&](bool yes) {
+        if (paused == yes)
+            return;
+        if (yes)
+            pauseStart = now();
+        else if (travel.pausedSeconds)
+            *travel.pausedSeconds += now() - pauseStart;
         paused = yes;
         sound.pause(yes, now());
     };
@@ -117,17 +199,27 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
             if (!choice || paused || choice->fired ||
                 (!choice->story && (choice->ammo == 0 || reloadLeft > 0)))
                 return;
+            if (choice->closed >= 0 && when / 1e9 >= choice->closed) {
+                ++choice->lateTriggers;
+                return;
+            }
             auto shown = std::find_if(history.rbegin(), history.rend(),
                                       [&](auto entry) { return entry.first <= when; });
+            if (shown != history.rend() && shown->second < choice->begin)
+                ++choice->earlyTriggers;
+            if (shown != history.rend() && shown->second >= choice->end)
+                ++choice->lateTriggers;
             if (shown == history.rend() || shown->second < choice->begin || shown->second >= choice->end)
                 return;
             if (effectAt >= 0 && effectTime - effectAt < .15)
                 return;
             choice->fired = true;
             choice->hitFrame = shown->second;
+            choice->inputTime = when / 1e9;
+            choice->inputPoint = p;
             if (!choice->story)
                 --choice->ammo;
-            foley.cue("shot");
+            foley.cue("shot", 1.f, choice->story && choice->newFeedback ? .78f : 1.f);
             effectAt = effectTime;
             effectPoint = p;
             choice->selected = "miss";
@@ -137,12 +229,14 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                 choice->selected = region.id;
                 break;
             }
+            choice->directStoryWeak = choice->story && choice->protectAssist && choice->selected == choice->answer;
             if (choice->selected == "miss" && choice->assist) {
                 for (const auto &region : choice->regions) {
                     if (std::find(choice->eligible.begin(), choice->eligible.end(), region.id) ==
                         choice->eligible.end())
                         continue;
-                    if (region.covers(shown->second, p, choice->assist)) {
+                    if (region.covers(shown->second, p, choice->assist) &&
+                        !guardBlocksAssist(*choice, region, shown->second, p)) {
                         choice->selected = region.id;
                         break;
                     }
@@ -155,7 +249,13 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                 choice->fired = false;
                 foley.cue("miss");
             } else {
-                foley.cue(choice->selected == "miss" ? "miss" : "hit");
+                if (choice->newFeedback && choice->story) {
+                    const bool protectedHit = std::find(choice->guards.begin(), choice->guards.end(),
+                                                        choice->selected) != choice->guards.end();
+                    foley.cue(protectedHit ? "civilian" : choice->selected == "miss" ? "miss"
+                             : choice->protectAssist && !choice->directStoryWeak ? "hit_ceramic" : "canister");
+                } else
+                    foley.cue(choice->selected == "miss" ? "miss" : "hit");
                 if (!choice->story && choice->selected == choice->answer &&
                     choice->partialHits + choice->specialDamage + 1 < choice->strength) {
                     ++choice->partialHits;
@@ -282,13 +382,28 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         if (choice && choice->fired && !paused && effectTime - effectAt >= .29)
             return FilmEnd::selected;
         if (choice && !choice->fired && !paused &&
-            (displayed >= choice->end || (choice->exposed && exposedLeft <= 0)))
+            (displayed >= choice->end || (choice->exposed && exposedLeft <= 0))) {
+            choice->closed = now();
             return FilmEnd::expired;
+        }
         if (skip && !choice && !paused)
             return FilmEnd::skipped;
-        const int frame = sound.localFrame(now());
+        int frame = sound.localFrame(now());
+        if (choice && !slowedWindow && choice->playbackRate != 1. && frame >= choice->begin) {
+            frame = choice->begin;
+            sound.begin(movie, frame, choice->playbackRate, now());
+            slowedWindow = true;
+        }
         if (score)
             score->update(!paused);
+        if (choice && !choice->fired && frame >= film.frames && !paused && displayed == film.frames - 1 &&
+            choice->end == film.frames) {
+            const auto cutoff = SDL_GetTicksNS();
+            choice->closed = cutoff / 1e9;
+            if (automated && choice->boundaryProbes && !sentLate)
+                fire({15., 18.}, cutoff);
+            return FilmEnd::expired;
+        }
         if (frame >= film.frames && !paused && displayed == film.frames - 1 &&
             (!dialogue || SDL_GetAudioStreamQueued(dialogue.get()) == 0))
             return FilmEnd::finished;
@@ -299,14 +414,46 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                                       pic->linesize[1], pic->data[2], pic->linesize[2]))
                 throw std::runtime_error(SDL_GetError());
             displayed = shown;
+            if (!film.cues.empty()) {
+                const auto cue = std::find_if(film.cues.begin(), film.cues.end(), [&](const DialogueCue &c) {
+                    return shown >= c.begin && shown < c.end;
+                });
+                const auto *current = cue == film.cues.end() ? nullptr : &*cue;
+                if (speaking != current) {
+                    dialogue.reset();
+                    speaking = current;
+                    if (current)
+                        say(current->voice);
+                }
+            }
         }
         SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
         SDL_RenderClear(renderer);
-        SDL_RenderTexture(renderer, texture.get(), nullptr, nullptr);
+        const double age = effectTime - effectAt;
+        const bool civilian =
+            choice && choice->newFeedback && choice->fired &&
+            std::find(choice->guards.begin(), choice->guards.end(), choice->selected) != choice->guards.end();
+        SDL_FRect picture{0, 0, 1280, 720};
+        const bool precise = choice && choice->newFeedback && choice->directStoryWeak;
+        const double shakeSeconds = civilian ? .19 : .12;
+        if ((civilian || precise) && choice->shakeEnabled && age < shakeSeconds) {
+            const float strength = float(6 * std::max(0., 1. - age / shakeSeconds));
+            picture = {float(strength * (std::sin(age * 142.) - 1)),
+                       float(strength * (std::cos(age * 116.) - 1)), 1280 + 2 * strength, 720 + 2 * strength};
+        }
+        SDL_RenderTexture(renderer, texture.get(), nullptr, &picture);
         if (receiver)
             drawGunBorder(ink);
-        const double age = effectTime - effectAt;
-        if (choice && effectAt >= 0 && age < .29) {
+        if (choice && effectAt >= 0 && age < .29 && choice->newFeedback) {
+            const Point screenPoint{picture.x + effectPoint.x * picture.w / 1280.,
+                                    picture.y + effectPoint.y * picture.h / 720.};
+            drawLinyuanEffect(ink,
+                              civilian                     ? Cue::civilian
+                              : choice->selected == "miss" ? Cue::miss
+                                                           : Cue::purify,
+                              screenPoint, age, choice->reducedFlash, 2, precise, LinyuanImpact::claw, 0, "feather",
+                              -1, 0, precise, .145);
+        } else if (choice && effectAt >= 0 && age < .29) {
             const auto a = Uint8(230 * (1. - age / .29));
             ink.ring(effectPoint, int(8 + 74 * age), {255, 213, 125, a});
             for (int i = 0; i < 10; ++i) {
@@ -316,10 +463,11 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                 ink.box(x, y, 3, 3, {255, 235, 167, a});
             }
         }
-        if (subtitles && !film.subtitle.empty() && displayed >= 5 &&
+        const std::string &caption = speaking ? speaking->subtitle : film.subtitle;
+        if (subtitles && !caption.empty() && (speaking || displayed >= 5) &&
             (!choice || displayed < choice->begin)) {
             ink.box(100, 622, 1080, 52, {9, 12, 20, 185});
-            ink.text(640, 632, 25, film.subtitle, ivory, true);
+            ink.text(640, 632, 25, caption, ivory, true);
         }
         if (choice && displayed >= choice->begin && displayed < choice->end) {
             ink.box(250, 610, 780, 54, {9, 12, 20, 196});
@@ -329,9 +477,19 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                          "符印  " + std::to_string(choice->partialHits + choice->specialDamage) + " / " +
                              std::to_string(choice->strength),
                          ivory, true);
-            if (aim.x >= 0)
+            if (aim.x >= 0 && choice->newFeedback) {
+                bool protectedPoint = false, targetPoint = false;
+                for (const auto &region : choice->regions)
+                    if (region.covers(displayed, aim)) {
+                        protectedPoint = std::find(choice->guards.begin(), choice->guards.end(), region.id) !=
+                                         choice->guards.end();
+                        targetPoint = region.id == choice->answer;
+                        break;
+                    }
+                drawLinyuanReticle(ink, aim, choice->ammo, false, targetPoint, targetPoint, protectedPoint);
+            } else if (aim.x >= 0)
                 ink.ring(aim, 9, ivory);
-            if (choice->regions.size() == 1 || choice->highlight || choice->exposed) {
+            if (choice->regions.size() == 1 || choice->highlight || choice->exposed || choice->protectAssist) {
                 const auto mark =
                     std::find_if(choice->regions.begin(), choice->regions.end(),
                                  [&](const TrackedRegion &z) { return z.id == choice->answer; });
@@ -369,6 +527,10 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         if (!SDL_RenderPresent(renderer))
             throw std::runtime_error(SDL_GetError());
         submitted = SDL_GetTicksNS();
+        if (choice && !paused && displayed >= choice->begin && displayed < choice->end && choice->firstOpen < 0)
+            choice->firstOpen = submitted / 1e9;
+        if (choice && choice->inputTime >= 0 && choice->firstFeedback < 0)
+            choice->firstFeedback = submitted / 1e9;
         if (automated && film.autoSkip && !choice && !skipSent && displayed >= 8) {
             SDL_Event key{};
             key.type = SDL_EVENT_KEY_DOWN;
@@ -381,8 +543,31 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         history.emplace_back(submitted, displayed);
         while (submitted - history.front().first > 300000000)
             history.pop_front();
+        if (choice && automated && choice->boundaryProbes) {
+            if (!sentEarly && displayed == choice->begin - 1) {
+                sentEarly = true;
+                fire({15., 18.}, submitted);
+            }
+            if (!sentLate && displayed >= choice->end) {
+                sentLate = true;
+                fire({15., 18.}, submitted);
+            }
+        }
+        if (choice && automated && choice->pauseProbe && displayed >= choice->begin) {
+            if (!probePaused) {
+                pause(true);
+                probePaused = true;
+            } else if (!probeResumed && now() - pauseStart >= .4) {
+                pause(false);
+                probeResumed = true;
+            }
+        }
         if (choice && automated && !choice->replayAnswer.empty() && !choice->fired &&
-            displayed >= choice->begin + 3 && displayed < choice->end) {
+            displayed >= choice->begin + choice->replayOffset && displayed < choice->end) {
+            if (choice->recordedPoint) {
+                fire(*choice->recordedPoint, submitted);
+                continue;
+            }
             if (choice->autoSpecial && !choice->spent && (choice->canExpose || choice->canStrike)) {
                 expose();
                 if (choice->spent)
@@ -459,6 +644,8 @@ Progress Progress::load(const fs::path &file) {
 }
 
 void Progress::save(const fs::path &file) const {
+    if (file.empty())
+        return;
     fs::create_directories(file.parent_path());
     Json values = Json::object();
     for (const auto &[id, s] : scores)
@@ -488,17 +675,17 @@ void Progress::save(const fs::path &file) const {
         throw std::runtime_error("Cannot replace the campaign checkpoint");
     }
 }
-Campaign::Campaign(const fs::path &root, const std::string &name) {
+Campaign::Campaign(const CampaignWorld &world, const std::string &name) : linyuan(world.linyuan()) {
     auto checkId = [](const std::string &id) {
         if (id.empty() ||
             id.find_first_not_of("abcdefghijklmnopqrstuvwxyz0123456789_") != std::string::npos)
             throw std::runtime_error("Invalid campaign identifier: " + id);
     };
     checkId(name);
-    const auto data = Json::parse(std::ifstream(root / "worlds/changan" / (name + ".json")));
-    const auto media = Json::parse(std::ifstream(root / "worlds/changan/drama.json"));
+    const auto data = readCampaignJson(world.data() / (name + ".json"));
+    const auto media = readCampaignJson(world.data() / "drama.json");
     title = data.at("title");
-    titleArt = root / "assets/changan/title.bmp";
+    titleArt = world.assets() / "title.bmp";
     std::set<std::string> chapters, ids;
     for (const auto &chapter : data.at("chapters")) {
         const std::string id = chapter.at("id");
@@ -519,14 +706,14 @@ Campaign::Campaign(const fs::path &root, const std::string &name) {
             if (item.at("type") == "encounter") {
                 stage.level = item.at("level");
                 checkId(stage.level);
-                if (!fs::is_regular_file(root / "worlds/changan" / stage.level / "level.json"))
+                if (!fs::is_regular_file(world.data() / stage.level / "level.json"))
                     throw std::runtime_error("Missing playable stage: " + stage.level);
             } else if (item.at("type") == "film") {
                 for (const auto &shot : item.at("takes")) {
                     const std::string take = shot.at("id");
                     checkId(take);
                     const int count = media.at(take).at("frames");
-                    if (count <= 0 || !fs::is_regular_file(root / "assets/changan/drama" / (take + ".mp4")))
+                    if (count <= 0 || !fs::is_regular_file(world.assets() / "drama" / (take + ".mp4")))
                         throw std::runtime_error("Missing story take: " + take);
                     const auto voice = shot.value("voice", "");
                     if (!voice.empty()) {
@@ -537,9 +724,18 @@ Campaign::Campaign(const fs::path &root, const std::string &name) {
                         checkId(voice.substr(sep + 1));
                     }
                     stage.films.push_back({take, shot.value("subtitle", ""), count, voice});
+                    stage.films.back().cues = readDialogue(shot, count);
+                    stage.films.back().wallClockLimited = world.linyuan();
+                    if (shot.contains("after_civilian"))
+                        stage.films.back().afterCivilian = shot.at("after_civilian").get<bool>();
                 }
                 if (stage.films.empty())
                     throw std::runtime_error("Empty cinematic: " + stage.id);
+            } else if (item.at("type") == "card") {
+                stage.cardMillis = item.value("milliseconds", 1000);
+                stage.cardText = item.at("text");
+                if (stage.cardMillis <= 0 || stage.cardText.empty())
+                    throw std::runtime_error("Invalid title card: " + stage.id);
             } else if (item.at("type") == "trial") {
                 stage.trial = item.at("trial");
             } else {
@@ -563,12 +759,18 @@ size_t Campaign::locate(const std::string &id) const {
     return size_t(it - stages.begin());
 }
 
-FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &root, const Stage &stage,
+FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld &world, const Stage &stage,
                   Progress &state, Receiver *gun, bool automated, const fs::path &evidence,
-                  const std::string &scenario, ScoreAudio *score, int &completedReloads) {
-    const auto index = Json::parse(std::ifstream(root / "worlds/changan/drama.json"));
-    auto film = [&](const std::string &id) { return Film{id, "", index.at(id).at("frames")}; };
-    const auto media = root / "assets/changan/drama";
+                  const std::string &scenario, ScoreAudio *score, int &completedReloads, bool newFeedback,
+                  bool reducedFlash, const fs::path &inputSource, bool shakeEnabled) {
+    const auto recorded = inputSource.empty() ? Json::array() : readCampaignJson(inputSource);
+    const auto index = readCampaignJson(world.data() / "drama.json");
+    auto film = [&](const std::string &id) {
+        Film result{id, "", index.at(id).at("frames")};
+        result.wallClockLimited = world.linyuan();
+        return result;
+    };
+    const auto media = world.assets() / "drama";
     const auto &trial = stage.trial;
     std::string step = trial.at("first");
     ChapterScore section;
@@ -585,15 +787,20 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
         Film movie = film(take);
         movie.voice = record.value("voice", "");
         movie.subtitle = record.value("subtitle", "");
-        const auto annotation =
-            Json::parse(std::ifstream(root / "worlds/changan/regions" / (take + ".json")));
+        movie.cues = readDialogue(record, movie.frames);
+        const auto annotation = readCampaignJson(world.data() / "regions" / (take + ".json"));
         if (annotation.at("sha256") != index.at(take).at("sha256"))
             throw std::runtime_error("Outdated story region: " + take);
         const auto &windowFrames = record.at("window");
         int start = windowFrames.at(0);
         int length = windowFrames.at(1);
         const bool storyShot = record.value("story_shot", false);
-        if (storyShot)
+        const double windowRate = record.value("window_rate", 1.);
+        if (!(windowRate > 0 && windowRate <= 1.))
+            throw std::runtime_error("Invalid trial playback rate: " + step);
+        if (storyShot && record.contains("window_seconds"))
+            length = int(std::lround(record.at("window_seconds").get<double>() * windowRate * 24.));
+        else if (storyShot)
             length = state.difficulty == "easy" ? 72 : state.difficulty == "hard" ? 29 : 48;
         else {
             const bool flight = record.value("projectile", false);
@@ -603,6 +810,11 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
             length = std::min(movie.frames - start - 1, int(std::lround(length * scale)));
         }
         FilmChoice target{start, start + length, record.at("prompt"), record.at("answer")};
+        target.playbackRate = windowRate;
+        target.newFeedback = newFeedback;
+        target.reducedFlash = reducedFlash;
+        target.shakeEnabled = shakeEnabled;
+        target.protectAssist = world.linyuan();
         target.replayAnswer = target.answer;
         target.assist = state.difficulty == "easy" ? 24 : state.difficulty == "hard" ? 0 : 12;
         target.story = storyShot;
@@ -618,10 +830,12 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
         target.canStrike = record.value("thunder_strike", false) && !target.canExpose && energy == capacity;
         target.autoSpecial = scenario == "boss-thunder";
         target.reloadDuration = state.difficulty == "easy" ? .4 : state.difficulty == "hard" ? .8 : .6;
-        if (start < 0 || length <= 0 || target.end >= movie.frames)
+        if (start < 0 || length <= 0 || target.end > movie.frames)
             throw std::runtime_error("Invalid story window: " + step);
         for (const auto &key : record.at("zones")) {
             TrackedRegion region{key};
+            if (world.linyuan() && record.at("outcomes").at(region.id).value("civilian", false))
+                target.guards.push_back(region.id);
             if (record.at("outcomes").at(region.id).value("points", 0) > 0)
                 target.eligible.push_back(region.id);
             if (record.contains("zone_windows") && record.at("zone_windows").contains(region.id)) {
@@ -643,10 +857,32 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
                 throw std::runtime_error("Incomplete tracking: " + take);
             target.regions.push_back(std::move(region));
         }
+        if (target.protectAssist)
+            std::stable_partition(target.regions.begin(), target.regions.end(),
+                                  [&](const TrackedRegion &region) {
+                                      return std::find(target.guards.begin(), target.guards.end(), region.id) !=
+                                             target.guards.end();
+                                  });
         if (storyShot && scenario == "story-miss")
             target.replayAnswer = "miss";
-        if (storyShot && scenario == "story-timeout")
+        if (storyShot &&
+            (scenario == "story-timeout" || scenario == "story-boundaries" || scenario == "story-pause"))
             target.replayAnswer.clear();
+        if (world.linyuan() && storyShot) {
+            target.boundaryProbes = scenario == "story-boundaries";
+            target.pauseProbe = scenario == "story-pause";
+            if (scenario == "story-first")
+                target.replayOffset = 0;
+            if (scenario == "story-last")
+                target.replayOffset = length - 1;
+        }
+        if (world.linyuan() && storyShot &&
+            (scenario == "story-civilian" || scenario == "retry" || scenario == "give-up"))
+            for (const auto &zone : record.at("zones")) {
+                const std::string region = zone;
+                if (record.at("outcomes").at(region).value("civilian", false))
+                    target.replayAnswer = region;
+            }
         if (stage.id == "hall_of_mirrors" && step == "three" && scenario == "mirror-right")
             target.replayAnswer = "right";
         if (stage.id == "nine_lanterns" && step == "signal_1" && trace.empty() &&
@@ -654,14 +890,31 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
             target.replayAnswer = "head_3";
         if (stage.id == "west_possessions" && scenario == "civilian-retry" && retries == 0)
             target.replayAnswer = "civilian";
-        auto result = playFilm(window, renderer, media, movie, state.subtitles, gun, automated, &target,
-                               score, state.voiceVolume / 100.f, state.effectsVolume / 100.f,
-                               {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads});
+        if (!inputSource.empty()) {
+            const auto &previous = recorded.at(trace.size());
+            if (previous.at("step") != step || previous.at("take") != take)
+                throw std::runtime_error("Recorded trial step mismatch: " + step);
+            const int hit = previous.at("hit_frame");
+            target.replayAnswer = hit < 0 ? "" : previous.at("input").get<std::string>();
+            if (hit >= 0) {
+                target.replayOffset = hit - start;
+                target.recordedPoint = Point{previous.at("input_x"), previous.at("input_y")};
+            }
+        }
+        auto result = playFilm(
+            window, renderer, media, movie, state.subtitles, gun, automated, &target, score,
+            state.voiceVolume / 100.f, state.effectsVolume / 100.f,
+            {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads, &state.pausedSeconds});
         if (result == FilmEnd::quit)
             return result;
         const auto key = target.fired ? target.selected : std::string("timeout");
+        if (!inputSource.empty() && (recorded.at(trace.size()).at("input") != key ||
+                                     recorded.at(trace.size()).at("hit_frame") != target.hitFrame))
+            throw std::runtime_error("Recorded story sword produced a different result: " + step);
         const auto &branch = record.at("outcomes").at(key);
         const bool civilian = branch.value("civilian", false);
+        if (storyShot)
+            state.lastStoryCivilian = civilian;
         const int baseAward = branch.value("points", 0);
         int award = civilian ? -100 : baseAward;
         if (!storyShot && award > 0 && branch.value("purified", 0) > 0 && !target.specialFinish) {
@@ -677,7 +930,7 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
         if (target.spent)
             energy = 0;
         const int harm = civilian && state.difficulty == "easy" ? 0 : branch.value("damage", 0);
-        if (score) {
+        if (score && !(newFeedback && storyShot && civilian)) {
             if (civilian)
                 score->cue("civilian");
             else if (harm)
@@ -686,9 +939,12 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
                 score->cue("intercept");
             else if (branch.value("purified", 0) > 0)
                 score->cue("purify");
+            else if (world.linyuan() && newFeedback && storyShot && key == target.answer)
+                score->cue("kill", 1.f, .64f);
         }
         ammo = target.ammo;
-        section.shots += (target.fired && !target.specialFinish) + target.wasted + target.partialHits;
+        if (!world.linyuan() || !storyShot)
+            section.shots += (target.fired && !target.specialFinish) + target.wasted + target.partialHits;
         section.hits += target.partialHits;
         section.points += 25 * target.partialHits;
         if (target.partialHits) {
@@ -701,9 +957,11 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
             combo = 0;
             energy = std::max(0, energy - 2 * target.wasted);
         }
-        section.hits += target.fired && award > 0 && !target.specialFinish;
+        if (!world.linyuan() || !storyShot)
+            section.hits += target.fired && award > 0 && !target.specialFinish;
         section.points += award;
-        section.points = std::max(-state.scores[stage.chapter].points, section.points);
+        if (!world.linyuan())
+            section.points = std::max(-state.scores[stage.chapter].points, section.points);
         section.purified += branch.value("purified", 0);
         if (harm || civilian) {
             lives -= harm;
@@ -730,6 +988,15 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
                          {"warning_frame", start},
                          {"window_end", target.end},
                          {"hit_frame", target.hitFrame},
+                         {"direct_weak", target.directStoryWeak},
+                         {"t_open", target.firstOpen},
+                         {"t_closed", target.closed},
+                         {"t_input", target.inputTime},
+                         {"t_feedback", target.firstFeedback},
+                         {"input_x", target.inputPoint.x},
+                         {"input_y", target.inputPoint.y},
+                         {"prewindow_inputs", target.earlyTriggers},
+                         {"postwindow_inputs", target.lateTriggers},
                          {"damage", harm},
                          {"special", target.spent},
                          {"attempt", retries + 1},
@@ -764,8 +1031,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &ro
             auto response = film(branch.at("response"));
             if (playFilm(window, renderer, media, response, state.subtitles, gun, automated, nullptr, score,
                          state.voiceVolume / 100.f, state.effectsVolume / 100.f,
-                         {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads}) ==
-                FilmEnd::quit)
+                         {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads,
+                          &state.pausedSeconds}) == FilmEnd::quit)
                 return FilmEnd::quit;
         }
         step = branch.at("next");

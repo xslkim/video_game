@@ -1,0 +1,12 @@
+{
+  "id": "c1_pangolin_impact",
+  "candidate": "linyuan_c1_pangolin_impact__v1",
+  "file": "assets/linyuan/bamboo/c1_pangolin_impact.mp4",
+  "sha256": "b7e63e5512f6d750c812d2dd425a09b8a6969eae388e8ce488bd7fecd558e399",
+  "source_sha256": "5248579142e4aca32bcfa70616fe43b7c3430a078b94753412b8859231087313",
+  "frames": 24,
+  "first_source": 0,
+  "end_exclusive": 52,
+  "edit_speed": 2.15,
+  "editor_notes": "飞针撞击镜头，带橙色擦痕和消散轨迹，机甲保持屋顶，末态重新露芯。"
+}

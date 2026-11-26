@@ -1,0 +1,172 @@
+{
+  "version": 1,
+  "ruleset": "linyuan",
+  "fps": 24,
+  "size": [1280,720],
+  "title": "临渊御剑 · 首批试剑",
+  "location": "后山竹海",
+  "briefing": "左键出剑 · 右键收剑",
+  "cleared": "试剑完成",
+  "first": "pilot_1",
+  "nodes": [
+    {
+      "id": "pilot_1",
+      "label": "狻猊肩罐",
+      "hp": 1,
+      "score": 100,
+      "weak_bonus": 50,
+      "material": "ceramic",
+      "tier": 1
+    },
+    {
+      "id": "pilot_2",
+      "label": "狻猊肩罐",
+      "hp": 1,
+      "score": 100,
+      "weak_bonus": 50,
+      "material": "ceramic",
+      "tier": 1
+    },
+    {
+      "id": "pilot_3",
+      "label": "等隐狐现形",
+      "hp": 1,
+      "score": 100,
+      "weak_bonus": 0,
+      "material": "ceramic",
+      "tier": 1
+    }
+  ],
+  "clips": {
+    "pilot_1": {
+      "media": "c1_w_suanni_rock",
+      "sha256": "9d175e52be56edb50b27bcd5fc51263f6341e62e708d3b74e76218d3b3775296",
+      "frames": 99,
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "pilot_1",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 56,
+          "kind": "target",
+          "node": 0,
+          "hit": "pilot_1_hit"
+        }
+      ],
+      "warning_frame": 40,
+      "impact_frame": 70,
+      "attack": "claw",
+      "end": 86,
+      "weak_mask": true
+    },
+    "pilot_1_hit": {
+      "media": "c1_w_suanni_rock_kill_35",
+      "frames": 22,
+      "sha256": "cb9d39da7b5cbc326ae98fd8ee5405b2222e75faf455c069d147ebe95223aaf8",
+      "next": "pilot_2",
+      "in_anchor": "lion_mid",
+      "out_anchor": "bamboo"
+    },
+    "pilot_2": {
+      "media": "c1_w_suanni_rock",
+      "sha256": "9d175e52be56edb50b27bcd5fc51263f6341e62e708d3b74e76218d3b3775296",
+      "frames": 99,
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "pilot_2",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 56,
+          "kind": "target",
+          "node": 1,
+          "hit": "pilot_2_hit"
+        }
+      ],
+      "warning_frame": 40,
+      "impact_frame": 70,
+      "attack": "claw",
+      "end": 86,
+      "weak_mask": true
+    },
+    "pilot_2_hit": {
+      "media": "c1_w_suanni_rock_kill_35",
+      "frames": 22,
+      "sha256": "cb9d39da7b5cbc326ae98fd8ee5405b2222e75faf455c069d147ebe95223aaf8",
+      "next": "pilot_3",
+      "in_anchor": "lion_mid",
+      "out_anchor": "bamboo"
+    },
+    "pilot_3": {
+      "media": "c1_w_fox_shrine",
+      "sha256": "d436b7fb59b809bf059a3a05e83e31dfd5410f7370801322b6bd10ecfdc853a4",
+      "frames": 107,
+      "start": 6,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "pilot_3",
+      "windows": [
+        {
+          "begin": 27,
+          "end": 86,
+          "kind": "target",
+          "node": 2,
+          "hit": "@complete"
+        }
+      ],
+      "warning_frame": 55,
+      "impact_frame": 86,
+      "attack": "claw",
+      "end": 106,
+      "voice_cues": [
+        {
+          "frame": 6,
+          "voice": "qingping/scan",
+          "subtitle": "等它现形，再出剑！",
+          "priority": 1
+        }
+      ]
+    }
+  },
+  "materials": [
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","air","air","air","stone","stone","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","stone","stone","stone","stone","air","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal","metal","metal","metal","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal","metal","metal","metal","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal","metal","metal","stone","stone","stone","stone","stone","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","stone","water","water","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","earth","earth","earth","earth","earth","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","stone","stone","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","stone","earth","bamboo","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","water","water","water","water","water","water","water","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","earth","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","water","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","water","water","water","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"]
+  ]
+}

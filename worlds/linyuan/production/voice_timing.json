@@ -1,0 +1,134 @@
+{
+  "lines": {
+    "qingping/noodle": {
+      "text": "这碗面看起来很好吃。我是说，数据上。",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/qingping/noodle.wav",
+      "file": "assets/linyuan/audio/voice/qingping/noodle.wav",
+      "sha256": "740977a1a9e207d4eaa3282135911dcabeabfe417aeda84c64fafe82622fafec",
+      "seconds": 3.5002,
+      "tempo": 1.28
+    },
+    "qingping/scan": {
+      "text": "等它现形，再出剑！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/qingping/scan.wav",
+      "file": "assets/linyuan/audio/voice/qingping/scan.wav",
+      "sha256": "51c6f911da0cafed59eb7e56b6a90599e2814703213d28b3a8faf129d0eb77eb",
+      "seconds": 1.9968,
+      "tempo": 1.0
+    },
+    "qingping/talon": {
+      "text": "打它胸口！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/qingping/talon.wav",
+      "file": "assets/linyuan/audio/voice/qingping/talon.wav",
+      "sha256": "f0f8500ff42df37842bccb9f085dd9faeb1beec1dd850ec2905ab24d83c7e1f4",
+      "seconds": 0.957,
+      "tempo": 1.0
+    },
+    "qingping/needles": {
+      "text": "飞针！打下来！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/qingping/needles.wav",
+      "file": "assets/linyuan/audio/voice/qingping/needles.wav",
+      "sha256": "5ad63fa4f1c8cfd3ff78bd260e50b3f9baf0d220f54e144b320da370ae3ea2c7",
+      "seconds": 1.1937,
+      "tempo": 1.0
+    },
+    "qingping/elite_core": {
+      "text": "它背上的鳞扇中间，打核心！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/qingping/elite_core.wav",
+      "file": "assets/linyuan/audio/voice/qingping/elite_core.wav",
+      "sha256": "3143edd16da807eab833ff151b0b48fa379de5a5bb4500b58d7346586b9fd1fe",
+      "seconds": 2.6366,
+      "tempo": 1.0
+    },
+    "qingping/raft": {
+      "text": "打断那根藤索！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/qingping/raft.wav",
+      "file": "assets/linyuan/audio/voice/qingping/raft.wav",
+      "sha256": "38763218c3faaa67a8719ccd3f3230bcb666dbc1bee97805d28325dc6d709be2",
+      "seconds": 1.4379,
+      "tempo": 1.0
+    },
+    "luchen/noodle": {
+      "text": "你又没有嘴。",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/luchen/noodle.wav",
+      "file": "assets/linyuan/audio/voice/luchen/noodle.wav",
+      "sha256": "ccad083eaa3818ccbea35ca88320cd2fba907dfc8e155b84249b37723bbfd434",
+      "seconds": 1.216,
+      "tempo": 1.0492
+    },
+    "yunyi/talon": {
+      "text": "这只手还没用够本呢！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/yunyi/talon.wav",
+      "file": "assets/linyuan/audio/voice/yunyi/talon.wav",
+      "sha256": "15df8e9fed6273e3da90cfc824934a6c7141bf1e57f23b06e31be7dccf42fa0a",
+      "seconds": 1.5869,
+      "tempo": 1.0
+    },
+    "yunyi/thanks": {
+      "text": "手还在，面也没凉。快去！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/yunyi/thanks.wav",
+      "file": "assets/linyuan/audio/voice/yunyi/thanks.wav",
+      "sha256": "b3fcc162bf2d5b6881aff9b6a2225df60d0c4c98298403afcd6927527f23a0a8",
+      "seconds": 2.3177,
+      "tempo": 1.0
+    },
+    "yunyi/rebuke": {
+      "text": "瞄准点儿！还不快去！",
+      "engine": "qwen",
+      "source": "assets/linyuan/audit/voice/qwen/yunyi/rebuke.wav",
+      "file": "assets/linyuan/audio/voice/yunyi/rebuke.wav",
+      "sha256": "a172bdd33daece5c89a1bcd3bfe083fefc52f30c0df255ba2a231f676b824888",
+      "seconds": 1.5854,
+      "tempo": 1.0
+    }
+  },
+  "scenes": {
+    "noodle": [
+      {
+        "line": "qingping/noodle",
+        "begin_ms": 60,
+        "end_ms": 3560
+      },
+      {
+        "line": "luchen/noodle",
+        "begin_ms": 3650,
+        "end_ms": 4866
+      }
+    ],
+    "talon": [
+      {
+        "line": "yunyi/talon",
+        "begin_ms": 60,
+        "end_ms": 1647
+      },
+      {
+        "line": "qingping/talon",
+        "begin_ms": 1737,
+        "end_ms": 2694
+      }
+    ],
+    "thanks": [
+      {
+        "line": "yunyi/thanks",
+        "begin_ms": 0,
+        "end_ms": 2318
+      }
+    ],
+    "rebuke": [
+      {
+        "line": "yunyi/rebuke",
+        "begin_ms": 0,
+        "end_ms": 1585
+      }
+    ]
+  }
+}

@@ -111,7 +111,11 @@ int Sound::localFrame(double now) const {
         int queued = SDL_GetAudioStreamQueued(music);
         if (queued >= 0 && queued > 0) {
             double audio = (count - queued / int(2 * sizeof(float))) / 48000.;
-            played = std::clamp(played, std::max(origin, audio - .045), std::max(origin, audio + .025));
+            const double latest = std::max(origin, audio + .025);
+            // A device may pull a large block ahead of playback, especially under capture.
+            // An authored time window must never run faster than its monotonic clock.
+            played = wallClockLimit ? std::min(played, latest)
+                                    : std::clamp(played, std::max(origin, audio - .045), latest);
         }
     }
     return int(std::floor(24 * played + 1e-7));
@@ -162,7 +166,8 @@ static std::vector<Uint8> readMusicPcm(const fs::path &file) {
     return std::vector<Uint8>(raw,raw+length);
 }
 
-void ScoreAudio::open(SDL_AudioDeviceID device, const fs::path &folder, bool withMusic) {
+void ScoreAudio::open(SDL_AudioDeviceID device, const fs::path &folder, bool withMusic,
+                      const std::string &initialTrack) {
     if (!device || !fs::exists(folder))
         return;
     const SDL_AudioSpec format{SDL_AUDIO_S16,2,48000};
@@ -172,14 +177,17 @@ void ScoreAudio::open(SDL_AudioDeviceID device, const fs::path &folder, bool wit
             throw std::runtime_error(SDL_GetError());
         return output;
     };
-    for (const auto &entry : fs::directory_iterator(folder / "foley"))
-        if (entry.path().extension() == ".wav")
-            samples.emplace(entry.path().stem().string(),readMusicPcm(entry.path()));
+    if (fs::is_directory(folder / "foley")) {
+        for (const auto &entry : fs::directory_iterator(folder / "foley"))
+            if (entry.path().extension() == ".wav")
+                samples.emplace(entry.path().stem().string(), readMusicPcm(entry.path()));
+    }
     for (int i = 0; i < 6; ++i)
         voices.push_back(stream());
     if (withMusic) {
         backing = stream();
-        selectTrack(folder / "music/festival.wav");
+        if (!initialTrack.empty())
+            selectTrack(folder / "music" / (initialTrack + ".wav"));
     }
     volume(.64f,.80f);
 }
@@ -194,7 +202,17 @@ void ScoreAudio::selectTrack(const fs::path &file) {
     track = std::move(next);
 }
 
-bool ScoreAudio::cue(const std::string &name) {
+void ScoreAudio::openLoop(SDL_AudioDeviceID device, const fs::path &file) {
+    if (!device)
+        return;
+    const SDL_AudioSpec format{SDL_AUDIO_S16, 2, 48000};
+    backing.reset(SDL_CreateAudioStream(&format, &format));
+    if (!backing || !SDL_BindAudioStream(device, backing.get()))
+        throw std::runtime_error(SDL_GetError());
+    selectTrack(file);
+}
+
+bool ScoreAudio::cue(const std::string &name, float pitch, float gain, int recalledSwords) {
     const unsigned variant=cueVisits[name]++%3;
     auto it=variant ? samples.find(name+"_"+std::to_string(variant+1)) : samples.end();
     if (it==samples.end()) it=samples.find(name);
@@ -202,15 +220,34 @@ bool ScoreAudio::cue(const std::string &name) {
         return false;
     auto *out = voices[nextVoice++ % voices.size()].get();
     SDL_ClearAudioStream(out);
-    SDL_PutAudioStreamData(out,it->second.data(),int(it->second.size()));
+    SDL_SetAudioStreamGain(out, effectsLevel * gain);
+    SDL_SetAudioStreamFrequencyRatio(out, pitch);
+    const auto &pcm = it->second;
+    // Linyuan's recall master contains a 160ms pickup followed by eight 55ms sheath strokes.
+    constexpr size_t pickup = 7680 * 4, stroke = 2640 * 4;
+    if (name == "reload" && recalledSwords >= 1 && recalledSwords < 8 && pcm.size() == pickup + 8 * stroke) {
+        const size_t tail = size_t(recalledSwords) * stroke;
+        SDL_PutAudioStreamData(out, pcm.data(), int(pickup));
+        SDL_PutAudioStreamData(out, pcm.data()+pcm.size()-tail, int(tail));
+    } else {
+        SDL_PutAudioStreamData(out, pcm.data(), int(pcm.size()));
+    }
     SDL_FlushAudioStream(out);
     return true;
 }
 
 void ScoreAudio::volume(float musicGain, float effectsGain) {
-    if (backing) SDL_SetAudioStreamGain(backing.get(),musicGain);
+    musicLevel = musicGain;
+    effectsLevel = effectsGain;
+    if (backing) SDL_SetAudioStreamGain(backing.get(),musicLevel * backingScale);
     for (auto &voice : voices)
         SDL_SetAudioStreamGain(voice.get(),effectsGain);
+}
+
+void ScoreAudio::scaleMusic(float scale) {
+    if (scale == backingScale) return;
+    backingScale = scale;
+    if (backing) SDL_SetAudioStreamGain(backing.get(), musicLevel * backingScale);
 }
 
 void ScoreAudio::rewind() {

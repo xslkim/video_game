@@ -1,0 +1,20 @@
+{
+  "source": "assets/changan/audio/music/river_battle.wav",
+  "source_sha256": "a3e5ac7a935bac31e9f48b8b9441e70e455c86564ec99aa1c551f47b70f599bb",
+  "source_ranges_seconds": [
+    [
+      24.0,
+      38.46
+    ],
+    [
+      47.67,
+      62.68
+    ]
+  ],
+  "crossfades_seconds": [
+    0.085,
+    0.19
+  ],
+  "file": "assets/linyuan/audio/music/battle.wav",
+  "sha256": "ffb8ea4356c46fce5c68fd247db6b8d27144e9dd4bdd37c1e9dd4a89d8f09118"
+}

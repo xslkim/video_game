@@ -1,0 +1,13 @@
+{
+  "id": "c1_raft_drop_42",
+  "candidate": "linyuan_c1_raft_drop_42__v1",
+  "file": "assets/linyuan/bamboo/c1_raft_drop_42.mp4",
+  "sha256": "8ee1ecdf758bc3b3865ba9ce44c44a15bd24b87103c858a8f8a4b3d10dcd9457",
+  "source_sha256": "ad9a60948065051faf43fc776f99d07a214ecb1121bfb189fd8d0923bc289794",
+  "frames": 31,
+  "first_source": 0,
+  "end_exclusive": null,
+  "edit_speed": 1.8,
+  "editor_notes": "Photographic local grade on decoded original. Source camera, timing, and target coordinates retained.",
+  "grade_source_sha256": "16abfb8f2235baab49fc6751e4610a15c5659aad9032c15e22a2dfd381737da7"
+}

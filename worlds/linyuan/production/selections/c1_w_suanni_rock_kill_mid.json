@@ -1,0 +1,12 @@
+{
+  "id": "c1_w_suanni_rock_kill_35",
+  "candidate": "linyuan_c1_w_suanni_rock_kill_mid__v4",
+  "file": "assets/linyuan/bamboo/c1_w_suanni_rock_kill_35.mp4",
+  "sha256": "cb9d39da7b5cbc326ae98fd8ee5405b2222e75faf455c069d147ebe95223aaf8",
+  "source_sha256": "fab2a69de1590f51ff062d853641491d04ee633bc6ec41edd9fcb7a025a4ad16",
+  "frames": 22,
+  "first_source": 0,
+  "end_exclusive": 33,
+  "edit_speed": 1.5,
+  "editor_notes": "返工使用岩后引导。5帧起爆、10–20帧可追踪肩罐向右上抛至岩后，约25帧后溪与道路均为空。保留至源帧32，成片22帧。"
+}

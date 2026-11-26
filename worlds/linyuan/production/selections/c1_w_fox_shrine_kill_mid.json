@@ -1,0 +1,13 @@
+{
+  "id": "c1_w_fox_shrine_kill_52",
+  "candidate": "linyuan_c1_w_fox_shrine_kill_mid__v3",
+  "file": "assets/linyuan/bamboo/c1_w_fox_shrine_kill_52.mp4",
+  "sha256": "636e8604063bb8bc47c45d0aa1fc20dc959a5e3458ff1cb25db5d35d0bcfad33",
+  "source_sha256": "61f07267ccd5af369a72b11d7d91f9ae8e6a2f87995bd94f0b4d57710d6a09ad",
+  "frames": 21,
+  "first_source": 0,
+  "end_exclusive": 32,
+  "edit_speed": 1.5,
+  "editor_notes": "Photographic local grade on decoded original. Source camera, timing, and target coordinates retained.",
+  "grade_source_sha256": "4e6651616bceaf28c00f59e814cf04e48a7aecca4e734aa75b46bc85ba39d36a"
+}

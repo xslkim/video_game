@@ -1,0 +1,12 @@
+{
+  "id": "c1_w_suanni_rock_kill_53",
+  "candidate": "linyuan_c1_w_suanni_rock_kill_late__v1",
+  "file": "assets/linyuan/bamboo/c1_w_suanni_rock_kill_53.mp4",
+  "sha256": "00270ed740487a39bbd111f15c7f3c663078d553702a11291b4fd342c2710b20",
+  "source_sha256": "82cd9c1083f2b5aca1256e4464d9ad25d72e9ab99a71535d2639f75f65f347d8",
+  "frames": 21,
+  "first_source": 0,
+  "end_exclusive": 30,
+  "edit_speed": 1.4,
+  "editor_notes": "晚入口接跃起姿态，肩罐被打飞，兽体与罐体越过石后，24帧处开始保持空景。"
+}

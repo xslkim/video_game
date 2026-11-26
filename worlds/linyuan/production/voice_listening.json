@@ -1,0 +1,205 @@
+{
+  "selected/qingping/noodle": {
+    "file": "assets/linyuan/audio/voice/qingping/noodle.wav",
+    "sha256": "740977a1a9e207d4eaa3282135911dcabeabfe417aeda84c64fafe82622fafec",
+    "script": "这碗面看起来很好吃。我是说，数据上。",
+    "transcript": "这碗面看起来很好吃，我是说数据上。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/qingping/noodle": {
+    "file": "assets/linyuan/audit/voice/vox/qingping/noodle.wav",
+    "sha256": "0b4b76f0a8db39abf425d9605fc1b8dcc936ad2fa2a053fd781f144647000409",
+    "script": "这碗面看起来很好吃。我是说，数据上。",
+    "transcript": "这碗面看起来很好吃，我是说数据上。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/qingping/noodle": {
+    "file": "assets/linyuan/audit/voice/qwen/qingping/noodle.wav",
+    "sha256": "da042726a5c1a50a86ad3e74071433727ad658c8bd0bdcd09919b6e18b7f0f70",
+    "script": "这碗面看起来很好吃。我是说，数据上。",
+    "transcript": "这碗面看起来很好吃，我是说数据上。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/qingping/scan": {
+    "file": "assets/linyuan/audio/voice/qingping/scan.wav",
+    "sha256": "51c6f911da0cafed59eb7e56b6a90599e2814703213d28b3a8faf129d0eb77eb",
+    "script": "等它现形，再出剑！",
+    "transcript": "等他现行再出剑。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/qingping/scan": {
+    "file": "assets/linyuan/audit/voice/vox/qingping/scan.wav",
+    "sha256": "6fef8dfac09db6dcb63e6b2d62bb87c4b43aee887e84eaa25aca20c1ebb519ee",
+    "script": "等它现形，再出剑！",
+    "transcript": "等他现行再出见。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/qingping/scan": {
+    "file": "assets/linyuan/audit/voice/qwen/qingping/scan.wav",
+    "sha256": "c20d29dfe36d67c419a551ff095f2dbdccb786bf5a5e79afa137eab702eccac9",
+    "script": "等它现形，再出剑！",
+    "transcript": "等他现行再出剑。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/qingping/talon": {
+    "file": "assets/linyuan/audio/voice/qingping/talon.wav",
+    "sha256": "f0f8500ff42df37842bccb9f085dd9faeb1beec1dd850ec2905ab24d83c7e1f4",
+    "script": "打它胸口！",
+    "transcript": "打他胸口。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/qingping/talon": {
+    "file": "assets/linyuan/audit/voice/vox/qingping/talon.wav",
+    "sha256": "df29bd905c75c97cb01ff8eb076996d785cc9a8629e3adef951748cd0daa3701",
+    "script": "打它胸口！",
+    "transcript": "打他胸口。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/qingping/talon": {
+    "file": "assets/linyuan/audit/voice/qwen/qingping/talon.wav",
+    "sha256": "7e686414ce7bdedd1693f05d0b78ed7ea42e58a122ec4a7a4bb8b51da40b7eac",
+    "script": "打它胸口！",
+    "transcript": "打他胸口。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/qingping/needles": {
+    "file": "assets/linyuan/audio/voice/qingping/needles.wav",
+    "sha256": "5ad63fa4f1c8cfd3ff78bd260e50b3f9baf0d220f54e144b320da370ae3ea2c7",
+    "script": "飞针！打下来！",
+    "transcript": "飞针打下来。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/qingping/needles": {
+    "file": "assets/linyuan/audit/voice/vox/qingping/needles.wav",
+    "sha256": "fb5ffd2f0b7c4d3c0049bcdc422a47b6c1eefa4e6aa0375ef833e9fac8171ded",
+    "script": "飞针！打下来！",
+    "transcript": "飞针打下来。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/qingping/needles": {
+    "file": "assets/linyuan/audit/voice/qwen/qingping/needles.wav",
+    "sha256": "e35ca8d5d27eb3a597c426794041876f23465ef75fd628f2b0090da431c1a375",
+    "script": "飞针！打下来！",
+    "transcript": "飞针打下来。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/qingping/elite_core": {
+    "file": "assets/linyuan/audio/voice/qingping/elite_core.wav",
+    "sha256": "3143edd16da807eab833ff151b0b48fa379de5a5bb4500b58d7346586b9fd1fe",
+    "script": "它背上的鳞扇中间，打核心！",
+    "transcript": "他背上的灵扇中间，大和心。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/qingping/elite_core": {
+    "file": "assets/linyuan/audit/voice/vox/qingping/elite_core.wav",
+    "sha256": "a27283998d6512e0c6539402a19aa756d5d24e05fd1144580b779941dfbad57c",
+    "script": "它背上的鳞扇中间，打核心！",
+    "transcript": "他背上的灵扇中间大核心。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/qingping/elite_core": {
+    "file": "assets/linyuan/audit/voice/qwen/qingping/elite_core.wav",
+    "sha256": "99cae025a9d56599112effcf87edcfed06643017b3ae9fa433c9d53686f9dd3c",
+    "script": "它背上的鳞扇中间，打核心！",
+    "transcript": "他背上的灵扇中间，他何心。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/qingping/raft": {
+    "file": "assets/linyuan/audio/voice/qingping/raft.wav",
+    "sha256": "38763218c3faaa67a8719ccd3f3230bcb666dbc1bee97805d28325dc6d709be2",
+    "script": "打断那根藤索！",
+    "transcript": "打断那根藤索。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/qingping/raft": {
+    "file": "assets/linyuan/audit/voice/vox/qingping/raft.wav",
+    "sha256": "7c9cdabfdfbb11ba72eabe8fbada18ced7c2c8ad22ae147bfa8d3141652d02ce",
+    "script": "打断那根藤索！",
+    "transcript": "打断那根藤锁。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/qingping/raft": {
+    "file": "assets/linyuan/audit/voice/qwen/qingping/raft.wav",
+    "sha256": "218a7fe2d3c9e0af9739c278074d8e220108e2d8ff469ba51216c9cae79eb7a2",
+    "script": "打断那根藤索！",
+    "transcript": "打断那根藤索。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/luchen/noodle": {
+    "file": "assets/linyuan/audio/voice/luchen/noodle.wav",
+    "sha256": "ccad083eaa3818ccbea35ca88320cd2fba907dfc8e155b84249b37723bbfd434",
+    "script": "你又没有嘴。",
+    "transcript": "你又没有嘴。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/luchen/noodle": {
+    "file": "assets/linyuan/audit/voice/qwen/luchen/noodle.wav",
+    "sha256": "0fd6561ce2dfacf70adae3a47b3f1a712b19cf76047d63bfcc194b7b91181528",
+    "script": "你又没有嘴。",
+    "transcript": "你又没有嘴。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/yunyi/talon": {
+    "file": "assets/linyuan/audio/voice/yunyi/talon.wav",
+    "sha256": "15df8e9fed6273e3da90cfc824934a6c7141bf1e57f23b06e31be7dccf42fa0a",
+    "script": "这只手还没用够本呢！",
+    "transcript": "这只手还没用够本呢。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/yunyi/talon": {
+    "file": "assets/linyuan/audit/voice/qwen/yunyi/talon.wav",
+    "sha256": "14c856072ff869b0fc240510a89396e8cd554f7f259f05185bb760284a46f749",
+    "script": "这只手还没用够本呢！",
+    "transcript": "这只手还没用够本呢。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/yunyi/thanks": {
+    "file": "assets/linyuan/audio/voice/yunyi/thanks.wav",
+    "sha256": "b3fcc162bf2d5b6881aff9b6a2225df60d0c4c98298403afcd6927527f23a0a8",
+    "script": "手还在，面也没凉。快去！",
+    "transcript": "手还在，面也没凉，快去。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/yunyi/thanks": {
+    "file": "assets/linyuan/audit/voice/qwen/yunyi/thanks.wav",
+    "sha256": "76e909a5062e6ef4f66ee3ee49d01d097f8c1516fa1b75d896ac44b3d09e137a",
+    "script": "手还在，面也没凉。快去！",
+    "transcript": "手还在，面也没凉，快去。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/luchen/noodle": {
+    "file": "assets/linyuan/audit/voice/vox/luchen/noodle.wav",
+    "sha256": "af1f5647a8c995e4cae4da93e651411a589d5016176b9f8b765f59b0fb69fdb5",
+    "script": "你又没有嘴。",
+    "transcript": "你又没有嘴。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/yunyi/talon": {
+    "file": "assets/linyuan/audit/voice/vox/yunyi/talon.wav",
+    "sha256": "d76ccb4e3ecd92a9950dc8335481fa56725d921004a4f7e5422732197642a6de",
+    "script": "这只手还没用够本呢！",
+    "transcript": "这只手还没用够本呢。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "vox/yunyi/thanks": {
+    "file": "assets/linyuan/audit/voice/vox/yunyi/thanks.wav",
+    "sha256": "9f30b3e51099109ef3752a60d6dadc0613ed09e09797128344cff4228e43d287",
+    "script": "手还在，面也没凉。快去！",
+    "transcript": "手还在，面也没凉，快去。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "selected/yunyi/rebuke": {
+    "file": "assets/linyuan/audio/voice/yunyi/rebuke.wav",
+    "sha256": "a172bdd33daece5c89a1bcd3bfe083fefc52f30c0df255ba2a231f676b824888",
+    "script": "瞄准点儿！还不快去！",
+    "transcript": "瞄准点儿，还不快去。",
+    "recognizer": "SenseVoiceSmall"
+  },
+  "qwen/yunyi/rebuke": {
+    "file": "assets/linyuan/audit/voice/qwen/yunyi/rebuke.wav",
+    "sha256": "a80839d49b31236b832ab917c34268575102569da001b08fbe5d606b09e399b1",
+    "script": "瞄准点儿！还不快去！",
+    "transcript": "瞄准点儿，还不快去。",
+    "recognizer": "SenseVoiceSmall"
+  }
+}

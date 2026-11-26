@@ -19,13 +19,22 @@ def main():
     if len(rows) != data["frames"] or not rows:
         raise ValueError("Incomplete video capture")
     lines = ["ffconcat version 1.0"]
+    precise = "capture_target_hz" in data
     for i, (name, stamp) in enumerate(rows):
         begin = float(stamp) if i else 0.0
         end = float(rows[i + 1][1]) if i + 1 < len(rows) else data["seconds"]
         if end <= begin:
             raise ValueError("Out of order presentation")
-        lines.extend([f"file 'frames/{int(name)}.bmp'", f"duration {end - begin:.8f}"])
+        lines.append(f"file 'frames/{int(name)}.bmp'")
+        if precise:
+            lines.append("option framerate 1000")
+        length = end - begin
+        if precise and i + 1 == len(rows):
+            length = max(0.001, length - 0.002)
+        lines.append(f"duration {length:.8f}")
     lines.append(f"file 'frames/{int(rows[-1][0])}.bmp'")
+    if precise:
+        lines.append("option framerate 1000")
     listing = root / "capture.ffconcat"
     listing.write_text("\n".join(lines) + "\n", encoding="utf8")
     streams = sorted((root / "audio").glob("*/postmix.json"))
@@ -77,8 +86,7 @@ def main():
             "2",
             "-i",
             str(master),
-            "-vf",
-            "fps=24",
+            *(["-fps_mode", "vfr", "-enc_time_base", "1:1000"] if precise else ["-vf", "fps=24"]),
             "-c:v",
             "libx264",
             "-crf",

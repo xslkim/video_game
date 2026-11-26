@@ -1,0 +1,19 @@
+{
+  "id": "c1_pangolin_threat",
+  "candidate": "linyuan_c1_pangolin_threat__v1",
+  "file": "assets/linyuan/bamboo/c1_pangolin_threat.mp4",
+  "sha256": "19d5f3332f1e041491e8f30bdf6f92c9dddefaf1f3077f95d6ea44d922764ea2",
+  "source_sha256": "c32bf136877f9cf9c811c1fca355ecad728367488205f2f7c3d53dd8d5c208ce",
+  "frames": 113,
+  "first_source": 0,
+  "end_exclusive": null,
+  "edit_speed": 1,
+  "editor_notes": "只采用开头露芯至收鳞起势，飞针段随后剪接首发的同段素材。",
+  "shared_flight": {
+    "source": "assets/linyuan/bamboo/c1_w_pangolin_roof.mp4",
+    "source_sha256": "9fed0b58ea224c93a3f96f46708dece4bfa51f0f452c3fef22a284c38111bfce",
+    "source_start_frame": 17,
+    "loop_start_frame": 16,
+    "frame_offset": -1
+  }
+}

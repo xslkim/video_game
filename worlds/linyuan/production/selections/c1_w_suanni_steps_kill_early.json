@@ -1,0 +1,13 @@
+{
+  "id": "c1_w_suanni_steps_kill_25",
+  "candidate": "linyuan_c1_w_suanni_steps_kill_early__v3",
+  "file": "assets/linyuan/bamboo/c1_w_suanni_steps_kill_25.mp4",
+  "sha256": "e50ae494aaad762101e45129a69c4e14e289958ade1cdf33d8c086345820f2ae",
+  "source_sha256": "668465383a4d89492b769d20fe50c2c4a5e86110e31cc7ebe30d2773e2192631",
+  "frames": 21,
+  "first_source": 0,
+  "end_exclusive": 31,
+  "edit_speed": 1.5,
+  "editor_notes": "Photographic local grade on decoded original. Source camera, timing, and target coordinates retained.",
+  "grade_source_sha256": "87e3bbc63757806f71f5727f0b3ea6394a5c5e143347bc5f20e40c57ba09a312"
+}

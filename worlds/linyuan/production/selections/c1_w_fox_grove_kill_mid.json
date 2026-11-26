@@ -1,0 +1,41 @@
+{
+  "id": "c1_w_fox_grove_kill_24",
+  "candidate": "linyuan_c1_w_fox_grove_kill_mid__v10",
+  "file": "assets/linyuan/bamboo/c1_w_fox_grove_kill_24.mp4",
+  "sha256": "f53c80aa8052bfe0a1293e13cdcd756de4594a713b46cc5224c5c4e069ed153b",
+  "source_sha256": "918c3e4c8de4a6ab803b820b4fae2a0f6bda871d07419aa4e86ec2e61ddc5bf2",
+  "frames": 22,
+  "first_source": 0,
+  "end_exclusive": 32,
+  "edit_speed": 1.4762,
+  "editor_notes": "Left-thicket retreat, registered to the immutable landscape. No live corpse or canister at cut.",
+  "source_frame_map": [
+    0,
+    1,
+    3,
+    4,
+    6,
+    7,
+    9,
+    10,
+    12,
+    13,
+    15,
+    16,
+    18,
+    19,
+    21,
+    22,
+    24,
+    25,
+    27,
+    28,
+    30,
+    31
+  ],
+  "entry_anchor": {
+    "source": "c1_w_fox_grove",
+    "frame": 24
+  },
+  "fixed_backplate": "4c9484960678811413d4b57898158345df82f9aacf24f4196081484fd65d4d62"
+}

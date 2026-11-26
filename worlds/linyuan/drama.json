@@ -1,0 +1,26 @@
+{
+  "c1_04_noodle": {
+    "sha256": "ace99b83eeffc2be548b30e5d4c9994ba4c6162c2614a1b9f616cb5190719811",
+    "frames": 120
+  },
+  "c1_10_talon": {
+    "frames": 96,
+    "sha256": "e9e082ac06db8403eeffdbd1e9311c5b7183d4acc5e1a26f372d876775347b57"
+  },
+  "c1_11_hit": {
+    "frames": 72,
+    "sha256": "c8850590815f916f9610d34500fddda1b55057e317424e929b11329248c28566"
+  },
+  "c1_11_miss": {
+    "frames": 72,
+    "sha256": "9603a552b4df6a193040cdf93efb18ab75b940d308137fb7f967941e1cf7c167"
+  },
+  "c1_12_thanks": {
+    "frames": 72,
+    "sha256": "03b245e935e1f796e557aef1f06d6a0fcee445902b38086a854d9631a1cb2587"
+  },
+  "c1_12_rebuke": {
+    "frames": 72,
+    "sha256": "ecd71e4748aa8001e119b66b525869b57e02e07c10863dbd598d7147386866db"
+  }
+}

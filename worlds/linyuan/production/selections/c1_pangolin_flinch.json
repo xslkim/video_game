@@ -1,0 +1,12 @@
+{
+  "id": "c1_pangolin_flinch",
+  "candidate": "linyuan_c1_pangolin_flinch__v4",
+  "file": "assets/linyuan/bamboo/c1_pangolin_flinch.mp4",
+  "sha256": "9ca840e91263e12d8afa6ddf9dc15396b9a1df32bdd6bfb75abfc0f22e80b15e",
+  "source_sha256": "e9ed5da4f36a311b4a581ed876040b8f8c6e8321af1ad51a2a26990e7cefc5c6",
+  "frames": 24,
+  "first_source": 0,
+  "end_exclusive": 53,
+  "edit_speed": 2.2,
+  "editor_notes": "前三候选有屋顶主体突近的风险；补同机位受击导引，v4圆芯爆火、受击后恢复露芯。"
+}

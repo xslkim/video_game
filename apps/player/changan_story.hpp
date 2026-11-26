@@ -1,19 +1,28 @@
 #pragma once
 #include "game.hpp"
+#include "campaign_world.hpp"
 #include "sound.hpp"
 #include "tvgun.hpp"
 #include <SDL3/SDL.h>
+#include <optional>
 namespace dc { struct Ink; }
 
 namespace ca {
 using namespace dc;
 void drawGunBorder(Ink &ink);
 
+struct DialogueCue {
+    int begin, end;
+    std::string voice, subtitle;
+};
 struct Film {
     std::string take, subtitle;
     int frames;
     std::string voice;
     bool autoSkip = false;
+    std::vector<DialogueCue> cues;
+    bool wallClockLimited = false;
+    std::optional<bool> afterCivilian;
 };
 
 struct TrackedRegion {
@@ -44,6 +53,14 @@ struct FilmChoice {
     int assist = 0;
     int hitFrame = -1;
     std::vector<std::string> eligible;
+    double playbackRate = 1.;
+    bool newFeedback = false, reducedFlash = false, protectAssist = false, shakeEnabled = true;
+    bool directStoryWeak = false;
+    double firstOpen = -1, closed = -1, inputTime = -1, firstFeedback = -1;
+    Point inputPoint{};
+    std::optional<Point> recordedPoint;
+    int earlyTriggers = 0, lateTriggers = 0, replayOffset = 3;
+    bool boundaryProbes = false, pauseProbe = false;
 };
 
 enum class FilmEnd { finished, skipped, quit, selected, expired };
@@ -52,6 +69,7 @@ struct TravelReload {
     double *remaining = nullptr;
     double duration = .6;
     int *completed = nullptr;
+    double *pausedSeconds = nullptr;
 };
 FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &media, const Film &film,
                  bool subtitles, Receiver *receiver, bool automated, FilmChoice *choice = nullptr,
@@ -68,7 +86,9 @@ struct Progress {
     std::string next, difficulty = "normal";
     int lives = 3, energy = 0, arrows = 8;
     double reloadRemaining = 0;
+    double pausedSeconds = 0;
     bool subtitles = true;
+    bool lastStoryCivilian = false;
     int musicVolume = 60, effectsVolume = 80, voiceVolume = 100;
     std::map<std::string, ChapterScore> scores;
     static Progress load(const fs::path &file);
@@ -79,19 +99,24 @@ struct Stage {
     std::string id, chapter, heading, level, music;
     std::vector<Film> films;
     Json trial;
+    int cardMillis = 0;
+    std::string cardText;
 };
 
 struct Campaign {
     std::string title;
     fs::path titleArt;
     std::vector<Stage> stages;
-    Campaign(const fs::path &root, const std::string &name);
+    bool linyuan;
+    Campaign(const CampaignWorld &world, const std::string &name);
     size_t locate(const std::string &stage) const;
 };
 
-FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const fs::path &root, const Stage &stage,
+FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld &world, const Stage &stage,
                   Progress &state, Receiver *gun, bool automated, const fs::path &evidence,
-                  const std::string &scenario, ScoreAudio *score, int &completedReloads);
+                  const std::string &scenario, ScoreAudio *score, int &completedReloads,
+                  bool newFeedback = false, bool reducedFlash = false, const fs::path &inputSource = {},
+                  bool shakeEnabled = true);
 
 enum class MenuChoice { resume, newGame, quit };
 bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterScore &score,

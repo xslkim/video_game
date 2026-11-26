@@ -1,0 +1,12 @@
+{
+  "id": "c1_pangolin_intercept_late",
+  "candidate": "linyuan_c1_pangolin_intercept_late__v1",
+  "file": "assets/linyuan/bamboo/c1_pangolin_intercept_late.mp4",
+  "sha256": "d5f9994c2406dc5f9fad86087fca3b7da7b7a453a7712a049b299c09d85aa2d2",
+  "source_sha256": "dd8c756abeb47117ac9740b618f924f19a7b03cb9913ace2baf6ba8cbf5c9ec8",
+  "frames": 22,
+  "first_source": 0,
+  "end_exclusive": 44,
+  "edit_speed": 2.0,
+  "editor_notes": "从38帧的飞针近姿态入片，针簇炸开后镜头净空，鳞扇露芯。"
+}

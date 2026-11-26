@@ -1,0 +1,13 @@
+{
+  "id": "c1_w_raft",
+  "candidate": "linyuan_c1_w_raft__v1",
+  "file": "assets/linyuan/bamboo/c1_w_raft.mp4",
+  "sha256": "5e379977d4acc10c593156beac1ffccd8c5eb5b1558062c587101853346f02a5",
+  "source_sha256": "b9f434a20c4114df1828aba2652552e77eb06b0bb0e4b6e03c1c5dc81eea5ddb",
+  "frames": 107,
+  "first_source": 0,
+  "end_exclusive": null,
+  "edit_speed": 1,
+  "editor_notes": "Photographic local grade on decoded original. Source camera, timing, and target coordinates retained.",
+  "grade_source_sha256": "633ec656432413c4267090565219be997378e74e06fb2d08ac730af89516caf5"
+}

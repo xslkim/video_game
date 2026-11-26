@@ -1,0 +1,150 @@
+{
+  "videos": {
+    "c1_04_noodle": {
+      "file": "assets/linyuan/drama/c1_04_noodle.mp4",
+      "sha256": "ace99b83eeffc2be548b30e5d4c9994ba4c6162c2614a1b9f616cb5190719811",
+      "frames": 120,
+      "replaces_id": "c1_04_noodle",
+      "previous_sha256": "0b8e3f5b501c11969350f63b89b4ea45d1a731bf3d21c2e6fa942f6e913b6734"
+    },
+    "c1_10_talon": {
+      "file": "assets/linyuan/drama/c1_10_talon.mp4",
+      "sha256": "e9e082ac06db8403eeffdbd1e9311c5b7183d4acc5e1a26f372d876775347b57",
+      "frames": 96,
+      "replaces_id": "c1_10_talon",
+      "previous_sha256": "175614fe540f9b20693d64e27d3e1564e0b4c7b49425b37d021c1b1a29aa7d7e"
+    },
+    "c1_11_hit": {
+      "file": "assets/linyuan/drama/c1_11_hit.mp4",
+      "sha256": "c8850590815f916f9610d34500fddda1b55057e317424e929b11329248c28566",
+      "frames": 72,
+      "replaces_id": "c1_11_hit",
+      "previous_sha256": "62941dd4c86691f85bb158554572a7c1fc10f3228eb1b8b2dce3d951142c973b"
+    },
+    "c1_11_miss": {
+      "file": "assets/linyuan/drama/c1_11_miss.mp4",
+      "sha256": "9603a552b4df6a193040cdf93efb18ab75b940d308137fb7f967941e1cf7c167",
+      "frames": 72,
+      "replaces_id": "c1_11_miss",
+      "previous_sha256": "c9c2702ca75681c24858ae9b50e4ce31d984708a5c26c33c4fad5c905c5b4ab9"
+    },
+    "c1_raft_drop_28": {
+      "file": "assets/linyuan/bamboo/c1_raft_drop_28.mp4",
+      "sha256": "30c7b1301cca0dcc2cb72266e5708bb064a97eec7780c886d4fe20a36090f1b3",
+      "frames": 31,
+      "replaces_id": "c1_raft_drop_28",
+      "previous_sha256": "c09007faf7dd6085b3016bde1c951ddbda9d1471fa6cf4e4567a683bba4ad26e"
+    },
+    "c1_raft_drop_42": {
+      "file": "assets/linyuan/bamboo/c1_raft_drop_42.mp4",
+      "sha256": "8ee1ecdf758bc3b3865ba9ce44c44a15bd24b87103c858a8f8a4b3d10dcd9457",
+      "frames": 31,
+      "replaces_id": "c1_raft_drop_42",
+      "previous_sha256": "16abfb8f2235baab49fc6751e4610a15c5659aad9032c15e22a2dfd381737da7"
+    },
+    "c1_w_fox_grove": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_grove.mp4",
+      "sha256": "d690a054b030a2463fc6789664e6cd33852749904d5e8b8a5c12d5c07a057f52",
+      "frames": 63,
+      "replaces_id": "c1_w_fox_grove",
+      "previous_sha256": "63d41c5e731a2e943640f82d3ac407c43dbd730e0f3d2aff06e4e3995508f54a"
+    },
+    "c1_w_fox_grove_kill_13": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_grove_kill_13.mp4",
+      "sha256": "101b3df7af0741411e7b4df67b37f1c9a7bc9f22d1616ddae93370cd18ef5421",
+      "frames": 22,
+      "replaces_id": "c1_w_fox_grove_kill_13",
+      "previous_sha256": "99edc71394bc3994f8c7934bf56c7403c7a94809c088957fffbacaa37e7809c5"
+    },
+    "c1_w_fox_grove_kill_36": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_grove_kill_36.mp4",
+      "sha256": "9d67207eab6905a50e902bae4df75324cfe2a754f208f598cd85dcf2cb04ab5c",
+      "frames": 22,
+      "replaces_id": "c1_w_fox_grove_kill_32",
+      "previous_sha256": "9c299a065787d9564fb467aa5cd5293f118cfdb0c218af63b24337803227efc3"
+    },
+    "c1_w_fox_grove_kill_24": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_grove_kill_24.mp4",
+      "sha256": "f53c80aa8052bfe0a1293e13cdcd756de4594a713b46cc5224c5c4e069ed153b",
+      "frames": 22,
+      "replaces_id": "c1_w_fox_grove_kill_24",
+      "previous_sha256": "ae646409d186dede212a5309eda1e4f5b3fc6d4208149bdd790264ceef2c0a7b"
+    },
+    "c1_w_fox_shrine": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_shrine.mp4",
+      "sha256": "d436b7fb59b809bf059a3a05e83e31dfd5410f7370801322b6bd10ecfdc853a4",
+      "frames": 107,
+      "replaces_id": "c1_w_fox_shrine",
+      "previous_sha256": "a0e97014a5fc4212e14e1092810b69e752da485c8fd7b6e7867fef8b5f9d6a01"
+    },
+    "c1_w_fox_shrine_kill_41": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_shrine_kill_41.mp4",
+      "sha256": "c8b41dc156225fec96eee5866c3e49bc0dcb87561eb04f43961aba458cd9b67e",
+      "frames": 21,
+      "replaces_id": "c1_w_fox_shrine_kill_41",
+      "previous_sha256": "dba2ffa85c1900cf3773d7595ff3c3914e62dc993cb826a284c16997a082e340"
+    },
+    "c1_w_fox_shrine_kill_62": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_shrine_kill_62.mp4",
+      "sha256": "a2846783146a8793d9f7aaf68ad5c58341a462ff337c259ac585521bd3be98be",
+      "frames": 21,
+      "replaces_id": "c1_w_fox_shrine_kill_62",
+      "previous_sha256": "20bfc03135ebceb31a40ba94a0323e8ce06001a794914d02844446c6163bfed9"
+    },
+    "c1_w_fox_shrine_kill_52": {
+      "file": "assets/linyuan/bamboo/c1_w_fox_shrine_kill_52.mp4",
+      "sha256": "636e8604063bb8bc47c45d0aa1fc20dc959a5e3458ff1cb25db5d35d0bcfad33",
+      "frames": 21,
+      "replaces_id": "c1_w_fox_shrine_kill_52",
+      "previous_sha256": "4e6651616bceaf28c00f59e814cf04e48a7aecca4e734aa75b46bc85ba39d36a"
+    },
+    "c1_w_raft": {
+      "file": "assets/linyuan/bamboo/c1_w_raft.mp4",
+      "sha256": "5e379977d4acc10c593156beac1ffccd8c5eb5b1558062c587101853346f02a5",
+      "frames": 107,
+      "replaces_id": "c1_w_raft",
+      "previous_sha256": "633ec656432413c4267090565219be997378e74e06fb2d08ac730af89516caf5"
+    },
+    "c1_w_suanni_steps": {
+      "file": "assets/linyuan/bamboo/c1_w_suanni_steps.mp4",
+      "sha256": "6bfe790e72a33f651514c6475a3d134c08300efceb192a9049a724c6c490472e",
+      "frames": 102,
+      "replaces_id": "c1_w_suanni_steps",
+      "previous_sha256": "e50be4fb4e23d93c41782b28a06f7fb1d65dd51d282385a9f00633b902f6940c"
+    },
+    "c1_w_suanni_steps_kill_25": {
+      "file": "assets/linyuan/bamboo/c1_w_suanni_steps_kill_25.mp4",
+      "sha256": "e50ae494aaad762101e45129a69c4e14e289958ade1cdf33d8c086345820f2ae",
+      "frames": 21,
+      "replaces_id": "c1_w_suanni_steps_kill_25",
+      "previous_sha256": "87e3bbc63757806f71f5727f0b3ea6394a5c5e143347bc5f20e40c57ba09a312"
+    },
+    "c1_w_suanni_steps_kill_46": {
+      "file": "assets/linyuan/bamboo/c1_w_suanni_steps_kill_46.mp4",
+      "sha256": "9931e504939c765923c8bf86d4d780afab711fb319539d645462ea45a60336e6",
+      "frames": 21,
+      "replaces_id": "c1_w_suanni_steps_kill_46",
+      "previous_sha256": "9306be1cf768168d17569c0af1bf7d79cb551829c77dca96160d48524e4728ee"
+    },
+    "c1_w_suanni_steps_kill_37": {
+      "file": "assets/linyuan/bamboo/c1_w_suanni_steps_kill_37.mp4",
+      "sha256": "71cbc60761f4cc3bef78b48ad8c90540d1e8aca03c9e0767b223d2c5cc9fd2cb",
+      "frames": 21,
+      "replaces_id": "c1_w_suanni_steps_kill_37",
+      "previous_sha256": "9e4d753d7a2528523c595c98cb7fe86e704b57fcf4f2f3ea562d16fc8b94c340"
+    }
+  },
+  "talon_geometry": "worlds/linyuan/production/tuning_talon_geometry.json",
+  "grove": {
+    "source": "c1_w_fox_grove",
+    "open": 10,
+    "end_exclusive": 40,
+    "anchors": [
+      13,
+      24,
+      36
+    ],
+    "matte_directory": "assets/linyuan/audit/tuning_20261126/grove_native_mattes",
+    "source_frame_map": "worlds/linyuan/production/selections/c1_w_fox_grove.json"
+  }
+}

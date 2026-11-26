@@ -1,0 +1,12 @@
+{
+  "id": "c1_pangolin_intercept_early",
+  "candidate": "linyuan_c1_pangolin_intercept_early__v1",
+  "file": "assets/linyuan/bamboo/c1_pangolin_intercept_early.mp4",
+  "sha256": "c1c5b8b2f0b0996ad572f9963332f8f3ef1688402605fa0f0303ce240f5bdd7e",
+  "source_sha256": "515dfa18e16eab99799bb83c79c59b9599124e1de46bbc956d3b039d8184966c",
+  "frames": 24,
+  "first_source": 0,
+  "end_exclusive": null,
+  "edit_speed": 2.3,
+  "editor_notes": "由25实帧的飞针向前爆开，烟团散后鳞扇复位露芯。"
+}

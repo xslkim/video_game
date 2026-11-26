@@ -1,0 +1,12 @@
+{
+  "id": "c1_w_suanni_rock_kill_23",
+  "candidate": "linyuan_c1_w_suanni_rock_kill_early__v1",
+  "file": "assets/linyuan/bamboo/c1_w_suanni_rock_kill_23.mp4",
+  "sha256": "5c75844f078704f040ed9cc7c69eea163539a0fccac472722a9753293f6fff78",
+  "source_sha256": "61c9e149836fdca4e658d2778b5f42e5a8d13fbf36fe20794fd71378aebf484a",
+  "frames": 22,
+  "first_source": 0,
+  "end_exclusive": 39,
+  "edit_speed": 1.8,
+  "editor_notes": "肩罐随碎甲向右上飞，尸体沉到大石后，38帧前回空场。"
+}

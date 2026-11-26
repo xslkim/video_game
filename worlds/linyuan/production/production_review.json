@@ -1,0 +1,42 @@
+[
+  {
+    "stage": "pilot",
+    "reviewer": "Codex internal visual review + scripted real-player run",
+    "human_review": "pending",
+    "accepted": ["c1_04_noodle", "c1_w_suanni_rock", "c1_w_fox_shrine", "c1_w_suanni_rock_kill_35"],
+    "rework": [
+      {"slot": "c1_w_suanni_rock_kill_mid", "candidates": [1,2,3], "reason": "肩罐滚到镜头前方并淡去，回空景时缺少遮挡。用右侧岩后姿态加引导，v4让飞罐和机体确实落入岩后，保持22帧尾段。"},
+      {"slot": "c1_w_suanni_rock", "candidate": 1, "reason": "蓄力时红光过强，覆盖肩罐材质。选v2。"},
+      {"slot": "c1_w_fox_shrine", "candidate": 1, "reason": "石祠门洞亮橙光容易误读为提前击毁。选v2青光。"}
+    ],
+    "observations": ["面摊三角色与裸眼透明可见。石祠狐在部分已现形帧的眼色仍偏蓝，记录为美术偏差。", "普通接力1.449秒，扫描保留完整提示并从第6帧起播后1.883秒；由集成负责维护同版数据。"]
+  },
+  {
+    "stage": "full_slice",
+    "reviewer": "Codex internal source and conformed frame review",
+    "human_review": "pending",
+    "rework": [
+      {"slot":"c1_w_fox_grove","candidates":[1,2,3,4],"reason":"竹丛候选含重复变色。成片从 v2 的同机位真实空镜用六帧溶入源片第51帧青扫，此后保留白甲、前扑和空景。第11帧机体清晰，正式取13、24、32为三种反应的首锚。"},
+      {"slot":"c1_w_fox_shrine_kill_*","candidates":[1,2],"reason":"初版破甲留在前景后淡去。三个入口改用门洞遮挡引导，退回门洞后再切回母版。"},
+      {"slot":"c1_w_bifang_canopy_kill_*","candidates":[1,2],"reason":"初版机体和羽片掉在溪里，切回空景时碎片会消失。正式三个入口让机体由上方竹冠退场。"},
+      {"slot":"c1_w_suanni_steps_kill_*","candidates":[1,2],"reason":"初版两肩罐滚在溪面前方。为三个石阶入口使用坡后受击引导，收到飞罐和机体都越过坡背才切回空景。"},
+      {"slot":"c1_pangolin_flinch","candidates":[1,2,3],"reason":"击芯后的推镜破坏机位。v4 加入屋脊上小幅受击姿态，保留同一远景。"},
+      {"slot":"c1_pangolin_kill","candidates":[1,2,3],"reason":"原片让鲮鲤跳入溪中前景。v4 使圆芯在屋顶爆开，机体退到屋脊后。"}
+    ],
+    "observations": [
+      "两条飞针威胁在实际发射后的轨迹来源相同。首发第17帧剪到循环第16帧。",
+      "云姨近景口型使用所选对白，开始偏移60毫秒。比对底片与成片第2、10、20、31、42、50、61、70帧，口型随讲话开合，语音结束后闭口，脸和身后面摊保持稳定。对比图在 assets/linyuan/audit/lipsync/closeup_comparison.jpg。",
+      "真实显示器的两档背光、需求方评审及三人首玩尚待执行。"
+    ]
+  },
+  {
+    "stage": "sword_rework",
+    "reviewer": "Codex frame inspection, source-mask overlays and scripted Windows playback",
+    "human_review": "pending",
+    "observations": [
+      "第5波使用固定 PL_BAMBOO。按新片逐帧描额心与尾枢并取早、中、晚三处击毁入口。背景与开放判定可对照 assets/linyuan/audit/tuning_20261126/grove_deliver.jpg 及 build/qa/linyuan-redesign-rules/grove-new-contact.jpg。",
+      "救人镜头从背后明确看见云姨左手在竹柱上、右侧瓷义肢被攫。24 个半速帧内前 6 帧半遮燃料囊，区域覆盖可见 assets/linyuan/audit/tuning_20261126/talon_regions_review.jpg。",
+      "云姨两句结果对白从各自的锁定台词生成两段 72 帧口型。逐帧对比同一 H3 近景在第7、13、24、35、40、47及55帧的嘴型，短句在后段已收口。抽帧见 build/qa/linyuan-rework/mouths.jpg。"
+    ]
+  }
+]

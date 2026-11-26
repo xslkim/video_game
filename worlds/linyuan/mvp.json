@@ -1,0 +1,120 @@
+{
+  "title": "临渊御剑",
+  "chapters": [
+    {
+      "id": "mvp",
+      "heading": "九曲渡 · 后山竹海",
+      "stages": [
+        {
+          "id": "noodle",
+          "type": "film",
+          "takes": [
+            {
+              "id": "c1_04_noodle",
+              "cues": [
+                {
+                  "voice": "qingping/noodle",
+                  "subtitle": "这碗面看起来很好吃。我是说，数据上。",
+                  "begin": 1,
+                  "end": 86
+                },
+                {
+                  "voice": "luchen/noodle",
+                  "subtitle": "你又没有嘴。",
+                  "begin": 88,
+                  "end": 117
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "save_yunyi",
+          "type": "trial",
+          "trial": {
+            "first": "talon",
+            "steps": {
+              "talon": {
+                "take": "c1_10_talon",
+                "story_shot": true,
+                "window": [72,24],
+                "window_seconds": 2.0,
+                "window_rate": 0.5,
+                "cues": [
+                  {
+                    "voice": "yunyi/talon",
+                    "subtitle": "这只手还没用够本呢！",
+                    "begin": 1,
+                    "end": 40
+                  },
+                  {
+                    "voice": "qingping/talon",
+                    "subtitle": "打它胸口！",
+                    "begin": 42,
+                    "end": 65
+                  }
+                ],
+                "prompt": "瞄准琥珀燃料囊 · 保护云姨",
+                "zones": ["sac","yunyi"],
+                "guards": ["yunyi"],
+                "answer": "sac",
+                "outcomes": {
+                  "sac": {
+                    "points": 1000,
+                    "response": "c1_11_hit",
+                    "next": "@complete"
+                  },
+                  "miss": {
+                    "response": "c1_11_miss",
+                    "next": "@complete"
+                  },
+                  "timeout": {
+                    "response": "c1_11_miss",
+                    "next": "@complete"
+                  },
+                  "yunyi": {
+                    "points": -100,
+                    "damage": 1,
+                    "civilian": true,
+                    "response": "c1_11_miss",
+                    "next": "@complete"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "yunyi_reply",
+          "type": "film",
+          "takes": [
+            {
+              "id": "c1_12_thanks",
+              "after_civilian": false,
+              "voice": "yunyi/thanks",
+              "subtitle": "云姨  手还在，面也没凉。快去！"
+            },
+            {
+              "id": "c1_12_rebuke",
+              "after_civilian": true,
+              "voice": "yunyi/rebuke",
+              "subtitle": "云姨  瞄准点儿！还不快去！"
+            }
+          ]
+        },
+        {
+          "id": "bamboo_card",
+          "type": "card",
+          "text": "九曲渡 · 后山竹海",
+          "milliseconds": 1000
+        },
+        {
+          "id": "bamboo",
+          "type": "encounter",
+          "level": "bamboo",
+          "music": "battle"
+        }
+      ]
+    }
+  ]
+}

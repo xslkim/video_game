@@ -1,0 +1,905 @@
+{
+  "version": 1,
+  "ruleset": "linyuan",
+  "title": "临渊御剑",
+  "fps": 24,
+  "size": [1280,720],
+  "first": "wave_01",
+  "selectable_difficulty": false,
+  "location": "九曲渡 · 后山竹海",
+  "briefing": "左键出剑 · 右键或 R 收剑",
+  "cleared": "竹海已平",
+  "nodes": [
+    {
+      "id": "wave_01",
+      "label": "等隐狐现形，再出剑",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_02",
+      "label": "毕方",
+      "hp": 1,
+      "score": 100,
+      "material": "feather",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_03",
+      "label": "狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_04",
+      "label": "狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_05",
+      "label": "隐狐",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_06",
+      "label": "狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_07",
+      "label": "毕方",
+      "hp": 1,
+      "score": 100,
+      "material": "feather",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_08",
+      "label": "重甲狻猊 · 瞄准琥珀肩罐",
+      "hp": 2,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 2,
+      "weak_bonus": 50,
+      "weak_damage": 2,
+      "flinch": "wave_08"
+    },
+    {
+      "id": "wave_09",
+      "label": "鲮鲤",
+      "hp": 2,
+      "score": 700,
+      "material": "ceramic",
+      "tier": 3,
+      "flinch": "elite_flinch"
+    },
+    {
+      "id": "wave_10",
+      "label": "打断藤索",
+      "hp": 1,
+      "score": 400,
+      "material": "vine",
+      "tier": 2,
+      "kills": 2,
+      "fixed_score": true
+    }
+  ],
+  "clips": {
+    "wave_01_hit_41": {
+      "media": "c1_w_fox_shrine_kill_41",
+      "frames": 21,
+      "sha256": "c8b41dc156225fec96eee5866c3e49bc0dcb87561eb04f43961aba458cd9b67e",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_02",
+      "windows": []
+    },
+    "wave_01_hit_52": {
+      "media": "c1_w_fox_shrine_kill_52",
+      "frames": 21,
+      "sha256": "636e8604063bb8bc47c45d0aa1fc20dc959a5e3458ff1cb25db5d35d0bcfad33",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_02",
+      "windows": []
+    },
+    "wave_01_hit_62": {
+      "media": "c1_w_fox_shrine_kill_62",
+      "frames": 21,
+      "sha256": "a2846783146a8793d9f7aaf68ad5c58341a462ff337c259ac585521bd3be98be",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_02",
+      "windows": []
+    },
+    "wave_01": {
+      "media": "c1_w_fox_shrine",
+      "frames": 107,
+      "sha256": "d436b7fb59b809bf059a3a05e83e31dfd5410f7370801322b6bd10ecfdc853a4",
+      "start": 6,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_01",
+      "windows": [
+        {
+          "begin": 27,
+          "end": 47,
+          "node": 0,
+          "kind": "target",
+          "hit": "wave_01_hit_41"
+        },
+        {
+          "begin": 47,
+          "end": 58,
+          "node": 0,
+          "kind": "target",
+          "hit": "wave_01_hit_52"
+        },
+        {
+          "begin": 58,
+          "end": 86,
+          "node": 0,
+          "kind": "target",
+          "hit": "wave_01_hit_62"
+        }
+      ],
+      "warning_frame": 55,
+      "impact_frame": 86,
+      "attack": "claw",
+      "allow_early_miss": true,
+      "end": 106,
+      "weak_mask": true,
+      "voice_cues": [
+        {
+          "frame": 6,
+          "voice": "qingping/scan",
+          "subtitle": "等它现形，再出剑！",
+          "priority": 1
+        }
+      ]
+    },
+    "wave_02_hit_23": {
+      "media": "c1_w_bifang_canopy_kill_23",
+      "frames": 21,
+      "sha256": "9f81d69283e87a400d70124f95e54f57f70c713b6cf2fb1015773009a12467b4",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_03",
+      "windows": []
+    },
+    "wave_02_hit_37": {
+      "media": "c1_w_bifang_canopy_kill_37",
+      "frames": 22,
+      "sha256": "157a4b0595e6a1adb7d64f64ade5fd193cd85f90e4cf44499c31fe3bd0cc1727",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_03",
+      "windows": []
+    },
+    "wave_02_hit_49": {
+      "media": "c1_w_bifang_canopy_kill_49",
+      "frames": 21,
+      "sha256": "07a1d343bbe8210b49b5a4033167041df946b7d75bb590f8c94813a86c218f00",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_03",
+      "windows": []
+    },
+    "wave_02": {
+      "media": "c1_w_bifang_canopy",
+      "frames": 102,
+      "sha256": "5a31070b779af9c7d0b904d6c74e5f24c99dbb68f86b90d0ec55237a3483b7ec",
+      "start": 8,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_02",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 30,
+          "node": 1,
+          "kind": "target",
+          "hit": "wave_02_hit_23"
+        },
+        {
+          "begin": 30,
+          "end": 44,
+          "node": 1,
+          "kind": "target",
+          "hit": "wave_02_hit_37"
+        },
+        {
+          "begin": 44,
+          "end": 60,
+          "node": 1,
+          "kind": "target",
+          "hit": "wave_02_hit_49"
+        }
+      ],
+      "warning_frame": 47,
+      "impact_frame": 70,
+      "attack": "collision",
+      "end": 99,
+      "weak_mask": true
+    },
+    "wave_03_hit_23": {
+      "media": "c1_w_suanni_rock_kill_23",
+      "frames": 22,
+      "sha256": "5c75844f078704f040ed9cc7c69eea163539a0fccac472722a9753293f6fff78",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_04",
+      "windows": []
+    },
+    "wave_03_hit_35": {
+      "media": "c1_w_suanni_rock_kill_35",
+      "frames": 22,
+      "sha256": "cb9d39da7b5cbc326ae98fd8ee5405b2222e75faf455c069d147ebe95223aaf8",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_04",
+      "windows": []
+    },
+    "wave_03_hit_53": {
+      "media": "c1_w_suanni_rock_kill_53",
+      "frames": 21,
+      "sha256": "00270ed740487a39bbd111f15c7f3c663078d553702a11291b4fd342c2710b20",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_04",
+      "windows": []
+    },
+    "wave_03": {
+      "media": "c1_w_suanni_rock",
+      "frames": 99,
+      "sha256": "9d175e52be56edb50b27bcd5fc51263f6341e62e708d3b74e76218d3b3775296",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_03",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 29,
+          "node": 2,
+          "kind": "target",
+          "hit": "wave_03_hit_23"
+        },
+        {
+          "begin": 29,
+          "end": 45,
+          "node": 2,
+          "kind": "target",
+          "hit": "wave_03_hit_35"
+        },
+        {
+          "begin": 45,
+          "end": 56,
+          "node": 2,
+          "kind": "target",
+          "hit": "wave_03_hit_53"
+        }
+      ],
+      "warning_frame": 40,
+      "impact_frame": 70,
+      "attack": "claw",
+      "end": 86,
+      "weak_mask": true
+    },
+    "wave_04_hit_25": {
+      "media": "c1_w_suanni_steps_kill_25",
+      "frames": 21,
+      "sha256": "e50ae494aaad762101e45129a69c4e14e289958ade1cdf33d8c086345820f2ae",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_05",
+      "windows": []
+    },
+    "wave_04_hit_37": {
+      "media": "c1_w_suanni_steps_kill_37",
+      "frames": 21,
+      "sha256": "71cbc60761f4cc3bef78b48ad8c90540d1e8aca03c9e0767b223d2c5cc9fd2cb",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_05",
+      "windows": []
+    },
+    "wave_04_hit_46": {
+      "media": "c1_w_suanni_steps_kill_46",
+      "frames": 21,
+      "sha256": "9931e504939c765923c8bf86d4d780afab711fb319539d645462ea45a60336e6",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_05",
+      "windows": []
+    },
+    "wave_04": {
+      "media": "c1_w_suanni_steps",
+      "frames": 102,
+      "sha256": "6bfe790e72a33f651514c6475a3d134c08300efceb192a9049a724c6c490472e",
+      "start": 8,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_04",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 31,
+          "node": 3,
+          "kind": "target",
+          "hit": "wave_04_hit_25"
+        },
+        {
+          "begin": 31,
+          "end": 42,
+          "node": 3,
+          "kind": "target",
+          "hit": "wave_04_hit_37"
+        },
+        {
+          "begin": 42,
+          "end": 60,
+          "node": 3,
+          "kind": "target",
+          "hit": "wave_04_hit_46"
+        }
+      ],
+      "warning_frame": 44,
+      "impact_frame": 63,
+      "attack": "collision",
+      "end": 101,
+      "weak_mask": true
+    },
+    "wave_05_hit_13": {
+      "media": "c1_w_fox_grove_kill_13",
+      "frames": 22,
+      "sha256": "101b3df7af0741411e7b4df67b37f1c9a7bc9f22d1616ddae93370cd18ef5421",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_06",
+      "windows": []
+    },
+    "wave_05_hit_24": {
+      "media": "c1_w_fox_grove_kill_24",
+      "frames": 22,
+      "sha256": "f53c80aa8052bfe0a1293e13cdcd756de4594a713b46cc5224c5c4e069ed153b",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_06",
+      "windows": []
+    },
+    "wave_05_hit_36": {
+      "media": "c1_w_fox_grove_kill_36",
+      "frames": 22,
+      "sha256": "9d67207eab6905a50e902bae4df75324cfe2a754f208f598cd85dcf2cb04ab5c",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_06",
+      "windows": []
+    },
+    "wave_05": {
+      "media": "c1_w_fox_grove",
+      "frames": 63,
+      "sha256": "d690a054b030a2463fc6789664e6cd33852749904d5e8b8a5c12d5c07a057f52",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_05",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 19,
+          "node": 4,
+          "kind": "target",
+          "hit": "wave_05_hit_13"
+        },
+        {
+          "begin": 19,
+          "end": 30,
+          "node": 4,
+          "kind": "target",
+          "hit": "wave_05_hit_24"
+        },
+        {
+          "begin": 30,
+          "end": 40,
+          "node": 4,
+          "kind": "target",
+          "hit": "wave_05_hit_36"
+        }
+      ],
+      "warning_frame": 28,
+      "impact_frame": 40,
+      "attack": "claw",
+      "allow_early_miss": true,
+      "end": 62,
+      "weak_mask": true
+    },
+    "wave_06_hit_25": {
+      "media": "c1_w_suanni_steps_kill_25",
+      "frames": 21,
+      "sha256": "e50ae494aaad762101e45129a69c4e14e289958ade1cdf33d8c086345820f2ae",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_07",
+      "windows": []
+    },
+    "wave_06_hit_37": {
+      "media": "c1_w_suanni_steps_kill_37",
+      "frames": 21,
+      "sha256": "71cbc60761f4cc3bef78b48ad8c90540d1e8aca03c9e0767b223d2c5cc9fd2cb",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_07",
+      "windows": []
+    },
+    "wave_06_hit_46": {
+      "media": "c1_w_suanni_steps_kill_46",
+      "frames": 21,
+      "sha256": "9931e504939c765923c8bf86d4d780afab711fb319539d645462ea45a60336e6",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_07",
+      "windows": []
+    },
+    "wave_06": {
+      "media": "c1_w_suanni_steps",
+      "frames": 102,
+      "sha256": "6bfe790e72a33f651514c6475a3d134c08300efceb192a9049a724c6c490472e",
+      "start": 20,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_06",
+      "windows": [
+        {
+          "begin": 20,
+          "end": 31,
+          "node": 5,
+          "kind": "target",
+          "hit": "wave_06_hit_25"
+        },
+        {
+          "begin": 31,
+          "end": 42,
+          "node": 5,
+          "kind": "target",
+          "hit": "wave_06_hit_37"
+        },
+        {
+          "begin": 42,
+          "end": 60,
+          "node": 5,
+          "kind": "target",
+          "hit": "wave_06_hit_46"
+        }
+      ],
+      "warning_frame": 44,
+      "impact_frame": 63,
+      "attack": "collision",
+      "end": 101,
+      "weak_mask": true
+    },
+    "wave_07_hit_23": {
+      "media": "c1_w_bifang_canopy_kill_23",
+      "frames": 21,
+      "sha256": "9f81d69283e87a400d70124f95e54f57f70c713b6cf2fb1015773009a12467b4",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_08",
+      "windows": []
+    },
+    "wave_07_hit_37": {
+      "media": "c1_w_bifang_canopy_kill_37",
+      "frames": 22,
+      "sha256": "157a4b0595e6a1adb7d64f64ade5fd193cd85f90e4cf44499c31fe3bd0cc1727",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_08",
+      "windows": []
+    },
+    "wave_07_hit_49": {
+      "media": "c1_w_bifang_canopy_kill_49",
+      "frames": 21,
+      "sha256": "07a1d343bbe8210b49b5a4033167041df946b7d75bb590f8c94813a86c218f00",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_08",
+      "windows": []
+    },
+    "wave_07": {
+      "media": "c1_w_bifang_canopy",
+      "frames": 102,
+      "sha256": "5a31070b779af9c7d0b904d6c74e5f24c99dbb68f86b90d0ec55237a3483b7ec",
+      "start": 22,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_07",
+      "windows": [
+        {
+          "begin": 22,
+          "end": 30,
+          "node": 6,
+          "kind": "target",
+          "hit": "wave_07_hit_23"
+        },
+        {
+          "begin": 30,
+          "end": 44,
+          "node": 6,
+          "kind": "target",
+          "hit": "wave_07_hit_37"
+        },
+        {
+          "begin": 44,
+          "end": 60,
+          "node": 6,
+          "kind": "target",
+          "hit": "wave_07_hit_49"
+        }
+      ],
+      "warning_frame": 47,
+      "impact_frame": 70,
+      "attack": "collision",
+      "end": 99,
+      "weak_mask": true
+    },
+    "wave_08_hit_23": {
+      "media": "c1_w_suanni_rock_kill_23",
+      "frames": 22,
+      "sha256": "5c75844f078704f040ed9cc7c69eea163539a0fccac472722a9753293f6fff78",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_09",
+      "windows": []
+    },
+    "wave_08_hit_35": {
+      "media": "c1_w_suanni_rock_kill_35",
+      "frames": 22,
+      "sha256": "cb9d39da7b5cbc326ae98fd8ee5405b2222e75faf455c069d147ebe95223aaf8",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_09",
+      "windows": []
+    },
+    "wave_08_hit_53": {
+      "media": "c1_w_suanni_rock_kill_53",
+      "frames": 21,
+      "sha256": "00270ed740487a39bbd111f15c7f3c663078d553702a11291b4fd342c2710b20",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_09",
+      "windows": []
+    },
+    "wave_08": {
+      "media": "c1_w_suanni_rock",
+      "frames": 99,
+      "sha256": "9d175e52be56edb50b27bcd5fc51263f6341e62e708d3b74e76218d3b3775296",
+      "start": 14,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_08",
+      "windows": [
+        {
+          "begin": 14,
+          "end": 29,
+          "node": 7,
+          "kind": "target",
+          "hit": "wave_08_hit_23"
+        },
+        {
+          "begin": 29,
+          "end": 45,
+          "node": 7,
+          "kind": "target",
+          "hit": "wave_08_hit_35"
+        },
+        {
+          "begin": 45,
+          "end": 56,
+          "node": 7,
+          "kind": "target",
+          "hit": "wave_08_hit_53"
+        }
+      ],
+      "warning_frame": 40,
+      "impact_frame": 70,
+      "attack": "claw",
+      "end": 86,
+      "weak_mask": true
+    },
+    "elite_intercept_early": {
+      "media": "c1_pangolin_intercept_early",
+      "frames": 24,
+      "sha256": "c1c5b8b2f0b0996ad572f9963332f8f3ef1688402605fa0f0303ce240f5bdd7e",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_core",
+      "windows": []
+    },
+    "elite_intercept_late": {
+      "media": "c1_pangolin_intercept_late",
+      "frames": 22,
+      "sha256": "d5f9994c2406dc5f9fad86087fca3b7da7b7a453a7712a049b299c09d85aa2d2",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_core",
+      "windows": []
+    },
+    "wave_09": {
+      "media": "c1_w_pangolin_roof",
+      "frames": 114,
+      "sha256": "9fed0b58ea224c93a3f96f46708dece4bfa51f0f452c3fef22a284c38111bfce",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_impact",
+      "windows": [
+        {
+          "begin": 22,
+          "end": 32,
+          "node": 8,
+          "kind": "projectile",
+          "hit": "elite_intercept_early"
+        },
+        {
+          "begin": 32,
+          "end": 50,
+          "node": 8,
+          "kind": "projectile",
+          "hit": "elite_intercept_late"
+        }
+      ],
+      "end": 51,
+      "launch_frame": 20,
+      "impact_frame": 50,
+      "warning_frame": 14,
+      "attack": "blast",
+      "voice_cues": [
+        {
+          "frame": 0,
+          "voice": "qingping/needles",
+          "subtitle": "飞针！打下来！",
+          "priority": 2
+        }
+      ]
+    },
+    "elite_launch": {
+      "media": "c1_pangolin_threat",
+      "frames": 113,
+      "sha256": "19d5f3332f1e041491e8f30bdf6f92c9dddefaf1f3077f95d6ea44d922764ea2",
+      "start": 10,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_impact",
+      "windows": [
+        {
+          "begin": 21,
+          "end": 31,
+          "node": 8,
+          "kind": "projectile",
+          "hit": "elite_intercept_early"
+        },
+        {
+          "begin": 31,
+          "end": 49,
+          "node": 8,
+          "kind": "projectile",
+          "hit": "elite_intercept_late"
+        }
+      ],
+      "end": 50,
+      "launch_frame": 19,
+      "impact_frame": 49,
+      "warning_frame": 13,
+      "attack": "blast",
+      "speed": 1.2
+    },
+    "elite_impact": {
+      "media": "c1_pangolin_impact",
+      "frames": 24,
+      "sha256": "b7e63e5512f6d750c812d2dd425a09b8a6969eae388e8ce488bd7fecd558e399",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_launch",
+      "windows": [],
+      "attack": "blast"
+    },
+    "elite_core": {
+      "media": "c1_w_pangolin_roof",
+      "frames": 114,
+      "sha256": "9fed0b58ea224c93a3f96f46708dece4bfa51f0f452c3fef22a284c38111bfce",
+      "start": 113,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_launch",
+      "windows": [
+        {
+          "begin": 113,
+          "end": 114,
+          "node": 8,
+          "kind": "target",
+          "hit": "elite_kill",
+          "weak": true
+        }
+      ],
+      "hold_seconds": 2.0,
+      "attack": "blast",
+      "voice_cues": [
+        {
+          "frame": 113,
+          "voice": "qingping/elite_core",
+          "subtitle": "它背上的鳞扇中间，打核心！",
+          "priority": 1
+        }
+      ]
+    },
+    "elite_flinch": {
+      "media": "c1_pangolin_flinch",
+      "frames": 24,
+      "sha256": "9ca840e91263e12d8afa6ddf9dc15396b9a1df32bdd6bfb75abfc0f22e80b15e",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "elite_launch",
+      "windows": []
+    },
+    "elite_kill": {
+      "media": "c1_pangolin_kill",
+      "frames": 30,
+      "sha256": "4c2ad9d417ad171c38737a5e177b99d01e1b47aadf480a826ccfc17360576db5",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_10",
+      "windows": []
+    },
+    "wave_10_hit_28": {
+      "media": "c1_raft_drop_28",
+      "frames": 31,
+      "sha256": "30c7b1301cca0dcc2cb72266e5708bb064a97eec7780c886d4fe20a36090f1b3",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "@complete",
+      "windows": []
+    },
+    "wave_10_hit_42": {
+      "media": "c1_raft_drop_42",
+      "frames": 31,
+      "sha256": "8ee1ecdf758bc3b3865ba9ce44c44a15bd24b87103c858a8f8a4b3d10dcd9457",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "@complete",
+      "windows": []
+    },
+    "wave_10": {
+      "media": "c1_w_raft",
+      "frames": 107,
+      "sha256": "5e379977d4acc10c593156beac1ffccd8c5eb5b1558062c587101853346f02a5",
+      "start": 0,
+      "in_anchor": "bamboo",
+      "out_anchor": "bamboo",
+      "next": "wave_10",
+      "windows": [
+        {
+          "begin": 10,
+          "end": 35,
+          "node": 9,
+          "kind": "target",
+          "hit": "wave_10_hit_28"
+        },
+        {
+          "begin": 35,
+          "end": 54,
+          "node": 9,
+          "kind": "target",
+          "hit": "wave_10_hit_42"
+        }
+      ],
+      "warning_frame": 43,
+      "impact_frame": 65,
+      "attack": "collision",
+      "end": 81,
+      "voice_cues": [
+        {
+          "frame": 0,
+          "voice": "qingping/raft",
+          "subtitle": "打断那根藤索！",
+          "priority": 1
+        }
+      ]
+    }
+  },
+  "plate": {
+    "media": "c1_bamboo_plate",
+    "frames": 175,
+    "sha256": "6b960f0365c49fc3c7c533e6d23d10c29a8dbab16b457739420412acc536c9b9"
+  },
+  "materials": [
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","air","air","air","stone","stone","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","stone","stone","stone","stone","air","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal","metal","metal","metal","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal","metal","metal","metal","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal","metal","metal","stone","stone","stone","stone","stone","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","stone","water","water","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","earth","earth","earth","earth","earth","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","stone","stone","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","bamboo","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","stone","earth","bamboo","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","earth","earth","earth","earth","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","water","water","water","water","water","water","water","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","earth","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","water","stone","stone","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","water","water","water","stone","stone","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","water","bamboo","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo"]
+  ],
+  "materials_sha256": "6b960f0365c49fc3c7c533e6d23d10c29a8dbab16b457739420412acc536c9b9"
+}

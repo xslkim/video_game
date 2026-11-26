@@ -1,0 +1,19 @@
+{
+  "id": "c1_12_thanks",
+  "candidate": "linyuan_c1_12_thanks__v1",
+  "file": "assets/linyuan/drama/c1_12_thanks.mp4",
+  "sha256": "03b245e935e1f796e557aef1f06d6a0fcee445902b38086a854d9631a1cb2587",
+  "source_sha256": "d2fe9fcf7cb18dd65be8f3e6009302013019dae3299eaf7028e81879ee6db8ed",
+  "frames": 72,
+  "first_source": 0,
+  "end_exclusive": 72,
+  "edit_speed": 1,
+  "editor_notes": "面部可见且神情从低头揉臂到抬头催行，选作口型输入。",
+  "lip_sync": {
+    "model": "LatentSync stage2_512",
+    "seed": 261125,
+    "begin_ms": 0,
+    "voice_sha256": "b3fcc162bf2d5b6881aff9b6a2225df60d0c4c98298403afcd6927527f23a0a8",
+    "video_sha256": "d2fe9fcf7cb18dd65be8f3e6009302013019dae3299eaf7028e81879ee6db8ed"
+  }
+}

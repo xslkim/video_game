@@ -16,13 +16,22 @@ def main():
     audio = json.loads((root/"postmix.json").read_bytes())
     shots = run["captures"]
     lines = ["ffconcat version 1.0"]
+    precise = "capture_target_hz" in run
     for i, frame in enumerate(shots):
         time = frame["time"] if i else 0
         end = shots[i+1]["time"] if i+1<len(shots) else run["seconds"]
         if end <= time:
             raise ValueError("Nonmonotonic capture timestamps")
-        lines.extend([f"file 'frames/{frame['capture']:05d}.bmp'",f"duration {end-time:.9f}"])
+        lines.append(f"file 'frames/{frame['capture']:05d}.bmp'")
+        if precise:
+            lines.append("option framerate 1000")
+        length = end - time
+        if precise and i+1 == len(shots):
+            length = max(0.001, length - 0.002)
+        lines.append(f"duration {length:.9f}")
     lines.append(f"file 'frames/{shots[-1]['capture']:05d}.bmp'")
+    if precise:
+        lines.append("option framerate 1000")
     timing = root/"capture.ffconcat"
     timing.write_text("\n".join(lines)+"\n",encoding="utf8")
     start = audio["start_time"]
@@ -31,7 +40,8 @@ def main():
     tmp = args.output.with_suffix(".part.mp4")
     subprocess.run(["ffmpeg","-v","error","-nostdin","-y","-safe","0","-f","concat","-i",str(timing),
                     "-f","f32le","-ar",str(audio["sample_rate"]),"-ac",str(audio["channels"]),"-i",str(root/"postmix.f32"),
-                    "-vf","fps=24","-af",offset+",apad","-c:v","libx264","-crf","19","-preset","fast",
+                    *(["-fps_mode","vfr","-enc_time_base","1:1000"] if precise else ["-vf","fps=24"]),
+                    "-af",offset+",apad","-c:v","libx264","-crf","19","-preset","fast",
                     "-pix_fmt","yuv420p","-c:a","aac","-b:a","160k","-t",f"{run['seconds']:.6f}",
                     "-movflags","+faststart",str(tmp)],check=True)
     tmp.replace(args.output)
