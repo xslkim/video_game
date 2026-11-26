@@ -212,6 +212,38 @@ inline void drawLinyuanEffect(Ink &ink, Cue cue, Point point, double age, bool r
     }
     if (cue == Cue::reload || cue == Cue::ready || cue == Cue::none)
         return;
+    if (cue == Cue::special) {
+        const double slowFade = std::clamp(1. - age / .65, 0., 1.);
+        const auto sAlpha = Uint8(255 * slowFade);
+        if (!reducedFlash && age < .05) {
+            SDL_SetRenderDrawColor(ink.r, 232, 255, 250, Uint8(120 * (1. - age / .05)));
+            SDL_FRect full{0, 0, 1280, 720};
+            SDL_RenderFillRect(ink.r, &full);
+        }
+        softGlow(ink, point, 40 + 180 * std::min(1., age / .28), 34 + 150 * std::min(1., age / .28),
+                 {.22f, 1.f, .88f, float((reducedFlash ? .35 : .80) * slowFade)}, SDL_BLENDMODE_ADD);
+        ink.ring(point, int(18 + 220 * std::min(1., age / .30)), {77, 255, 210, sAlpha});
+        ink.ring(point, int(10 + 160 * std::min(1., age / .24)), {255, 214, 96, sAlpha});
+        for (int i = 0; i < 8; ++i) {
+            const double angle = i * .78539816 + .25;
+            const Point edge{640. + 780. * std::cos(angle), 360. + 460. * std::sin(angle)};
+            const SwordArc arc = swordArc(edge, point, i, false);
+            const double travel = std::clamp((age - i * .018) / .14, 0., 1.);
+            if (travel > 0 && age < .34) {
+                const double head = travel, tail = std::max(0., head - .55);
+                swordRibbon(ink, arc, tail, head, reducedFlash ? 8.f : 15.f,
+                            {.22f, 1.f, .86f, float(.9f * slowFade)}, SDL_BLENDMODE_ADD);
+                if (travel < 1.)
+                    flyingSword(ink, arc.at(head), arc.tangent(head), 1.15, float(slowFade));
+            }
+        }
+        scatterArmor(ink, point, age, material.empty() ? "ceramic" : material, true, 0, reducedFlash);
+        impactSlash(ink, point, age, true, reducedFlash, 0, 3);
+        const float ty = std::clamp(float(point.y) - 82.f - float(28 * age), 96.f, 620.f);
+        ink.box(float(point.x) - 86.f, ty - 2, 172, 34, {14, 34, 36, Uint8(.86f * sAlpha)});
+        ink.text(float(point.x), ty, 24, "万剑归宗", {255, 214, 96, sAlpha}, true);
+        return;
+    }
     const auto color = cue == Cue::intercept || weak || tier == 3 ? amber : cyan;
     swordFlight(ink, point, swordSlot, age, reducedFlash);
     if (cue == Cue::miss) {
@@ -262,13 +294,15 @@ inline void drawLinyuanEffect(Ink &ink, Cue cue, Point point, double age, bool r
 }
 
 inline void drawLinyuanReticle(Ink &ink, Point point, int arrows, bool reloading, bool target, bool weak,
-                               bool protect) {
+                               bool protect, bool specialReady = false) {
     SDL_Color color = protect  ? SDL_Color{207, 227, 255, 255}
                       : target ? SDL_Color{77, 255, 210, 255}
                                : SDL_Color{242, 245, 247, 255};
     if (arrows == 0 || reloading)
         color = {140, 147, 155, 255};
     const float x = float(point.x), y = float(point.y);
+    if (specialReady)
+        ink.ring(point, 22, {255, 208, 86, 215});
     for (int sign : {-1, 1}) {
         linyuanOutlinedStroke(ink, x + sign * 9, y - 15, x + sign * 15, y - 9, 2.5f, color);
         linyuanOutlinedStroke(ink, x + sign * 9, y + 15, x + sign * 15, y + 9, 2.5f, color);

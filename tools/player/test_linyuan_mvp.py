@@ -167,6 +167,7 @@ def main():
     parser.add_argument("--capture", action="store_true", help="Record images and audio; timings are diagnostic")
     parser.add_argument("--jobs", type=int, default=1, help="Concurrent players for branch checks; use 1 for timings")
     parser.add_argument("--timings", action="store_true", help="Run a single unrecorded normal route and summarize G1/G2")
+    parser.add_argument("--campaign", default="mvp", help="Campaign manifest id to verify (default: mvp)")
     args = parser.parse_args()
     exe = args.player.resolve(strict=True)
     folder = args.output.resolve()
@@ -180,7 +181,7 @@ def main():
 
     def run(scenario):
         out = folder / scenario
-        cmd = [str(exe), "--smoke", str(out), "--scenario", scenario]
+        cmd = [str(exe), "--campaign", args.campaign, "--smoke", str(out), "--scenario", scenario]
         if args.root:
             cmd.extend(["--root", str(args.root.resolve(strict=True))])
         if args.capture:

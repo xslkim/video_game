@@ -23,6 +23,7 @@ struct Film {
     std::vector<DialogueCue> cues;
     bool wallClockLimited = false;
     std::optional<bool> afterCivilian;
+    int startFrame = 0, endFrame = -1;
 };
 
 struct TrackedRegion {
@@ -53,9 +54,11 @@ struct FilmChoice {
     int assist = 0;
     int hitFrame = -1;
     std::vector<std::string> eligible;
-    double playbackRate = 1.;
-    bool newFeedback = false, reducedFlash = false, protectAssist = false, shakeEnabled = true;
+    double playbackRate = 1., recallScale = 1.;
+    bool linyuan = false, newFeedback = false, reducedFlash = false, protectAssist = false, shakeEnabled = true;
     bool directStoryWeak = false;
+    std::string material = "feather";
+    int tier = 2;
     double firstOpen = -1, closed = -1, inputTime = -1, firstFeedback = -1;
     Point inputPoint{};
     std::optional<Point> recordedPoint;
@@ -101,6 +104,8 @@ struct Stage {
     Json trial;
     int cardMillis = 0;
     std::string cardText;
+    bool linyuan = false;
+    bool allowSpecial = false;
 };
 
 struct Campaign {
@@ -120,7 +125,7 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
 
 enum class MenuChoice { resume, newGame, quit };
 bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterScore &score,
-                    Receiver *receiver, bool automated, ScoreAudio *music);
+                    Receiver *receiver, bool automated, ScoreAudio *music, bool linyuan = false);
 MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progress &state,
                         Receiver *receiver, bool automated, ScoreAudio *music = nullptr);
 } // namespace ca

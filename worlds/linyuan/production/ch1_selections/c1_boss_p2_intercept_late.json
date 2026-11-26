@@ -1,0 +1,12 @@
+{
+  "id": "c1_boss_p2_intercept_late",
+  "candidate": "linyuan_c1_boss_p2_intercept_late__v1",
+  "file": "assets/linyuan/drama/c1_boss_p2_intercept_late.mp4",
+  "sha256": "81a4bb80876b505d8a5a5c86350dd2bfc714506023a8922b399f84ca3d8ddaf1",
+  "source_sha256": "275c02a0956fb9baf5ac7e56b37f0b9efd7cbff8a066a4f3919ca0c2e4968caf",
+  "frames": 26,
+  "first_source": 0,
+  "end_exclusive": 26,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 boss"
+}

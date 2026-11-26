@@ -1,0 +1,12 @@
+{
+  "id": "c1_boss_enter",
+  "candidate": "linyuan_c1_boss_enter__v1",
+  "file": "assets/linyuan/drama/c1_boss_enter.mp4",
+  "sha256": "01307313a1f5edadd6e0749f39890bfec9a61cfbf3e87eece2fd23eaf2b0bb2e",
+  "source_sha256": "3a5412c49ce23567dee30d6c99396b2270806ec09b185010bf6b6b6772ff4b27",
+  "frames": 72,
+  "first_source": 0,
+  "end_exclusive": 72,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 boss"
+}

@@ -277,16 +277,16 @@ def check_audio_references(folder, stages, scenes):
 
 def validate(root):
     world = root / "worlds/linyuan"
-    start = read(world / "start.json")
-    campaign = read(world / (start["campaign"] + ".json"))
+    mvp_file = world / "mvp.json"
+    campaign = read(mvp_file if mvp_file.is_file() else world / (read(world / "start.json")["campaign"] + ".json"))
     stages = [s for chapter in campaign["chapters"] for s in chapter["stages"]]
     require([s["type"] for s in stages] == ["film", "trial", "film", "card", "encounter"],
             "MVP must enter film, trial, card and encounter through the campaign")
     drama = read(world / "drama.json")
-    require(set(drama) == {"c1_04_noodle", "c1_10_talon", "c1_11_hit", "c1_11_miss", "c1_12_thanks", "c1_12_rebuke"},
-            "Incomplete drama inventory")
-    for name, spec in drama.items():
-        media(root / "assets/linyuan/drama" / (name + ".mp4"), spec)
+    mvp_takes = {"c1_04_noodle", "c1_10_talon", "c1_11_hit", "c1_11_miss", "c1_12_thanks", "c1_12_rebuke"}
+    require(mvp_takes <= set(drama), "Incomplete drama inventory")
+    for name in mvp_takes:
+        media(root / "assets/linyuan/drama" / (name + ".mp4"), drama[name])
     for stage in stages:
         if stage["type"] == "film":
             if stage["id"] == "yunyi_reply":

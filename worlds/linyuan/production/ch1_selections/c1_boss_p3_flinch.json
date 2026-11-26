@@ -1,0 +1,12 @@
+{
+  "id": "c1_boss_p3_flinch",
+  "candidate": "linyuan_c1_boss_p3_flinch__v1",
+  "file": "assets/linyuan/drama/c1_boss_p3_flinch.mp4",
+  "sha256": "44be31e12c418abacde5f579bd3fa04c2142d2146fb5aee00b5247f7a1d48576",
+  "source_sha256": "577c92f77c59fed5c68749ccca59a5ea3b849575201257cd7a3ce68f821119e8",
+  "frames": 26,
+  "first_source": 0,
+  "end_exclusive": 26,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 boss"
+}

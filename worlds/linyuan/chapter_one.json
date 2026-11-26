@@ -1,0 +1,521 @@
+{
+  "title": "临渊御剑",
+  "chapters": [
+    {
+      "id": "chapter_one",
+      "heading": "第一章  九曲渡",
+      "stages": [
+        {
+          "id": "opening",
+          "type": "film",
+          "music": "jiuqu_story",
+          "takes": [
+            {
+              "id": "c1_01_vista",
+              "end_frame": 84
+            },
+            {
+              "id": "c1_02_descend",
+              "end_frame": 84
+            },
+            {
+              "id": "c1_03_market",
+              "end_frame": 84
+            },
+            {
+              "id": "c1_04_noodle",
+              "cues": [
+                {
+                  "voice": "qingping/noodle",
+                  "subtitle": "这碗面看起来很好吃。我是说，数据上。",
+                  "begin": 1,
+                  "end": 86
+                },
+                {
+                  "voice": "luchen/noodle",
+                  "subtitle": "你又没有嘴。",
+                  "begin": 88,
+                  "end": 117
+                }
+              ]
+            },
+            {
+              "id": "c1_05_redeye",
+              "end_frame": 108,
+              "voice": "qingping/redeye",
+              "subtitle": "青萍  山顶那个圈刚才闪了一下……江对岸的机关兽眼睛全红了！"
+            },
+            {
+              "id": "c1_06_leap",
+              "end_frame": 72
+            }
+          ]
+        },
+        {
+          "id": "dukou_card",
+          "type": "card",
+          "text": "九曲渡 · 集市",
+          "milliseconds": 800
+        },
+        {
+          "id": "dukou",
+          "type": "encounter",
+          "level": "dukou",
+          "music": "dukou_battle",
+          "linyuan": true,
+          "allow_special": true
+        },
+        {
+          "id": "save_yunyi",
+          "type": "trial",
+          "trial": {
+            "first": "talon",
+            "steps": {
+              "talon": {
+                "take": "c1_10_talon",
+                "story_shot": true,
+                "window": [72,24],
+                "window_seconds": 2.0,
+                "window_rate": 0.5,
+                "cues": [
+                  {
+                    "voice": "yunyi/talon",
+                    "subtitle": "这只手还没用够本呢！",
+                    "begin": 1,
+                    "end": 40
+                  },
+                  {
+                    "voice": "qingping/talon",
+                    "subtitle": "打它胸口！",
+                    "begin": 42,
+                    "end": 65
+                  }
+                ],
+                "prompt": "瞄准琥珀燃料囊 · 保护云姨",
+                "zones": ["sac","yunyi"],
+                "guards": ["yunyi"],
+                "answer": "sac",
+                "outcomes": {
+                  "sac": {
+                    "points": 1000,
+                    "response": "c1_11_hit",
+                    "next": "@complete"
+                  },
+                  "miss": {
+                    "response": "c1_11_miss",
+                    "next": "@complete"
+                  },
+                  "timeout": {
+                    "response": "c1_11_miss",
+                    "next": "@complete"
+                  },
+                  "yunyi": {
+                    "points": -100,
+                    "damage": 1,
+                    "civilian": true,
+                    "response": "c1_11_miss",
+                    "next": "@complete"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "yunyi_reply",
+          "type": "film",
+          "takes": [
+            {
+              "id": "c1_12_thanks",
+              "after_civilian": false,
+              "voice": "yunyi/thanks",
+              "subtitle": "云姨  手还在，面也没凉。快去！"
+            },
+            {
+              "id": "c1_12_rebuke",
+              "after_civilian": true,
+              "voice": "yunyi/rebuke",
+              "subtitle": "云姨  瞄准点儿！还不快去！"
+            }
+          ]
+        },
+        {
+          "id": "conch",
+          "type": "film",
+          "music": "jiuqu_story",
+          "takes": [
+            {
+              "id": "c1_13_conch",
+              "voice": "laojiu/conch",
+              "subtitle": "老酒（传音螺）  陆沉！天机峰那道封印在泄能，竹海里全是红眼兽，东线过不去了……"
+            },
+            {
+              "id": "c1_14_core",
+              "end_frame": 96,
+              "voice": "qingping/core",
+              "subtitle": "青萍  它不是突然发疯的。那个圆环在往周围的所有核心灌能量。"
+            },
+            {
+              "id": "c1_15_lookup",
+              "end_frame": 72
+            }
+          ]
+        },
+        {
+          "id": "bamboo_card",
+          "type": "card",
+          "text": "九曲渡 · 后山竹海",
+          "milliseconds": 800
+        },
+        {
+          "id": "bamboo",
+          "type": "encounter",
+          "level": "bamboo",
+          "music": "battle",
+          "linyuan": true,
+          "allow_special": true
+        },
+        {
+          "id": "shoal_card",
+          "type": "card",
+          "text": "临渊江 · 浅滩",
+          "milliseconds": 800
+        },
+        {
+          "id": "taotie_enter",
+          "type": "film",
+          "music": "boss_taotie",
+          "takes": [
+            {
+              "id": "c1_boss_enter",
+              "end_frame": 72
+            }
+          ]
+        },
+        {
+          "id": "taotie",
+          "type": "trial",
+          "music": "boss_taotie",
+          "linyuan": true,
+          "allow_special": true,
+          "trial": {
+            "first": "p1_1",
+            "steps": {
+              "p1_1": {
+                "take": "c1_boss_p1_a",
+                "start_frame": 0,
+                "end_frame": 62,
+                "window": [8,50],
+                "zones": ["hoop"],
+                "answer": "hoop",
+                "prompt": "击碎饕餮背罐供能箍",
+                "outcomes": {
+                  "hoop": {
+                    "points": 300,
+                    "response": "c1_boss_p1_flinch_l",
+                    "next": "p1_2"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p1_1"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p1_1"
+                  }
+                },
+                "cues": [
+                  {
+                    "voice": "qingping/canisters",
+                    "subtitle": "青萍  背上那两只大燃料罐！先打断它的供能箍！",
+                    "begin": 2,
+                    "end": 58
+                  }
+                ]
+              },
+              "p1_2": {
+                "take": "c1_boss_p1_a",
+                "start_frame": 62,
+                "end_frame": 124,
+                "window": [68,48],
+                "zones": ["hoop"],
+                "answer": "hoop",
+                "prompt": "击碎饕餮背罐供能箍",
+                "outcomes": {
+                  "hoop": {
+                    "points": 300,
+                    "response": "c1_boss_p1_flinch_r",
+                    "next": "p1_3"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p1_2"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p1_2"
+                  }
+                }
+              },
+              "p1_3": {
+                "take": "c1_boss_p1_b",
+                "start_frame": 0,
+                "end_frame": 62,
+                "window": [8,50],
+                "zones": ["hoop"],
+                "answer": "hoop",
+                "prompt": "击碎饕餮背罐供能箍",
+                "outcomes": {
+                  "hoop": {
+                    "points": 300,
+                    "response": "c1_boss_p1_flinch_l",
+                    "next": "p1_4"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p1_3"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p1_3"
+                  }
+                }
+              },
+              "p1_4": {
+                "take": "c1_boss_p1_b",
+                "start_frame": 62,
+                "end_frame": 124,
+                "window": [68,48],
+                "zones": ["hoop"],
+                "answer": "hoop",
+                "prompt": "击碎饕餮背罐供能箍",
+                "outcomes": {
+                  "hoop": {
+                    "points": 300,
+                    "response": "c1_boss_p1_flinch_r",
+                    "next": "p1_5"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p1_4"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p1_4"
+                  }
+                }
+              },
+              "p1_5": {
+                "take": "c1_boss_p1_c",
+                "start_frame": 0,
+                "end_frame": 62,
+                "window": [8,50],
+                "zones": ["hoop"],
+                "answer": "hoop",
+                "prompt": "击碎饕餮背罐供能箍",
+                "outcomes": {
+                  "hoop": {
+                    "points": 300,
+                    "response": "c1_boss_p1_flinch_l",
+                    "next": "p1_6"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p1_5"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p1_5"
+                  }
+                }
+              },
+              "p1_6": {
+                "take": "c1_boss_p1_c",
+                "start_frame": 62,
+                "end_frame": 124,
+                "window": [68,48],
+                "zones": ["hoop"],
+                "answer": "hoop",
+                "prompt": "击碎最后一环！",
+                "outcomes": {
+                  "hoop": {
+                    "points": 300,
+                    "response": "c1_boss_break",
+                    "next": "p2_1"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p1_6"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p1_6"
+                  }
+                }
+              },
+              "p2_1": {
+                "take": "c1_boss_p2_launch",
+                "window": [22,34],
+                "projectile": true,
+                "zones": ["fireball"],
+                "answer": "fireball",
+                "intercept_windows": [
+                  [22,33,"c1_boss_p2_intercept_early"],
+                  [33,44,"c1_boss_p2_intercept_mid"],
+                  [44,56,"c1_boss_p2_intercept_late"]
+                ],
+                "prompt": "拦截饕餮吐出的火球！",
+                "outcomes": {
+                  "fireball": {
+                    "points": 400,
+                    "next": "p2_2"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "response": "c1_boss_p2_impact",
+                    "next": "p2_1"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "response": "c1_boss_p2_impact",
+                    "next": "p2_1"
+                  }
+                },
+                "cues": [
+                  {
+                    "voice": "qingping/fireball",
+                    "subtitle": "青萍  火球！迎着打碎它！",
+                    "begin": 18,
+                    "end": 56
+                  }
+                ]
+              },
+              "p2_2": {
+                "take": "c1_boss_p2_launch",
+                "window": [22,34],
+                "projectile": true,
+                "zones": ["fireball"],
+                "answer": "fireball",
+                "intercept_windows": [
+                  [22,33,"c1_boss_p2_intercept_early"],
+                  [33,44,"c1_boss_p2_intercept_mid"],
+                  [44,56,"c1_boss_p2_intercept_late"]
+                ],
+                "prompt": "拦截饕餮吐出的火球！",
+                "outcomes": {
+                  "fireball": {
+                    "points": 400,
+                    "next": "p2_3"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "response": "c1_boss_p2_impact",
+                    "next": "p2_2"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "response": "c1_boss_p2_impact",
+                    "next": "p2_2"
+                  }
+                }
+              },
+              "p2_3": {
+                "take": "c1_boss_p2_launch",
+                "window": [22,34],
+                "projectile": true,
+                "zones": ["fireball"],
+                "answer": "fireball",
+                "intercept_windows": [
+                  [22,33,"c1_boss_p2_intercept_early"],
+                  [33,44,"c1_boss_p2_intercept_mid"],
+                  [44,56,"c1_boss_p2_intercept_late"]
+                ],
+                "prompt": "拦截饕餮吐出的火球！",
+                "outcomes": {
+                  "fireball": {
+                    "points": 400,
+                    "next": "p3",
+                    "transition": "c1_boss_expose",
+                    "transition_voice": "qingping/mouth",
+                    "transition_subtitle": "青萍  嘴张开了！瞄准口内核心！"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "response": "c1_boss_p2_impact",
+                    "next": "p2_3"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "response": "c1_boss_p2_impact",
+                    "next": "p2_3"
+                  }
+                }
+              },
+              "p3": {
+                "take": "c1_boss_p3",
+                "window": [8,83],
+                "zones": ["core"],
+                "answer": "core",
+                "boss_hp": 3,
+                "thunder_strike": true,
+                "flinch_response": "c1_boss_p3_flinch",
+                "kill_response": "c1_boss_kill",
+                "prompt": "击碎饕餮口内核心！",
+                "cues": [
+                  {
+                    "voice": "qingping/mouth",
+                    "subtitle": "青萍  快，就在它喉咙里面！",
+                    "begin": 4,
+                    "end": 83
+                  }
+                ],
+                "outcomes": {
+                  "core": {
+                    "points": 600,
+                    "purified": 1,
+                    "next": "@complete"
+                  },
+                  "miss": {
+                    "damage": 1,
+                    "next": "p3"
+                  },
+                  "timeout": {
+                    "damage": 1,
+                    "next": "p3"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "id": "xuanwu_outro",
+          "type": "film",
+          "music": "jiuqu_outro",
+          "takes": [
+            {
+              "id": "c1_20_smoke",
+              "end_frame": 96
+            },
+            {
+              "id": "c1_21_run",
+              "end_frame": 96
+            },
+            {
+              "id": "c1_22_board",
+              "end_frame": 108,
+              "voice": "qingping/xuanwu",
+              "subtitle": "青萍  坐稳了！玄武驮着咱们一直往天机峰渡过去。"
+            }
+          ]
+        },
+        {
+          "id": "end_card",
+          "type": "card",
+          "text": "第一章  完",
+          "milliseconds": 1500
+        }
+      ]
+    }
+  ]
+}

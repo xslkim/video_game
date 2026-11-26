@@ -1,0 +1,12 @@
+{
+  "id": "c1_w_suanni_shrine_kill_75",
+  "candidate": "linyuan_c1_w_suanni_shrine_kill_late__v1",
+  "file": "assets/linyuan/dukou/c1_w_suanni_shrine_kill_75.mp4",
+  "sha256": "2ae102146f3431547183931a52b4d8d332ffcdd622fbcbea42896d05c1a9a047",
+  "source_sha256": "d6e634911531038c883d3447257ae5619e114d94e26a1219c2bc0bd7c3c480cf",
+  "frames": 22,
+  "first_source": 0,
+  "end_exclusive": 22,
+  "edit_speed": 1.0,
+  "editor_notes": "dukou kill"
+}

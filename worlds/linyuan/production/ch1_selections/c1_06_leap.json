@@ -1,0 +1,12 @@
+{
+  "id": "c1_06_leap",
+  "candidate": "linyuan_c1_06_leap__v1",
+  "file": "assets/linyuan/drama/c1_06_leap.mp4",
+  "sha256": "6c73585df2ead98adb87a68c0f852d428fef77ce2ab7b438b956e709a4bcbb59",
+  "source_sha256": "6003e4d6aae01d2417519a772b462b27fbbcc8da763c318a9ce9ffbd28487813",
+  "frames": 73,
+  "first_source": 0,
+  "end_exclusive": 0,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 drama"
+}

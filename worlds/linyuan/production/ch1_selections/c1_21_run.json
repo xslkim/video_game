@@ -1,0 +1,12 @@
+{
+  "id": "c1_21_run",
+  "candidate": "linyuan_c1_21_run__v1",
+  "file": "assets/linyuan/drama/c1_21_run.mp4",
+  "sha256": "7309168616e830c372424645c374966e8543b55e8c06f2b254feb3a16e5f4858",
+  "source_sha256": "583537df8888025b2462faf2d3f133bff729bbdd31aed58fe4967d52f9760c57",
+  "frames": 124,
+  "first_source": 0,
+  "end_exclusive": 0,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 drama"
+}

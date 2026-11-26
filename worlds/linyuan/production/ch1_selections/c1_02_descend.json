@@ -1,0 +1,12 @@
+{
+  "id": "c1_02_descend",
+  "candidate": "linyuan_c1_02_descend__v1",
+  "file": "assets/linyuan/drama/c1_02_descend.mp4",
+  "sha256": "1518edc5ebd4748be104e72565ea2d2483fd3e04c0adc34f975b3ffd9ae15675",
+  "source_sha256": "21b2b63c6d30e47e9a9c449e7dc92bd3a2472741dd6fb4c134243a849b243baa",
+  "frames": 124,
+  "first_source": 0,
+  "end_exclusive": 0,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 drama"
+}

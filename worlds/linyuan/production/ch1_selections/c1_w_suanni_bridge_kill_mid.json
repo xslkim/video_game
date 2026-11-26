@@ -1,0 +1,12 @@
+{
+  "id": "c1_w_suanni_bridge_kill_51",
+  "candidate": "linyuan_c1_w_suanni_bridge_kill_mid__v1",
+  "file": "assets/linyuan/dukou/c1_w_suanni_bridge_kill_51.mp4",
+  "sha256": "b734c3c9e0c4a0357da9734aa56f88b939daf9e8e5988ce069cbfd78adb1d373",
+  "source_sha256": "98b6f46f5897cceab1121ad26b019e475458869056d20fc188a85c2ed5aea383",
+  "frames": 22,
+  "first_source": 0,
+  "end_exclusive": 22,
+  "edit_speed": 1.0,
+  "editor_notes": "dukou kill"
+}

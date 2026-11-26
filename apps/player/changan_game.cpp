@@ -149,6 +149,7 @@ const Difficulty &difficulty(const std::string &id) {
 Match::Match(const Encounter &e) : encounter(e), rules(difficulty("normal")) {
     if (!e.selectableDifficulty && !e.linyuan)
         rules.aimRadius = 0;
+    allowSpecial = !e.linyuan || e.allowSpecial;
 }
 
 int Match::health(const Node &node) const {
@@ -223,10 +224,13 @@ Encounter::Encounter(const fs::path &dir) {
     if (ruleset != "linyuan" && ruleset != "changan")
         throw std::runtime_error("Unsupported encounter ruleset: " + ruleset);
     linyuan = ruleset == "linyuan";
+    allowSpecial = data.value("allow_special", !linyuan);
     selectableDifficulty = data.value("selectable_difficulty", false);
     location = data.value("location", "朱雀大街  /  上元夜");
     briefing = data.value("briefing", "执灯使巡街，三道妖影陆续现身。");
     cleared = data.value("cleared", "三妖已净");
+    ambience = data.value("ambience", "bamboo_stream");
+    progressPrefix = data.value("progress_prefix", linyuan ? "竹海 " : "净化 ");
     if (data.contains("street")) {
         const auto &spec = data.at("street");
         street = Street{spec.at("frames"), spec.at("sha256")};
@@ -271,11 +275,15 @@ Encounter::Encounter(const fs::path &dir) {
         s.outAnchor = j.at("out_anchor");
         s.launch = j.value("launch_frame", -1);
         s.impact = j.value("impact_frame", -1);
+        s.holdFrame = j.value("hold_frame", -1);
+        s.forbearanceBonus = j.value("forbearance_bonus", 0);
         s.holdSeconds = j.value("hold_seconds", 0.);
         s.allowEarlyMiss = j.value("allow_early_miss", false);
         s.speed = j.value("speed", 1.);
         if (!std::isfinite(s.speed) || s.speed <= 0 || s.speed > 2)
             throw std::runtime_error("Invalid action speed: " + id);
+        if (s.forbearanceBonus < 0)
+            throw std::runtime_error("Invalid forbearance_bonus: " + id);
         c.start = j.value("start", 0);
         s.end = j.value("end", c.frames);
         s.warning = j.value("warning_frame", s.impact < 0 ? -1 : std::max(c.start, s.impact - 14));
@@ -329,6 +337,10 @@ Encounter::Encounter(const fs::path &dir) {
             (!linyuan || c.start != c.frames - 1 || s.impact >= 0 || s.windows.size() != 1 ||
              s.windows[0].kind != Kind::target || !s.window(c.start))))
             throw std::runtime_error("Hold needs an exposed target in the final frame: " + id);
+        if (s.holdFrame != -1 && (!linyuan || s.holdFrame < c.start || s.holdFrame >= s.end ||
+            !s.window(s.holdFrame) || s.window(s.holdFrame)->kind != Kind::target ||
+            (s.impact >= 0 && s.holdFrame >= s.impact)))
+            throw std::runtime_error("Invalid hold_frame: " + id);
         for (const auto &event : j.value("voice_cues", Json::array())) {
             VoiceCue cue{event.at("frame"), event.at("voice"), event.at("subtitle"),
                          event.value("priority", 1)};
@@ -433,7 +445,7 @@ const MovieEntry *Encounter::entrance(const Scene &from, const std::string &to, 
 void Match::enter(const std::string &id) {
     ++generation;
     pending.clear();
-    attacked = launched = false;
+    attacked = launched = sceneFired = sceneCivilianHit = false;
     if (encounter.linyuan)
         targetOpened = -1;
     if (id == "@complete") {
@@ -482,24 +494,32 @@ Cue Match::input(Point position, int gen, int frame, bool thunder, double now) {
     const bool early = encounter.linyuan && scene->allowEarlyMiss && !thunder && !scene->windows.empty() &&
                        frame >= scene->image.start && frame < scene->windows.front().begin &&
                        scene->windows.front().node == progress;
-    if (!active(w) && !early)
+    const bool civSceneMiss = encounter.linyuan && !thunder && !scene->windows.empty() &&
+                              scene->windows.front().kind == Kind::civilian &&
+                              scene->windows.front().node == progress &&
+                              frame >= scene->image.start && frame < scene->end && !w;
+    if (!active(w) && !early && !civSceneMiss)
         return Cue::none;
-    if (thunder && (encounter.linyuan || energy < rules.charge || w->kind != Kind::target))
+    if (thunder && (!allowSpecial || energy < rules.charge || !w || w->kind != Kind::target ||
+                    (encounter.linyuan && encounter.nodes[progress].fixedScore)))
         return Cue::none;
     lastWeakHit = false;
     if (!thunder && arrows == 0)
         return Cue::empty;
     if (thunder) {
         energy = 0;
+        sceneFired = true;
     } else {
         --arrows;
         ++shots;
-        if (early || !scene->aimCovers(frame, position, rules.aimRadius)) {
+        sceneFired = true;
+        if (early || civSceneMiss || !scene->aimCovers(frame, position, rules.aimRadius)) {
             combo = 0;
             energy = std::max(0, energy - 2);
             return Cue::miss;
         }
         if (w->kind == Kind::civilian) {
+            sceneCivilianHit = true;
             ++civilianHits;
             combo = energy = 0;
             score = std::max(0, score - 100);
@@ -517,7 +537,7 @@ Cue Match::input(Point position, int gen, int frame, bool thunder, double now) {
         if (!encounter.linyuan || w->kind != Kind::projectile || !interceptRewarded) {
             ++combo;
             bestCombo = std::max(bestCombo, combo);
-            if (!encounter.linyuan)
+            if (allowSpecial)
                 energy = std::min(rules.charge, energy + 1);
         }
     }
@@ -531,7 +551,7 @@ Cue Match::input(Point position, int gen, int frame, bool thunder, double now) {
         return Cue::intercept;
     }
     const Node &n = encounter.nodes[progress];
-    lastWeakHit = encounter.linyuan ? scene->weakAt(frame, position) : w->weak || scene->weakAt(frame, position);
+    lastWeakHit = !thunder && (encounter.linyuan ? scene->weakAt(frame, position) : w->weak || scene->weakAt(frame, position));
     if (encounter.linyuan && lastWeakHit) {
         ++arrows;
         ++weakReturns;
@@ -540,7 +560,11 @@ Cue Match::input(Point position, int gen, int frame, bool thunder, double now) {
     frozenUntil = now + (n.hp > 1 ? .120 : .050);
     if (encounter.linyuan) {
         const bool eliteFinish = n.hp > 1 && n.weakDamage == 1;
-        frozenUntil = now + (lastWeakHit ? .100 : hp > 0 ? .060 : eliteFinish ? .140 : .070);
+        frozenUntil = now + (thunder      ? .250
+                             : lastWeakHit ? .100
+                             : hp > 0      ? .060
+                             : eliteFinish ? .140
+                                           : .070);
     }
     if (hp > 0) {
         if (encounter.linyuan && n.flinch == scene->image.id) {
@@ -595,8 +619,11 @@ Cue Match::present(int gen, int frame) {
         }
         return Cue::hurt;
     }
-    if (scene->holdSeconds == 0 && frame >= scene->end - 1)
+    if (scene->holdSeconds == 0 && scene->holdFrame < 0 && frame >= scene->end - 1) {
+        if (scene->forbearanceBonus > 0 && !sceneFired && !sceneCivilianHit)
+            score += scene->forbearanceBonus;
         enter(scene->image.next);
+    }
     return Cue::none;
 }
 
@@ -637,7 +664,7 @@ Cue Match::reload(double now) {
     if (!interactive() || reloadLeft > 0 || arrows == 8)
         return Cue::none;
     reloadStartedAt = now;
-    reloadLeft = encounter.linyuan ? .16 + .055 * (8 - arrows) : rules.reloadSeconds;
+    reloadLeft = encounter.linyuan ? (.16 + .055 * (8 - arrows)) * (rules.reloadSeconds / .6) : rules.reloadSeconds;
     return Cue::reload;
 }
 } // namespace ca

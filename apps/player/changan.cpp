@@ -1,6 +1,7 @@
 #include "changan_game.hpp"
 #include "changan_record.hpp"
 #include "changan_story.hpp"
+#include "gamepad_input.hpp"
 #include "linyuan_feedback.hpp"
 #include "sound.hpp"
 #include "tvgun.hpp"
@@ -183,6 +184,7 @@ struct App {
     double speechEnd = 0;
     Receiver ownReceiver;
     Receiver &receiver;
+    GamepadController gamepad;
     bool gunMode = false;
     bool linyuan = false, newFeedback = false, reducedFlash = false, automated = false;
     bool shakeEnabled = true;
@@ -218,6 +220,8 @@ struct App {
     std::array<std::optional<Point>, 8> spentSwords{};
     int nextSword = 0, warningToneGeneration = -1;
     double recallDuration = 0, caseGlintAt = -1;
+    std::map<std::string, double> voiceCooldownUntil;
+    int hurtVoiceIndex = 0;
     double visualTime = 0, visualTick = 0, previousTick = 0, begun = 0, pauseAt = 0, captureNext = 0,
            clickAt = 0, completedAt = 0, hitForSwitch = 0, feedbackForSubmit = 0;
     int videoGeneration = -1, frame = -1, captureFrame = 0, pressGeneration = -1, action = 0, switches = 0,
@@ -233,13 +237,15 @@ struct App {
 
     App(SDL_Window *w, SDL_Renderer *r, const fs::path &assets, Encounter level, fs::path out, std::string test,
         bool record, Receiver *sharedReceiver = nullptr, bool linyuanMode = false, bool updatedFeedback = false,
-        bool dimFlash = false, bool humanLog = false)
+        bool dimFlash = false, bool humanLog = false, bool specialAllowed = false)
         : window(w), renderer(r), encounter(std::move(level)), game(encounter), media(encounter, assets),
           ink(r), audioFolder(assets.parent_path() / "audio"),
           receiver(sharedReceiver ? *sharedReceiver : ownReceiver), gunMode(sharedReceiver != nullptr),
           linyuan(linyuanMode), newFeedback(updatedFeedback), reducedFlash(dimFlash),
           automated(!out.empty() && !humanLog), evidence(std::move(out)), scenario(std::move(test)),
           capture(record), intervalFor(encounter.nodes.size(), -1) {
+        if (specialAllowed)
+            game.allowSpecial = true;
         sound.limitToWallClock(linyuan);
         if (linyuan && scenario.starts_with("retry-wave-")) {
             for (int i = 0; i < int(encounter.nodes.size()); ++i)
@@ -248,7 +254,7 @@ struct App {
             if (retryNode < 0)
                 throw std::runtime_error("Unknown ordinary or raft retry wave: " + scenario);
         }
-        const auto ambientFile = audioFolder / "ambience/bamboo_stream.wav";
+        const auto ambientFile = audioFolder / "ambience" / (encounter.ambience + ".wav");
         if (linyuan && fs::is_regular_file(ambientFile)) {
             ambience.openLoop(sound.device(), ambientFile);
             ambience.volume(.23f, 0.f);
@@ -405,16 +411,15 @@ struct App {
                                    : -1;
         const Node *nodeSpec = activeNode >= 0 ? &encounter.nodes[activeNode] : nullptr;
         const std::string mediaId = game.scene ? game.scene->mediaId : "";
-        const int purifyTier = nodeSpec && nodeSpec->tier > 0
-                                   ? std::max(2, nodeSpec->tier)
-                                   : (nodeSpec && nodeSpec->hp > 1 &&
-                                      (!linyuan || mediaId.find("pangolin") != std::string::npos))
-                                         ? 3
-                                         : 2;
-        const int tier = c == Cue::hit         ? 1
-                         : c == Cue::purify    ? purifyTier
-                         : c == Cue::intercept ? 2
-                                               : 0;
+        const int tier = c == Cue::special ? 4
+                         : c == Cue::hit     ? 1
+                         : c == Cue::purify && nodeSpec &&
+                                 (nodeSpec->tier > 0
+                                      ? nodeSpec->tier >= 3
+                                      : (nodeSpec->hp > 1 && (!linyuan || mediaId.find("pangolin") != std::string::npos)))
+                             ? 3
+                         : c == Cue::purify || c == Cue::intercept ? 2
+                                                                   : 0;
         const std::string nodeMat = nodeSpec && !nodeSpec->material.empty()       ? nodeSpec->material
                                     : mediaId.find("bifang") != std::string::npos ? "feather"
                                     : mediaId.find("raft") != std::string::npos   ? "vine"
@@ -502,12 +507,54 @@ struct App {
         const int recalled = linyuan && c == Cue::reload ? 8 - game.arrows : 8;
         if (!scoreAudio.cue(sample, pitch, gain, recalled))
             sound.cue(tone);
+        if (linyuan && newFeedback && !game.paused) {
+            if (c == Cue::empty)
+                triggerOptionalVoice("qingping/reload", "青萍  剑用完了，收剑！", 1, 8.);
+            else if (c == Cue::civilian)
+                triggerOptionalVoice("qingping/protect", "青萍  别打人！", 2, 3.);
+            else if (c == Cue::hurt) {
+                static const char *const lines[] = {"qingping/hurt_1", "qingping/hurt_2", "qingping/hurt_3"};
+                static const char *const subs[] = {"青萍  陆沉！", "青萍  还撑得住吗？", "青萍  小心！"};
+                const int idx = hurtVoiceIndex++ % 3;
+                triggerOptionalVoice(lines[idx], subs[idx], 1, 10.);
+            }
+        }
         if (!evidence.empty() && !linyuan)
             feedbackForSubmit = timestamp;
     }
 
+    void triggerOptionalVoice(const std::string &voice, const std::string &caption, int priority,
+                              double cooldownSeconds) {
+        const double now = timeNow();
+        if (voiceCooldownUntil[voice] > now || (!speechId.empty() && speechPriority > priority))
+            return;
+        const auto path = (audioFolder / "voice" / (voice + ".wav")).u8string();
+        if (!fs::is_regular_file(audioFolder / "voice" / (voice + ".wav")))
+            return;
+        SDL_AudioSpec spec{};
+        Uint8 *raw = nullptr;
+        Uint32 bytes = 0;
+        if (!SDL_LoadWAV(reinterpret_cast<const char *>(path.c_str()), &spec, &raw, &bytes))
+            return;
+        std::unique_ptr<Uint8, decltype(&SDL_free)> owner(raw, SDL_free);
+        stopSpeech("preempted");
+        if (sound.device()) {
+            speech.reset(SDL_CreateAudioStream(&spec, &spec));
+            if (!speech || !SDL_BindAudioStream(sound.device(), speech.get()) ||
+                !SDL_SetAudioStreamGain(speech.get(), speechGain) ||
+                !SDL_PutAudioStreamData(speech.get(), raw, bytes) || !SDL_FlushAudioStream(speech.get()))
+                return;
+        }
+        speechPriority = priority;
+        speechId = voice;
+        speechCaption = caption;
+        const double duration = double(bytes) / (spec.freq * SDL_AUDIO_FRAMESIZE(spec));
+        speechEnd = now + duration;
+        voiceCooldownUntil[voice] = now + cooldownSeconds;
+    }
+
     void shot(Point point, uint64_t ns, bool thunder) {
-        if (linyuan && thunder)
+        if (linyuan && !game.allowSpecial && thunder)
             return;
         auto f = std::find_if(history.rbegin(), history.rend(),
                               [ns](const Stamp &s) { return s.submitted <= ns; });
@@ -615,6 +662,27 @@ struct App {
             receiver.poll(SDL_GetTicks(), [this](RemoteAction action, Point p) { remote(action, p); });
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
+            gamepad.poll(
+                event, cursor,
+                [&](Point p, uint64_t ns) {
+                    if (game.screen != Screen::play)
+                        restart();
+                    else if (game.paused)
+                        pause();
+                    else
+                        shot(p, ns, false);
+                },
+                [&] { reload(); },
+                [&] {
+                    if (game.screen == Screen::play && !game.paused)
+                        shot(cursor, SDL_GetTicksNS(), true);
+                },
+                [&] {
+                    if (game.screen == Screen::play)
+                        pause();
+                    else if (game.screen != Screen::play)
+                        restart();
+                });
             const auto type = event.type;
             if (type == SDL_EVENT_QUIT)
                 running = false;
@@ -697,6 +765,10 @@ struct App {
                 }
             }
         }
+        gamepad.updateAim(cursor, encounter.width, encounter.height, [&](Point p, uint64_t ns) {
+            if (game.screen == Screen::play && !game.paused)
+                shot(p, ns, false);
+        });
     }
 
     void reload() {
@@ -774,10 +846,17 @@ struct App {
             sound.begin(media.current(), frame, actionRate, time);
             holding = false;
         }
-        const int desired = std::min({sound.localFrame(time), game.scene->end - 1, frame + 1});
+        int ceiling = game.scene->end - 1;
+        if (game.scene->holdFrame >= 0 && game.pending.empty())
+            ceiling = std::min(ceiling, game.scene->holdFrame);
+        const int desired = std::min({sound.localFrame(time), ceiling, frame + 1});
         if (desired > frame) {
             frame = desired;
             upload(frame);
+        }
+        if (game.scene->holdFrame >= 0 && frame == game.scene->holdFrame && game.pending.empty() && !holding) {
+            sound.silenceClip();
+            holding = true;
         }
     }
 
@@ -941,12 +1020,16 @@ struct App {
         ink.box(right - 251, 24, 251, 70, {13, 19, 26, 217});
         ink.text(right - 234, 34, 17, progressLabel(), ivory);
         ink.text(right - 97, 34, 17, std::to_string(game.score) + " 分", ivory);
-        if (!linyuan) {
+        if (!linyuan || game.allowSpecial) {
             ink.box(right - 234, 70, 126, 5, {85, 75, 65, 235});
             ink.box(right - 234, 70, 126.f * game.energy / game.rules.charge, 5, gold);
-            ink.text(right - 95, 60, 16, game.energy == game.rules.charge ? "空格 雷符" : "雷符", gold);
-        } else if (!game.arrows && !game.reloadLeft) {
-            ink.text(right - 234, 62, 17, "右键或 R 收剑", gold);
+            ink.text(right - 95, 60, 16,
+                     game.energy == game.rules.charge ? (linyuan ? "中键 归宗" : "空格 雷符")
+                                                      : (linyuan ? "剑意" : "雷符"),
+                     gold);
+        }
+        if (linyuan && !game.arrows && !game.reloadLeft) {
+            ink.text(right - 234, game.allowSpecial ? 98.f : 62.f, 17, "右键或 R 收剑", gold);
         }
 
         if (game.progress < int(encounter.nodes.size())) {
@@ -964,7 +1047,7 @@ struct App {
             if (game.active(target) && target->kind == Kind::projectile)
                 help = linyuan ? "拦截飞针" : "拦截青火球";
             else if (game.active(target) && target->kind == Kind::civilian)
-                help = "百姓经过  ·  收弩";
+                help = linyuan ? "货郎经过  ·  莫出剑" : "百姓经过  ·  收弩";
             else if (linyuan && encounter.nodes[game.progress].weakDamage > 1)
                 help = "白甲 " + std::to_string(game.hp) + " 剑  ·  肩罐 1 剑";
             else if (encounter.nodes[game.progress].hp > 1)
@@ -1001,7 +1084,8 @@ struct App {
                                      game.scene->aimCovers(frame, source, game.rules.aimRadius);
                 drawLinyuanReticle(ink, cursor, game.arrows, game.reloadLeft > 0, pointed,
                                    pointed && (win->weak || game.scene->weakAt(frame, source)),
-                                   pointed && win->kind == Kind::civilian);
+                                   pointed && win->kind == Kind::civilian,
+                                   linyuan && game.allowSpecial && game.energy == game.rules.charge);
             } else {
                 ink.ring(cursor, 8, {247, 230, 189, 198});
                 ink.line(x - 13, y, x - 5, y, ivory);
@@ -1079,7 +1163,7 @@ struct App {
     }
 
     std::string progressLabel() const {
-        return std::string(linyuan ? "竹海 " : "净化 ") + std::to_string(game.progress) + " / " +
+        return encounter.progressPrefix + std::to_string(game.progress) + " / " +
                std::to_string(encounter.nodes.size());
     }
 
@@ -1299,6 +1383,22 @@ struct App {
         if (!game.active(window) || (pressGeneration == game.generation && !(game.hp == 1 &&
             encounter.nodes[game.progress].weakDamage == 2 && frame > armorFirstFrame)))
             return;
+        if (window->kind == Kind::civilian) {
+            if (scenario == "peddler-miss" && action == 0) {
+                ++action;
+                pushButton({40, 40});
+            } else if ((scenario == "peddler-hit" || scenario == "civilian-hit") && action == 0) {
+                ++action;
+                pushButton({picture.x + scene.center(frame).x * picture.w / encounter.width,
+                            picture.y + scene.center(frame).y * picture.h / encounter.height});
+            }
+            return;
+        }
+        if (scene.holdFrame >= 0 && scenario == "tutorial-hold" && action == 0) {
+            if (visualTime < 1.8 || frame < scene.holdFrame)
+                return;
+            ++action;
+        }
         if (window->kind == Kind::projectile) {
             if (scenario == "needle-core-closed" && action == 0) {
                 const auto &core = encounter.scenes.at("elite_core");
@@ -1321,9 +1421,11 @@ struct App {
             const auto &range = scenario == "early"  ? windows.front()
                                 : scenario == "late" ? windows.back()
                                                      : windows[windows.size() / 2];
-            const int desired = scenario == "late"    ? range.end - 1
-                                : scenario == "early" ? range.begin
-                                                      : (range.begin + range.end - 1) / 2;
+            int desired = scenario == "late"    ? range.end - 1
+                          : scenario == "early" ? range.begin
+                                                : (range.begin + range.end - 1) / 2;
+            if (scene.holdFrame >= 0)
+                desired = std::min(desired, scene.holdFrame);
             if (frame < desired)
                 return;
         }
@@ -1336,8 +1438,8 @@ struct App {
         auto aim = scene.center(frame);
         if (!scene.weakArea.masks.empty()) {
             const bool wantWeak = scenario == "shoulder" || (scenario != "body" && scenario != "empty" &&
-                scenario != "reload-held" && (game.progress == 2 || game.progress == 4 ||
-                                               game.progress == 6 || game.progress == 7));
+                scenario != "reload-held" && (encounter.nodes.size() == 11 || game.progress == 2 ||
+                                               game.progress == 4 || game.progress == 6 || game.progress == 7));
             const auto &body = scene.image.masks.at(frame);
             const auto &weak = scene.weakArea.masks.at(frame);
             const auto &spans = wantWeak ? weak : body;
@@ -1565,11 +1667,34 @@ struct App {
                     (scenario != "street-hold" || (encounter.street && game.hurts == 2 && game.lives == 1)) &&
                     (scenario != "fx-reload" || (effectFinishedDuringReload && game.reloads == 1)) &&
                     (scenario != "civilian-hit" || game.civilianHits > 0) &&
+                    (scenario != "peddler-hit" || game.civilianHits > 0) &&
                     (scenario != "charge" ||
                      (game.blocks > 0 && game.hurts == 0 && game.hits == ordinaryHits + game.blocks - 2)) &&
                     (!scenario.starts_with("thunder") || game.hits == ordinaryHits - 2);
         Json assertions = Json::object();
-        if (linyuan && automated && encounter.nodes.size() == 10 && scenario == "give-up") {
+        if (linyuan && automated && encounter.nodes.size() == 11) {
+            auto count = [&](const std::string &name, const std::string &clip = "") {
+                return std::count_if(trace.begin(), trace.end(), [&](const Json &e) {
+                    return e.at("event") == name && (clip.empty() || e.at("clip") == clip);
+                });
+            };
+            assertions["finished_eleven_nodes"] = game.progress == 11 && game.kills == 11;
+            const int misses = int(scenario == "peddler-miss");
+            const int civHits = int(scenario == "peddler-hit");
+            assertions["spent_and_hit"] = game.shots == 11 + misses + civHits && game.hits == 11;
+            assertions["forbearance_outcome"] =
+                (scenario == "peddler-miss" || scenario == "peddler-hit")
+                    ? count("forbearance_bonus") == 0
+                    : count("forbearance_bonus") == 1;
+            if (scenario == "peddler-hit")
+                assertions["peddler_hurt"] = game.civilianHits == 1;
+            if (scenario == "tutorial-hold")
+                assertions["tutorial_held"] = std::any_of(trace.begin(), trace.end(), [](const Json &e) {
+                    return e.at("event") == "shot_purify" && e.at("clip") == "wave_01" && e.at("time").get<double>() >= 1.8;
+                });
+            for (auto it = assertions.begin(); it != assertions.end(); ++it)
+                good &= it.value().get<bool>();
+        } else if (linyuan && automated && encounter.nodes.size() == 10 && scenario == "give-up") {
             assertions["quit_at_death"] = game.screen == Screen::failed && !game.lives && attempts == 1;
             good = assertions["quit_at_death"].get<bool>();
         } else if (linyuan && automated && encounter.nodes.size() == 10) {
@@ -1598,6 +1723,8 @@ struct App {
                 if (e.at("attempt") != attempts)
                     continue;
                 const auto name = e.at("event").get<std::string>();
+                if (name == "start")
+                    ammo = e.at("arrows").get<int>();
                 if (name == "ready")
                     ammo = 8;
                 if (name == "shot_hit" || name == "shot_purify" || name == "shot_miss" || name == "shot_intercept") {
@@ -1607,7 +1734,9 @@ struct App {
                     inventoryCorrect &= ammo >= 0 && ammo == e.at("arrows").get<int>();
                 }
                 if (name == "reload_begin")
-                    inventoryCorrect &= std::abs(e.at("duration_seconds").get<double>() - (.16 + .055 * (8-ammo))) < .00001;
+                    inventoryCorrect &=
+                        std::abs(e.at("duration_seconds").get<double>() -
+                                 (.16 + .055 * (8 - ammo)) * (game.rules.reloadSeconds / .6)) < .00001;
             }
             assertions["sword_accounting"] = inventoryCorrect && ammo == game.arrows && refunds == game.weakReturns;
             const int expectedHarm =
@@ -1703,12 +1832,13 @@ struct App {
                     attempts == 2 && count("death") == 1 &&
                     std::count_if(trace.begin(), trace.end(), [&](const Json &e) {
                         return e.at("event") == "start" && e.at("score") == 0 && e.at("arrows") == 8 &&
-                               e.at("lives") == 3;
+                               e.at("lives") == game.rules.lives;
                     }) >= 1;
             if (scenario == "early-reload")
-                assertions["early_reload_performed"] = std::any_of(trace.begin(),trace.end(),[](const Json &e) {
+                assertions["early_reload_performed"] = std::any_of(trace.begin(), trace.end(), [&](const Json &e) {
                     return e.at("event") == "reload_begin" && e.at("arrows") == 7 &&
-                           std::abs(e.at("duration_seconds").get<double>() - .215) < .00001;
+                           std::abs(e.at("duration_seconds").get<double>() -
+                                    .215 * (game.rules.reloadSeconds / .6)) < .00001;
                 });
             for (auto it = assertions.begin(); it != assertions.end(); ++it)
                 good &= it.value().get<bool>();
@@ -1827,7 +1957,13 @@ struct App {
             const double now = timeNow();
             if (visible.scene && game.screen == Screen::play) {
                 const int before = game.launches;
+                const int beforeScore = game.score;
                 const Cue cue = game.present(visible.generation, visible.frame);
+                if (game.score > beforeScore && cue == Cue::none) {
+                    record("forbearance_bonus", visible.frame, visible.generation, now);
+                    if (!evidence.empty())
+                        trace.back()["bonus"] = game.score - beforeScore;
+                }
                 if (game.launches != before)
                     record("launch", visible.frame, visible.generation, now);
                 if (cue != Cue::none) {
@@ -1964,6 +2100,7 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
                  const std::string &name, const fs::path &logRoot, const std::string &difficultyId,
                  bool gunMode, const std::string &scenario, bool capture, bool humanLog, bool newFeedback,
                  bool reducedFlash, bool shakeEnabled, const fs::path &inputSource) {
+    const bool isMvp = world.linyuan() && name == "mvp";
     fs::path evidence = logRoot;
     const bool automated = !evidence.empty() && !humanLog;
     if (!evidence.empty())
@@ -1976,12 +2113,15 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
     }
     Campaign campaign(world, name);
     fs::path save;
-    if (!world.linyuan() && evidence.empty()) {
-        std::unique_ptr<char, decltype(&SDL_free)> dir(SDL_GetPrefPath("Changan", "Lanterns"), SDL_free);
+    if (!isMvp && evidence.empty()) {
+        std::unique_ptr<char, decltype(&SDL_free)> dir(
+            SDL_GetPrefPath(world.linyuan() ? "Linyuan" : "Changan",
+                            world.linyuan() ? "FlyingSwords" : "Lanterns"),
+            SDL_free);
         if (!dir)
             throw std::runtime_error(SDL_GetError());
         save = fs::path(reinterpret_cast<const char8_t *>(dir.get())) / (name + ".json");
-    } else if (!world.linyuan()) {
+    } else if (!isMvp) {
         save = evidence / "checkpoint.json";
     }
     Progress state = save.empty() ? Progress{} : Progress::load(save);
@@ -2012,10 +2152,10 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
         std::optional<CampaignRecording::Audio> menuAudio;
         if (recording)
             menuAudio.emplace(campaignDevice, 30);
-        auto choice = world.linyuan() ? linyuanScreen(renderer, campaign, state, resultBackground.get(),
-                                                      sessionSeconds, automated, evidence)
-                                      : campaignMenu(renderer, campaign, state, gun, automated,
-                                                     hasTitle ? &score : nullptr);
+        auto choice = isMvp ? linyuanScreen(renderer, campaign, state, resultBackground.get(),
+                                            sessionSeconds, automated, evidence)
+                            : campaignMenu(renderer, campaign, state, gun, automated,
+                                           hasTitle ? &score : nullptr);
         if (world.linyuan() && !evidence.empty()) {
             std::ofstream(logRoot / "choices.jsonl", std::ios::app)
                 << Json{{"event", state.next == "@complete" ? (choice == MenuChoice::quit ? "finish" : "replay")
@@ -2034,7 +2174,7 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
             break;
         if (choice == MenuChoice::newGame) {
             ++runNumber;
-            if (world.linyuan() && humanLog) {
+            if (isMvp && humanLog) {
                 evidence = logRoot / ("run_" + std::to_string(runNumber));
                 fs::create_directories(evidence);
                 timeline = Json::array();
@@ -2125,7 +2265,7 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
                 App fight(window, renderer, world.assets() / stage.level, std::move(level),
                           evidence.empty() ? fs::path{} : evidence / stage.id,
                           world.linyuan() ? scenario : "normal", false, gun, world.linyuan(), newFeedback,
-                          reducedFlash, humanLog);
+                          reducedFlash, humanLog, stage.allowSpecial);
                 fight.game.rules = difficulty(state.difficulty);
                 fight.shakeEnabled = shakeEnabled;
                 if (!inputSource.empty())
@@ -2217,9 +2357,16 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
                     timeline.back()["films"] = std::move(playedFilms);
                 std::ofstream(evidence / "timeline.json") << timeline.dump(2) << '\n';
             }
-            if (!world.linyuan() &&
+            if ((isMvp && scenario == "quit-after-s5") ||
+                (!isMvp && scenario == "checkpoint-interrupt" && stage.id == "bamboo_card")) {
+                state.save(save);
+                quit = true;
+                break;
+            }
+            if (!isMvp &&
                 (n + 1 == campaign.stages.size() || campaign.stages[n + 1].chapter != stage.chapter)) {
-                if (!chapterResults(renderer, stage, state.scores[stage.chapter], gun, automated, music)) {
+                if (!chapterResults(renderer, stage, state.scores[stage.chapter], gun, automated, music,
+                                    world.linyuan())) {
                     quit = true;
                     break;
                 }
@@ -2280,7 +2427,7 @@ int wmain(int argc, wchar_t **argv) {
     }
     try {
         SDL_SetMainReady();
-        check(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO));
+        check(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_GAMEPAD));
         if (root.empty())
             root = fs::path(reinterpret_cast<const char8_t *>(SDL_GetBasePath()));
         if (!inputSource.empty() && (out.empty() || humanLog))
@@ -2290,8 +2437,6 @@ int wmain(int argc, wchar_t **argv) {
         if (feedback != "default" && feedback != "old" && feedback != "new")
             throw std::runtime_error("Unknown feedback style: " + feedback);
         const CampaignWorld world{root, worldId};
-        if (world.linyuan() && difficultyId != "normal")
-            throw std::runtime_error("The Linyuan MVP supports normal difficulty");
         const bool newFeedback = feedback == "new" || (feedback == "default" && world.linyuan());
         if (levelId.empty() && campaignId.empty()) {
             std::ifstream manifest(world.data() / "start.json");
@@ -2301,6 +2446,8 @@ int wmain(int argc, wchar_t **argv) {
             levelId = start.value("level", "");
             campaignId = start.value("campaign", "");
         }
+        if (world.linyuan() && campaignId == "mvp" && difficultyId != "normal")
+            throw std::runtime_error("The Linyuan MVP supports normal difficulty");
         if (campaignId.empty() &&
             (levelId.empty() ||
              levelId.find_first_not_of("0123456789abcdefghijklmnopqrstuvwxyz_") != std::string::npos))

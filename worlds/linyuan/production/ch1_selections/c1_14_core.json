@@ -1,0 +1,12 @@
+{
+  "id": "c1_14_core",
+  "candidate": "linyuan_c1_14_core__v1",
+  "file": "assets/linyuan/drama/c1_14_core.mp4",
+  "sha256": "b1d43f4d4710a2bfb76ff16aadb0d12bdd4bc34e941a1175f982236288428c7b",
+  "source_sha256": "9dd908f42fe0b834dcfb345fe72ae8e84378fae8ddfd573b9db3f3ada6bfe0fb",
+  "frames": 124,
+  "first_source": 0,
+  "end_exclusive": 0,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 drama"
+}

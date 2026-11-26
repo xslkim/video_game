@@ -42,7 +42,8 @@ struct Scene {
     std::map<int, std::array<double, 9>> materialTransforms;
     std::array<std::map<int, Point>, 2> threatTracks;
     std::string inAnchor, outAnchor, mediaId, attack;
-    int launch = -1, impact = -1, warning = -1, end = 0;
+    int launch = -1, impact = -1, warning = -1, end = 0, holdFrame = -1;
+    int forbearanceBonus = 0;
     double holdSeconds = 0;
     double speed = 1;
     bool allowEarlyMiss = false;
@@ -80,9 +81,11 @@ struct Encounter {
     std::vector<MovieEntry> entries;
     std::optional<Street> street;
     std::string title, first, location, briefing, cleared;
+    std::string ambience = "bamboo_stream", progressPrefix = "竹海 ";
     int width, height;
     bool selectableDifficulty = false;
     bool linyuan = false;
+    bool allowSpecial = false;
     std::vector<std::vector<std::string>> materials;
     std::string materialAt(Point point) const;
     std::string materialAt(const Scene &scene, int frame, Point point) const;
@@ -98,7 +101,8 @@ struct Match {
     int progress = 0, hp = 0, lives = 3, arrows = 8, hits = 0, shots = 0, score = 0, combo = 0, bestCombo = 0,
         energy = 0, generation = 0, launches = 0, hurts = 0, blocks = 0, reloads = 0, civilianHits = 0;
     int kills = 0, weakReturns = 0;
-    bool attacked = false, launched = false, paused = false, interceptRewarded = false, lastWeakHit = false;
+    bool attacked = false, launched = false, paused = false, interceptRewarded = false, lastWeakHit = false,
+         allowSpecial = false, sceneFired = false, sceneCivilianHit = false;
     std::string pending;
     double frozenUntil = 0, reloadLeft = 0, reloadStartedAt = 0, elapsed = 0, targetOpened = -1;
     double hurtFreezeLeft = 0;

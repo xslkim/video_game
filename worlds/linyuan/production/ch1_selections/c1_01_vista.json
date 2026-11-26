@@ -1,0 +1,12 @@
+{
+  "id": "c1_01_vista",
+  "candidate": "linyuan_c1_01_vista__v1",
+  "file": "assets/linyuan/drama/c1_01_vista.mp4",
+  "sha256": "b398f84a7f9c319f9735459329cbfee85cb8e9713473223fbffbf0aeae73dcf3",
+  "source_sha256": "cdce0afe7f3d7d9c82b172f271327bad7b5d7c65eeb5a96243d4e5d5c37fc212",
+  "frames": 124,
+  "first_source": 0,
+  "end_exclusive": 0,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 drama"
+}

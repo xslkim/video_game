@@ -237,6 +237,83 @@ void checkArmor(Fixture &fixture) {
     fixture.save();
 }
 
+void checkChapterOneExtensions(Fixture &f) {
+    Json ext = f.level;
+    ext["clips"] = Json::object();
+    ext["allow_special"] = true;
+    ext["ambience"] = "dukou_air";
+    ext["progress_prefix"] = "集市 ";
+    ext["first"] = "tut";
+    ext["nodes"] = Json::parse(R"([
+        {"id":"tut","label":"初见","hp":1,"score":100,"material":"feather","tier":1},
+        {"id":"suanni","label":"狻猊","hp":1,"score":100,"weak_bonus":50,"material":"ceramic","tier":1}
+    ])");
+    ext["clips"]["tut"] = f.level["clips"]["lion"];
+    ext["clips"]["tut"].erase("allow_early_miss");
+    ext["clips"]["tut"]["hold_frame"] = 2;
+    ext["clips"]["tut"]["next"] = "tut";
+    ext["clips"]["tut"]["windows"] = Json::parse(R"([{"begin":1,"end":5,"node":0,"kind":"target","hit":"peddler"}])");
+    ext["clips"]["peddler"] = {{"next", "suanni"}, {"sha256", std::string(64, '0')},
+                               {"in_anchor", "plate"}, {"out_anchor", "plate"}, {"frames", 6},
+                               {"forbearance_bonus", 500},
+                               {"windows", Json::parse(R"([{"begin":1,"end":4,"node":1,"kind":"civilian","hit":"suanni"}])")}};
+    ext["clips"]["suanni"] = f.level["clips"]["lion"];
+    ext["clips"]["suanni"]["next"] = "suanni";
+    ext["clips"]["suanni"]["windows"] = Json::parse(R"([{"begin":1,"end":5,"node":1,"kind":"target","hit":"@complete"}])");
+    f.mask("tut.mask", 1, 5, 8, 24);
+    f.mask("tut.weak.mask", 2, 5, 12, 14);
+    f.mask("peddler.mask", 1, 4, 40, 50);
+    f.mask("suanni.mask", 1, 5, 8, 24);
+    f.mask("suanni.weak.mask", 2, 5, 12, 14);
+    const fs::path alt = f.folder / "ext";
+    fs::create_directories(alt);
+    for (const char *m : {"tut.mask", "tut.weak.mask", "peddler.mask", "suanni.mask", "suanni.weak.mask"})
+        fs::copy_file(f.folder / m, alt / m, fs::copy_options::overwrite_existing);
+    std::ofstream(alt / "level.json") << ext.dump();
+
+    const Encounter e(alt);
+    require(e.allowSpecial && e.ambience == "dukou_air" && e.progressPrefix == "集市 ",
+            "Encounter metadata extensions failed");
+    Match g(e);
+    g.start();
+    require(g.present(g.generation, 2) == Cue::none && g.scene->holdFrame == 2, "holdFrame parsed incorrectly");
+    require(g.input({15, 16}, g.generation, 2, false, 0.) == Cue::purify && g.energy == 1,
+            "allow_special hit must build sword intent");
+    g.tick(.08, .08);
+    require(g.scene->image.id == "peddler", "expected peddler scene");
+    require(g.present(g.generation, 5) == Cue::none && g.scene->image.id == "suanni" &&
+                g.score >= 600,
+            "forbearance bonus (+500) failed on clean crossing");
+
+    // Firing early/miss during peddler forfeits the +500 forbearance bonus.
+    g.start();
+    g.input({15, 16}, g.generation, 2, false, 0.);
+    const int beforeMiss = g.score;
+    g.tick(.08, .08);
+    require(g.input({10, 10}, g.generation, 0, false, .1) == Cue::miss,
+            "early shot in peddler scene must count as miss");
+    require(g.present(g.generation, 5) == Cue::none && g.score == beforeMiss,
+            "forbearance bonus must be forfeited after firing");
+
+    // Sword Intent (万剑归宗) triggers when full energy and consumes 0 arrows.
+    g.energy = g.rules.charge;
+    g.arrows = 6;
+    require(g.input({15, 16}, g.generation, 1, true, .2) == Cue::special && g.energy == 0 && g.arrows == 6,
+            "allow_special thunder shot failed or consumed arrow");
+
+    // Easy/Hard dynamic recall scaling preserves proportional curve.
+    g.start();
+    g.rules = difficulty("easy");
+    g.arrows = 7;
+    require(g.reload(.5) == Cue::reload && std::abs(g.reloadLeft - .215 * (.4 / .6)) < 1e-5,
+            "easy dynamic recall scaling wrong");
+    g.rules = difficulty("hard");
+    g.tick(.5, 1.0);
+    g.arrows = 7;
+    require(g.reload(1.5) == Cue::reload && std::abs(g.reloadLeft - .215 * (.8 / .6)) < 1e-5,
+            "hard dynamic recall scaling wrong");
+}
+
 void checkFeedbackSchema(Fixture &f) {
     f.level["nodes"][0]["material"] = "feather";
     f.level["nodes"][0]["tier"] = 2;
@@ -301,6 +378,7 @@ int main() {
         Fixture f;
         checkRules(f);
         checkArmor(f);
+        checkChapterOneExtensions(f);
         checkFeedbackSchema(f);
         checkMissAndRestart(Encounter(f.folder));
         checkInvalidWeakMask(f);

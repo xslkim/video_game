@@ -1,0 +1,890 @@
+{
+  "version": 1,
+  "ruleset": "linyuan",
+  "title": "临渊御剑",
+  "fps": 24,
+  "size": [1280,720],
+  "first": "wave_01",
+  "selectable_difficulty": true,
+  "allow_special": true,
+  "ambience": "dukou_air",
+  "progress_prefix": "机关兽 ",
+  "location": "临渊江 · 九曲渡",
+  "briefing": "左键出剑 · 右键或 R 收剑 · 空格万剑归宗",
+  "cleared": "集市已定",
+  "nodes": [
+    {
+      "id": "wave_01",
+      "label": "毕方 · 瞄准胸口琥珀囊",
+      "hp": 1,
+      "score": 100,
+      "material": "feather",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_02",
+      "label": "狻猊 · 瞄准肩上琥珀罐",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_03",
+      "label": "毕方",
+      "hp": 1,
+      "score": 100,
+      "material": "feather",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_04",
+      "label": "狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_05",
+      "label": "狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_06",
+      "label": "喷火狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_07",
+      "label": "毕方",
+      "hp": 1,
+      "score": 100,
+      "material": "feather",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_08",
+      "label": "狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_09",
+      "label": "毕方",
+      "hp": 1,
+      "score": 100,
+      "material": "feather",
+      "tier": 1,
+      "weak_bonus": 50
+    },
+    {
+      "id": "wave_10",
+      "label": "重甲狻猊 · 瞄准肩罐",
+      "hp": 2,
+      "score": 150,
+      "material": "ceramic",
+      "tier": 2,
+      "weak_bonus": 50,
+      "weak_damage": 2,
+      "flinch": "wave_10"
+    },
+    {
+      "id": "wave_11",
+      "label": "喷火狻猊",
+      "hp": 1,
+      "score": 100,
+      "material": "ceramic",
+      "tier": 1,
+      "weak_bonus": 50
+    }
+  ],
+  "clips": {
+    "wave_01_hit_early": {
+      "media": "c1_w_bifang_awning_kill_29",
+      "sha256": "d1ba96e24ed54b5d85f2770de2f5c1b57314eaf40cc516bf7a97f9f1ab0e4784",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_awning",
+      "out_anchor": "dukou",
+      "next": "wave_02"
+    },
+    "wave_01_hit_mid": {
+      "media": "c1_w_bifang_awning_kill_51",
+      "sha256": "022efcbbeb581dfb27d499174bb9f69aa2f732e43a764c7499eaf2284f491f57",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_awning",
+      "out_anchor": "dukou",
+      "next": "wave_02"
+    },
+    "wave_01_hit_late": {
+      "media": "c1_w_bifang_awning_kill_75",
+      "sha256": "af3478126d529e726d9a86483d29f322047ec43e56e488579d301139974caa64",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_awning",
+      "out_anchor": "dukou",
+      "next": "wave_02"
+    },
+    "wave_01": {
+      "media": "c1_w_bifang_awning",
+      "sha256": "3addb16098debc6baf6aaba815f9b6419c7e666cf21ceb7067741aae3f0edc67",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_01",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 0,
+          "hit": "wave_01_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 0,
+          "hit": "wave_01_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 0,
+          "hit": "wave_01_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "collision",
+      "weak_mask": true,
+      "hold_frame": 18,
+      "voice_cues": [
+        {
+          "frame": 8,
+          "voice": "qingping/first",
+          "subtitle": "青萍  看左边棚顶！胸口亮处就是弱点，瞄准琥珀出剑。",
+          "priority": 1
+        },
+        {
+          "frame": 32,
+          "voice": "luchen/up",
+          "subtitle": "陆沉  来吧！",
+          "priority": 1
+        }
+      ]
+    },
+    "wave_02_hit_early": {
+      "media": "c1_w_suanni_tables_kill_29",
+      "sha256": "8115899c7a227b1be5414add60cf3850020dfc551109c81cebaea1ac50e5655c",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "wave_03"
+    },
+    "wave_02_hit_mid": {
+      "media": "c1_w_suanni_tables_kill_51",
+      "sha256": "c466cb4f38e3c256475e7acfb022ce4f18e84c4132e1cc4060a4a6de30674ded",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "wave_03"
+    },
+    "wave_02_hit_late": {
+      "media": "c1_w_suanni_tables_kill_75",
+      "sha256": "d439b2b57fba725ad589f637f05bce47706099163de6f4cadffaa49be19dd060",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "wave_03"
+    },
+    "wave_02": {
+      "media": "c1_w_suanni_tables",
+      "sha256": "8eab51c69420b209cce97355576a461fcd7e57a124690bc67ac926f46a7aa5ed",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_02",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 1,
+          "hit": "wave_02_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 1,
+          "hit": "wave_02_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 1,
+          "hit": "wave_02_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "claw",
+      "weak_mask": true,
+      "voice_cues": [
+        {
+          "frame": 8,
+          "voice": "qingping/canister",
+          "subtitle": "青萍  这头狻猊的罐子在肩侧！直击弱点能把剑弹回来。",
+          "priority": 1
+        }
+      ]
+    },
+    "wave_03_hit_early": {
+      "media": "c1_w_bifang_sky_kill_29",
+      "sha256": "2c456fca917284007cda355980911cf96a479dcc7f487f471f238fec9d9d6be6",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_sky",
+      "out_anchor": "dukou",
+      "next": "wave_04"
+    },
+    "wave_03_hit_mid": {
+      "media": "c1_w_bifang_sky_kill_51",
+      "sha256": "d9afdb301b8c95785fd2ab884ba3f69813d6ebca17c1f64cd07d25cc2597af34",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_sky",
+      "out_anchor": "dukou",
+      "next": "wave_04"
+    },
+    "wave_03_hit_late": {
+      "media": "c1_w_bifang_sky_kill_75",
+      "sha256": "e0fc66171a7b11199c44eb03d4776e60ed7fb82a6f3c049fd0a4edb41f4c1d82",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_sky",
+      "out_anchor": "dukou",
+      "next": "wave_04"
+    },
+    "wave_03": {
+      "media": "c1_w_bifang_sky",
+      "sha256": "96c70d334e75e19b4d93098a68a22d639317c64653ca0925ec86e1fbda5a8b48",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_03",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 2,
+          "hit": "wave_03_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 2,
+          "hit": "wave_03_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 2,
+          "hit": "wave_03_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "collision",
+      "weak_mask": true
+    },
+    "wave_04_hit_early": {
+      "media": "c1_w_suanni_shrine_kill_29",
+      "sha256": "cba89a698002bf7cce6d838d49ea5386875892d153983484b913f933bab11774",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_shrine",
+      "out_anchor": "dukou",
+      "next": "wave_05"
+    },
+    "wave_04_hit_mid": {
+      "media": "c1_w_suanni_shrine_kill_51",
+      "sha256": "20ca1b36d3b5c8b2c47a2d27555622c882a483133626712354bedd7cd31e4519",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_shrine",
+      "out_anchor": "dukou",
+      "next": "wave_05"
+    },
+    "wave_04_hit_late": {
+      "media": "c1_w_suanni_shrine_kill_75",
+      "sha256": "2ae102146f3431547183931a52b4d8d332ffcdd622fbcbea42896d05c1a9a047",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_shrine",
+      "out_anchor": "dukou",
+      "next": "wave_05"
+    },
+    "wave_04": {
+      "media": "c1_w_suanni_shrine",
+      "sha256": "817f1ecd4b583665bad5b7740ce3f698a435c6da917c006fe21f5c6d9638125c",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_04",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 3,
+          "hit": "wave_04_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 3,
+          "hit": "wave_04_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 3,
+          "hit": "wave_04_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "claw",
+      "weak_mask": true,
+      "voice_cues": [
+        {
+          "frame": 8,
+          "voice": "qingping/shrine",
+          "subtitle": "青萍  神龛右边又出来一只！",
+          "priority": 1
+        }
+      ]
+    },
+    "wave_05_hit_early": {
+      "media": "c1_w_suanni_tables_kill_29",
+      "sha256": "8115899c7a227b1be5414add60cf3850020dfc551109c81cebaea1ac50e5655c",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "peddler_06"
+    },
+    "wave_05_hit_mid": {
+      "media": "c1_w_suanni_tables_kill_51",
+      "sha256": "c466cb4f38e3c256475e7acfb022ce4f18e84c4132e1cc4060a4a6de30674ded",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "peddler_06"
+    },
+    "wave_05_hit_late": {
+      "media": "c1_w_suanni_tables_kill_75",
+      "sha256": "d439b2b57fba725ad589f637f05bce47706099163de6f4cadffaa49be19dd060",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "peddler_06"
+    },
+    "wave_05": {
+      "media": "c1_w_suanni_tables",
+      "sha256": "8eab51c69420b209cce97355576a461fcd7e57a124690bc67ac926f46a7aa5ed",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_05",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 4,
+          "hit": "wave_05_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 4,
+          "hit": "wave_05_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 4,
+          "hit": "wave_05_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "claw",
+      "weak_mask": true
+    },
+    "peddler_06": {
+      "media": "c1_w_peddler",
+      "sha256": "d8873f64d64a33a2e792dc0cd8ec052d589a4329fad5f88fc9650a5944251517",
+      "frames": 54,
+      "start": 2,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_06",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 42,
+          "kind": "civilian",
+          "node": 5,
+          "hit": "wave_06"
+        }
+      ],
+      "forbearance_bonus": 500,
+      "voice_cues": [
+        {
+          "frame": 4,
+          "voice": "qingping/civilian",
+          "subtitle": "青萍  百姓！收剑别误伤，等他跑过去。",
+          "priority": 2
+        }
+      ]
+    },
+    "wave_06_hit_early": {
+      "media": "c1_w_suanni_bridge_kill_29",
+      "sha256": "62be338d63b372bb3deb017a8257f86f4cdce3ffc039d364e4761e8b5aa795d3",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_bridge",
+      "out_anchor": "dukou",
+      "next": "wave_07"
+    },
+    "wave_06_hit_mid": {
+      "media": "c1_w_suanni_bridge_kill_51",
+      "sha256": "b734c3c9e0c4a0357da9734aa56f88b939daf9e8e5988ce069cbfd78adb1d373",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_bridge",
+      "out_anchor": "dukou",
+      "next": "wave_07"
+    },
+    "wave_06_hit_late": {
+      "media": "c1_w_suanni_bridge_kill_75",
+      "sha256": "6d1654d3348185d6d3a26f99cb3af89f6a4e4813fbe69407a2b932849d333f4b",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_bridge",
+      "out_anchor": "dukou",
+      "next": "wave_07"
+    },
+    "wave_06": {
+      "media": "c1_w_suanni_bridge",
+      "sha256": "21c47ef33f005f29961877e22b8d28de438bbdd1019dfaa7be1cd2922fab0b89",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_06",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 5,
+          "hit": "wave_06_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 5,
+          "hit": "wave_06_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 5,
+          "hit": "wave_06_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "blast",
+      "weak_mask": true,
+      "voice_cues": [
+        {
+          "frame": 8,
+          "voice": "qingping/bridge",
+          "subtitle": "青萍  桥上那只在蓄火！",
+          "priority": 1
+        }
+      ]
+    },
+    "wave_07_hit_early": {
+      "media": "c1_w_bifang_awning_kill_29",
+      "sha256": "d1ba96e24ed54b5d85f2770de2f5c1b57314eaf40cc516bf7a97f9f1ab0e4784",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_awning",
+      "out_anchor": "dukou",
+      "next": "wave_08"
+    },
+    "wave_07_hit_mid": {
+      "media": "c1_w_bifang_awning_kill_51",
+      "sha256": "022efcbbeb581dfb27d499174bb9f69aa2f732e43a764c7499eaf2284f491f57",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_awning",
+      "out_anchor": "dukou",
+      "next": "wave_08"
+    },
+    "wave_07_hit_late": {
+      "media": "c1_w_bifang_awning_kill_75",
+      "sha256": "af3478126d529e726d9a86483d29f322047ec43e56e488579d301139974caa64",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_awning",
+      "out_anchor": "dukou",
+      "next": "wave_08"
+    },
+    "wave_07": {
+      "media": "c1_w_bifang_awning",
+      "sha256": "3addb16098debc6baf6aaba815f9b6419c7e666cf21ceb7067741aae3f0edc67",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_07",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 6,
+          "hit": "wave_07_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 6,
+          "hit": "wave_07_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 6,
+          "hit": "wave_07_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "collision",
+      "weak_mask": true
+    },
+    "wave_08_hit_early": {
+      "media": "c1_w_suanni_shrine_kill_29",
+      "sha256": "cba89a698002bf7cce6d838d49ea5386875892d153983484b913f933bab11774",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_shrine",
+      "out_anchor": "dukou",
+      "next": "wave_09"
+    },
+    "wave_08_hit_mid": {
+      "media": "c1_w_suanni_shrine_kill_51",
+      "sha256": "20ca1b36d3b5c8b2c47a2d27555622c882a483133626712354bedd7cd31e4519",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_shrine",
+      "out_anchor": "dukou",
+      "next": "wave_09"
+    },
+    "wave_08_hit_late": {
+      "media": "c1_w_suanni_shrine_kill_75",
+      "sha256": "2ae102146f3431547183931a52b4d8d332ffcdd622fbcbea42896d05c1a9a047",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_shrine",
+      "out_anchor": "dukou",
+      "next": "wave_09"
+    },
+    "wave_08": {
+      "media": "c1_w_suanni_shrine",
+      "sha256": "817f1ecd4b583665bad5b7740ce3f698a435c6da917c006fe21f5c6d9638125c",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_08",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 7,
+          "hit": "wave_08_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 7,
+          "hit": "wave_08_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 7,
+          "hit": "wave_08_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "claw",
+      "weak_mask": true
+    },
+    "wave_09_hit_early": {
+      "media": "c1_w_bifang_sky_kill_29",
+      "sha256": "2c456fca917284007cda355980911cf96a479dcc7f487f471f238fec9d9d6be6",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_sky",
+      "out_anchor": "dukou",
+      "next": "wave_10"
+    },
+    "wave_09_hit_mid": {
+      "media": "c1_w_bifang_sky_kill_51",
+      "sha256": "d9afdb301b8c95785fd2ab884ba3f69813d6ebca17c1f64cd07d25cc2597af34",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_sky",
+      "out_anchor": "dukou",
+      "next": "wave_10"
+    },
+    "wave_09_hit_late": {
+      "media": "c1_w_bifang_sky_kill_75",
+      "sha256": "e0fc66171a7b11199c44eb03d4776e60ed7fb82a6f3c049fd0a4edb41f4c1d82",
+      "frames": 22,
+      "in_anchor": "c1_w_bifang_sky",
+      "out_anchor": "dukou",
+      "next": "wave_10"
+    },
+    "wave_09": {
+      "media": "c1_w_bifang_sky",
+      "sha256": "96c70d334e75e19b4d93098a68a22d639317c64653ca0925ec86e1fbda5a8b48",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_09",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 8,
+          "hit": "wave_09_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 8,
+          "hit": "wave_09_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 8,
+          "hit": "wave_09_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "collision",
+      "weak_mask": true
+    },
+    "wave_10_hit_early": {
+      "media": "c1_w_suanni_tables_kill_29",
+      "sha256": "8115899c7a227b1be5414add60cf3850020dfc551109c81cebaea1ac50e5655c",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "wave_11"
+    },
+    "wave_10_hit_mid": {
+      "media": "c1_w_suanni_tables_kill_51",
+      "sha256": "c466cb4f38e3c256475e7acfb022ce4f18e84c4132e1cc4060a4a6de30674ded",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "wave_11"
+    },
+    "wave_10_hit_late": {
+      "media": "c1_w_suanni_tables_kill_75",
+      "sha256": "d439b2b57fba725ad589f637f05bce47706099163de6f4cadffaa49be19dd060",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_tables",
+      "out_anchor": "dukou",
+      "next": "wave_11"
+    },
+    "wave_10": {
+      "media": "c1_w_suanni_tables",
+      "sha256": "8eab51c69420b209cce97355576a461fcd7e57a124690bc67ac926f46a7aa5ed",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_10",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 9,
+          "hit": "wave_10_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 9,
+          "hit": "wave_10_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 9,
+          "hit": "wave_10_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "claw",
+      "weak_mask": true
+    },
+    "wave_11_hit_early": {
+      "media": "c1_w_suanni_bridge_kill_29",
+      "sha256": "62be338d63b372bb3deb017a8257f86f4cdce3ffc039d364e4761e8b5aa795d3",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_bridge",
+      "out_anchor": "dukou",
+      "next": "@complete"
+    },
+    "wave_11_hit_mid": {
+      "media": "c1_w_suanni_bridge_kill_51",
+      "sha256": "b734c3c9e0c4a0357da9734aa56f88b939daf9e8e5988ce069cbfd78adb1d373",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_bridge",
+      "out_anchor": "dukou",
+      "next": "@complete"
+    },
+    "wave_11_hit_late": {
+      "media": "c1_w_suanni_bridge_kill_75",
+      "sha256": "6d1654d3348185d6d3a26f99cb3af89f6a4e4813fbe69407a2b932849d333f4b",
+      "frames": 22,
+      "in_anchor": "c1_w_suanni_bridge",
+      "out_anchor": "dukou",
+      "next": "@complete"
+    },
+    "wave_11": {
+      "media": "c1_w_suanni_bridge",
+      "sha256": "21c47ef33f005f29961877e22b8d28de438bbdd1019dfaa7be1cd2922fab0b89",
+      "frames": 107,
+      "start": 0,
+      "in_anchor": "dukou",
+      "out_anchor": "dukou",
+      "next": "wave_11",
+      "windows": [
+        {
+          "begin": 8,
+          "end": 37,
+          "kind": "target",
+          "node": 10,
+          "hit": "wave_11_hit_early"
+        },
+        {
+          "begin": 37,
+          "end": 66,
+          "kind": "target",
+          "node": 10,
+          "hit": "wave_11_hit_mid"
+        },
+        {
+          "begin": 66,
+          "end": 95,
+          "kind": "target",
+          "node": 10,
+          "hit": "wave_11_hit_late"
+        }
+      ],
+      "warning_frame": 83,
+      "impact_frame": 99,
+      "attack": "blast",
+      "weak_mask": true
+    }
+  },
+  "plate": {
+    "media": "c1_dukou_plate",
+    "sha256": "f801d59939b411cb12a41e582a997ec7473dd4124833d49800f15b4c40a9c86e",
+    "frames": 175
+  },
+  "materials": [
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","air","air","bamboo","bamboo","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","bamboo","stone","bamboo","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","stone","bamboo","bamboo","bamboo","bamboo","bamboo","stone","bamboo"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","air","bamboo","air","air","air","air","air","air","bamboo","bamboo","bamboo","air","stone","air","bamboo","bamboo","bamboo","bamboo","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","air","air","air","air","air","bamboo","bamboo","bamboo","air","air","air","air","bamboo","bamboo","bamboo","air","stone","air","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","air","air","air","air","air","bamboo","bamboo","bamboo","air","air","air","air","air","air","air","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","bamboo","air","air","air","air","air","stone","bamboo","air","bamboo","bamboo","bamboo","stone","stone","stone","stone","metal","metal","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","bamboo","stone","stone","stone","air","air","air","air","air","air","air","air","air","air","bamboo","bamboo","bamboo","air","bamboo","bamboo","bamboo","air","stone","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","air","air","air","bamboo","bamboo","air","air","bamboo","bamboo","bamboo","bamboo","air","air","air","air","metal","stone","air","stone","stone","stone","stone","stone","air","stone","stone","stone","stone","stone","stone","stone","bamboo","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","air","air","stone","bamboo","bamboo","bamboo","bamboo","air","air","air","air","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","metal","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","bamboo","stone","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","metal","metal","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","bamboo","stone","stone","stone","stone","stone","stone","bamboo","stone","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","water","water","water","stone","stone","stone","stone","stone","stone","stone","water","water","water","water","water","water","stone","stone","metal","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","water","water","stone","stone","stone","stone","stone","stone","stone","water","water","water","stone","water","water","stone","metal","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","water","water","water","stone","stone","stone","stone","stone","stone","stone","water","water","stone","stone","water","water","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","stone","water","water","stone","stone","stone","water","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","water","stone","stone","stone","stone","stone","stone","stone","stone","water","water","stone","water","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","metal"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","stone","water","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","water","water","stone","water","water","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","water","water","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone","stone"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
+    ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"]
+  ],
+  "materials_sha256": "f801d59939b411cb12a41e582a997ec7473dd4124833d49800f15b4c40a9c86e"
+}

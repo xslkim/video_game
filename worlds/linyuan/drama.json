@@ -22,5 +22,140 @@
   "c1_12_rebuke": {
     "frames": 72,
     "sha256": "ecd71e4748aa8001e119b66b525869b57e02e07c10863dbd598d7147386866db"
+  },
+  "c1_01_vista": {
+    "sha256": "b398f84a7f9c319f9735459329cbfee85cb8e9713473223fbffbf0aeae73dcf3",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_02_descend": {
+    "sha256": "1518edc5ebd4748be104e72565ea2d2483fd3e04c0adc34f975b3ffd9ae15675",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_03_market": {
+    "sha256": "5099d1c0553507b2680fdbf71a9e1c56395d9fec76b2d743f489ef12df46148b",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_05_redeye": {
+    "sha256": "6c7b395b450259f31a5b6bceedfe5441627571e5c3400f6acfcc0a8d5e624e71",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_06_leap": {
+    "sha256": "6c73585df2ead98adb87a68c0f852d428fef77ce2ab7b438b956e709a4bcbb59",
+    "frames": 73,
+    "speed": 1.0
+  },
+  "c1_13_conch": {
+    "sha256": "a0fcc13f45d94791f46e568ade90627aff2c85973f66adcb329497205b56efc6",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_14_core": {
+    "sha256": "b1d43f4d4710a2bfb76ff16aadb0d12bdd4bc34e941a1175f982236288428c7b",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_15_lookup": {
+    "sha256": "2a8affb1f05e08505dd95b2598d9b06b7dfcd8b81f0140e2aeca2a6742003ef3",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_20_smoke": {
+    "sha256": "b839873b91879fd862c14b38260ac93eed8330152404fcaf6c76999137231b1a",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_21_run": {
+    "sha256": "7309168616e830c372424645c374966e8543b55e8c06f2b254feb3a16e5f4858",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_22_board": {
+    "sha256": "2990413cc945eaf5af505a5465446d8d660c556000d4647d609d4aea998d73d5",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_boss_break": {
+    "sha256": "cdae33701a100713348d277dccfb35eb46c983c85661b11b0986278e77e48e0f",
+    "frames": 48,
+    "speed": 1.0
+  },
+  "c1_boss_enter": {
+    "sha256": "01307313a1f5edadd6e0749f39890bfec9a61cfbf3e87eece2fd23eaf2b0bb2e",
+    "frames": 72,
+    "speed": 1.0
+  },
+  "c1_boss_expose": {
+    "sha256": "726dd54c67e12942fef48644b7345909bc7628b122eab5cc996fd35577a1d269",
+    "frames": 48,
+    "speed": 1.0
+  },
+  "c1_boss_kill": {
+    "sha256": "58b615299fd1cc1eff25496e751a750156f816ab30a64a4655e31616e3411008",
+    "frames": 60,
+    "speed": 1.0
+  },
+  "c1_boss_p1_a": {
+    "sha256": "6c6473c8682a795aaa8fc7861a80799965d95a5f2e181e809197fe9eb879bcec",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_boss_p1_b": {
+    "sha256": "b4608febb33262c8d26459ee37fa0dd420f0d9dc67bda3b4f6efb311c6b9d451",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_boss_p1_c": {
+    "sha256": "1afbc7b4533498752518b40544603040b3f14fdf22bff0688bd3a81b40b3a20a",
+    "frames": 124,
+    "speed": 1.0
+  },
+  "c1_boss_p1_flinch_l": {
+    "sha256": "6bbbebb7e14944abcfc5665b277143d49e538065d24cce0832aa3468667eb48d",
+    "frames": 26,
+    "speed": 1.0
+  },
+  "c1_boss_p1_flinch_r": {
+    "sha256": "7b63a74e26754772dd944079a25d3ca1d5e3706b419ae017983b676b77fe3183",
+    "frames": 26,
+    "speed": 1.0
+  },
+  "c1_boss_p2_impact": {
+    "sha256": "e61a5e8da9499f43a5ac683cd6e4df34753dfeb3313b47768529e3a4a3dc3d75",
+    "frames": 26,
+    "speed": 1.0
+  },
+  "c1_boss_p2_intercept_early": {
+    "sha256": "4dc62389e7560836e194953fed6492b80c1c8243cc5bfaa466202bc01a6ade33",
+    "frames": 26,
+    "speed": 1.0
+  },
+  "c1_boss_p2_intercept_late": {
+    "sha256": "81a4bb80876b505d8a5a5c86350dd2bfc714506023a8922b399f84ca3d8ddaf1",
+    "frames": 26,
+    "speed": 1.0
+  },
+  "c1_boss_p2_intercept_mid": {
+    "sha256": "3b935b66253f0a720fca8f675dcd6ab8a134db83255c32d66d4a43203f70589a",
+    "frames": 26,
+    "speed": 1.0
+  },
+  "c1_boss_p2_launch": {
+    "sha256": "c8a990fddc25bbd7631a135e01ff035e377fb38f9b63bd9943ae429f254be6f4",
+    "frames": 64,
+    "speed": 1.0
+  },
+  "c1_boss_p3": {
+    "sha256": "1dee6023bb8a0f1965cb6e13fc7baffbea4d2ce6f851eeb5a3cdef9f87146fb2",
+    "frames": 107,
+    "speed": 1.0
+  },
+  "c1_boss_p3_flinch": {
+    "sha256": "44be31e12c418abacde5f579bd3fa04c2142d2146fb5aee00b5247f7a1d48576",
+    "frames": 26,
+    "speed": 1.0
   }
 }

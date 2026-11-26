@@ -1,0 +1,97 @@
+{
+  "qingping/redeye": {
+    "file": "assets/linyuan/audio/voice/qingping/redeye.wav",
+    "seconds": 3.7246,
+    "sha256": "0463277f0d9b3ea02b8b68125c646643c428556c52953b0475947102096b1716"
+  },
+  "qingping/first": {
+    "file": "assets/linyuan/audio/voice/qingping/first.wav",
+    "seconds": 1.5883,
+    "sha256": "4cd422187da004ddc17ac5d99db8b0c6f64367f1a4e1e4d7d446aeb73677205e"
+  },
+  "qingping/up": {
+    "file": "assets/linyuan/audio/voice/qingping/up.wav",
+    "seconds": 0.632,
+    "sha256": "5ef24a614076f943c3de4d546b8ecb1c92f1efd3cc43b85814b2285e950f5826"
+  },
+  "qingping/canister": {
+    "file": "assets/linyuan/audio/voice/qingping/canister.wav",
+    "seconds": 1.676,
+    "sha256": "901ce05164b41cca23b351bf52fd5e57fef62d0a3be80cb5a64158556e1f0600"
+  },
+  "qingping/shrine": {
+    "file": "assets/linyuan/audio/voice/qingping/shrine.wav",
+    "seconds": 1.806,
+    "sha256": "92e08172d4bc070af39a2454b74b6ef96c47705d93cb6a7ce29ad8532e99c9e4"
+  },
+  "qingping/civilian": {
+    "file": "assets/linyuan/audio/voice/qingping/civilian.wav",
+    "seconds": 1.8372,
+    "sha256": "e76768bf2fb8e7cdc2ce12aea05dcb8b2139c94431a16f4c6877a9d6f15ddb17"
+  },
+  "qingping/bridge": {
+    "file": "assets/linyuan/audio/voice/qingping/bridge.wav",
+    "seconds": 0.64,
+    "sha256": "163dac696ed12028d44e1f3c99e6fe2640a0afeee35e95eafcc8fa48ae17927d"
+  },
+  "qingping/reload": {
+    "file": "assets/linyuan/audio/voice/qingping/reload.wav",
+    "seconds": 1.5955,
+    "sha256": "495fbf8e9fdddce6aecb330fd83cc9ea6f3e6fb080e0aea884bf86405b9a8af6"
+  },
+  "qingping/core": {
+    "file": "assets/linyuan/audio/voice/qingping/core.wav",
+    "seconds": 3.3806,
+    "sha256": "93a38333ac66286b628a6e450965a085b4a0f9eb9fe65f545dae02c30fc3e5a4"
+  },
+  "qingping/canisters": {
+    "file": "assets/linyuan/audio/voice/qingping/canisters.wav",
+    "seconds": 2.2102,
+    "sha256": "1f5e1c226c7285b9c916d82bc1edf6a9a4563f7497783cc0bdc3243e3fddf6a7"
+  },
+  "qingping/fireball": {
+    "file": "assets/linyuan/audio/voice/qingping/fireball.wav",
+    "seconds": 1.9147,
+    "sha256": "0e41a4d192378397e60496f9735f163ac64156bfffdb27bbe4214b42ee1d7b66"
+  },
+  "qingping/mouth": {
+    "file": "assets/linyuan/audio/voice/qingping/mouth.wav",
+    "seconds": 2.207,
+    "sha256": "106151d5649372b83cd1e6968e0caffa1e0f9951a6e765e876a687ce15623a2a"
+  },
+  "qingping/xuanwu": {
+    "file": "assets/linyuan/audio/voice/qingping/xuanwu.wav",
+    "seconds": 3.9385,
+    "sha256": "9e5ec7c433a416f70ecc3f66f4d6ddf638396b2d57e3f016d8a3c797308b3a77"
+  },
+  "qingping/hurt_1": {
+    "file": "assets/linyuan/audio/voice/qingping/hurt_1.wav",
+    "seconds": 0.7947,
+    "sha256": "62fec4089c46328c93d774724e3bd8f7f88621358d33d269d91c64a564bd9c23"
+  },
+  "qingping/hurt_2": {
+    "file": "assets/linyuan/audio/voice/qingping/hurt_2.wav",
+    "seconds": 1.3014,
+    "sha256": "d4e56f8e0bec30bcfdc801ca2d5ea7c4f84453d61990e47f98c988deaf06e4ee"
+  },
+  "qingping/hurt_3": {
+    "file": "assets/linyuan/audio/voice/qingping/hurt_3.wav",
+    "seconds": 0.7953,
+    "sha256": "a35f739d3bb4eb99e5ffc87d681d4dbcedca822f185e978c50bd94466695c303"
+  },
+  "qingping/protect": {
+    "file": "assets/linyuan/audio/voice/qingping/protect.wav",
+    "seconds": 0.7127,
+    "sha256": "0f480d77f957d9478e782d11871abe3f09335a11fa424d97700d4b71242172f2"
+  },
+  "luchen/up": {
+    "file": "assets/linyuan/audio/voice/luchen/up.wav",
+    "seconds": 0.7854,
+    "sha256": "6e97780e77f63c1d9c3986b79c3a42dec611f5d8e4be3f2987c6e6448dd88173"
+  },
+  "laojiu/conch": {
+    "file": "assets/linyuan/audio/voice/laojiu/conch.wav",
+    "seconds": 4.6653,
+    "sha256": "2c5c39bed775451c9f3384c8c5f92daf97741ac3407d673c057eaf19ed436fad"
+  }
+}

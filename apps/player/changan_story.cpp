@@ -1,5 +1,6 @@
 #include "changan_story.hpp"
 #include "changan_record.hpp"
+#include "gamepad_input.hpp"
 #include "linyuan_feedback.hpp"
 #include "sound.hpp"
 #include "ui.hpp"
@@ -165,6 +166,8 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         throw std::runtime_error(SDL_GetError());
     auto now = [] { return SDL_GetTicksNS() / 1e9; };
     int displayed = -1;
+    const int filmEnd = film.endFrame > 0 ? std::min(film.endFrame, film.frames) : film.frames;
+    const int filmStart = std::clamp(film.startFrame, 0, filmEnd - 1);
     Point aim{-1, -1};
     uint64_t submitted = 0;
     std::deque<std::pair<uint64_t, int>> history;
@@ -179,7 +182,8 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
     double exposedLeft = 0;
     double effectTime = 0, effectAt = -1;
     Point effectPoint{};
-    sound.begin(movie, 0, 1., now());
+    GamepadController gamepad;
+    sound.begin(movie, filmStart, 1., now());
     if (!film.voice.empty() && film.cues.empty())
         say(film.voice);
     sound.clipGain(film.take == "aying_help" ? voiceGain : effectsGain);
@@ -265,7 +269,8 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         };
         auto reload = [&] {
             if (arrows && (!choice || !choice->story) && !paused && *arrows < 8 && reloadLeft <= 0) {
-                reloadLeft = choice ? choice->reloadDuration : travel.duration;
+                const double base = choice ? choice->reloadDuration : travel.duration;
+                reloadLeft = (choice && choice->linyuan) ? (.16 + .055 * (8 - *arrows)) * (base / .6) : base;
                 foley.cue("reload");
             }
         };
@@ -345,6 +350,27 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
             });
         SDL_Event e;
         while (SDL_PollEvent(&e)) {
+            gamepad.poll(
+                e, aim,
+                [&](Point p, uint64_t when) {
+                    if (paused)
+                        pause(false);
+                    else if (choice)
+                        fire(p, when);
+                    else
+                        skip = true;
+                },
+                reload,
+                [&] {
+                    if (choice && (choice->canExpose || choice->canStrike))
+                        expose();
+                },
+                [&] {
+                    if (choice)
+                        pause(!paused);
+                    else
+                        skip = true;
+                });
             if (e.type == SDL_EVENT_QUIT)
                 return FilmEnd::quit;
             if (e.type == SDL_EVENT_WINDOW_FOCUS_LOST && !automated)
@@ -376,9 +402,18 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
             }
             if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN && e.button.button == SDL_BUTTON_RIGHT)
                 reload();
-            if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN && e.button.button == SDL_BUTTON_MIDDLE)
-                expose();
+            if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN && e.button.button == SDL_BUTTON_MIDDLE) {
+                if (choice && choice->canExpose)
+                    expose();
+                else if (choice && choice->canStrike && !paused && !choice->fired &&
+                         displayed >= choice->begin && displayed < choice->end)
+                    expose();
+            }
         }
+        gamepad.updateAim(aim, 1280, 720, [&](Point p, uint64_t when) {
+            if (choice && !paused)
+                fire(p, when);
+        });
         if (choice && choice->fired && !paused && effectTime - effectAt >= .29)
             return FilmEnd::selected;
         if (choice && !choice->fired && !paused &&
@@ -396,18 +431,18 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         }
         if (score)
             score->update(!paused);
-        if (choice && !choice->fired && frame >= film.frames && !paused && displayed == film.frames - 1 &&
-            choice->end == film.frames) {
+        if (choice && !choice->fired && frame >= filmEnd && !paused && displayed == filmEnd - 1 &&
+            choice->end == filmEnd) {
             const auto cutoff = SDL_GetTicksNS();
             choice->closed = cutoff / 1e9;
             if (automated && choice->boundaryProbes && !sentLate)
                 fire({15., 18.}, cutoff);
             return FilmEnd::expired;
         }
-        if (frame >= film.frames && !paused && displayed == film.frames - 1 &&
+        if (frame >= filmEnd && !paused && displayed == filmEnd - 1 &&
             (!dialogue || SDL_GetAudioStreamQueued(dialogue.get()) == 0))
             return FilmEnd::finished;
-        const int shown = std::clamp(frame, 0, film.frames - 1);
+        const int shown = std::clamp(frame, filmStart, filmEnd - 1);
         if (shown != displayed) {
             const auto *pic = movie.at(shown);
             if (!SDL_UpdateYUVTexture(texture.get(), nullptr, pic->data[0], pic->linesize[0], pic->data[1],
@@ -447,12 +482,13 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         if (choice && effectAt >= 0 && age < .29 && choice->newFeedback) {
             const Point screenPoint{picture.x + effectPoint.x * picture.w / 1280.,
                                     picture.y + effectPoint.y * picture.h / 720.};
-            drawLinyuanEffect(ink,
-                              civilian                     ? Cue::civilian
+            const Cue fxCue = civilian                     ? Cue::civilian
+                              : choice->specialFinish      ? Cue::special
                               : choice->selected == "miss" ? Cue::miss
-                                                           : Cue::purify,
-                              screenPoint, age, choice->reducedFlash, 2, precise, LinyuanImpact::claw, 0, "feather",
-                              -1, 0, precise, .145);
+                                                           : Cue::purify;
+            drawLinyuanEffect(ink, fxCue, screenPoint, age, choice->reducedFlash,
+                              choice->specialFinish ? 4 : choice->tier, precise || choice->specialFinish,
+                              LinyuanImpact::claw, 0, choice->material, -1, 0, precise, .145);
         } else if (choice && effectAt >= 0 && age < .29) {
             const auto a = Uint8(230 * (1. - age / .29));
             ink.ring(effectPoint, int(8 + 74 * age), {255, 213, 125, a});
@@ -486,7 +522,8 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                         targetPoint = region.id == choice->answer;
                         break;
                     }
-                drawLinyuanReticle(ink, aim, choice->ammo, false, targetPoint, targetPoint, protectedPoint);
+                drawLinyuanReticle(ink, aim, choice->ammo, reloadLeft > 0, targetPoint, targetPoint,
+                                   protectedPoint, choice->canStrike);
             } else if (aim.x >= 0)
                 ink.ring(aim, 9, ivory);
             if (choice->regions.size() == 1 || choice->highlight || choice->exposed || choice->protectAssist) {
@@ -510,10 +547,12 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
             ink.text(1173, 680, 17, paused ? "点击继续" : "空格  跳过本段", ivory, true);
         }
         if (choice && !choice->story) {
-            ink.box(26, 24, 346, 52, {9, 12, 20, 185});
+            ink.box(26, 24, 396, 52, {9, 12, 20, 185});
             ink.text(44, 38, 20,
-                     "生命 " + std::to_string(choice->lives) + "     " +
-                         (reloadLeft > 0 ? "更换符匣" : "符箭 " + std::to_string(choice->ammo) + " / 8"),
+                     (choice->linyuan ? "剑穗 " : "生命 ") + std::to_string(choice->lives) + "     " +
+                         (reloadLeft > 0 ? (choice->linyuan ? "收剑中" : "更换符匣")
+                                         : (choice->linyuan ? "飞剑 " : "符箭 ") + std::to_string(choice->ammo) + " / 8") +
+                         (choice->canStrike ? (choice->linyuan ? "   中键 万剑归宗" : "   空格 雷符") : ""),
                      ivory);
             if (automated && choice->ammo < choice->strength - choice->partialHits - choice->specialDamage)
                 reload();
@@ -630,6 +669,7 @@ Progress Progress::load(const fs::path &file) {
     state.arrows = std::clamp(data.value("arrows", 8), 0, 8);
     state.reloadRemaining = std::clamp(data.value("reload_remaining", 0.), 0., .8);
     state.subtitles = data.at("subtitles");
+    state.lastStoryCivilian = data.value("last_story_civilian", false);
     state.musicVolume = std::clamp(data.value("music", 60), 0, 100);
     state.effectsVolume = std::clamp(data.value("effects", 80), 0, 100);
     state.voiceVolume = std::clamp(data.value("voice", 100), 0, 100);
@@ -659,6 +699,7 @@ void Progress::save(const fs::path &file) const {
               {"arrows", arrows},
               {"reload_remaining", reloadRemaining},
               {"subtitles", subtitles},
+              {"last_story_civilian", lastStoryCivilian},
               {"music", musicVolume},
               {"effects", effectsVolume},
               {"voice", voiceVolume},
@@ -697,6 +738,8 @@ Campaign::Campaign(const CampaignWorld &world, const std::string &name) : linyua
             stage.id = item.at("id");
             stage.heading = chapter.at("heading");
             stage.chapter = id;
+            stage.linyuan = world.linyuan();
+            stage.allowSpecial = item.value("allow_special", !world.linyuan());
             stage.music = item.value("music", "");
             if (!stage.music.empty())
                 checkId(stage.music);
@@ -778,6 +821,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
     int visits = 0;
     bool safeRescue = true;
     int retries = 0;
+    int bossHp = -1;
+    std::string bossStep;
     Json trace = Json::array();
     while (step != "@complete") {
         if (automated && ++visits > 150)
@@ -785,6 +830,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
         const auto &record = trial.at("steps").at(step);
         const std::string take = record.at("take");
         Film movie = film(take);
+        movie.startFrame = record.value("start_frame", 0);
+        movie.endFrame = record.value("end_frame", movie.frames);
         movie.voice = record.value("voice", "");
         movie.subtitle = record.value("subtitle", "");
         movie.cues = readDialogue(record, movie.frames);
@@ -795,30 +842,47 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
         int start = windowFrames.at(0);
         int length = windowFrames.at(1);
         const bool storyShot = record.value("story_shot", false);
-        const double windowRate = record.value("window_rate", 1.);
+        double windowRate = record.value("window_rate", 1.);
         if (!(windowRate > 0 && windowRate <= 1.))
             throw std::runtime_error("Invalid trial playback rate: " + step);
-        if (storyShot && record.contains("window_seconds"))
-            length = int(std::lround(record.at("window_seconds").get<double>() * windowRate * 24.));
-        else if (storyShot)
+        if (storyShot && record.contains("window_seconds")) {
+            const double mult = world.linyuan()
+                                    ? (state.difficulty == "easy" ? 1.5 : state.difficulty == "hard" ? .6 : 1.)
+                                    : 1.;
+            const double desired = record.at("window_seconds").get<double>() * mult;
+            windowRate = double(length) / (desired * 24.);
+        } else if (storyShot) {
             length = state.difficulty == "easy" ? 72 : state.difficulty == "hard" ? 29 : 48;
-        else {
+        } else {
             const bool flight = record.value("projectile", false);
             const double scale = state.difficulty == "easy"   ? (flight ? 1.3 : 1.4)
                                  : state.difficulty == "hard" ? (flight ? .7 : .65)
                                                               : 1.;
-            length = std::min(movie.frames - start - 1, int(std::lround(length * scale)));
+            length = std::min(movie.endFrame - start - 1, int(std::lround(length * scale)));
         }
         FilmChoice target{start, start + length, record.at("prompt"), record.at("answer")};
         target.playbackRate = windowRate;
+        target.linyuan = world.linyuan();
         target.newFeedback = newFeedback;
         target.reducedFlash = reducedFlash;
         target.shakeEnabled = shakeEnabled;
         target.protectAssist = world.linyuan();
+        target.material = record.value("material", storyShot ? "feather" : "ceramic");
+        target.tier = record.value("tier", 2);
         target.replayAnswer = target.answer;
         target.assist = state.difficulty == "easy" ? 24 : state.difficulty == "hard" ? 0 : 12;
         target.story = storyShot;
-        target.strength = record.value("strength", 1);
+        const int baseBossHp = record.value("boss_hp", 0);
+        if (baseBossHp > 0) {
+            const int adj = state.difficulty == "easy" ? -1 : state.difficulty == "hard" ? 1 : 0;
+            if (bossStep != step) {
+                bossStep = step;
+                bossHp = std::max(1, baseBossHp + adj);
+            }
+            target.strength = 1;
+        } else {
+            target.strength = record.value("strength", 1);
+        }
         if (target.strength < 1 || target.strength > 6 || (storyShot && target.strength != 1))
             throw std::runtime_error("Invalid target strength: " + step);
         target.ammo = ammo;
@@ -828,9 +892,18 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
         const int capacity = state.difficulty == "easy" ? 15 : state.difficulty == "hard" ? 25 : 20;
         target.canExpose = record.value("expose", false) && energy == capacity;
         target.canStrike = record.value("thunder_strike", false) && !target.canExpose && energy == capacity;
-        target.autoSpecial = scenario == "boss-thunder";
+        if (baseBossHp > 0) {
+            if (scenario == "boss-thunder" || scenario == "boss-thunder-3")
+                target.autoSpecial = target.canStrike;
+            else if (scenario == "boss-thunder-2")
+                target.autoSpecial = target.canStrike && bossHp <= 2;
+            else if (scenario == "boss-thunder-1")
+                target.autoSpecial = target.canStrike && bossHp <= 1;
+        } else {
+            target.autoSpecial = scenario == "boss-thunder";
+        }
         target.reloadDuration = state.difficulty == "easy" ? .4 : state.difficulty == "hard" ? .8 : .6;
-        if (start < 0 || length <= 0 || target.end > movie.frames)
+        if (start < movie.startFrame || length <= 0 || target.end > movie.endFrame)
             throw std::runtime_error("Invalid story window: " + step);
         for (const auto &key : record.at("zones")) {
             TrackedRegion region{key};
@@ -883,6 +956,11 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
                 if (record.at("outcomes").at(region).value("civilian", false))
                     target.replayAnswer = region;
             }
+        if (scenario == "fireball-miss" &&
+            ((step == "fireball_1" && trace.empty()) ||
+             (step == "p2_1" && std::none_of(trace.begin(), trace.end(),
+                                             [](const Json &e) { return e.at("step") == "p2_1"; }))))
+            target.replayAnswer.clear();
         if (stage.id == "hall_of_mirrors" && step == "three" && scenario == "mirror-right")
             target.replayAnswer = "right";
         if (stage.id == "nine_lanterns" && step == "signal_1" && trace.empty() &&
@@ -915,9 +993,31 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
         const bool civilian = branch.value("civilian", false);
         if (storyShot)
             state.lastStoryCivilian = civilian;
-        const int baseAward = branch.value("points", 0);
+        bool multiPhaseFlinch = false;
+        std::string nextStep = branch.at("next");
+        std::string responseTake = branch.value("response", "");
+        if (key == target.answer && record.contains("intercept_windows")) {
+            for (const auto &iw : record.at("intercept_windows")) {
+                if (iw.at(0).get<int>() <= target.hitFrame && target.hitFrame < iw.at(1).get<int>()) {
+                    responseTake = iw.at(2).get<std::string>();
+                    break;
+                }
+            }
+        }
+        if (baseBossHp > 0 && target.fired && key == target.answer) {
+            bossHp -= target.specialFinish ? 2 : 1;
+            if (bossHp > 0) {
+                multiPhaseFlinch = true;
+                nextStep = step;
+                responseTake = record.value("flinch_response", responseTake);
+            } else {
+                bossStep.clear();
+                responseTake = record.value("kill_response", responseTake);
+            }
+        }
+        const int baseAward = multiPhaseFlinch ? 25 : branch.value("points", 0);
         int award = civilian ? -100 : baseAward;
-        if (!storyShot && award > 0 && branch.value("purified", 0) > 0 && !target.specialFinish) {
+        if (!storyShot && !multiPhaseFlinch && award > 0 && branch.value("purified", 0) > 0 && !target.specialFinish) {
             const double reaction =
                 1. + .5 * std::clamp(1. - double(target.hitFrame - start) / std::max(1, length), 0., 1.);
             if (baseAward == 500)
@@ -935,8 +1035,12 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
                 score->cue("civilian");
             else if (harm)
                 score->cue("hurt");
+            else if (target.specialFinish)
+                score->cue("special");
             else if (award > 0 && record.value("projectile", false))
                 score->cue("intercept");
+            else if (multiPhaseFlinch)
+                score->cue("hit_ceramic");
             else if (branch.value("purified", 0) > 0)
                 score->cue("purify");
             else if (world.linyuan() && newFeedback && storyShot && key == target.answer)
@@ -962,7 +1066,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
         section.points += award;
         if (!world.linyuan())
             section.points = std::max(-state.scores[stage.chapter].points, section.points);
-        section.purified += branch.value("purified", 0);
+        if (!multiPhaseFlinch)
+            section.purified += branch.value("purified", 0);
         if (harm || civilian) {
             lives -= harm;
             section.damage += harm;
@@ -999,8 +1104,9 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
                          {"postwindow_inputs", target.lateTriggers},
                          {"damage", harm},
                          {"special", target.spent},
+                         {"boss_hp", bossHp},
                          {"attempt", retries + 1},
-                         {"response", branch.value("response", "")}});
+                         {"response", responseTake}});
         if (lives <= 0) {
             if (!automated) {
                 SDL_MessageBoxButtonData options[] = {
@@ -1008,8 +1114,9 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
                     {SDL_MESSAGEBOX_BUTTON_ESCAPEKEY_DEFAULT, 0, "结束游戏"}};
                 SDL_MessageBoxData box{SDL_MESSAGEBOX_INFORMATION,
                                        window,
-                                       "灯火未平",
-                                       "灯火熄灭。要重新尝试这一段吗？",
+                                       world.linyuan() ? "剑穗已尽" : "灯火未平",
+                                       world.linyuan() ? "剑穗熄灭。要重新尝试这一段吗？"
+                                                       : "灯火熄灭。要重新尝试这一段吗？",
                                        2,
                                        options,
                                        nullptr};
@@ -1020,6 +1127,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
             section = {};
             safeRescue = true;
             state.reloadRemaining = 0;
+            bossStep.clear();
+            bossHp = -1;
             ++retries;
             lives = state.difficulty == "easy" ? 5 : 3;
             energy = combo = 0;
@@ -1027,15 +1136,27 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
             step = trial.at("first");
             continue;
         }
-        if (branch.contains("response")) {
-            auto response = film(branch.at("response"));
+        if (!responseTake.empty()) {
+            auto response = film(responseTake);
+            response.voice = branch.value("response_voice", "");
+            response.subtitle = branch.value("response_subtitle", "");
             if (playFilm(window, renderer, media, response, state.subtitles, gun, automated, nullptr, score,
                          state.voiceVolume / 100.f, state.effectsVolume / 100.f,
                          {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads,
                           &state.pausedSeconds}) == FilmEnd::quit)
                 return FilmEnd::quit;
         }
-        step = branch.at("next");
+        if (!multiPhaseFlinch && branch.contains("transition")) {
+            auto trans = film(branch.at("transition"));
+            trans.voice = branch.value("transition_voice", "");
+            trans.subtitle = branch.value("transition_subtitle", "");
+            if (playFilm(window, renderer, media, trans, state.subtitles, gun, automated, nullptr, score,
+                         state.voiceVolume / 100.f, state.effectsVolume / 100.f,
+                         {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads,
+                          &state.pausedSeconds}) == FilmEnd::quit)
+                return FilmEnd::quit;
+        }
+        step = nextStep;
     }
     if (safeRescue)
         section.points += trial.value("rescue_bonus", 0);
@@ -1051,7 +1172,7 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
 }
 
 bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterScore &score,
-                    Receiver *receiver, bool automated, ScoreAudio *music) {
+                    Receiver *receiver, bool automated, ScoreAudio *music, bool linyuan) {
     Ink ink(renderer);
     const auto accuracy = score.shots ? std::lround(100. * score.hits / score.shots) : 0;
     const auto entered = SDL_GetTicks();
@@ -1061,13 +1182,13 @@ bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterSco
         SDL_SetRenderDrawColor(renderer, 16, 23, 31, 255);
         SDL_RenderClear(renderer);
         ink.text(160, 108, 26, stage.heading, gold);
-        ink.text(160, 173, 48, "本章巡灯已毕", ivory);
+        ink.text(160, 173, 48, linyuan ? "本章御剑已毕" : "本章巡灯已毕", ivory);
         ink.text(990, 160, 90, score.grade(), gold, true);
         ink.text(162, 310, 27, "得分    " + std::to_string(score.points), ivory);
         ink.text(630, 310, 27, "命中率    " + std::to_string(accuracy) + "%", ivory);
         ink.text(162, 382, 27, "最高连击    " + std::to_string(score.combo), ivory);
         ink.text(630, 382, 27, "受伤    " + std::to_string(score.damage) + " 次", ivory);
-        ink.text(162, 454, 27, "净化灯妖    " + std::to_string(score.purified), ivory);
+        ink.text(162, 454, 27, (linyuan ? "击毁机关    " : "净化灯妖    ") + std::to_string(score.purified), ivory);
         ink.text(640, 610, 21, "已存档　·　点击或按 Enter 继续", gold, true);
         if (receiver)
             drawGunBorder(ink);
@@ -1139,7 +1260,9 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
             SDL_RenderTexture(renderer, backdrop.get(), nullptr, nullptr);
             ink.box(0, 0, 1280, 720, {8, 14, 23, 166});
         }
-        ink.text(110, 85, 23, complete ? "上元灯记" : campaign.stages[campaign.locate(state.next)].heading,
+        ink.text(110, 85, 23,
+                 complete ? (campaign.linyuan ? "临渊御剑录" : "上元灯记")
+                          : campaign.stages[campaign.locate(state.next)].heading,
                  gold);
         ink.text(106, 142, 68, campaign.title, ivory);
         if (complete) {
@@ -1162,7 +1285,10 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
                      ivory);
         }
         ink.box(108, 352, 375, 61, {204, 158, 86, 255});
-        ink.text(296, 368, 25, resume ? "继续巡灯" : "从上元夜开始", dark, true);
+        ink.text(296, 368, 25,
+                 resume ? (campaign.linyuan ? "继续御剑" : "继续巡灯")
+                        : (campaign.linyuan ? "开始御剑" : "从上元夜开始"),
+                 dark, true);
         if (resume)
             ink.text(112, 432, 21, "N   重新开始", ivory);
         ink.text(112, 526, 20,
@@ -1189,6 +1315,9 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
                            [&](RemoteAction action, Point) { start |= action == RemoteAction::start; });
         SDL_Event e;
         while (SDL_PollEvent(&e)) {
+            if (e.type == SDL_EVENT_GAMEPAD_BUTTON_DOWN &&
+                (e.gbutton.button == SDL_GAMEPAD_BUTTON_SOUTH || e.gbutton.button == SDL_GAMEPAD_BUTTON_START))
+                start = true;
             if (e.type == SDL_EVENT_QUIT)
                 return MenuChoice::quit;
             if (e.type == SDL_EVENT_KEY_DOWN && !e.key.repeat) {

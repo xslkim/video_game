@@ -1,0 +1,12 @@
+{
+  "id": "c1_boss_p2_launch",
+  "candidate": "linyuan_c1_boss_p2_launch__v1",
+  "file": "assets/linyuan/drama/c1_boss_p2_launch.mp4",
+  "sha256": "c8a990fddc25bbd7631a135e01ff035e377fb38f9b63bd9943ae429f254be6f4",
+  "source_sha256": "3836c192e5785f218a2756dc987c0d49a1f35b222b7efbfdc6f61394264de126",
+  "frames": 64,
+  "first_source": 0,
+  "end_exclusive": 64,
+  "edit_speed": 1.0,
+  "editor_notes": "ch1 boss"
+}

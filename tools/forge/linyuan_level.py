@@ -288,7 +288,11 @@ def build(root, binding, staging):
     level["materials_sha256"] = binding["materials_sha256"]
     check_bamboo(level, folder)
     write(folder / "level.json", level)
-    write(world / "drama.json", {key: select(key) for key in TAKES})
+    old_drama = world / "drama.json"
+    drama_data = json.loads(old_drama.read_bytes()) if old_drama.is_file() else {}
+    for key in TAKES:
+        drama_data[key] = select(key)
+    write(world / "drama.json", drama_data)
     if len(selected) != len(TAKES) + 31:
         raise ValueError(f"Incomplete MVP video inventory: assembled {len(selected)}")
     talon = binding["story"]["talon"]
