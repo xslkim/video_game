@@ -2,11 +2,11 @@
   "id": "c1_dukou_plate",
   "candidate": "linyuan_c1_dukou_plate__v1",
   "file": "assets/linyuan/dukou/c1_dukou_plate.mp4",
-  "sha256": "f801d59939b411cb12a41e582a997ec7473dd4124833d49800f15b4c40a9c86e",
+  "sha256": "1afb76a4dffd538f6c3927a34170f0f8ebb488b534c5504617c978ca54ec588c",
   "source_sha256": "ed8cedfcdf09a7b09fe02a8988935667aaf755aa53a7dec110054dea242d005f",
   "frames": 175,
   "first_source": 0,
   "end_exclusive": 0,
   "edit_speed": 1.0,
-  "editor_notes": "dukou plate"
+  "editor_notes": "dukou plate clean"
 }

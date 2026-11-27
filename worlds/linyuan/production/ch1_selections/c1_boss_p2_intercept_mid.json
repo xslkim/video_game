@@ -2,11 +2,11 @@
   "id": "c1_boss_p2_intercept_mid",
   "candidate": "linyuan_c1_boss_p2_intercept_mid__v1",
   "file": "assets/linyuan/drama/c1_boss_p2_intercept_mid.mp4",
-  "sha256": "3b935b66253f0a720fca8f675dcd6ab8a134db83255c32d66d4a43203f70589a",
+  "sha256": "bd38b8eae2eaf848c048c4dcf6af3af6392c3406808c6179a6467060d69f0db8",
   "source_sha256": "e03789e15b94504c367dd87fee01413857280176f8ebd577d515c0c00915c394",
-  "frames": 26,
+  "frames": 32,
   "first_source": 0,
-  "end_exclusive": 26,
-  "edit_speed": 1.0,
-  "editor_notes": "ch1 boss"
+  "end_exclusive": 0,
+  "edit_speed": 1.75,
+  "editor_notes": "ch1 boss clean"
 }

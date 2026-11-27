@@ -2,11 +2,11 @@
   "id": "c1_boss_kill",
   "candidate": "linyuan_c1_boss_kill__v1",
   "file": "assets/linyuan/drama/c1_boss_kill.mp4",
-  "sha256": "58b615299fd1cc1eff25496e751a750156f816ab30a64a4655e31616e3411008",
+  "sha256": "f5c70677fd5784e64a451239e7a8619ca53c00f8d642ce6206f2a58ca316bacf",
   "source_sha256": "6697603e6d4bca27c0dc51c2760d218d70841796d37df3cd6c325e7df8fab3ee",
-  "frames": 60,
+  "frames": 61,
   "first_source": 0,
-  "end_exclusive": 60,
-  "edit_speed": 1.0,
-  "editor_notes": "ch1 boss"
+  "end_exclusive": 0,
+  "edit_speed": 1.2,
+  "editor_notes": "ch1 boss clean"
 }

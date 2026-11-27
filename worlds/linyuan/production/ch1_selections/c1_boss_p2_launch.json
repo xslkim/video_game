@@ -2,11 +2,11 @@
   "id": "c1_boss_p2_launch",
   "candidate": "linyuan_c1_boss_p2_launch__v1",
   "file": "assets/linyuan/drama/c1_boss_p2_launch.mp4",
-  "sha256": "c8a990fddc25bbd7631a135e01ff035e377fb38f9b63bd9943ae429f254be6f4",
+  "sha256": "948f7de39fb4c581182a034ced3b7d53843f80e221c2fa6da8bc4bc223c5865a",
   "source_sha256": "3836c192e5785f218a2756dc987c0d49a1f35b222b7efbfdc6f61394264de126",
-  "frames": 64,
+  "frames": 79,
   "first_source": 0,
-  "end_exclusive": 64,
-  "edit_speed": 1.0,
-  "editor_notes": "ch1 boss"
+  "end_exclusive": 0,
+  "edit_speed": 1.35,
+  "editor_notes": "ch1 boss clean"
 }

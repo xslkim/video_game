@@ -741,6 +741,15 @@ struct App {
                 }
                 cursor = {event.button.x, event.button.y};
                 if (event.button.button == SDL_BUTTON_LEFT && game.screen != Screen::play) {
+                    if (encounter.selectableDifficulty && game.screen == Screen::title && cursor.y >= 376 &&
+                        cursor.y <= 408) {
+                        if (cursor.x >= 72 && cursor.x <= 152)
+                            game.rules = difficulty("easy");
+                        else if (cursor.x >= 162 && cursor.x <= 242)
+                            game.rules = difficulty("normal");
+                        else if (cursor.x >= 252 && cursor.x <= 332)
+                            game.rules = difficulty("hard");
+                    }
                     if (cursor.x >= 68 && cursor.x <= 388 && cursor.y >= 401 && cursor.y <= 484)
                         restart();
                     else if (linyuan && game.screen == Screen::failed && cursor.x >= 68 && cursor.x <= 388 &&
@@ -954,25 +963,32 @@ struct App {
                 scoreAudio.cue("reveal");
         }
         const double age = revealAt < 0 ? 1. : visualTime - revealAt;
-        if (target.kind == Kind::target && age < .35) {
-            const SDL_Color cyan{77, 255, 210, Uint8(205 * (1 - age / .35))};
-            ink.ring(center, int(3 + std::min(1., age / .12) * 37), cyan);
-            linyuanBrackets(ink, box, float(3 + std::max(0., 1 - age / .12) * 12), cyan);
+        if (target.kind == Kind::target) {
+            if (age < .35) {
+                const SDL_Color cyan{77, 255, 210, Uint8(205 * (1 - age / .35))};
+                ink.ring(center, int(3 + std::min(1., age / .12) * 37), cyan);
+                linyuanOutlinedBrackets(ink, box, float(3 + std::max(0., 1 - age / .12) * 12), cyan);
+            } else {
+                linyuanOutlinedBrackets(ink, box, 4.f, {92, 255, 218, 175});
+            }
         }
+        double urgency = 0.;
         if (scene.impact > frame && scene.warning >= 0 && frame >= scene.warning) {
             const double left = double(scene.impact - frame) / (scene.impact - scene.warning);
+            urgency = 1. - left;
             if (target.kind == Kind::projectile) {
                 const float x = float(center.x), y = float(center.y), r = 16.f;
                 for (int side : {-1, 1})
                     for (int top : {-1, 1})
-                        ink.line(x + r * side, y, x, y + r * top, {255, 112, 67, 240});
+                        linyuanOutlinedStroke(ink, x + r * side, y, x, y + r * top, 2.8f, {255, 112, 67, 245});
             } else
-                linyuanBrackets(ink, box, float(3 + left * 10), {255, 112, 67, 230});
-            linyuanCountdown(ink, center, std::max(22.f, std::min(48.f, box.h * .65f)), left);
+                linyuanOutlinedBrackets(ink, box, float(3 + left * 10), {255, 112, 67, 235});
+            linyuanCountdown(ink, center, std::max(24.f, std::min(50.f, box.h * .65f)), left);
         }
         auto markWeak = [&](Point spot, double height) {
-            ink.ring(spot, int(std::clamp(height * .58, 10., 40.) + 2 * std::sin(visualTime * 12.566)),
-                     {255, 201, 74, 210});
+            const float radius = float(std::clamp(height * .58, 18., 40.));
+            drawLinyuanTargetLock(ink, spot, radius, visualTime, age, urgency,
+                                  target.kind == Kind::projectile);
         };
         if (target.weak)
             markWeak(center, box.h);
@@ -1006,30 +1022,35 @@ struct App {
                            danger, reducedFlash);
             }
         }
-        if (!speechCaption.empty())
-            ink.text(encounter.width / 2.f, encounter.height - 103.f, 22, speechCaption, ivory, true);
-        ink.box(28, 24, 358, 70, {13, 19, 26, 217});
-        ink.text(47, 35, 17, encounter.location, ivory);
+        if (!speechCaption.empty()) {
+            ink.box(160.f, encounter.height - 86.f, encounter.width - 320.f, 44.f, {9, 12, 20, 196});
+            ink.text(encounter.width / 2.f, encounter.height - 76.f, 22, speechCaption, ivory, true);
+        }
+        ink.box(22, 16, 280, 58, {13, 19, 26, 220});
+        ink.text(36, 23, 15, encounter.location, ivory);
         for (int n = 0; n < game.rules.lives; ++n)
-            ink.star({54. + (game.rules.lives > 3 ? 18 : 24) * n, 73}, 7,
+            ink.star({44. + (game.rules.lives > 3 ? 16 : 21) * n, 57}, 6,
                      n < game.lives ? gold : SDL_Color{111, 91, 82, 245});
         for (int n = 0; n < 8; ++n)
-            ink.box(150.f + n * 15.f, 68, 9, 11, n < game.arrows ? ivory : SDL_Color{104, 102, 95, 220});
-        ink.text(287, 62, 15,
+            ink.box(134.f + n * 13.f, 52, 8, 10, n < game.arrows ? ivory : SDL_Color{104, 102, 95, 220});
+        ink.text(244, 46, 14,
                  game.reloadLeft > 0 ? (linyuan ? "收剑中" : "换匣中") : (linyuan ? "飞剑" : "符箭"), gold);
-        ink.box(right - 251, 24, 251, 70, {13, 19, 26, 217});
-        ink.text(right - 234, 34, 17, progressLabel(), ivory);
-        ink.text(right - 97, 34, 17, std::to_string(game.score) + " 分", ivory);
+        ink.box(right - 276, 16, 276, 58, {13, 19, 26, 220});
+        ink.text(right - 258, 23, 16, progressLabel(), ivory);
+        ink.text(right - 102, 23, 16, std::to_string(game.score) + " 分", ivory);
         if (!linyuan || game.allowSpecial) {
-            ink.box(right - 234, 70, 126, 5, {85, 75, 65, 235});
-            ink.box(right - 234, 70, 126.f * game.energy / game.rules.charge, 5, gold);
-            ink.text(right - 95, 60, 16,
-                     game.energy == game.rules.charge ? (linyuan ? "中键 归宗" : "空格 雷符")
+            ink.box(right - 258, 55, 118, 5, {85, 75, 65, 235});
+            ink.box(right - 258, 55, 118.f * game.energy / game.rules.charge, 5, gold);
+            ink.text(right - 130, 46, 15,
+                     game.energy == game.rules.charge ? (linyuan ? "空格/中键 归宗" : "空格 雷符")
                                                       : (linyuan ? "剑意" : "雷符"),
                      gold);
         }
         if (linyuan && !game.arrows && !game.reloadLeft) {
-            ink.text(right - 234, game.allowSpecial ? 98.f : 62.f, 17, "右键或 R 收剑", gold);
+            const float ry = game.allowSpecial ? 80.f : 50.f;
+            ink.box(right - 208, ry, 208, 32, {13, 19, 26, 220});
+            ink.box(right - 208, ry, 3, 32, gold);
+            ink.text(right - 104, ry + 5, 16, "右键或 R 收剑", gold, true);
         }
 
         if (game.progress < int(encounter.nodes.size())) {
@@ -1044,16 +1065,19 @@ struct App {
                         p, (target->kind == Kind::projectile ? 17 : 20) + (game.scene->impact - frame) / 2,
                         {250, 156, 117, 148});
             }
-            if (game.active(target) && target->kind == Kind::projectile)
-                help = linyuan ? "拦截飞针" : "拦截青火球";
-            else if (game.active(target) && target->kind == Kind::civilian)
-                help = linyuan ? "货郎经过  ·  莫出剑" : "百姓经过  ·  收弩";
-            else if (linyuan && encounter.nodes[game.progress].weakDamage > 1)
-                help = "白甲 " + std::to_string(game.hp) + " 剑  ·  肩罐 1 剑";
-            else if (encounter.nodes[game.progress].hp > 1)
-                help += "  ·  还需 " + std::to_string(game.hp) + " 次";
-            ink.box(encounter.width / 2.f - 160, encounter.height - 61.f, 320, 35, {13, 19, 26, 184});
-            ink.text(encounter.width / 2.f, encounter.height - 56.f, 18, help, ivory, true);
+            if (game.interactive() && game.active(target)) {
+                if (target->kind == Kind::projectile)
+                    help = linyuan ? "拦截飞针" : "拦截青火球";
+                else if (target->kind == Kind::civilian)
+                    help = linyuan ? "货郎经过  ·  莫出剑" : "百姓经过  ·  收弩";
+                else if (linyuan && encounter.nodes[game.progress].weakDamage > 1)
+                    help = "白甲 " + std::to_string(game.hp) + " 剑  ·  肩罐 1 剑";
+                else if (encounter.nodes[game.progress].hp > 1)
+                    help += "  ·  还需 " + std::to_string(game.hp) + " 次";
+                ink.box(encounter.width / 2.f - 185, 18.f, 370, 38, {13, 19, 26, 208});
+                ink.box(encounter.width / 2.f - 185, 18.f, 370, 2, {204, 158, 86, 180});
+                ink.text(encounter.width / 2.f, 26.f, 18, help, gold, true);
+            }
         }
         for (const auto &effect : effects)
             drawEffect(effect, visualTime - effect.start);
@@ -1187,8 +1211,15 @@ struct App {
         ink.text(72, 313, 21, detail, ivory);
         ink.text(72, 360, 17, linyuan ? "左键出剑  /  右键或 R 收剑" : "左键施符  /  右键换匣  /  空格雷符",
                  gold);
-        if (encounter.selectableDifficulty && screen == Screen::title)
-            ink.text(72, 386, 16, "难度 " + game.rules.label + "   ·   1 简单   2 普通   3 困难", ivory);
+        if (encounter.selectableDifficulty && screen == Screen::title) {
+            const std::pair<const char *, const char *> opts[] = {{"easy", "1 简单"}, {"normal", "2 普通"}, {"hard", "3 困难"}};
+            for (int k = 0; k < 3; ++k) {
+                const float bx = 72.f + k * 90.f;
+                const bool active = game.rules.id == opts[k].first;
+                ink.box(bx, 380, 82, 26, active ? gold : SDL_Color{28, 36, 46, 220});
+                ink.text(bx + 41, 384, 15, opts[k].second, active ? SDL_Color{20, 22, 24, 255} : ivory, true);
+            }
+        }
         ink.box(68, 414, 320, 54, {212, 161, 81, 245});
         ink.text(228, 426, 24,
                  linyuan                   ? (screen == Screen::failed ? "续关" : "继续")
@@ -2216,6 +2247,10 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
                             quit = true;
                     SDL_SetRenderDrawColor(renderer, 12, 22, 22, 255);
                     SDL_RenderClear(renderer);
+                    if (world.linyuan()) {
+                        ink.box(420, 304, 440, 2, {204, 158, 86, 160});
+                        ink.box(420, 392, 440, 2, {204, 158, 86, 160});
+                    }
                     ink.text(640, 329, 36, stage.cardText, ivory, true);
                     CampaignRecording::frame(renderer);
                     SDL_RenderPresent(renderer);
@@ -2224,6 +2259,10 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
                 if (quit)
                     break;
             } else if (!stage.trial.is_null()) {
+                if (!isMvp && world.linyuan() && stage.id == "taotie") {
+                    state.arrows = 8;
+                    state.reloadRemaining = 0;
+                }
                 // Preserve a story sword's sound tail across its outcome cut, even on a stage without a soundtrack.
                 ScoreAudio storyFoley;
                 ScoreAudio *trialAudio = music;
@@ -2261,6 +2300,10 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
                 if (quit)
                     break;
             } else {
+                if (!isMvp && world.linyuan()) {
+                    state.arrows = 8;
+                    state.reloadRemaining = 0;
+                }
                 Encounter level(world.data() / stage.level);
                 App fight(window, renderer, world.assets() / stage.level, std::move(level),
                           evidence.empty() ? fs::path{} : evidence / stage.id,
@@ -2366,7 +2409,7 @@ void runCampaign(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorld
             if (!isMvp &&
                 (n + 1 == campaign.stages.size() || campaign.stages[n + 1].chapter != stage.chapter)) {
                 if (!chapterResults(renderer, stage, state.scores[stage.chapter], gun, automated, music,
-                                    world.linyuan())) {
+                                    world.linyuan(), campaign.titleArt)) {
                     quit = true;
                     break;
                 }

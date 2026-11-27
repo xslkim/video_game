@@ -1,12 +1,12 @@
 {
   "id": "c1_w_peddler",
-  "candidate": "linyuan_c1_w_peddler__v1",
+  "candidate": "linyuan_c1_w_peddler__v3",
   "file": "assets/linyuan/dukou/c1_w_peddler.mp4",
-  "sha256": "d8873f64d64a33a2e792dc0cd8ec052d589a4329fad5f88fc9650a5944251517",
-  "source_sha256": "0e6203229cfb5de66cb90a83387917914b14da654777dd2170c66adb6849a54e",
-  "frames": 54,
-  "first_source": 46,
-  "end_exclusive": 100,
-  "edit_speed": 1.0,
-  "editor_notes": "dukou peddler clean"
+  "sha256": "14d892e2be7d7c4071e391f24545e93c5750531607c4227da963e1453920504c",
+  "source_sha256": "96c0176f603841209ad366c20e45cf63024fa68c7d81672f21308d3be20f40ba",
+  "frames": 93,
+  "first_source": 0,
+  "end_exclusive": 0,
+  "edit_speed": 1.15,
+  "editor_notes": "dukou peddler full traverse"
 }

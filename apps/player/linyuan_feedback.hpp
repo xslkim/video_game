@@ -42,19 +42,25 @@ inline void linyuanShard(Ink &ink, Point p, float dx, float dy, float width, SDL
 }
 
 inline void impactSlash(Ink &ink, Point p, double age, bool amber, bool reduced, int slot, int tier) {
-    if (age >= .22)
+    if (age >= .24)
         return;
-    const double k = (tier == 3 ? 1.35 : 1.) * (.78 + std::min(1., age / .09) * .22);
+    const double k = (tier >= 3 ? 1.4 : 1.08) * (.78 + std::min(1., age / .09) * .22);
     const double side = slot % 2 ? -1. : 1.;
-    const SwordArc cut{{p.x - 52 * side * k, p.y + 42 * k},
-                       {p.x + 8 * side * k, p.y - 10 * k},
-                       {p.x + 45 * side * k, p.y - 53 * k}};
-    const float a = float(std::min(1., (.22 - age) / .16));
-    swordRibbon(ink, cut, 0, 1, 9, {.03f, .16f, .17f, .9f * a}, SDL_BLENDMODE_BLEND);
-    swordRibbon(ink, cut, 0, 1, reduced ? 8.f : 14.f,
-                amber ? SDL_FColor{1.f, .60f, .10f, .86f * a} : SDL_FColor{.21f, 1.f, .87f, .9f * a},
-                SDL_BLENDMODE_ADD);
-    swordRibbon(ink, cut, .12, .96, 4, {.98f, .98f, .88f, .96f * a}, SDL_BLENDMODE_BLEND);
+    const float a = float(std::min(1., (.24 - age) / .16));
+    auto drawCut = [&](double s, double reachScale) {
+        const double ks = k * reachScale;
+        const SwordArc cut{{p.x - 54 * s * ks, p.y + 44 * ks},
+                           {p.x + 8 * s * ks, p.y - 10 * ks},
+                           {p.x + 48 * s * ks, p.y - 54 * ks}};
+        swordRibbon(ink, cut, 0, 1, 10, {.03f, .16f, .17f, .92f * a}, SDL_BLENDMODE_BLEND);
+        swordRibbon(ink, cut, 0, 1, reduced ? 9.f : 15.f,
+                    amber ? SDL_FColor{1.f, .64f, .14f, .92f * a} : SDL_FColor{.24f, 1.f, .88f, .92f * a},
+                    SDL_BLENDMODE_ADD);
+        swordRibbon(ink, cut, .10, .96, 4.5f, {1.f, .99f, .90f, .98f * a}, SDL_BLENDMODE_BLEND);
+    };
+    drawCut(side, 1.0);
+    if (amber || tier >= 3)
+        drawCut(-side, .84);
 }
 
 inline void scatterArmor(Ink &ink, Point p, double age, std::string_view material, bool weak, int slot,
@@ -145,13 +151,57 @@ inline void linyuanBrackets(Ink &ink, SDL_FRect rect, float margin, SDL_Color co
             ink.line(x, y, x, y - top * arm, color);
         }
 }
+inline void linyuanOutlinedBrackets(Ink &ink, SDL_FRect rect, float margin, SDL_Color color) {
+    const float arm = std::clamp(std::min(rect.w, rect.h) / 4.f, 8.f, 20.f);
+    for (int side : {-1, 1})
+        for (int top : {-1, 1}) {
+            const float x = side < 0 ? rect.x - margin : rect.x + rect.w + margin;
+            const float y = top < 0 ? rect.y - margin : rect.y + rect.h + margin;
+            linyuanOutlinedStroke(ink, x, y, x - side * arm, y, 2.6f, color);
+            linyuanOutlinedStroke(ink, x, y, x, y - top * arm, 2.6f, color);
+        }
+}
+inline void linyuanStrokeRing(Ink &ink, Point center, float radius, float width, SDL_Color color,
+                             int segments = 28) {
+    for (int i = 0; i < segments; ++i) {
+        const double a = 6.283185307 * i / segments;
+        const double b = 6.283185307 * (i + 1) / segments;
+        linyuanStroke(ink, float(center.x + radius * std::cos(a)), float(center.y + radius * std::sin(a)),
+                      float(center.x + radius * std::cos(b)), float(center.y + radius * std::sin(b)), width,
+                      color);
+    }
+}
+inline void drawLinyuanTargetLock(Ink &ink, Point center, float radius, double timeSec, double openAge,
+                                  double urgency, bool isProjectile = false) {
+    const float snap = float(1. + .52 * std::clamp(1. - openAge / .22, 0., 1.));
+    const float pulse = float(2.5 * std::sin(timeSec * 11.));
+    const float r = std::clamp(radius, 18.f, 44.f) * snap + pulse;
+    const bool hot = urgency > 0. || isProjectile;
+    softGlow(ink, center, r * 1.75, r * 1.55,
+             hot ? SDL_FColor{1.f, .42f, .14f, .34f} : SDL_FColor{1.f, .76f, .18f, .30f},
+             SDL_BLENDMODE_ADD);
+    linyuanStrokeRing(ink, center, r, 5.8f, {8, 16, 20, 220});
+    linyuanStrokeRing(ink, center, r, 2.8f,
+                      hot ? SDL_Color{255, 114, 60, 250} : SDL_Color{255, 214, 74, 250});
+    linyuanStrokeRing(ink, center, r + 6.5f, 1.8f, {92, 255, 218, 210});
+    const float tipOff = r + 9.f - float(2.2 * (0.5 + 0.5 * std::sin(timeSec * 12.)));
+    for (int k = 0; k < 4; ++k) {
+        const double ang = .78539816 + k * 1.5707963;
+        const float cx = float(center.x + tipOff * std::cos(ang));
+        const float cy = float(center.y + tipOff * std::sin(ang));
+        const float ix = float(center.x + (tipOff - 8.f) * std::cos(ang));
+        const float iy = float(center.y + (tipOff - 8.f) * std::sin(ang));
+        linyuanOutlinedStroke(ink, cx, cy, ix, iy, 3.0f, {255, 224, 110, 255});
+    }
+}
 inline void linyuanCountdown(Ink &ink, Point center, float radius, double remaining) {
-    const SDL_Color orange{255, 111, 65, 220};
+    const SDL_Color orange{255, 102, 58, 240};
     const int pieces = std::clamp(int(std::ceil(32 * remaining)), 1, 32);
     for (int i = 0; i < pieces; ++i) {
         const double a = i * .19635 - 1.5708, b = a + .19635;
-        ink.line(float(center.x + radius * std::cos(a)), float(center.y + radius * std::sin(a)),
-                 float(center.x + radius * std::cos(b)), float(center.y + radius * std::sin(b)), orange);
+        linyuanOutlinedStroke(ink, float(center.x + radius * std::cos(a)), float(center.y + radius * std::sin(a)),
+                              float(center.x + radius * std::cos(b)), float(center.y + radius * std::sin(b)),
+                              3.2f, orange);
     }
 }
 // Effects use elapsed seconds so animation remains continuous at different refresh rates.
@@ -268,6 +318,18 @@ inline void drawLinyuanEffect(Ink &ink, Cue cue, Point point, double age, bool r
         return;
     }
     const float x = float(point.x), y = float(point.y);
+    if (age < .22) {
+        const float ringR = 14.f + float(88. * std::min(1., age / .20));
+        const Uint8 ra = Uint8(240 * std::max(0., 1. - age / .22));
+        linyuanStrokeRing(ink, point, ringR, 4.8f, {10, 18, 22, Uint8(.82f * ra)}, 22);
+        linyuanStrokeRing(ink, point, ringR, 2.4f, {color.r, color.g, color.b, ra}, 22);
+    }
+    if (age < .16)
+        softGlow(ink, point, 44, 38,
+                 (weak || cue == Cue::intercept || tier >= 3)
+                     ? SDL_FColor{1.f, .68f, .18f, float((reducedFlash ? .36 : .72) * (1. - age / .16))}
+                     : SDL_FColor{.26f, 1.f, .88f, float((reducedFlash ? .32 : .64) * (1. - age / .16))},
+                 SDL_BLENDMODE_ADD);
     scatterArmor(ink, point, age, material, weak, swordSlot, reducedFlash);
     impactSlash(ink, point, age, weak || cue == Cue::intercept, reducedFlash, swordSlot, tier);
     if (returned && age >= .10) {
@@ -284,34 +346,51 @@ inline void drawLinyuanEffect(Ink &ink, Cue cue, Point point, double age, bool r
         const std::string text =
             scoreDelta > 0 ? std::string(label) + "  +" + std::to_string(scoreDelta) : label;
         const float tx = std::clamp(x, 108.f, 1172.f);
-        const float ty = std::clamp((y < 184.f ? y + 41.f : y - 75.f) - float(25 * age), 99.f, 624.f);
+        const float ty = std::clamp((y < 190.f ? y + 66.f : y - 72.f) - float(25 * age), 99.f, 624.f);
         const Uint8 opacity = Uint8(255 * std::clamp((.45 - age) / .15, 0., 1.));
-        const float halfWidth = 32.f + (weak || tier == 3 ? 24.f : 0.f) +
-                                (scoreDelta > 0 ? 13.f + 7.f * std::to_string(scoreDelta).size() : 0.f);
-        ink.box(tx - halfWidth, ty - 1, 2 * halfWidth, 32, {16, 34, 35, Uint8(.83f * opacity)});
-        ink.text(tx, ty, 24, text, {color.r, color.g, color.b, opacity}, true);
+        const float halfWidth = 36.f + (weak || tier == 3 ? 26.f : 0.f) +
+                                (scoreDelta > 0 ? 15.f + 7.f * std::to_string(scoreDelta).size() : 0.f);
+        ink.box(tx - halfWidth, ty - 2, 2 * halfWidth, 34, {14, 28, 30, Uint8(.88f * opacity)});
+        ink.box(tx - halfWidth, ty - 2, 3, 34, {color.r, color.g, color.b, opacity});
+        ink.text(tx, ty, 25, text, {color.r, color.g, color.b, opacity}, true);
     }
 }
 
 inline void drawLinyuanReticle(Ink &ink, Point point, int arrows, bool reloading, bool target, bool weak,
                                bool protect, bool specialReady = false) {
-    SDL_Color color = protect  ? SDL_Color{207, 227, 255, 255}
+    SDL_Color color = protect  ? SDL_Color{225, 118, 106, 255}
+                      : weak   ? SDL_Color{255, 214, 74, 255}
                       : target ? SDL_Color{77, 255, 210, 255}
                                : SDL_Color{242, 245, 247, 255};
     if (arrows == 0 || reloading)
         color = {140, 147, 155, 255};
     const float x = float(point.x), y = float(point.y);
     if (specialReady)
-        ink.ring(point, 22, {255, 208, 86, 215});
-    for (int sign : {-1, 1}) {
-        linyuanOutlinedStroke(ink, x + sign * 9, y - 15, x + sign * 15, y - 9, 2.5f, color);
-        linyuanOutlinedStroke(ink, x + sign * 9, y + 15, x + sign * 15, y + 9, 2.5f, color);
+        linyuanStrokeRing(ink, point, 26.f, 2.2f, {255, 210, 86, 225}, 24);
+    if (weak && !protect) {
+        linyuanStrokeRing(ink, point, 22.f, 4.5f, {10, 18, 22, 210}, 24);
+        linyuanStrokeRing(ink, point, 22.f, 2.4f, {255, 214, 74, 245}, 24);
+        linyuanStrokeRing(ink, point, 11.5f, 1.8f, {255, 246, 175, 235}, 20);
+        linyuanOutlinedStroke(ink, x, y - 27, x, y - 15, 2.8f, color);
+        linyuanOutlinedStroke(ink, x, y + 27, x, y + 15, 2.8f, color);
+        linyuanOutlinedStroke(ink, x - 27, y, x - 15, y, 2.8f, color);
+        linyuanOutlinedStroke(ink, x + 27, y, x + 15, y, 2.8f, color);
+    } else if (target && !protect) {
+        linyuanStrokeRing(ink, point, 19.f, 4.0f, {10, 18, 22, 195}, 22);
+        linyuanStrokeRing(ink, point, 19.f, 2.0f, {77, 255, 210, 235}, 22);
+    } else if (protect) {
+        linyuanStrokeRing(ink, point, 20.f, 4.5f, {12, 16, 20, 215}, 22);
+        linyuanStrokeRing(ink, point, 20.f, 2.4f, {235, 112, 102, 245}, 22);
+        linyuanOutlinedStroke(ink, x - 12, y - 12, x + 12, y + 12, 3.2f, {235, 112, 102, 255});
+        linyuanOutlinedStroke(ink, x - 12, y + 12, x + 12, y - 12, 3.2f, {235, 112, 102, 255});
     }
-    ink.box(x - 2, y - 2, 5, 5, {0, 0, 0, 255});
-    ink.box(x - 1, y - 1, 3, 3, weak ? SDL_Color{255, 201, 74, 255} : color);
+    for (int sign : {-1, 1}) {
+        linyuanOutlinedStroke(ink, x + sign * 10, y - 17, x + sign * 17, y - 10, 2.8f, color);
+        linyuanOutlinedStroke(ink, x + sign * 10, y + 17, x + sign * 17, y + 10, 2.8f, color);
+    }
+    ink.box(x - 3, y - 3, 7, 7, {0, 0, 0, 255});
+    ink.box(x - 2, y - 2, 5, 5, weak ? SDL_Color{255, 238, 128, 255} : color);
     for (int i = 0; i < 8; ++i)
-        ink.box(x - 24 + i * 6, y + 25, 4, 5, i < arrows ? color : SDL_Color{60, 65, 63, 255});
-    if (protect)
-        ink.line(x - 14, y + 14, x + 14, y - 14, color);
+        ink.box(x - 24 + i * 6, y + 28, 4, 5, i < arrows ? color : SDL_Color{60, 65, 63, 225});
 }
 } // namespace ca

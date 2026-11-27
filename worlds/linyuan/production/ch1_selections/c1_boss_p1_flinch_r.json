@@ -1,12 +1,12 @@
 {
   "id": "c1_boss_p1_flinch_r",
-  "candidate": "linyuan_c1_boss_p1_flinch_r__v1",
+  "candidate": "linyuan_c1_boss_p1_flinch_r__v2",
   "file": "assets/linyuan/drama/c1_boss_p1_flinch_r.mp4",
-  "sha256": "7b63a74e26754772dd944079a25d3ca1d5e3706b419ae017983b676b77fe3183",
-  "source_sha256": "fd73de5baff2cd752d8e29de1d5d1932483197e9559dfcab3ada93c785c80ef6",
-  "frames": 26,
+  "sha256": "05a8f6b7cf68ae5e61b8af0a17e495c46f78c4b50f8699cda795daf95c52cfde",
+  "source_sha256": "7d6d6c81e4a9c6562dfbb879fe7e3f2b17a655d2f500fc48e154717c2d186d5f",
+  "frames": 33,
   "first_source": 0,
-  "end_exclusive": 26,
-  "edit_speed": 1.0,
-  "editor_notes": "ch1 boss"
+  "end_exclusive": 0,
+  "edit_speed": 1.7,
+  "editor_notes": "ch1 boss clean"
 }

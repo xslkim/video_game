@@ -1,12 +1,12 @@
 {
   "id": "c1_boss_break",
-  "candidate": "linyuan_c1_boss_break__v1",
+  "candidate": "linyuan_c1_boss_break__v2",
   "file": "assets/linyuan/drama/c1_boss_break.mp4",
-  "sha256": "cdae33701a100713348d277dccfb35eb46c983c85661b11b0986278e77e48e0f",
-  "source_sha256": "ee64cfa5cebf57defd35130ca34c22ed5583f4e493cd33b9a6379e0f98be9d7f",
-  "frames": 48,
+  "sha256": "e6a618fcc2b03c87e45839dcebad70228eb4e52b0c4766169bbf2b4e44efbab7",
+  "source_sha256": "04a3ae59eb9e61796c92e92d5ae31c5ccf6b456d9c6d62d3372019da59d74654",
+  "frames": 50,
   "first_source": 0,
-  "end_exclusive": 48,
-  "edit_speed": 1.0,
-  "editor_notes": "ch1 boss"
+  "end_exclusive": 0,
+  "edit_speed": 1.45,
+  "editor_notes": "ch1 boss clean"
 }

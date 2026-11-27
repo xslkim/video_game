@@ -1,12 +1,12 @@
 {
-  "id": "c1_w_suanni_bridge_kill_29",
-  "candidate": "linyuan_c1_w_suanni_bridge_kill_early__v1",
-  "file": "assets/linyuan/dukou/c1_w_suanni_bridge_kill_29.mp4",
-  "sha256": "62be338d63b372bb3deb017a8257f86f4cdce3ffc039d364e4761e8b5aa795d3",
-  "source_sha256": "2563964d39d7d42557b97fc32f1777973a9bb125d735a394e031fd3231e61232",
-  "frames": 22,
+  "id": "c1_w_suanni_bridge_kill_25",
+  "candidate": "linyuan_c1_w_suanni_bridge_kill_early__v2",
+  "file": "assets/linyuan/dukou/c1_w_suanni_bridge_kill_25.mp4",
+  "sha256": "9d10e6007e905f98f6381d090999c524c59b08df878b2eefc328b102b9784ad2",
+  "source_sha256": "f8e16026bead53cdec6c9572eb5b4523fe1ef0ed2e7dca689b1d4d85310d99f1",
+  "frames": 36,
   "first_source": 0,
-  "end_exclusive": 22,
-  "edit_speed": 1.0,
-  "editor_notes": "dukou kill"
+  "end_exclusive": 0,
+  "edit_speed": 1.55,
+  "editor_notes": "dukou kill recoil behind cover"
 }

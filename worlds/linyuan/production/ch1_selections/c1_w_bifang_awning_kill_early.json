@@ -1,12 +1,12 @@
 {
-  "id": "c1_w_bifang_awning_kill_29",
-  "candidate": "linyuan_c1_w_bifang_awning_kill_early__v1",
-  "file": "assets/linyuan/dukou/c1_w_bifang_awning_kill_29.mp4",
-  "sha256": "d1ba96e24ed54b5d85f2770de2f5c1b57314eaf40cc516bf7a97f9f1ab0e4784",
-  "source_sha256": "2f9266dd3e68fc4610f1f5e86cae015dfc2c6505b115eeb78ebeeff64b21ad06",
-  "frames": 22,
+  "id": "c1_w_bifang_awning_kill_25",
+  "candidate": "linyuan_c1_w_bifang_awning_kill_early__v2",
+  "file": "assets/linyuan/dukou/c1_w_bifang_awning_kill_25.mp4",
+  "sha256": "fcc322b4797b8dd98f7b0afec4b4f1c458c1eda6b6a19f4edaa5d2ba6bc0f5af",
+  "source_sha256": "e3280e71ab482ff5e7a1a2161de7d2e13b72a4bb6877d13ce4edeedee2f9df76",
+  "frames": 36,
   "first_source": 0,
-  "end_exclusive": 22,
-  "edit_speed": 1.0,
-  "editor_notes": "dukou kill"
+  "end_exclusive": 0,
+  "edit_speed": 1.55,
+  "editor_notes": "dukou kill recoil behind cover"
 }

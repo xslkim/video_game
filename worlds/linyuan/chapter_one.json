@@ -55,7 +55,7 @@
           "id": "dukou_card",
           "type": "card",
           "text": "九曲渡 · 集市",
-          "milliseconds": 800
+          "milliseconds": 1200
         },
         {
           "id": "dukou",
@@ -116,7 +116,8 @@
                     "response": "c1_11_miss",
                     "next": "@complete"
                   }
-                }
+                },
+                "highlight": true
               }
             }
           }
@@ -165,7 +166,7 @@
           "id": "bamboo_card",
           "type": "card",
           "text": "九曲渡 · 后山竹海",
-          "milliseconds": 800
+          "milliseconds": 1200
         },
         {
           "id": "bamboo",
@@ -179,7 +180,7 @@
           "id": "shoal_card",
           "type": "card",
           "text": "临渊江 · 浅滩",
-          "milliseconds": 800
+          "milliseconds": 1200
         },
         {
           "id": "taotie_enter",
@@ -187,8 +188,7 @@
           "music": "boss_taotie",
           "takes": [
             {
-              "id": "c1_boss_enter",
-              "end_frame": 72
+              "id": "c1_boss_enter"
             }
           ]
         },
@@ -202,15 +202,15 @@
             "first": "p1_1",
             "steps": {
               "p1_1": {
-                "take": "c1_boss_p1_a",
+                "take": "c1_boss_p1_l",
                 "start_frame": 0,
-                "end_frame": 62,
-                "window": [8,50],
-                "zones": ["hoop"],
-                "answer": "hoop",
-                "prompt": "击碎饕餮背罐供能箍",
+                "end_frame": 73,
+                "window": [10,49],
+                "zones": ["canister_l"],
+                "answer": "canister_l",
+                "prompt": "瞄准饕餮左肩发光琥珀罐！",
                 "outcomes": {
-                  "hoop": {
+                  "canister_l": {
                     "points": 300,
                     "response": "c1_boss_p1_flinch_l",
                     "next": "p1_2"
@@ -227,22 +227,22 @@
                 "cues": [
                   {
                     "voice": "qingping/canisters",
-                    "subtitle": "青萍  背上那两只大燃料罐！先打断它的供能箍！",
+                    "subtitle": "青萍  背上那两只琥珀燃料罐！哪边发亮就打哪边！",
                     "begin": 2,
-                    "end": 58
+                    "end": 59
                   }
                 ]
               },
               "p1_2": {
-                "take": "c1_boss_p1_a",
-                "start_frame": 62,
-                "end_frame": 124,
-                "window": [68,48],
-                "zones": ["hoop"],
-                "answer": "hoop",
-                "prompt": "击碎饕餮背罐供能箍",
+                "take": "c1_boss_p1_r",
+                "start_frame": 0,
+                "end_frame": 73,
+                "window": [10,49],
+                "zones": ["canister_r"],
+                "answer": "canister_r",
+                "prompt": "瞄准饕餮右肩发光琥珀罐！",
                 "outcomes": {
-                  "hoop": {
+                  "canister_r": {
                     "points": 300,
                     "response": "c1_boss_p1_flinch_r",
                     "next": "p1_3"
@@ -258,15 +258,15 @@
                 }
               },
               "p1_3": {
-                "take": "c1_boss_p1_b",
+                "take": "c1_boss_p1_l",
                 "start_frame": 0,
-                "end_frame": 62,
-                "window": [8,50],
-                "zones": ["hoop"],
-                "answer": "hoop",
-                "prompt": "击碎饕餮背罐供能箍",
+                "end_frame": 73,
+                "window": [10,49],
+                "zones": ["canister_l"],
+                "answer": "canister_l",
+                "prompt": "瞄准饕餮左肩发光琥珀罐！",
                 "outcomes": {
-                  "hoop": {
+                  "canister_l": {
                     "points": 300,
                     "response": "c1_boss_p1_flinch_l",
                     "next": "p1_4"
@@ -282,15 +282,15 @@
                 }
               },
               "p1_4": {
-                "take": "c1_boss_p1_b",
-                "start_frame": 62,
-                "end_frame": 124,
-                "window": [68,48],
-                "zones": ["hoop"],
-                "answer": "hoop",
-                "prompt": "击碎饕餮背罐供能箍",
+                "take": "c1_boss_p1_r",
+                "start_frame": 0,
+                "end_frame": 73,
+                "window": [10,49],
+                "zones": ["canister_r"],
+                "answer": "canister_r",
+                "prompt": "瞄准饕餮右肩发光琥珀罐！",
                 "outcomes": {
-                  "hoop": {
+                  "canister_r": {
                     "points": 300,
                     "response": "c1_boss_p1_flinch_r",
                     "next": "p1_5"
@@ -306,15 +306,15 @@
                 }
               },
               "p1_5": {
-                "take": "c1_boss_p1_c",
+                "take": "c1_boss_p1_l",
                 "start_frame": 0,
-                "end_frame": 62,
-                "window": [8,50],
-                "zones": ["hoop"],
-                "answer": "hoop",
-                "prompt": "击碎饕餮背罐供能箍",
+                "end_frame": 73,
+                "window": [10,49],
+                "zones": ["canister_l"],
+                "answer": "canister_l",
+                "prompt": "瞄准饕餮左肩发光琥珀罐！",
                 "outcomes": {
-                  "hoop": {
+                  "canister_l": {
                     "points": 300,
                     "response": "c1_boss_p1_flinch_l",
                     "next": "p1_6"
@@ -330,15 +330,15 @@
                 }
               },
               "p1_6": {
-                "take": "c1_boss_p1_c",
-                "start_frame": 62,
-                "end_frame": 124,
-                "window": [68,48],
-                "zones": ["hoop"],
-                "answer": "hoop",
-                "prompt": "击碎最后一环！",
+                "take": "c1_boss_p1_r",
+                "start_frame": 0,
+                "end_frame": 73,
+                "window": [10,49],
+                "zones": ["canister_r"],
+                "answer": "canister_r",
+                "prompt": "击碎右肩琥珀罐！",
                 "outcomes": {
-                  "hoop": {
+                  "canister_r": {
                     "points": 300,
                     "response": "c1_boss_break",
                     "next": "p2_1"
@@ -355,14 +355,14 @@
               },
               "p2_1": {
                 "take": "c1_boss_p2_launch",
-                "window": [22,34],
+                "window": [14,51],
                 "projectile": true,
                 "zones": ["fireball"],
                 "answer": "fireball",
                 "intercept_windows": [
-                  [22,33,"c1_boss_p2_intercept_early"],
-                  [33,44,"c1_boss_p2_intercept_mid"],
-                  [44,56,"c1_boss_p2_intercept_late"]
+                  [14,31,"c1_boss_p2_intercept_early"],
+                  [31,48,"c1_boss_p2_intercept_mid"],
+                  [48,65,"c1_boss_p2_intercept_late"]
                 ],
                 "prompt": "拦截饕餮吐出的火球！",
                 "outcomes": {
@@ -385,21 +385,21 @@
                   {
                     "voice": "qingping/fireball",
                     "subtitle": "青萍  火球！迎着打碎它！",
-                    "begin": 18,
-                    "end": 56
+                    "begin": 10,
+                    "end": 65
                   }
                 ]
               },
               "p2_2": {
                 "take": "c1_boss_p2_launch",
-                "window": [22,34],
+                "window": [14,51],
                 "projectile": true,
                 "zones": ["fireball"],
                 "answer": "fireball",
                 "intercept_windows": [
-                  [22,33,"c1_boss_p2_intercept_early"],
-                  [33,44,"c1_boss_p2_intercept_mid"],
-                  [44,56,"c1_boss_p2_intercept_late"]
+                  [14,31,"c1_boss_p2_intercept_early"],
+                  [31,48,"c1_boss_p2_intercept_mid"],
+                  [48,65,"c1_boss_p2_intercept_late"]
                 ],
                 "prompt": "拦截饕餮吐出的火球！",
                 "outcomes": {
@@ -421,14 +421,14 @@
               },
               "p2_3": {
                 "take": "c1_boss_p2_launch",
-                "window": [22,34],
+                "window": [14,51],
                 "projectile": true,
                 "zones": ["fireball"],
                 "answer": "fireball",
                 "intercept_windows": [
-                  [22,33,"c1_boss_p2_intercept_early"],
-                  [33,44,"c1_boss_p2_intercept_mid"],
-                  [44,56,"c1_boss_p2_intercept_late"]
+                  [14,31,"c1_boss_p2_intercept_early"],
+                  [31,48,"c1_boss_p2_intercept_mid"],
+                  [48,65,"c1_boss_p2_intercept_late"]
                 ],
                 "prompt": "拦截饕餮吐出的火球！",
                 "outcomes": {
@@ -453,7 +453,7 @@
               },
               "p3": {
                 "take": "c1_boss_p3",
-                "window": [8,83],
+                "window": [8,69],
                 "zones": ["core"],
                 "answer": "core",
                 "boss_hp": 3,
@@ -466,7 +466,7 @@
                     "voice": "qingping/mouth",
                     "subtitle": "青萍  快，就在它喉咙里面！",
                     "begin": 4,
-                    "end": 83
+                    "end": 69
                   }
                 ],
                 "outcomes": {
@@ -499,11 +499,11 @@
             },
             {
               "id": "c1_21_run",
-              "end_frame": 96
+              "end_frame": 72
             },
             {
               "id": "c1_22_board",
-              "end_frame": 108,
+              "end_frame": 96,
               "voice": "qingping/xuanwu",
               "subtitle": "青萍  坐稳了！玄武驮着咱们一直往天机峰渡过去。"
             }

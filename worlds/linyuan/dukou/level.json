@@ -10,7 +10,7 @@
   "ambience": "dukou_air",
   "progress_prefix": "机关兽 ",
   "location": "临渊江 · 九曲渡",
-  "briefing": "左键出剑 · 右键或 R 收剑 · 空格万剑归宗",
+  "briefing": "左键出剑 · 右键或 R 收剑 · 空格或中键万剑归宗",
   "cleared": "集市已定",
   "nodes": [
     {
@@ -117,74 +117,74 @@
   ],
   "clips": {
     "wave_01_hit_early": {
-      "media": "c1_w_bifang_awning_kill_29",
-      "sha256": "d1ba96e24ed54b5d85f2770de2f5c1b57314eaf40cc516bf7a97f9f1ab0e4784",
-      "frames": 22,
+      "media": "c1_w_bifang_awning_kill_25",
+      "sha256": "fcc322b4797b8dd98f7b0afec4b4f1c458c1eda6b6a19f4edaa5d2ba6bc0f5af",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_awning",
       "out_anchor": "dukou",
       "next": "wave_02"
     },
     "wave_01_hit_mid": {
-      "media": "c1_w_bifang_awning_kill_51",
-      "sha256": "022efcbbeb581dfb27d499174bb9f69aa2f732e43a764c7499eaf2284f491f57",
-      "frames": 22,
+      "media": "c1_w_bifang_awning_kill_38",
+      "sha256": "56a54db1268eb49e35add652e704f18f53837bab289eaace764a48b36c80e32f",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_awning",
       "out_anchor": "dukou",
       "next": "wave_02"
     },
     "wave_01_hit_late": {
-      "media": "c1_w_bifang_awning_kill_75",
-      "sha256": "af3478126d529e726d9a86483d29f322047ec43e56e488579d301139974caa64",
-      "frames": 22,
+      "media": "c1_w_bifang_awning_kill_52",
+      "sha256": "691bed0cbdeeef370fec7a2844596d70b792248b5dc0b5957313f279b5c3d2f7",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_awning",
       "out_anchor": "dukou",
       "next": "wave_02"
     },
     "wave_01": {
       "media": "c1_w_bifang_awning",
-      "sha256": "3addb16098debc6baf6aaba815f9b6419c7e666cf21ceb7067741aae3f0edc67",
+      "sha256": "026219754c39e0a1aba2b7d709eb76eeb6e540789cd445bb27f88098ea99f5f4",
       "frames": 107,
-      "start": 0,
+      "start": 10,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_01",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 18,
+          "end": 31,
           "kind": "target",
           "node": 0,
           "hit": "wave_01_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 0,
           "hit": "wave_01_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 0,
           "hit": "wave_01_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "collision",
       "weak_mask": true,
-      "hold_frame": 18,
+      "hold_frame": 28,
       "voice_cues": [
         {
-          "frame": 8,
+          "frame": 18,
           "voice": "qingping/first",
           "subtitle": "青萍  看左边棚顶！胸口亮处就是弱点，瞄准琥珀出剑。",
           "priority": 1
         },
         {
-          "frame": 32,
+          "frame": 42,
           "voice": "luchen/up",
           "subtitle": "陆沉  来吧！",
           "priority": 1
@@ -192,67 +192,67 @@
       ]
     },
     "wave_02_hit_early": {
-      "media": "c1_w_suanni_tables_kill_29",
-      "sha256": "8115899c7a227b1be5414add60cf3850020dfc551109c81cebaea1ac50e5655c",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_25",
+      "sha256": "851e82cb904d8cde509900d311a521cf616657746da2118ad3451292a873dabb",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "wave_03"
     },
     "wave_02_hit_mid": {
-      "media": "c1_w_suanni_tables_kill_51",
-      "sha256": "c466cb4f38e3c256475e7acfb022ce4f18e84c4132e1cc4060a4a6de30674ded",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_38",
+      "sha256": "675024e8d5d0c6a01265064e1df09e0610c03f11f8dc7e8f72c095211165e8d9",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "wave_03"
     },
     "wave_02_hit_late": {
-      "media": "c1_w_suanni_tables_kill_75",
-      "sha256": "d439b2b57fba725ad589f637f05bce47706099163de6f4cadffaa49be19dd060",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_52",
+      "sha256": "bfd291ea63878a881c4f798c181820307942bbb37a31c96699d7c3f624de9758",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "wave_03"
     },
     "wave_02": {
       "media": "c1_w_suanni_tables",
-      "sha256": "8eab51c69420b209cce97355576a461fcd7e57a124690bc67ac926f46a7aa5ed",
+      "sha256": "1e5736179acb39a3bb5a6898b58483e64346d2642621cb85f97969ef3ee08c61",
       "frames": 107,
-      "start": 0,
+      "start": 9,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_02",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 17,
+          "end": 31,
           "kind": "target",
           "node": 1,
           "hit": "wave_02_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 1,
           "hit": "wave_02_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 1,
           "hit": "wave_02_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "claw",
       "weak_mask": true,
       "voice_cues": [
         {
-          "frame": 8,
+          "frame": 17,
           "voice": "qingping/canister",
           "subtitle": "青萍  这头狻猊的罐子在肩侧！直击弱点能把剑弹回来。",
           "priority": 1
@@ -260,127 +260,127 @@
       ]
     },
     "wave_03_hit_early": {
-      "media": "c1_w_bifang_sky_kill_29",
-      "sha256": "2c456fca917284007cda355980911cf96a479dcc7f487f471f238fec9d9d6be6",
-      "frames": 22,
+      "media": "c1_w_bifang_sky_kill_25",
+      "sha256": "6a9d770f6abafea640c604e863a63fc282ed7d0f86a8b37fae7355a66ee52f7b",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_sky",
       "out_anchor": "dukou",
       "next": "wave_04"
     },
     "wave_03_hit_mid": {
-      "media": "c1_w_bifang_sky_kill_51",
-      "sha256": "d9afdb301b8c95785fd2ab884ba3f69813d6ebca17c1f64cd07d25cc2597af34",
-      "frames": 22,
+      "media": "c1_w_bifang_sky_kill_38",
+      "sha256": "f52911114b0fa83bacdb445a686a1bfdd42a31119157be61c1cc51b20f0e1174",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_sky",
       "out_anchor": "dukou",
       "next": "wave_04"
     },
     "wave_03_hit_late": {
-      "media": "c1_w_bifang_sky_kill_75",
-      "sha256": "e0fc66171a7b11199c44eb03d4776e60ed7fb82a6f3c049fd0a4edb41f4c1d82",
-      "frames": 22,
+      "media": "c1_w_bifang_sky_kill_52",
+      "sha256": "6da3c74528fb2fd09a4365b468fddc89a877c80b748d1805ec92eee9f9ce5712",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_sky",
       "out_anchor": "dukou",
       "next": "wave_04"
     },
     "wave_03": {
       "media": "c1_w_bifang_sky",
-      "sha256": "96c70d334e75e19b4d93098a68a22d639317c64653ca0925ec86e1fbda5a8b48",
+      "sha256": "e9950fbe8982b167238979505042fae07a3a6a3bc96ad59faff02cfd6af4b35b",
       "frames": 107,
-      "start": 0,
+      "start": 26,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_03",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 34,
+          "end": 38,
           "kind": "target",
           "node": 2,
           "hit": "wave_03_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 38,
+          "end": 45,
           "kind": "target",
           "node": 2,
           "hit": "wave_03_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 2,
           "hit": "wave_03_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "collision",
       "weak_mask": true
     },
     "wave_04_hit_early": {
-      "media": "c1_w_suanni_shrine_kill_29",
-      "sha256": "cba89a698002bf7cce6d838d49ea5386875892d153983484b913f933bab11774",
-      "frames": 22,
+      "media": "c1_w_suanni_shrine_kill_25",
+      "sha256": "7ee134bed65854af03dae195281194df2450335cde06608a148eebe44ad85fdd",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_shrine",
       "out_anchor": "dukou",
       "next": "wave_05"
     },
     "wave_04_hit_mid": {
-      "media": "c1_w_suanni_shrine_kill_51",
-      "sha256": "20ca1b36d3b5c8b2c47a2d27555622c882a483133626712354bedd7cd31e4519",
-      "frames": 22,
+      "media": "c1_w_suanni_shrine_kill_38",
+      "sha256": "2fec85bcff6df7716ace7aae4e5eb4ec9d7c385945c7e7a700f048d89e1d430b",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_shrine",
       "out_anchor": "dukou",
       "next": "wave_05"
     },
     "wave_04_hit_late": {
-      "media": "c1_w_suanni_shrine_kill_75",
-      "sha256": "2ae102146f3431547183931a52b4d8d332ffcdd622fbcbea42896d05c1a9a047",
-      "frames": 22,
+      "media": "c1_w_suanni_shrine_kill_52",
+      "sha256": "1d207f3f4a68265465d8958485601b6e87bf03d8eaa3432962b55f7c6f800a1e",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_shrine",
       "out_anchor": "dukou",
       "next": "wave_05"
     },
     "wave_04": {
       "media": "c1_w_suanni_shrine",
-      "sha256": "817f1ecd4b583665bad5b7740ce3f698a435c6da917c006fe21f5c6d9638125c",
+      "sha256": "ce14a32eaad246bed83e326c3e5e2982b25cf2ae3fb141e96c580ded23f6b03b",
       "frames": 107,
-      "start": 0,
+      "start": 8,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_04",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 16,
+          "end": 31,
           "kind": "target",
           "node": 3,
           "hit": "wave_04_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 3,
           "hit": "wave_04_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 3,
           "hit": "wave_04_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "claw",
       "weak_mask": true,
       "voice_cues": [
         {
-          "frame": 8,
+          "frame": 16,
           "voice": "qingping/shrine",
           "subtitle": "青萍  神龛右边又出来一只！",
           "priority": 1
@@ -388,77 +388,77 @@
       ]
     },
     "wave_05_hit_early": {
-      "media": "c1_w_suanni_tables_kill_29",
-      "sha256": "8115899c7a227b1be5414add60cf3850020dfc551109c81cebaea1ac50e5655c",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_25",
+      "sha256": "851e82cb904d8cde509900d311a521cf616657746da2118ad3451292a873dabb",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "peddler_06"
     },
     "wave_05_hit_mid": {
-      "media": "c1_w_suanni_tables_kill_51",
-      "sha256": "c466cb4f38e3c256475e7acfb022ce4f18e84c4132e1cc4060a4a6de30674ded",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_38",
+      "sha256": "675024e8d5d0c6a01265064e1df09e0610c03f11f8dc7e8f72c095211165e8d9",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "peddler_06"
     },
     "wave_05_hit_late": {
-      "media": "c1_w_suanni_tables_kill_75",
-      "sha256": "d439b2b57fba725ad589f637f05bce47706099163de6f4cadffaa49be19dd060",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_52",
+      "sha256": "bfd291ea63878a881c4f798c181820307942bbb37a31c96699d7c3f624de9758",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "peddler_06"
     },
     "wave_05": {
       "media": "c1_w_suanni_tables",
-      "sha256": "8eab51c69420b209cce97355576a461fcd7e57a124690bc67ac926f46a7aa5ed",
+      "sha256": "1e5736179acb39a3bb5a6898b58483e64346d2642621cb85f97969ef3ee08c61",
       "frames": 107,
-      "start": 0,
+      "start": 9,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_05",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 17,
+          "end": 31,
           "kind": "target",
           "node": 4,
           "hit": "wave_05_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 4,
           "hit": "wave_05_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 4,
           "hit": "wave_05_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "claw",
       "weak_mask": true
     },
     "peddler_06": {
       "media": "c1_w_peddler",
-      "sha256": "d8873f64d64a33a2e792dc0cd8ec052d589a4329fad5f88fc9650a5944251517",
-      "frames": 54,
-      "start": 2,
+      "sha256": "14d892e2be7d7c4071e391f24545e93c5750531607c4227da963e1453920504c",
+      "frames": 93,
+      "start": 8,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_06",
       "windows": [
         {
-          "begin": 8,
-          "end": 42,
+          "begin": 14,
+          "end": 54,
           "kind": "civilian",
           "node": 5,
           "hit": "wave_06"
@@ -467,75 +467,75 @@
       "forbearance_bonus": 500,
       "voice_cues": [
         {
-          "frame": 4,
+          "frame": 10,
           "voice": "qingping/civilian",
-          "subtitle": "青萍  百姓！收剑别误伤，等他跑过去。",
+          "subtitle": "青萍  货郎经过！收剑别误伤，等他跑过去。",
           "priority": 2
         }
       ]
     },
     "wave_06_hit_early": {
-      "media": "c1_w_suanni_bridge_kill_29",
-      "sha256": "62be338d63b372bb3deb017a8257f86f4cdce3ffc039d364e4761e8b5aa795d3",
-      "frames": 22,
+      "media": "c1_w_suanni_bridge_kill_25",
+      "sha256": "9d10e6007e905f98f6381d090999c524c59b08df878b2eefc328b102b9784ad2",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_bridge",
       "out_anchor": "dukou",
       "next": "wave_07"
     },
     "wave_06_hit_mid": {
-      "media": "c1_w_suanni_bridge_kill_51",
-      "sha256": "b734c3c9e0c4a0357da9734aa56f88b939daf9e8e5988ce069cbfd78adb1d373",
-      "frames": 22,
+      "media": "c1_w_suanni_bridge_kill_38",
+      "sha256": "41626353006b2e0990cf2bfe5dd293992a935b9efb08e93b353dc540a37f984c",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_bridge",
       "out_anchor": "dukou",
       "next": "wave_07"
     },
     "wave_06_hit_late": {
-      "media": "c1_w_suanni_bridge_kill_75",
-      "sha256": "6d1654d3348185d6d3a26f99cb3af89f6a4e4813fbe69407a2b932849d333f4b",
-      "frames": 22,
+      "media": "c1_w_suanni_bridge_kill_52",
+      "sha256": "ff1999377cc6d6caf337a772b720c1c9400eff7ea23725d1f06fc4573047788b",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_bridge",
       "out_anchor": "dukou",
       "next": "wave_07"
     },
     "wave_06": {
       "media": "c1_w_suanni_bridge",
-      "sha256": "21c47ef33f005f29961877e22b8d28de438bbdd1019dfaa7be1cd2922fab0b89",
+      "sha256": "55f211188b39a58cf4879a38848b76a0ed519b2549dfa73dcc2e23cb5010c661",
       "frames": 107,
-      "start": 0,
+      "start": 8,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_06",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 16,
+          "end": 31,
           "kind": "target",
           "node": 5,
           "hit": "wave_06_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 5,
           "hit": "wave_06_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 5,
           "hit": "wave_06_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "blast",
       "weak_mask": true,
       "voice_cues": [
         {
-          "frame": 8,
+          "frame": 16,
           "voice": "qingping/bridge",
           "subtitle": "青萍  桥上那只在蓄火！",
           "priority": 1
@@ -543,309 +543,309 @@
       ]
     },
     "wave_07_hit_early": {
-      "media": "c1_w_bifang_awning_kill_29",
-      "sha256": "d1ba96e24ed54b5d85f2770de2f5c1b57314eaf40cc516bf7a97f9f1ab0e4784",
-      "frames": 22,
+      "media": "c1_w_bifang_awning_kill_25",
+      "sha256": "fcc322b4797b8dd98f7b0afec4b4f1c458c1eda6b6a19f4edaa5d2ba6bc0f5af",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_awning",
       "out_anchor": "dukou",
       "next": "wave_08"
     },
     "wave_07_hit_mid": {
-      "media": "c1_w_bifang_awning_kill_51",
-      "sha256": "022efcbbeb581dfb27d499174bb9f69aa2f732e43a764c7499eaf2284f491f57",
-      "frames": 22,
+      "media": "c1_w_bifang_awning_kill_38",
+      "sha256": "56a54db1268eb49e35add652e704f18f53837bab289eaace764a48b36c80e32f",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_awning",
       "out_anchor": "dukou",
       "next": "wave_08"
     },
     "wave_07_hit_late": {
-      "media": "c1_w_bifang_awning_kill_75",
-      "sha256": "af3478126d529e726d9a86483d29f322047ec43e56e488579d301139974caa64",
-      "frames": 22,
+      "media": "c1_w_bifang_awning_kill_52",
+      "sha256": "691bed0cbdeeef370fec7a2844596d70b792248b5dc0b5957313f279b5c3d2f7",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_awning",
       "out_anchor": "dukou",
       "next": "wave_08"
     },
     "wave_07": {
       "media": "c1_w_bifang_awning",
-      "sha256": "3addb16098debc6baf6aaba815f9b6419c7e666cf21ceb7067741aae3f0edc67",
+      "sha256": "026219754c39e0a1aba2b7d709eb76eeb6e540789cd445bb27f88098ea99f5f4",
       "frames": 107,
-      "start": 0,
+      "start": 10,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_07",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 18,
+          "end": 31,
           "kind": "target",
           "node": 6,
           "hit": "wave_07_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 6,
           "hit": "wave_07_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 6,
           "hit": "wave_07_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "collision",
       "weak_mask": true
     },
     "wave_08_hit_early": {
-      "media": "c1_w_suanni_shrine_kill_29",
-      "sha256": "cba89a698002bf7cce6d838d49ea5386875892d153983484b913f933bab11774",
-      "frames": 22,
+      "media": "c1_w_suanni_shrine_kill_25",
+      "sha256": "7ee134bed65854af03dae195281194df2450335cde06608a148eebe44ad85fdd",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_shrine",
       "out_anchor": "dukou",
       "next": "wave_09"
     },
     "wave_08_hit_mid": {
-      "media": "c1_w_suanni_shrine_kill_51",
-      "sha256": "20ca1b36d3b5c8b2c47a2d27555622c882a483133626712354bedd7cd31e4519",
-      "frames": 22,
+      "media": "c1_w_suanni_shrine_kill_38",
+      "sha256": "2fec85bcff6df7716ace7aae4e5eb4ec9d7c385945c7e7a700f048d89e1d430b",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_shrine",
       "out_anchor": "dukou",
       "next": "wave_09"
     },
     "wave_08_hit_late": {
-      "media": "c1_w_suanni_shrine_kill_75",
-      "sha256": "2ae102146f3431547183931a52b4d8d332ffcdd622fbcbea42896d05c1a9a047",
-      "frames": 22,
+      "media": "c1_w_suanni_shrine_kill_52",
+      "sha256": "1d207f3f4a68265465d8958485601b6e87bf03d8eaa3432962b55f7c6f800a1e",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_shrine",
       "out_anchor": "dukou",
       "next": "wave_09"
     },
     "wave_08": {
       "media": "c1_w_suanni_shrine",
-      "sha256": "817f1ecd4b583665bad5b7740ce3f698a435c6da917c006fe21f5c6d9638125c",
+      "sha256": "ce14a32eaad246bed83e326c3e5e2982b25cf2ae3fb141e96c580ded23f6b03b",
       "frames": 107,
-      "start": 0,
+      "start": 8,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_08",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 16,
+          "end": 31,
           "kind": "target",
           "node": 7,
           "hit": "wave_08_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 7,
           "hit": "wave_08_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 7,
           "hit": "wave_08_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "claw",
       "weak_mask": true
     },
     "wave_09_hit_early": {
-      "media": "c1_w_bifang_sky_kill_29",
-      "sha256": "2c456fca917284007cda355980911cf96a479dcc7f487f471f238fec9d9d6be6",
-      "frames": 22,
+      "media": "c1_w_bifang_sky_kill_25",
+      "sha256": "6a9d770f6abafea640c604e863a63fc282ed7d0f86a8b37fae7355a66ee52f7b",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_sky",
       "out_anchor": "dukou",
       "next": "wave_10"
     },
     "wave_09_hit_mid": {
-      "media": "c1_w_bifang_sky_kill_51",
-      "sha256": "d9afdb301b8c95785fd2ab884ba3f69813d6ebca17c1f64cd07d25cc2597af34",
-      "frames": 22,
+      "media": "c1_w_bifang_sky_kill_38",
+      "sha256": "f52911114b0fa83bacdb445a686a1bfdd42a31119157be61c1cc51b20f0e1174",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_sky",
       "out_anchor": "dukou",
       "next": "wave_10"
     },
     "wave_09_hit_late": {
-      "media": "c1_w_bifang_sky_kill_75",
-      "sha256": "e0fc66171a7b11199c44eb03d4776e60ed7fb82a6f3c049fd0a4edb41f4c1d82",
-      "frames": 22,
+      "media": "c1_w_bifang_sky_kill_52",
+      "sha256": "6da3c74528fb2fd09a4365b468fddc89a877c80b748d1805ec92eee9f9ce5712",
+      "frames": 36,
       "in_anchor": "c1_w_bifang_sky",
       "out_anchor": "dukou",
       "next": "wave_10"
     },
     "wave_09": {
       "media": "c1_w_bifang_sky",
-      "sha256": "96c70d334e75e19b4d93098a68a22d639317c64653ca0925ec86e1fbda5a8b48",
+      "sha256": "e9950fbe8982b167238979505042fae07a3a6a3bc96ad59faff02cfd6af4b35b",
       "frames": 107,
-      "start": 0,
+      "start": 26,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_09",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 34,
+          "end": 38,
           "kind": "target",
           "node": 8,
           "hit": "wave_09_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 38,
+          "end": 45,
           "kind": "target",
           "node": 8,
           "hit": "wave_09_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 8,
           "hit": "wave_09_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "collision",
       "weak_mask": true
     },
     "wave_10_hit_early": {
-      "media": "c1_w_suanni_tables_kill_29",
-      "sha256": "8115899c7a227b1be5414add60cf3850020dfc551109c81cebaea1ac50e5655c",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_25",
+      "sha256": "851e82cb904d8cde509900d311a521cf616657746da2118ad3451292a873dabb",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "wave_11"
     },
     "wave_10_hit_mid": {
-      "media": "c1_w_suanni_tables_kill_51",
-      "sha256": "c466cb4f38e3c256475e7acfb022ce4f18e84c4132e1cc4060a4a6de30674ded",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_38",
+      "sha256": "675024e8d5d0c6a01265064e1df09e0610c03f11f8dc7e8f72c095211165e8d9",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "wave_11"
     },
     "wave_10_hit_late": {
-      "media": "c1_w_suanni_tables_kill_75",
-      "sha256": "d439b2b57fba725ad589f637f05bce47706099163de6f4cadffaa49be19dd060",
-      "frames": 22,
+      "media": "c1_w_suanni_tables_kill_52",
+      "sha256": "bfd291ea63878a881c4f798c181820307942bbb37a31c96699d7c3f624de9758",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_tables",
       "out_anchor": "dukou",
       "next": "wave_11"
     },
     "wave_10": {
       "media": "c1_w_suanni_tables",
-      "sha256": "8eab51c69420b209cce97355576a461fcd7e57a124690bc67ac926f46a7aa5ed",
+      "sha256": "1e5736179acb39a3bb5a6898b58483e64346d2642621cb85f97969ef3ee08c61",
       "frames": 107,
-      "start": 0,
+      "start": 9,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_10",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 17,
+          "end": 31,
           "kind": "target",
           "node": 9,
           "hit": "wave_10_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 9,
           "hit": "wave_10_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 9,
           "hit": "wave_10_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "claw",
       "weak_mask": true
     },
     "wave_11_hit_early": {
-      "media": "c1_w_suanni_bridge_kill_29",
-      "sha256": "62be338d63b372bb3deb017a8257f86f4cdce3ffc039d364e4761e8b5aa795d3",
-      "frames": 22,
+      "media": "c1_w_suanni_bridge_kill_25",
+      "sha256": "9d10e6007e905f98f6381d090999c524c59b08df878b2eefc328b102b9784ad2",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_bridge",
       "out_anchor": "dukou",
       "next": "@complete"
     },
     "wave_11_hit_mid": {
-      "media": "c1_w_suanni_bridge_kill_51",
-      "sha256": "b734c3c9e0c4a0357da9734aa56f88b939daf9e8e5988ce069cbfd78adb1d373",
-      "frames": 22,
+      "media": "c1_w_suanni_bridge_kill_38",
+      "sha256": "41626353006b2e0990cf2bfe5dd293992a935b9efb08e93b353dc540a37f984c",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_bridge",
       "out_anchor": "dukou",
       "next": "@complete"
     },
     "wave_11_hit_late": {
-      "media": "c1_w_suanni_bridge_kill_75",
-      "sha256": "6d1654d3348185d6d3a26f99cb3af89f6a4e4813fbe69407a2b932849d333f4b",
-      "frames": 22,
+      "media": "c1_w_suanni_bridge_kill_52",
+      "sha256": "ff1999377cc6d6caf337a772b720c1c9400eff7ea23725d1f06fc4573047788b",
+      "frames": 36,
       "in_anchor": "c1_w_suanni_bridge",
       "out_anchor": "dukou",
       "next": "@complete"
     },
     "wave_11": {
       "media": "c1_w_suanni_bridge",
-      "sha256": "21c47ef33f005f29961877e22b8d28de438bbdd1019dfaa7be1cd2922fab0b89",
+      "sha256": "55f211188b39a58cf4879a38848b76a0ed519b2549dfa73dcc2e23cb5010c661",
       "frames": 107,
-      "start": 0,
+      "start": 8,
       "in_anchor": "dukou",
       "out_anchor": "dukou",
       "next": "wave_11",
       "windows": [
         {
-          "begin": 8,
-          "end": 37,
+          "begin": 16,
+          "end": 31,
           "kind": "target",
           "node": 10,
           "hit": "wave_11_hit_early"
         },
         {
-          "begin": 37,
-          "end": 66,
+          "begin": 31,
+          "end": 45,
           "kind": "target",
           "node": 10,
           "hit": "wave_11_hit_mid"
         },
         {
-          "begin": 66,
-          "end": 95,
+          "begin": 45,
+          "end": 60,
           "kind": "target",
           "node": 10,
           "hit": "wave_11_hit_late"
         }
       ],
-      "warning_frame": 83,
-      "impact_frame": 99,
+      "warning_frame": 48,
+      "impact_frame": 68,
       "attack": "blast",
       "weak_mask": true
     }
   },
   "plate": {
     "media": "c1_dukou_plate",
-    "sha256": "f801d59939b411cb12a41e582a997ec7473dd4124833d49800f15b4c40a9c86e",
+    "sha256": "1afb76a4dffd538f6c3927a34170f0f8ebb488b534c5504617c978ca54ec588c",
     "frames": 175
   },
   "materials": [
@@ -886,5 +886,5 @@
     ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","stone","earth","earth","earth","earth","earth","earth","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"],
     ["bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","bamboo","earth","earth","earth","earth","earth","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","stone","stone","stone","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth","earth"]
   ],
-  "materials_sha256": "f801d59939b411cb12a41e582a997ec7473dd4124833d49800f15b4c40a9c86e"
+  "materials_sha256": "1afb76a4dffd538f6c3927a34170f0f8ebb488b534c5504617c978ca54ec588c"
 }

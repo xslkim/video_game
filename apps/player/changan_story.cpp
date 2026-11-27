@@ -75,6 +75,43 @@ std::vector<DialogueCue> readDialogue(const Json &shot, int frames) {
     }
     return result;
 }
+void drawBossTrialHud(Ink &ink, int lives, int ammo, double reloadLeft, int phase, int done, int total,
+                      bool canStrike) {
+    ink.box(28, 22, 358, 66, {11, 18, 24, 220});
+    ink.text(46, 32, 17, phase > 0 ? "临渊江 · 浅滩" : "九曲渡 · 对决", ivory);
+    const int maxLives = lives > 3 ? 5 : 3;
+    for (int n = 0; n < maxLives; ++n)
+        ink.star({54. + (maxLives > 3 ? 18 : 24) * n, 68}, 7,
+                 n < lives ? gold : SDL_Color{111, 91, 82, 245});
+    for (int n = 0; n < 8; ++n)
+        ink.box(150.f + n * 15.f, 63, 9, 11, n < ammo ? ivory : SDL_Color{104, 102, 95, 220});
+    ink.text(287, 57, 15, reloadLeft > 0 ? "收剑中" : "飞剑", gold);
+    if (phase > 0 && total > 0) {
+        ink.box(410, 20, 460, 68, {11, 18, 24, 222});
+        ink.box(410, 20, 460, 2, {218, 170, 84, 235});
+        const char *phaseTitle = phase == 1   ? "一阶段 · 双肩琥珀罐"
+                                 : phase == 2 ? "二阶段 · 迎击兽火"
+                                              : "三阶段 · 破口内核心";
+        ink.text(428, 28, 17, "凶兽 · 饕餮", gold);
+        ink.text(852 - 170, 28, 16, phaseTitle, ivory);
+        const int clampedTotal = std::max(1, total);
+        const int clampedDone = std::clamp(done, 0, clampedTotal);
+        const int remain = clampedTotal - clampedDone;
+        const float barX = 428.f, barW = 424.f, gap = 6.f;
+        const float cellW = (barW - gap * (clampedTotal - 1)) / clampedTotal;
+        for (int k = 0; k < clampedTotal; ++k) {
+            const SDL_Color fill =
+                k < remain ? (phase == 3 ? SDL_Color{255, 118, 62, 245} : SDL_Color{245, 192, 72, 245})
+                           : SDL_Color{55, 58, 62, 210};
+            ink.box(barX + k * (cellW + gap), 58, cellW, 13, fill);
+        }
+    }
+    if (canStrike || (ammo == 0 && reloadLeft <= 0)) {
+        ink.box(982, 22, 266, 46, {11, 18, 24, 220});
+        ink.box(982, 22, 4, 46, gold);
+        ink.text(1115, 34, 18, canStrike ? "空格 / 中键 万剑归宗" : "剑匣已空 · 右键 / R 收剑", gold, true);
+    }
+}
 } // namespace
 void drawGunBorder(Ink &ink) {
     constexpr SDL_Color white{255, 255, 255, 255};
@@ -180,7 +217,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
     double &reloadLeft = travel.remaining ? *travel.remaining : localReload;
     int *arrows = choice ? &choice->ammo : travel.arrows;
     double exposedLeft = 0;
-    double effectTime = 0, effectAt = -1;
+    double effectTime = 0, effectAt = -1, windowOpenAt = -1;
     Point effectPoint{};
     GamepadController gamepad;
     sound.begin(movie, filmStart, 1., now());
@@ -357,7 +394,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                         pause(false);
                     else if (choice)
                         fire(p, when);
-                    else
+                    else if (!travel.boss.active)
                         skip = true;
                 },
                 reload,
@@ -366,7 +403,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                         expose();
                 },
                 [&] {
-                    if (choice)
+                    if (choice || travel.boss.active)
                         pause(!paused);
                     else
                         skip = true;
@@ -380,7 +417,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                     pause(!paused);
                 else if (choice && e.key.key == SDLK_SPACE)
                     expose();
-                else if (e.key.key == SDLK_SPACE || e.key.key == SDLK_RETURN)
+                else if (!travel.boss.active && (e.key.key == SDLK_SPACE || e.key.key == SDLK_RETURN))
                     skip = true;
                 else if (e.key.key == SDLK_F11)
                     SDL_SetWindowFullscreen(window, !(SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN));
@@ -397,7 +434,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                     pause(false);
                 else if (choice)
                     fire({e.button.x, e.button.y}, e.button.timestamp);
-                else if (e.button.x > 1050 && e.button.y > 635)
+                else if (!travel.boss.active && e.button.x > 1050 && e.button.y > 635)
                     skip = true;
             }
             if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN && e.button.button == SDL_BUTTON_RIGHT)
@@ -414,7 +451,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
             if (choice && !paused)
                 fire(p, when);
         });
-        if (choice && choice->fired && !paused && effectTime - effectAt >= .29)
+        if (choice && choice->fired && !paused && effectTime - effectAt >= .34)
             return FilmEnd::selected;
         if (choice && !choice->fired && !paused &&
             (displayed >= choice->end || (choice->exposed && exposedLeft <= 0))) {
@@ -468,9 +505,10 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         const bool civilian =
             choice && choice->newFeedback && choice->fired &&
             std::find(choice->guards.begin(), choice->guards.end(), choice->selected) != choice->guards.end();
+        const bool hitAnswer = choice && choice->newFeedback && choice->fired && choice->selected == choice->answer;
         SDL_FRect picture{0, 0, 1280, 720};
-        const bool precise = choice && choice->newFeedback && choice->directStoryWeak;
-        const double shakeSeconds = civilian ? .19 : .12;
+        const bool precise = choice && choice->newFeedback && (choice->directStoryWeak || hitAnswer);
+        const double shakeSeconds = civilian ? .19 : .14;
         if ((civilian || precise) && choice->shakeEnabled && age < shakeSeconds) {
             const float strength = float(6 * std::max(0., 1. - age / shakeSeconds));
             picture = {float(strength * (std::sin(age * 142.) - 1)),
@@ -479,7 +517,7 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
         SDL_RenderTexture(renderer, texture.get(), nullptr, &picture);
         if (receiver)
             drawGunBorder(ink);
-        if (choice && effectAt >= 0 && age < .29 && choice->newFeedback) {
+        if (choice && effectAt >= 0 && age < .34 && choice->newFeedback) {
             const Point screenPoint{picture.x + effectPoint.x * picture.w / 1280.,
                                     picture.y + effectPoint.y * picture.h / 720.};
             const Cue fxCue = civilian                     ? Cue::civilian
@@ -488,7 +526,8 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                                                            : Cue::purify;
             drawLinyuanEffect(ink, fxCue, screenPoint, age, choice->reducedFlash,
                               choice->specialFinish ? 4 : choice->tier, precise || choice->specialFinish,
-                              LinyuanImpact::claw, 0, choice->material, -1, 0, precise, .145);
+                              LinyuanImpact::claw, hitAnswer ? choice->hitPoints : 0, choice->material,
+                              choice->lives, 0, choice->directStoryWeak, .145);
         } else if (choice && effectAt >= 0 && age < .29) {
             const auto a = Uint8(230 * (1. - age / .29));
             ink.ring(effectPoint, int(8 + 74 * age), {255, 213, 125, a});
@@ -506,8 +545,11 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
             ink.text(640, 632, 25, caption, ivory, true);
         }
         if (choice && displayed >= choice->begin && displayed < choice->end) {
-            ink.box(250, 610, 780, 54, {9, 12, 20, 196});
-            ink.text(640, 625, 23, choice->prompt, gold, true);
+            if (windowOpenAt < 0)
+                windowOpenAt = effectTime;
+            ink.box(250, 610, 780, 54, {9, 12, 20, 206});
+            ink.box(250, 610, 780, 2, {204, 158, 86, 175});
+            ink.text(640, 624, 24, choice->prompt, gold, true);
             if (choice->strength > 1)
                 ink.text(640, 577, 20,
                          "符印  " + std::to_string(choice->partialHits + choice->specialDamage) + " / " +
@@ -539,20 +581,36 @@ FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &med
                     }
                     center.x /= poly.size();
                     center.y /= poly.size();
-                    ink.ring(center, 30, gold);
+                    if (choice->linyuan && choice->newFeedback) {
+                        const double span = std::max(1, choice->end - choice->begin);
+                        const double progress = std::clamp((displayed - choice->begin) / span, 0., 1.);
+                        const double urgency = progress >= .65 ? (progress - .65) / .35 : 0.;
+                        drawLinyuanTargetLock(ink, center, 34.f, effectTime,
+                                              std::max(0., effectTime - windowOpenAt), urgency,
+                                              choice->answer == "fireball");
+                    } else
+                        ink.ring(center, 30, gold);
                 }
             }
-        } else if (!choice) {
+        } else if (!choice && !travel.boss.active) {
             ink.box(1080, 674, 187, 36, {9, 12, 20, 175});
             ink.text(1173, 680, 17, paused ? "点击继续" : "空格  跳过本段", ivory, true);
         }
-        if (choice && !choice->story) {
+        if (choice && !choice->story && choice->linyuan) {
+            const int done = choice->bossStepDone + (choice->fired && choice->selected == choice->answer ? 1 : 0);
+            drawBossTrialHud(ink, choice->lives, choice->ammo, reloadLeft, choice->bossPhase, done,
+                             choice->bossStepTotal, choice->canStrike);
+            if (automated && choice->ammo < choice->strength - choice->partialHits - choice->specialDamage)
+                reload();
+        } else if (!choice && travel.boss.active) {
+            drawBossTrialHud(ink, travel.boss.lives, arrows ? *arrows : travel.boss.ammo, reloadLeft,
+                             travel.boss.phase, travel.boss.done, travel.boss.total, travel.boss.canStrike);
+        } else if (choice && !choice->story) {
             ink.box(26, 24, 396, 52, {9, 12, 20, 185});
             ink.text(44, 38, 20,
-                     (choice->linyuan ? "剑穗 " : "生命 ") + std::to_string(choice->lives) + "     " +
-                         (reloadLeft > 0 ? (choice->linyuan ? "收剑中" : "更换符匣")
-                                         : (choice->linyuan ? "飞剑 " : "符箭 ") + std::to_string(choice->ammo) + " / 8") +
-                         (choice->canStrike ? (choice->linyuan ? "   中键 万剑归宗" : "   空格 雷符") : ""),
+                     "生命 " + std::to_string(choice->lives) + "     " +
+                         (reloadLeft > 0 ? "更换符匣" : "符箭 " + std::to_string(choice->ammo) + " / 8") +
+                         (choice->canStrike ? "   空格 雷符" : ""),
                      ivory);
             if (automated && choice->ammo < choice->strength - choice->partialHits - choice->specialDamage)
                 reload();
@@ -873,8 +931,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
         target.assist = state.difficulty == "easy" ? 24 : state.difficulty == "hard" ? 0 : 12;
         target.story = storyShot;
         const int baseBossHp = record.value("boss_hp", 0);
+        const int adj = state.difficulty == "easy" ? -1 : state.difficulty == "hard" ? 1 : 0;
         if (baseBossHp > 0) {
-            const int adj = state.difficulty == "easy" ? -1 : state.difficulty == "hard" ? 1 : 0;
             if (bossStep != step) {
                 bossStep = step;
                 bossHp = std::max(1, baseBossHp + adj);
@@ -882,6 +940,23 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
             target.strength = 1;
         } else {
             target.strength = record.value("strength", 1);
+        }
+        target.hitPoints = record.at("outcomes").at(target.answer).value("points", 0);
+        if (world.linyuan() && stage.id == "taotie") {
+            if (step.starts_with("p1_")) {
+                target.bossPhase = 1;
+                target.bossStepTotal = 6;
+                target.bossStepDone = std::clamp(std::stoi(step.substr(3)) - 1, 0, 6);
+            } else if (step.starts_with("p2_")) {
+                target.bossPhase = 2;
+                target.bossStepTotal = 3;
+                target.bossStepDone = std::clamp(std::stoi(step.substr(3)) - 1, 0, 3);
+            } else {
+                const int total = std::max(1, baseBossHp + adj);
+                target.bossPhase = 3;
+                target.bossStepTotal = total;
+                target.bossStepDone = std::clamp(total - bossHp, 0, total);
+            }
         }
         if (target.strength < 1 || target.strength > 6 || (storyShot && target.strength != 1))
             throw std::runtime_error("Invalid target strength: " + step);
@@ -1136,6 +1211,15 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
             step = trial.at("first");
             continue;
         }
+        const BossOverlay bossHud{
+            world.linyuan() && stage.id == "taotie",
+            lives,
+            ammo,
+            target.bossPhase,
+            target.bossStepDone + (target.fired && key == target.answer ? 1 : 0),
+            target.bossStepTotal,
+            false,
+        };
         if (!responseTake.empty()) {
             auto response = film(responseTake);
             response.voice = branch.value("response_voice", "");
@@ -1143,7 +1227,7 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
             if (playFilm(window, renderer, media, response, state.subtitles, gun, automated, nullptr, score,
                          state.voiceVolume / 100.f, state.effectsVolume / 100.f,
                          {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads,
-                          &state.pausedSeconds}) == FilmEnd::quit)
+                          &state.pausedSeconds, bossHud}) == FilmEnd::quit)
                 return FilmEnd::quit;
         }
         if (!multiPhaseFlinch && branch.contains("transition")) {
@@ -1153,7 +1237,7 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
             if (playFilm(window, renderer, media, trans, state.subtitles, gun, automated, nullptr, score,
                          state.voiceVolume / 100.f, state.effectsVolume / 100.f,
                          {&ammo, &state.reloadRemaining, target.reloadDuration, &completedReloads,
-                          &state.pausedSeconds}) == FilmEnd::quit)
+                          &state.pausedSeconds, bossHud}) == FilmEnd::quit)
                 return FilmEnd::quit;
         }
         step = nextStep;
@@ -1172,15 +1256,33 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
 }
 
 bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterScore &score,
-                    Receiver *receiver, bool automated, ScoreAudio *music, bool linyuan) {
+                    Receiver *receiver, bool automated, ScoreAudio *music, bool linyuan,
+                    const fs::path &titleArt) {
     Ink ink(renderer);
     const auto accuracy = score.shots ? std::lround(100. * score.hits / score.shots) : 0;
     const auto entered = SDL_GetTicks();
+    Texture backdrop(nullptr, SDL_DestroyTexture);
+    if (linyuan && !titleArt.empty() && fs::is_regular_file(titleArt)) {
+        const auto name = titleArt.u8string();
+        std::unique_ptr<SDL_Surface, decltype(&SDL_DestroySurface)> art(
+            SDL_LoadBMP(reinterpret_cast<const char *>(name.c_str())), SDL_DestroySurface);
+        if (art)
+            backdrop.reset(SDL_CreateTextureFromSurface(renderer, art.get()));
+    }
     for (;;) {
         if (music)
             music->update(true);
-        SDL_SetRenderDrawColor(renderer, 16, 23, 31, 255);
+        SDL_SetRenderDrawColor(renderer, 14, 21, 28, 255);
         SDL_RenderClear(renderer);
+        if (backdrop) {
+            SDL_RenderTexture(renderer, backdrop.get(), nullptr, nullptr);
+            ink.box(0, 0, 1280, 720, {9, 15, 22, 198});
+        }
+        if (linyuan) {
+            ink.box(108, 78, 1064, 540, {13, 21, 28, 226});
+            ink.box(108, 78, 1064, 3, gold);
+            ink.box(108, 616, 1064, 2, {204, 158, 86, 130});
+        }
         ink.text(160, 108, 26, stage.heading, gold);
         ink.text(160, 173, 48, linyuan ? "本章御剑已毕" : "本章巡灯已毕", ivory);
         ink.text(990, 160, 90, score.grade(), gold, true);
@@ -1189,7 +1291,12 @@ bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterSco
         ink.text(162, 382, 27, "最高连击    " + std::to_string(score.combo), ivory);
         ink.text(630, 382, 27, "受伤    " + std::to_string(score.damage) + " 次", ivory);
         ink.text(162, 454, 27, (linyuan ? "击毁机关    " : "净化灯妖    ") + std::to_string(score.purified), ivory);
-        ink.text(640, 610, 21, "已存档　·　点击或按 Enter 继续", gold, true);
+        if (linyuan) {
+            ink.text(630, 454, 24, "玄武渡江  ·  第二章 天机峰  敬请期待", gold);
+            ink.text(640, 560, 21, "已存档　·　点击或按 Enter 返回", ivory, true);
+        } else {
+            ink.text(640, 610, 21, "已存档　·　点击或按 Enter 继续", gold, true);
+        }
         if (receiver)
             drawGunBorder(ink);
         CampaignRecording::frame(renderer);
@@ -1225,8 +1332,9 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
     std::string nextDifficulty = state.difficulty;
     auto selectDifficulty = [&](std::string value) {
         nextDifficulty = std::move(value);
-        if (!resume)
-            state.difficulty = nextDifficulty;
+        state.difficulty = nextDifficulty;
+        if (resume && state.lives > 0)
+            state.lives = nextDifficulty == "easy" ? std::max(state.lives, 5) : std::min(state.lives, 3);
     };
     auto newGame = [&] {
         state.difficulty = nextDifficulty;
@@ -1249,6 +1357,50 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
     }
     for (auto &[id, score] : state.scores)
         total.add(score);
+    struct StageShortcut {
+        const char *id;
+        const char *label;
+        float x;
+        SDL_Keycode key;
+    };
+    std::vector<StageShortcut> shortcuts;
+    if (campaign.linyuan && campaign.stages.size() > 6) {
+        const struct {
+            const char *id;
+            const char *label;
+            SDL_Keycode key;
+        } wants[] = {
+            {"dukou_card", "F1 集市", SDLK_F1},
+            {"bamboo_card", "F2 竹海", SDLK_F2},
+            {"shoal_card", "F3 饕餮", SDLK_F3},
+        };
+        float sx = 108.f;
+        for (const auto &w : wants) {
+            if (std::any_of(campaign.stages.begin(), campaign.stages.end(),
+                            [&](const Stage &s) { return s.id == w.id; })) {
+                shortcuts.push_back({w.id, w.label, sx, w.key});
+                sx += 154.f;
+            }
+        }
+    }
+    auto jumpStage = [&](const char *stageId) {
+        state.difficulty = nextDifficulty;
+        state.scores.clear();
+        state.lastStoryCivilian = false;
+        state.next = stageId;
+        state.lives = difficulty(state.difficulty).lives;
+        state.arrows = 8;
+        state.reloadRemaining = 0;
+        // Pre-seed Sword Intent on Taotie shortcut so 万剑归宗 becomes reachable in Boss Phase 3.
+        state.energy = std::string(stageId) == "shoal_card"
+                           ? (state.difficulty == "easy" ? 9 : state.difficulty == "hard" ? 16 : 12)
+                           : 0;
+        return MenuChoice::resume;
+    };
+    Point hover{-1, -1};
+    auto inRect = [](Point p, float x, float y, float w, float h) {
+        return p.x >= x && p.x <= x + w && p.y >= y && p.y <= y + h;
+    };
     for (;;) {
         if (music) {
             music->volume(state.musicVolume / 100.f, state.effectsVolume / 100.f);
@@ -1258,51 +1410,85 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
         SDL_RenderClear(renderer);
         if (backdrop) {
             SDL_RenderTexture(renderer, backdrop.get(), nullptr, nullptr);
-            ink.box(0, 0, 1280, 720, {8, 14, 23, 166});
+            ink.box(0, 0, 1280, 720, {8, 14, 23, 156});
+            ink.box(0, 0, 595, 720, {8, 14, 23, 96});
         }
-        ink.text(110, 85, 23,
+        ink.text(110, 68, 22,
                  complete ? (campaign.linyuan ? "临渊御剑录" : "上元灯记")
                           : campaign.stages[campaign.locate(state.next)].heading,
                  gold);
-        ink.text(106, 142, 68, campaign.title, ivory);
+        ink.text(106, 110, 62, campaign.title, ivory);
         if (complete) {
-            ink.text(110, 256, 27, "总评 " + total.grade() + "     得分 " + std::to_string(total.points),
+            ink.text(110, 204, 25, "总评 " + total.grade() + "     得分 " + std::to_string(total.points),
                      gold);
-            int row = 0;
-            for (const auto &stage : campaign.stages) {
-                auto found = state.scores.find(stage.chapter);
-                if (found == state.scores.end() ||
-                    stage.id !=
-                        std::find_if(campaign.stages.begin(), campaign.stages.end(), [&](const Stage &s) {
-                            return s.chapter == stage.chapter;
-                        })->id)
-                    continue;
-                ink.text(735, 190.f + 43.f * row++, 21, stage.heading + "    " + found->second.grade(),
-                         ivory);
-            }
         } else if (resume) {
-            ink.text(110, 256, 24, "已存至  " + campaign.stages[campaign.locate(state.next)].heading,
+            ink.text(110, 206, 22, "已存至  " + campaign.stages[campaign.locate(state.next)].heading,
                      ivory);
+        } else if (campaign.linyuan) {
+            ink.text(110, 208, 19, "左键出剑 · 右键或 R 收剑 · 空格或中键万剑归宗", ivory);
         }
-        ink.box(108, 352, 375, 61, {204, 158, 86, 255});
-        ink.text(296, 368, 25,
+        const bool startHover = inRect(hover, 108, 258, 376, 54);
+        ink.box(108, 258, 376, 54, startHover ? SDL_Color{224, 176, 98, 255} : SDL_Color{204, 158, 86, 255});
+        ink.text(296, 272, 24,
                  resume ? (campaign.linyuan ? "继续御剑" : "继续巡灯")
                         : (campaign.linyuan ? "开始御剑" : "从上元夜开始"),
                  dark, true);
-        if (resume)
-            ink.text(112, 432, 21, "N   重新开始", ivory);
-        ink.text(112, 526, 20,
-                 std::string(resume ? "新局难度   " : "难度   ") +
-                     std::string(nextDifficulty == "easy"     ? "简单"
-                                 : nextDifficulty == "normal" ? "普通"
-                                                              : "困难"),
-                 gold);
-        ink.text(112, 568, 18, resume ? "1 / 2 / 3 选新局难度，续关沿用存档" : "1 简单    2 普通    3 困难",
-                 ivory);
-        ink.text(112, 614, 18, state.subtitles ? "V   字幕开启" : "V   字幕关闭", ivory);
-        ink.text(725, 525, 19, "M　配乐  " + std::to_string(state.musicVolume) + "%", ivory);
-        ink.text(725, 568, 19, "F　音效  " + std::to_string(state.effectsVolume) + "%", ivory);
-        ink.text(725, 612, 19, "G　对白  " + std::to_string(state.voiceVolume) + "%", ivory);
+        if (resume) {
+            const bool restartHover = inRect(hover, 108, 324, 240, 38);
+            ink.box(108, 324, 240, 38,
+                    restartHover ? SDL_Color{34, 48, 60, 235} : SDL_Color{18, 28, 38, 210});
+            ink.box(108, 324, 3, 38, gold);
+            ink.text(228, 332, 18, "N   从头开始", ivory, true);
+        }
+
+        // Three directly clickable difficulty cards cleanly housed in left column.
+        ink.text(110, 378, 17, "选择难度（1 / 2 / 3 或点击 · 即时生效）", gold);
+        struct DiffCard {
+            const char *id;
+            const char *title;
+            const char *hint;
+            float x;
+        };
+        const DiffCard cards[] = {
+            {"easy", "1 简单", "5 剑穗 · 宽松时机 · 百姓免扣命", 108.f},
+            {"normal", "2 普通", "3 剑穗 · 标准时机 · 推荐体验", 262.f},
+            {"hard", "3 困难", "3 剑穗 · 极速破绽 · 饕餮四重核心", 416.f},
+        };
+        const char *activeHint = cards[1].hint;
+        for (const auto &card : cards) {
+            const bool active = nextDifficulty == card.id;
+            const bool hovered = inRect(hover, card.x, 406, 142, 48);
+            if (active)
+                activeHint = card.hint;
+            const SDL_Color bg = active    ? SDL_Color{204, 158, 86, 250}
+                                 : hovered ? SDL_Color{38, 52, 66, 235}
+                                           : SDL_Color{18, 28, 38, 218};
+            ink.box(card.x, 406, 142, 48, bg);
+            if (active)
+                ink.box(card.x, 450, 142, 4, {255, 228, 156, 255});
+            else
+                ink.box(card.x, 406, 3, 48, {136, 114, 80, 210});
+            ink.text(card.x + 71, 418, 20, card.title, active ? dark : ivory, true);
+        }
+        ink.text(110, 464, 17, activeHint, ivory);
+
+        if (!shortcuts.empty()) {
+            ink.text(110, 504, 17, "关卡直达（F1 / F2 / F3 或点击重温试炼）", gold);
+            for (const auto &sc : shortcuts) {
+                const bool hov = inRect(hover, sc.x, 532, 142, 40);
+                ink.box(sc.x, 532, 142, 40, hov ? SDL_Color{38, 52, 66, 235} : SDL_Color{18, 28, 38, 218});
+                ink.box(sc.x, 532, 3, 40, gold);
+                ink.text(sc.x + 71, 542, 18, sc.label, ivory, true);
+            }
+        }
+
+        // Bottom settings bar below artwork silhouettes.
+        ink.box(96, 628, 1088, 46, {10, 16, 24, 204});
+        ink.box(96, 628, 1088, 2, {136, 114, 80, 120});
+        ink.text(120, 640, 18, state.subtitles ? "V  字幕开启" : "V  字幕关闭", ivory);
+        ink.text(440, 640, 18, "M  配乐 " + std::to_string(state.musicVolume) + "%", ivory);
+        ink.text(700, 640, 18, "F  音效 " + std::to_string(state.effectsVolume) + "%", ivory);
+        ink.text(960, 640, 18, "G  对白 " + std::to_string(state.voiceVolume) + "%", ivory);
         if (receiver)
             drawGunBorder(ink);
         CampaignRecording::frame(renderer);
@@ -1320,6 +1506,10 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
                 start = true;
             if (e.type == SDL_EVENT_QUIT)
                 return MenuChoice::quit;
+            if (e.type == SDL_EVENT_MOUSE_MOTION) {
+                SDL_ConvertEventToRenderCoordinates(renderer, &e);
+                hover = {e.motion.x, e.motion.y};
+            }
             if (e.type == SDL_EVENT_KEY_DOWN && !e.key.repeat) {
                 const auto key = e.key.key;
                 if (key == SDLK_ESCAPE)
@@ -1338,29 +1528,35 @@ MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progre
                     state.voiceVolume = (state.voiceVolume + 20) % 120;
                 if (key >= SDLK_1 && key <= SDLK_3)
                     selectDifficulty(key == SDLK_1 ? "easy" : key == SDLK_2 ? "normal" : "hard");
+                for (const auto &sc : shortcuts)
+                    if (key == sc.key)
+                        return jumpStage(sc.id);
             }
             if (e.type == SDL_EVENT_MOUSE_BUTTON_DOWN && e.button.button == SDL_BUTTON_LEFT) {
                 SDL_ConvertEventToRenderCoordinates(renderer, &e);
-                if (e.button.x >= 710 && e.button.x <= 1050) {
-                    if (e.button.y >= 510 && e.button.y < 553)
+                const Point click{e.button.x, e.button.y};
+                if (inRect(click, 96, 628, 1088, 46)) {
+                    if (click.x < 380)
+                        state.subtitles = !state.subtitles;
+                    else if (click.x < 640)
                         state.musicVolume = (state.musicVolume + 20) % 120;
-                    if (e.button.y >= 553 && e.button.y < 596)
+                    else if (click.x < 900)
                         state.effectsVolume = (state.effectsVolume + 20) % 120;
-                    if (e.button.y >= 596 && e.button.y < 645)
+                    else
                         state.voiceVolume = (state.voiceVolume + 20) % 120;
                 }
-                if (e.button.x >= 108 && e.button.x <= 485) {
-                    if (e.button.y >= 352 && e.button.y <= 413)
-                        start = true;
-                    if (resume && e.button.y >= 425 && e.button.y <= 470)
-                        return newGame();
-                    if (e.button.y >= 604 && e.button.y <= 655)
-                        state.subtitles = !state.subtitles;
-                    if (e.button.y >= 516 && e.button.y <= 595)
-                        selectDifficulty(nextDifficulty == "easy"     ? "normal"
-                                         : nextDifficulty == "normal" ? "hard"
-                                                                      : "easy");
+                for (const auto &sc : shortcuts) {
+                    if (inRect(click, sc.x, 532, 142, 40))
+                        return jumpStage(sc.id);
                 }
+                for (const auto &card : cards) {
+                    if (inRect(click, card.x, 406, 142, 48))
+                        selectDifficulty(card.id);
+                }
+                if (inRect(click, 108, 258, 376, 54))
+                    start = true;
+                if (resume && inRect(click, 108, 324, 240, 38))
+                    return newGame();
             }
         }
         if (start)

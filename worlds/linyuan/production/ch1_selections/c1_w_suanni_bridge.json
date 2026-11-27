@@ -2,11 +2,11 @@
   "id": "c1_w_suanni_bridge",
   "candidate": "linyuan_c1_w_suanni_bridge__v1",
   "file": "assets/linyuan/dukou/c1_w_suanni_bridge.mp4",
-  "sha256": "21c47ef33f005f29961877e22b8d28de438bbdd1019dfaa7be1cd2922fab0b89",
+  "sha256": "55f211188b39a58cf4879a38848b76a0ed519b2549dfa73dcc2e23cb5010c661",
   "source_sha256": "c0d5e27fb268bf6b9bee7bbeae590d390782a1d6855ab900a33d6fab9e6c9c46",
   "frames": 107,
   "first_source": 0,
   "end_exclusive": 0,
   "edit_speed": 1.0,
-  "editor_notes": "dukou wave"
+  "editor_notes": "dukou wave clean"
 }

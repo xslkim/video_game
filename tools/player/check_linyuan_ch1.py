@@ -79,6 +79,18 @@ def check_mask(path, frames, sha256_hex, windows):
     for win in windows:
         if all(counts[f] == 0 for f in range(win["begin"], win["end"])):
             raise ValueError(f"Empty mask across window {win} in {path}")
+    if path.name.endswith(".weak.mask") and path.parent.name == "dukou":
+        is_suanni = any(k in path.name for k in ("wave_02", "wave_04", "wave_05", "wave_06", "wave_08", "wave_10", "wave_11"))
+        min_x640 = 235 if is_suanni else 175
+        p = 38
+        for f in range(nf):
+            cnt = struct.unpack_from("<H", data, p)[0]
+            p += 2
+            for _ in range(cnt):
+                _, x0, _ = struct.unpack_from("<HHH", data, p)
+                p += 6
+                if any(w["begin"] <= f < w["end"] for w in windows) and x0 < min_x640:
+                    raise ValueError(f"Weak spot leaked onto left market stall (x640={x0} < {min_x640}) in {path.name} frame {f}")
 
 
 def check_dukou(world, asset_dir):

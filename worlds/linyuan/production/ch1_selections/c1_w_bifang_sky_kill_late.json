@@ -1,12 +1,12 @@
 {
-  "id": "c1_w_bifang_sky_kill_75",
-  "candidate": "linyuan_c1_w_bifang_sky_kill_late__v1",
-  "file": "assets/linyuan/dukou/c1_w_bifang_sky_kill_75.mp4",
-  "sha256": "e0fc66171a7b11199c44eb03d4776e60ed7fb82a6f3c049fd0a4edb41f4c1d82",
-  "source_sha256": "7ec53a20636162af341c828da7117131e2a7d7c04155eb3600212b2b33061f95",
-  "frames": 22,
+  "id": "c1_w_bifang_sky_kill_52",
+  "candidate": "linyuan_c1_w_bifang_sky_kill_late__v3",
+  "file": "assets/linyuan/dukou/c1_w_bifang_sky_kill_52.mp4",
+  "sha256": "6da3c74528fb2fd09a4365b468fddc89a877c80b748d1805ec92eee9f9ce5712",
+  "source_sha256": "5d86830bddd221bcd75503c4b59920cb09974e80e484884a89fefcf9884bd116",
+  "frames": 36,
   "first_source": 0,
-  "end_exclusive": 22,
-  "edit_speed": 1.0,
-  "editor_notes": "dukou kill"
+  "end_exclusive": 0,
+  "edit_speed": 1.55,
+  "editor_notes": "dukou kill recoil behind cover"
 }

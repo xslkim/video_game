@@ -2,11 +2,11 @@
   "id": "c1_boss_p2_impact",
   "candidate": "linyuan_c1_boss_p2_impact__v1",
   "file": "assets/linyuan/drama/c1_boss_p2_impact.mp4",
-  "sha256": "e61a5e8da9499f43a5ac683cd6e4df34753dfeb3313b47768529e3a4a3dc3d75",
+  "sha256": "51ba5118a5cf4baf6e9f0c68eec9304d1df2afb7911e2a13823201f895fa8b48",
   "source_sha256": "a3583f49968663f2342c41dcfdd90c54e534afaab294b34629eaf36f823d9e2c",
-  "frames": 26,
+  "frames": 32,
   "first_source": 0,
-  "end_exclusive": 26,
-  "edit_speed": 1.0,
-  "editor_notes": "ch1 boss"
+  "end_exclusive": 0,
+  "edit_speed": 1.75,
+  "editor_notes": "ch1 boss clean"
 }

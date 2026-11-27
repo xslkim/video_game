@@ -59,6 +59,8 @@ struct FilmChoice {
     bool directStoryWeak = false;
     std::string material = "feather";
     int tier = 2;
+    int hitPoints = 0;
+    int bossPhase = 0, bossStepDone = 0, bossStepTotal = 0;
     double firstOpen = -1, closed = -1, inputTime = -1, firstFeedback = -1;
     Point inputPoint{};
     std::optional<Point> recordedPoint;
@@ -67,12 +69,18 @@ struct FilmChoice {
 };
 
 enum class FilmEnd { finished, skipped, quit, selected, expired };
+struct BossOverlay {
+    bool active = false;
+    int lives = 3, ammo = 8, phase = 0, done = 0, total = 0;
+    bool canStrike = false;
+};
 struct TravelReload {
     int *arrows = nullptr;
     double *remaining = nullptr;
     double duration = .6;
     int *completed = nullptr;
     double *pausedSeconds = nullptr;
+    BossOverlay boss{};
 };
 FilmEnd playFilm(SDL_Window *window, SDL_Renderer *renderer, const fs::path &media, const Film &film,
                  bool subtitles, Receiver *receiver, bool automated, FilmChoice *choice = nullptr,
@@ -125,7 +133,8 @@ FilmEnd playTrial(SDL_Window *window, SDL_Renderer *renderer, const CampaignWorl
 
 enum class MenuChoice { resume, newGame, quit };
 bool chapterResults(SDL_Renderer *renderer, const Stage &stage, const ChapterScore &score,
-                    Receiver *receiver, bool automated, ScoreAudio *music, bool linyuan = false);
+                    Receiver *receiver, bool automated, ScoreAudio *music, bool linyuan = false,
+                    const fs::path &titleArt = {});
 MenuChoice campaignMenu(SDL_Renderer *renderer, const Campaign &campaign, Progress &state,
                         Receiver *receiver, bool automated, ScoreAudio *music = nullptr);
 } // namespace ca

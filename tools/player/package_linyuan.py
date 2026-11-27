@@ -105,7 +105,9 @@ def package(root, runtime, output, campaign="chapter_one"):
         shutil.copytree(root / "assets/linyuan/audio", staging / "assets/linyuan/audio")
         title = "临渊御剑 第一章：九曲渡" if campaign != "mvp" else "临渊御剑 MVP"
         controls = (
-            "左键出剑，右键或 R 收剑，空格万剑归宗，Esc 暂停。" if campaign != "mvp"
+            "主菜单与标题界面可用鼠标点击或按 1/2/3 切换 简单 / 普通 / 困难 难度，也支持左下方关卡直达（F1/F2/F3）。\n"
+            "战斗操作：左键出剑，右键或 R 收剑，空格或中键释放万剑归宗，Esc 暂停。"
+            if campaign != "mvp"
             else "左键出剑，右键或 R 收剑，Esc 暂停。空格跳过纯剧情。"
         )
         (staging / "README.md").write_text(

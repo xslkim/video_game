@@ -1,12 +1,12 @@
 {
-  "id": "c1_w_suanni_shrine_kill_29",
-  "candidate": "linyuan_c1_w_suanni_shrine_kill_early__v1",
-  "file": "assets/linyuan/dukou/c1_w_suanni_shrine_kill_29.mp4",
-  "sha256": "cba89a698002bf7cce6d838d49ea5386875892d153983484b913f933bab11774",
-  "source_sha256": "197869a25ffda0fc0d1dcd2db1e472ca2e13d984e1091c25bb983a632c734462",
-  "frames": 22,
+  "id": "c1_w_suanni_shrine_kill_25",
+  "candidate": "linyuan_c1_w_suanni_shrine_kill_early__v2",
+  "file": "assets/linyuan/dukou/c1_w_suanni_shrine_kill_25.mp4",
+  "sha256": "7ee134bed65854af03dae195281194df2450335cde06608a148eebe44ad85fdd",
+  "source_sha256": "9d8f90dcb2d5e10f8f66af2a2d43b1a6c01f5af08db11ce057d9c8dd6b59f42a",
+  "frames": 36,
   "first_source": 0,
-  "end_exclusive": 22,
-  "edit_speed": 1.0,
-  "editor_notes": "dukou kill"
+  "end_exclusive": 0,
+  "edit_speed": 1.55,
+  "editor_notes": "dukou kill recoil behind cover"
 }

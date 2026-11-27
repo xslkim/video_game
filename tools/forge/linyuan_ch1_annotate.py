@@ -89,11 +89,47 @@ def read_video(path):
     return frames
 
 
-def analyze_dukou_wave(wave_mp4, plate_img, is_civilian=False):
-    """Segment enemy body + amber weak points from a stabilized dukou wave video."""
+DUKOU_ROIS = {
+    "c1_w_bifang_awning": (380, 20, 960, 480),
+    "c1_w_bifang_sky": (480, 15, 1020, 440),
+    "c1_w_suanni_tables": (520, 90, 980, 620),
+    "c1_w_suanni_shrine": (525, 95, 1040, 610),
+    "c1_w_suanni_bridge": (520, 120, 990, 600),
+    "c1_w_peddler": (240, 260, 1100, 650),
+}
+
+
+def _apply_prop_exclusions(mask_2d, wave_name, w, h):
+    """Zero out static swaying awnings, steaming baskets, foreground bowls, and right rock ruin."""
+    sx, sy = w / 1280.0, h / 720.0
+    mask_2d[int(520 * sy):, int(950 * sx):] = 0
+    if wave_name in ("c1_w_suanni_tables", "c1_w_suanni_shrine"):
+        mask_2d[:, :int(520 * sx)] = 0
+    elif wave_name == "c1_w_suanni_bridge":
+        mask_2d[:, :int(470 * sx)] = 0
+        mask_2d[int(245 * sy):, :int(535 * sx)] = 0
+    elif wave_name in ("c1_w_bifang_awning", "c1_w_bifang_sky"):
+        mask_2d[int(205 * sy):, :int(530 * sx)] = 0
+        mask_2d[int(490 * sy):, :] = 0
+    elif wave_name == "c1_w_peddler":
+        mask_2d[:int(390 * sy), :int(515 * sx)] = 0
+        mask_2d[int(505 * sy):, :int(470 * sx)] = 0
+
+
+def analyze_dukou_wave(wave_mp4, plate_img, is_civilian=False, wave_name=None):
+    """Segment enemy body + strictly bounded amber weak points inside its lane ROI."""
     frames = read_video(wave_mp4)
     n = len(frames)
-    plate = cv2.resize(plate_img, (frames[0].shape[1], frames[0].shape[0]))
+    h, w = frames[0].shape[:2]
+    bg = np.median(np.stack([frames[0], frames[1], frames[-2], frames[-1]], axis=0), axis=0).astype(np.uint8)
+    roi = DUKOU_ROIS.get(wave_name)
+    rx0 = int(roi[0] * w / 1280.0) if roi else 0
+    ry0 = int(roi[1] * h / 720.0) if roi else 0
+    rx1 = int(roi[2] * w / 1280.0) if roi else w
+    ry1 = int(roi[3] * h / 720.0) if roi else h
+    max_spots = 1 if (wave_name and "bifang" in wave_name) else 2
+    min_body_area = int(850 * (w / 1280.0) * (h / 720.0))
+
     body_masks = []
     weak_masks = []
     body_counts = []
@@ -101,61 +137,93 @@ def analyze_dukou_wave(wave_mp4, plate_img, is_civilian=False):
     glow_points = []
 
     for f, img in enumerate(frames):
-        diff = cv2.absdiff(img, plate).max(axis=2)
-        body = np.uint8(diff > 22) * 255
-        body = cv2.morphologyEx(body, cv2.MORPH_CLOSE, np.ones((11, 11), np.uint8))
-        # Remove tiny specks < 90 px
+        diff = cv2.absdiff(img, bg).max(axis=2)
+        roi_diff = np.zeros_like(diff)
+        roi_diff[ry0:ry1, rx0:rx1] = diff[ry0:ry1, rx0:rx1]
+        _apply_prop_exclusions(roi_diff, wave_name, w, h)
+        body_thresh = 54 if is_civilian else 44
+        body = np.uint8(roi_diff > body_thresh) * 255
+        body = cv2.morphologyEx(body, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
+        body = cv2.morphologyEx(body, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
         contours, _ = cv2.findContours(body, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours = sorted([c for c in contours if cv2.contourArea(c) >= min_body_area], key=cv2.contourArea, reverse=True)
         clean_body = np.zeros_like(body)
-        for cnt in contours:
-            if cv2.contourArea(cnt) >= 90:
-                cv2.drawContours(clean_body, [cnt], -1, 255, cv2.FILLED)
+        if contours:
+            cv2.drawContours(clean_body, [contours[0]], -1, 255, cv2.FILLED)
 
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        # Glowing amber-gold canister/sac/core detection inside the body envelope
-        amber = np.uint8(
-            (hsv[:, :, 0] >= 12) & (hsv[:, :, 0] <= 34) &
-            (hsv[:, :, 1] >= 105) & (hsv[:, :, 2] >= 145)
-        ) * 255
-        env = cv2.dilate(clean_body, np.ones((15, 15), np.uint8))
-        weak = cv2.bitwise_and(amber, env)
-        weak = cv2.morphologyEx(weak, cv2.MORPH_CLOSE, np.ones((7, 7), np.uint8))
-        weak = cv2.dilate(weak, np.ones((5, 5), np.uint8))
-        # Ensure weak mask covers a clean playable hitbox if amber pixels are small
-        if not is_civilian and cv2.countNonZero(weak) < 80 and cv2.countNonZero(clean_body) >= 600:
-            ys, xs = np.where(clean_body > 0)
-            cx, cy = int(xs.mean()), int(ys.min() + (ys.max() - ys.min()) * 0.42)
-            cv2.circle(weak, (cx, cy), 22, 255, -1)
+        weak = np.zeros_like(body)
+        if not is_civilian and cv2.countNonZero(clean_body) >= min_body_area:
+            bx, by, bw, bh = cv2.boundingRect(clean_body)
+            core_zone = np.zeros_like(clean_body)
+            is_bridge = wave_name == "c1_w_suanni_bridge"
+            if max_spots == 1:
+                # Bifang chest fuel sac is centered torso `[24%..76% width, 28%..88% height]`, never wingtips!
+                y0, y1 = by + int(bh * 0.28), by + int(bh * 0.88)
+                x0, x1 = bx + int(bw * 0.24), bx + int(bw * 0.76)
+            elif is_bridge:
+                # Bridge Suanni's back canisters sit high along the upper spine `[10%..82% width, 6%..44% height]`
+                y0, y1 = by + int(bh * 0.06), by + int(bh * 0.44)
+                x0, x1 = bx + int(bw * 0.10), bx + int(bw * 0.82)
+            else:
+                # Suanni shoulder canisters sit in `[14%..86% width, 16%..56% height]`
+                y0, y1 = by + int(bh * 0.16), by + int(bh * 0.56)
+                x0, x1 = bx + int(bw * 0.14), bx + int(bw * 0.86)
+            core_zone[y0:y1, x0:x1] = clean_body[y0:y1, x0:x1]
 
-        # Red eye/core glow points (sampled at top ~1/3 of body for threat glow)
-        red = np.uint8(
-            ((hsv[:, :, 0] <= 10) | (hsv[:, :, 0] >= 168)) &
-            (hsv[:, :, 1] >= 140) & (hsv[:, :, 2] >= 165)
-        ) * 255
-        red_in_body = cv2.bitwise_and(red, clean_body)
-        red_pts = []
-        rcnt, _ = cv2.findContours(red_in_body, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-        for cnt in sorted(rcnt, key=cv2.contourArea, reverse=True)[:2]:
-            M = cv2.moments(cnt)
-            if M["m00"] > 0:
-                red_pts.extend([int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])])
-        if not is_civilian and red_pts and 18 <= f <= n - 18:
-            glow_points.append([f, *red_pts])
+            s_min, v_min = (85, 115) if is_bridge else (135, 170)
+            amber = np.uint8(
+                (hsv[:, :, 0] >= 11) & (hsv[:, :, 0] <= 34) &
+                (hsv[:, :, 1] >= s_min) & (hsv[:, :, 2] >= v_min) &
+                (roi_diff > 36) & (core_zone > 0)
+            ) * 255
+            amber = cv2.morphologyEx(amber, cv2.MORPH_CLOSE, np.ones((7, 7), np.uint8))
+            wcnts, _ = cv2.findContours(amber, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            wcnts = sorted([c for c in wcnts if cv2.contourArea(c) >= 30], key=cv2.contourArea, reverse=True)[:max_spots]
+            for c in wcnts:
+                area = cv2.contourArea(c)
+                M = cv2.moments(c)
+                if M["m00"] > 0:
+                    cx, cy = int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])
+                    rad = int(np.clip(np.sqrt(area / np.pi) * 1.3 * (w / 1280.0), 18 * w / 1280.0, 28 * w / 1280.0))
+                    cv2.circle(weak, (cx, cy), max(12, rad), 255, -1)
+            if cv2.countNonZero(weak) == 0:
+                rad = max(14, int(22 * w / 1280.0))
+                if max_spots == 1:
+                    cv2.circle(weak, (int(bx + bw * 0.50), int(by + bh * 0.48)), rad, 255, -1)
+                elif is_bridge:
+                    cv2.circle(weak, (int(bx + bw * 0.24), int(by + bh * 0.22)), rad, 255, -1)
+                    cv2.circle(weak, (int(bx + bw * 0.48), int(by + bh * 0.20)), rad, 255, -1)
+                else:
+                    cv2.circle(weak, (int(bx + bw * 0.28), int(by + bh * 0.34)), rad, 255, -1)
+                    cv2.circle(weak, (int(bx + bw * 0.72), int(by + bh * 0.34)), rad, 255, -1)
+
+            eye_zone = np.zeros_like(clean_body)
+            ex0 = max(int(440 * w / 1280.0), bx)
+            eye_zone[by:by + int(bh * 0.52), ex0:bx + bw] = clean_body[by:by + int(bh * 0.52), ex0:bx + bw]
+            red = np.uint8(
+                ((hsv[:, :, 0] <= 10) | (hsv[:, :, 0] >= 168)) &
+                (hsv[:, :, 1] >= 145) & (hsv[:, :, 2] >= 170) &
+                (roi_diff > 36) & (eye_zone > 0)
+            ) * 255
+            red_pts = []
+            rcnt, _ = cv2.findContours(red, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            for cnt in sorted(rcnt, key=cv2.contourArea, reverse=True)[:2]:
+                M = cv2.moments(cnt)
+                if M["m00"] > 0:
+                    red_pts.extend([int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"])])
+            if red_pts and 18 <= f <= n - 18:
+                glow_points.append([f, *red_pts])
 
         body_masks.append(clean_body)
         weak_masks.append(weak)
         body_counts.append(int(cv2.countNonZero(clean_body)))
         weak_counts.append(int(cv2.countNonZero(weak)))
 
-    # Pick active interactive window where body is clearly visible
-    thresh = max(600, int(max(body_counts) * 0.18))
-    active = [i for i, c in enumerate(body_counts) if c >= thresh]
-    w_begin = max(8, active[0] if active else 20)
-    w_end = min(n - 12, (active[-1] + 1) if active else 62)
-    if w_end - w_begin < 18:
-        w_begin, w_end = 18, min(n - 10, 62)
-
     if is_civilian:
+        active = [i for i, c in enumerate(body_counts) if c >= min_body_area]
+        w_begin = max(14, active[0] if active else 16)
+        w_end = min(64, (active[-1] + 1) if active else 60)
         return {
             "body_masks": body_masks,
             "weak_masks": weak_masks,
@@ -163,14 +231,21 @@ def analyze_dukou_wave(wave_mp4, plate_img, is_civilian=False):
             "glow_points": [],
         }
 
-    # Three evenly spaced cut slots matching ~28, 42, 56 or thirds of [w_begin, w_end]
+    thresh = max(min_body_area, int(max(body_counts) * 0.20))
+    active = [i for i, c in enumerate(body_counts) if c >= thresh]
+    w_begin = max(16, active[0] if active else 20)
+    w_end = min(60, n - 24, (active[-1] + 1) if active else 58)
+    if w_end - w_begin < 20:
+        w_begin = max(14, min(w_begin, 22))
+        w_end = min(n - 18, max(w_begin + 24, 56))
+
     slots = {
-        "early": max(w_begin + 4, min(w_end - 8, int(w_begin + (w_end - w_begin) * 0.25))),
-        "mid": max(w_begin + 6, min(w_end - 6, int(w_begin + (w_end - w_begin) * 0.50))),
-        "late": max(w_begin + 8, min(w_end - 4, int(w_begin + (w_end - w_begin) * 0.78))),
+        "early": max(w_begin + 3, min(w_end - 10, int(w_begin + (w_end - w_begin) * 0.22))),
+        "mid": max(w_begin + 6, min(w_end - 6, int(w_begin + (w_end - w_begin) * 0.52))),
+        "late": max(w_begin + 10, min(w_end - 3, int(w_begin + (w_end - w_begin) * 0.82))),
     }
-    warning = max(w_begin, w_end - 12)
-    impact = min(n - 4, w_end + 4)
+    warning = max(w_begin + 6, w_end - 12)
+    impact = min(n - 6, w_end + 8)
     return {
         "body_masks": body_masks,
         "weak_masks": weak_masks,
@@ -206,50 +281,47 @@ def contour_poly(mask, fallback_center, fallback_r=(55, 55)):
 
 
 def extract_boss_regions():
-    """Extract fixed-vertex polygon regions for S6 Taotie P1 hoops, P2 fireball, and P3 maw core."""
+    """Extract fixed-vertex polygon regions for S6 Taotie P1 canisters, P2 fireball, and P3 maw core."""
     reg_dir = WORLD / "regions"
     reg_dir.mkdir(parents=True, exist_ok=True)
     meta = {}
 
-    # Phase 1: canister hoops on c1_boss_p1_{a,b,c}
-    for letter in ("a", "b", "c"):
-        take_id = f"c1_boss_p1_{letter}"
+    # Phase 1: dedicated locked-wide left & right shoulder canisters (y >= 105 excludes distant sky ring).
+    k1_base = cv2.resize(cv2.imread(str(KEYS / "K_TAOTIE_1.png")), (1280, 720))
+    for side_key, roi_bounds, fallback_center, zone_name in (
+        ("l", (495, 105, 635, 240), (578, 168), "canister_l"),
+        ("r", (655, 105, 795, 240), (712, 168), "canister_r"),
+    ):
+        take_id = f"c1_boss_p1_{side_key}"
         mp4 = ART / "drama" / f"{take_id}.mp4"
         sha = hashlib.sha256(mp4.read_bytes()).hexdigest()
         frames = read_video(mp4)
         n = len(frames)
-        mid = n // 2
-        hoop_all = []
-        hoop_l = []
-        hoop_r = []
+        x0, y0, x1, y1 = roi_bounds
+        canister_polys = []
         for f, img in enumerate(frames):
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+            diff = cv2.absdiff(img, k1_base).max(axis=2)
             amber = np.uint8(
                 (hsv[:, :, 0] >= 12) & (hsv[:, :, 0] <= 34) &
-                (hsv[:, :, 1] >= 100) & (hsv[:, :, 2] >= 145)
+                (hsv[:, :, 1] >= 115) & (hsv[:, :, 2] >= 170) &
+                (diff > 18)
             ) * 255
-            roi_l = np.zeros_like(amber)
-            roi_l[60:320, 420:670] = amber[60:320, 420:670]
-            poly_l = contour_poly(roi_l, (585, 165), (54, 58))
-            roi_r = np.zeros_like(amber)
-            roi_r[60:320, 620:880] = amber[60:320, 620:880]
-            poly_r = contour_poly(roi_r, (715, 165), (54, 58))
-            hoop_l.append({"frame": f, "polygon": poly_l})
-            hoop_r.append({"frame": f, "polygon": poly_r})
-            hoop_all.append({"frame": f, "polygon": poly_l if f < mid else poly_r})
+            roi = np.zeros_like(amber)
+            roi[y0:y1, x0:x1] = amber[y0:y1, x0:x1]
+            canister_polys.append({"frame": f, "polygon": contour_poly(roi, fallback_center, (44, 48))})
         out_path = reg_dir / f"{take_id}.json"
         out_path.write_text(
-            json.dumps({"sha256": sha, "regions": {"hoop": hoop_all, "hoop_l": hoop_l, "hoop_r": hoop_r}},
-                       separators=(",", ":")),
+            json.dumps({"sha256": sha, "regions": {zone_name: canister_polys}}, separators=(",", ":")),
             encoding="utf8",
         )
-        meta[take_id] = {"sha256": sha, "frames": n, "left_aim": min(28, mid // 2), "right_aim": min(n - 20, mid + (n - mid) // 2)}
+        meta[take_id] = {"sha256": sha, "frames": n, "aim": min(n - 20, max(16, n // 3))}
 
-    # Phase 2: approaching fireball in c1_boss_p2_launch (trimmed 0..64; fireball flies f22..56)
+    # Phase 2: approaching fireball in c1_boss_p2_launch
     p2_mp4 = ART / "drama/c1_boss_p2_launch.mp4"
     p2_sha = hashlib.sha256(p2_mp4.read_bytes()).hexdigest()
     p2_frames = read_video(p2_mp4)
-    p2_base = cv2.imread(str(KEYS / "K_TAOTIE_2.png"))
+    p2_base = cv2.resize(cv2.imread(str(KEYS / "K_TAOTIE_2.png")), (1280, 720))
     fb_polys = []
     fb_scores = []
     for f, img in enumerate(p2_frames):
@@ -262,7 +334,7 @@ def extract_boss_regions():
         roi[180:690, 220:1040] = fire[180:690, 220:1040]
         cnts, _ = cv2.findContours(roi, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         area = max((cv2.contourArea(c) for c in cnts), default=0.0)
-        if 22 <= f <= min(55, len(p2_frames) - 4) and area >= 250:
+        if 14 <= f <= len(p2_frames) - 10 and area >= 250:
             poly = contour_poly(roi, (640, 410), (72, 72))
             fb_scores.append((f, area, poly))
         else:
@@ -272,13 +344,13 @@ def extract_boss_regions():
         json.dumps({"sha256": p2_sha, "regions": {"fireball": fb_polys}}, separators=(",", ":")),
         encoding="utf8",
     )
-    active_fb = [f for f, _, _ in fb_scores] or list(range(24, 54))
-    b0, b1 = max(20, active_fb[0]), min(len(p2_frames) - 3, active_fb[-1])
+    active_fb = [f for f, _, _ in fb_scores] or list(range(18, len(p2_frames) - 18))
+    b0, b1 = max(14, active_fb[0]), min(len(p2_frames) - 10, active_fb[-1])
     span = max(9, b1 - b0 + 1)
     p2_e = b0 + max(2, span // 4)
     p2_m = b0 + max(4, span // 2)
     p2_l = b0 + max(6, (span * 3) // 4)
-    p2_imp = min(len(p2_frames) - 2, b1 + 2)
+    p2_imp = min(len(p2_frames) - 4, b1 + 2)
     meta["c1_boss_p2_launch"] = {
         "sha256": p2_sha, "frames": len(p2_frames),
         "begin": b0, "end": b1 + 1,
@@ -317,18 +389,17 @@ def main():
 
     if args.step == "extract_dukou_anchors":
         for w in m.DUKOU_WAVES:
-            src_mp4 = m.WORK / "takes" / f"linyuan_{w}__v1" / "source.mp4"
-            info = analyze_dukou_wave(src_mp4, plate_img, is_civilian=False)
+            cand = 2 if w == "c1_w_bifang_sky" else 1
+            src_mp4 = m.WORK / "takes" / f"linyuan_{w}__v{cand}" / "source.mp4"
+            info = analyze_dukou_wave(src_mp4, plate_img, is_civilian=False, wave_name=w)
             for slot, frame_idx in info["slots"].items():
                 m.extract_anchor(w, slot, src_mp4, frame_idx)
 
     elif args.step == "extract_boss_anchors":
-        for cid in ("c1_boss_p1_a", "c1_boss_p1_c"):
+        for side in ("l", "r"):
+            cid = f"c1_boss_p1_{side}"
             src = m.WORK / "takes" / f"linyuan_{cid}__v1" / "source.mp4"
-            frames = read_video(src)
-            mid = len(frames) // 2
-            m.extract_anchor(cid, "left_aim", src, max(18, mid // 2))
-            m.extract_anchor(cid, "right_aim", src, min(len(frames) - 18, mid + (len(frames) - mid) // 2))
+            m.extract_anchor(cid, "aim", src, 24)
         p2_src = m.WORK / "takes/linyuan_c1_boss_p2_launch__v1/source.mp4"
         p2_frames = read_video(p2_src)
         p2_base = cv2.resize(cv2.imread(str(KEYS / "K_TAOTIE_2.png")), (p2_frames[0].shape[1], p2_frames[0].shape[0]))
@@ -351,7 +422,7 @@ def main():
         dukou_meta = {"waves": {}, "glows": {}}
         for w in m.DUKOU_WAVES:
             mp4 = ART / "dukou" / f"{w}.mp4"
-            info = analyze_dukou_wave(mp4, plate_img, is_civilian=False)
+            info = analyze_dukou_wave(mp4, plate_img, is_civilian=False, wave_name=w)
             sha = m.hash_file(mp4)
             dukou_meta["waves"][w] = {
                 "sha256": sha,
@@ -366,7 +437,7 @@ def main():
             if info["glow_points"]:
                 dukou_meta["glows"][w] = {"sha256": sha, "points": info["glow_points"]}
         ped_mp4 = ART / "dukou/c1_w_peddler.mp4"
-        ped_info = analyze_dukou_wave(ped_mp4, plate_img, is_civilian=True)
+        ped_info = analyze_dukou_wave(ped_mp4, plate_img, is_civilian=True, wave_name="c1_w_peddler")
         dukou_meta["peddler"] = {
             "sha256": m.hash_file(ped_mp4),
             "frames": len(ped_info["body_masks"]),

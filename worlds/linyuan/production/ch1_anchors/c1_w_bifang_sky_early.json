@@ -1,6 +1,6 @@
 {
-  "source": "output/linyuan_prod/takes/linyuan_c1_w_bifang_sky__v1/source.mp4",
-  "frame": 29,
-  "sha256": "fba008be3e0568a1891f09756ff7c06ac6147fa9418fc8263ff69553a21a22e9",
-  "anchor": "assets/linyuan/kf_raw/horizon_v1/src_c1_w_bifang_sky_early_29_fba008be3e05.png"
+  "source": "output/linyuan_prod/takes/linyuan_c1_w_bifang_sky__v2/source.mp4",
+  "frame": 25,
+  "sha256": "2de35429d84a8763b7aefe91d5adc742db67c56aa940c30a7ace0fe85a4a6f46",
+  "anchor": "assets/linyuan/kf_raw/horizon_v1/src_c1_w_bifang_sky_early_25_2de35429d84a.png"
 }
